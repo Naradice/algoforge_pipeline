@@ -176,6 +176,30 @@ def evaluate_algoforge_signals(
     return long_sig, short_sig
 
 
+def _validate_tz_aware_utc(series: pd.Series, col_name: str) -> pd.Series:
+    """Validate series is datetime-like, tz-aware (no implicit UTC), and has no NaT; convert to UTC."""
+    if not pd.api.types.is_datetime64_any_dtype(series):
+        raise ValueError(f"INVALID_TIME_DTYPE:{col_name}: must be datetime64 with timezone")
+    if series.dt.tz is None:
+        raise ValueError(f"TZ_NAIVE_TIME:{col_name}: timezone-naive timestamps are forbidden")
+    if series.isna().any():
+        raise ValueError(f"NAT_TIME:{col_name}: NaT timestamps are forbidden")
+    return series.dt.tz_convert("UTC")
+
+
+def _resolve_unit_id(spec: Dict[str, Any]) -> str:
+    """Resolve unit identifier; 'type' is canonical, reject conflicting multiple keys."""
+    keys_present = [k for k in ("type", "unit_id", "unit") if k in spec and spec[k] is not None]
+    if not keys_present:
+        return ""
+    vals = {str(spec[k]) for k in keys_present}
+    if len(vals) > 1:
+        raise ValueError(f"CONFLICTING_UNIT_KEYS:{keys_present}")
+    if "type" in spec and spec["type"] is not None:
+        return str(spec["type"])
+    return str(spec[keys_present[0]])
+
+
 def apply_units_with_time_check(
     df: pd.DataFrame,
     unit_specs: List[Dict[str, Any]],
@@ -186,20 +210,36 @@ def apply_units_with_time_check(
     if "time" not in df.columns:
         raise ValueError("MISSING_TIME_COLUMN: bar_start 'time' required")
     work = df.copy()
-    work["time"] = pd.to_datetime(work["time"], utc=True)
+    work["time"] = _validate_tz_aware_utc(work["time"], "time")
     work["decision_time"] = work["time"] + pd.Timedelta(minutes=5)
-    work["available_at"] = work["decision_time"]
-    if not (work["available_at"] <= work["decision_time"]).all():
-        raise RuntimeError("CAUSALITY_VIOLATION: available_at > decision_time")
 
     used_manifest: List[Dict[str, Any]] = []
     for spec in unit_specs:
-        uid = spec.get("type", "")
+        uid = _resolve_unit_id(spec)
         col_id = spec.get("id", "")
         if uid not in UNIT_REGISTRY:
             raise ValueError(f"UNKNOWN_UNIT:{uid}")
         u = UNIT_REGISTRY[uid]
         u_df = u.fn(work, col_id, spec.get("params", {}))
+
+        if len(u_df) != len(work) or not u_df.index.equals(work.index):
+            raise ValueError(f"UNIT_INDEX_MISMATCH:{uid}:{col_id}")
+
+        if u.time_contract == "bar_close":
+            if "available_at" in u_df.columns:
+                avail = _validate_tz_aware_utc(u_df["available_at"], f"{col_id}.available_at")
+            else:
+                avail = work["time"] + pd.Timedelta(minutes=5)
+        elif u.time_contract == "explicit_available_at":
+            if "available_at" not in u_df.columns:
+                raise ValueError(f"MISSING_AVAILABLE_AT:{uid}:{col_id}")
+            avail = _validate_tz_aware_utc(u_df["available_at"], f"{col_id}.available_at")
+        else:
+            raise ValueError(f"UNKNOWN_TIME_CONTRACT:{u.time_contract}")
+
+        if not (avail <= work["decision_time"]).all():
+            raise RuntimeError(f"CAUSALITY_VIOLATION:{uid}:{col_id}: available_at > decision_time")
+
         work[col_id] = u_df[col_id].values
         work[f"{col_id}_valid"] = u_df[f"{col_id}_valid"].values
         used_manifest.append({

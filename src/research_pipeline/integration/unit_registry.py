@@ -47,6 +47,7 @@ class UnitSpec:
     warmup_bars: int
     output_schema: Dict[str, str]
     fn: Callable[[pd.DataFrame, str, Dict[str, Any]], pd.DataFrame]
+    time_contract: str = "bar_close"
 
 
 def canonicalize_unit_manifest(units: List[Dict[str, Any]]) -> List[Dict[str, Any]]:
@@ -153,7 +154,7 @@ def _unit_hawkes_hazard(df: pd.DataFrame, col_id: str, params: Dict[str, Any]) -
     is_valid = np.zeros(n, dtype=bool)
 
     if n <= mle_window:
-        return pd.DataFrame({"value": values, "is_valid": is_valid}, index=df.index)
+        return pd.DataFrame({col_id: values, f"{col_id}_valid": is_valid}, index=df.index)
 
     close = df["close"].to_numpy(dtype=np.float64)
     returns = np.zeros(n, dtype=np.float64)
@@ -192,7 +193,7 @@ def _unit_hawkes_hazard(df: pd.DataFrame, col_id: str, params: Dict[str, Any]) -
         values[t] = curr_h
         is_valid[t] = True
 
-    return pd.DataFrame({"value": values, "is_valid": is_valid}, index=df.index)
+    return pd.DataFrame({col_id: values, f"{col_id}_valid": is_valid}, index=df.index)
 
 
 def build_default_unit_registry() -> Dict[str, UnitSpec]:
