@@ -1,0 +1,72 @@
+[
+  {
+    "long": {"op": "AND", "clauses": [{"type": "ema_cross", "fast": 8, "slow": 32, "dir": 1}, {"type": "rsi_lt", "period": 14, "level": 70}]},
+    "short": {"op": "AND", "clauses": [{"type": "ema_cross", "fast": 8, "slow": 32, "dir": -1}, {"type": "rsi_gt", "period": 14, "level": 30}]},
+    "htf_filter": {"h1_align": true, "h4_align": true},
+    "hours_utc": [7, 8, 9, 10, 11, 12, 13, 14, 15, 16],
+    "risk": {"k_sl": 2.0, "k_tp": 4.0, "max_hold_bars": 48}
+  },
+  {
+    "long": {"op": "AND", "clauses": [{"type": "donchian_break_high", "period": 20}]},
+    "short": {"op": "AND", "clauses": [{"type": "donchian_break_low", "period": 20}]},
+    "htf_filter": {"h1_align": true, "h4_align": false},
+    "hours_utc": [7, 8, 9, 10, 11, 12, 13, 14, 15, 16],
+    "risk": {"k_sl": 2.0, "k_tp": 3.0, "max_hold_bars": 48}
+  },
+  {
+    "long": {"op": "AND", "clauses": [{"type": "bb_break_upper", "period": 20, "std_mult": 2.0}]},
+    "short": {"op": "AND", "clauses": [{"type": "bb_break_lower", "period": 20, "std_mult": 2.0}]},
+    "htf_filter": {"h1_align": true, "h4_align": true},
+    "hours_utc": [12, 13, 14, 15, 16],
+    "risk": {"k_sl": 1.5, "k_tp": 3.0, "max_hold_bars": 24}
+  },
+  {
+    "long": {"op": "AND", "clauses": [{"type": "rsi_lt", "period": 14, "level": 30}]},
+    "short": {"op": "AND", "clauses": [{"type": "rsi_gt", "period": 14, "level": 70}]},
+    "htf_filter": {"h1_align": false, "h4_align": false},
+    "hours_utc": [0, 1, 2, 3, 4, 5, 6],
+    "risk": {"k_sl": 1.5, "k_tp": 2.5, "max_hold_bars": 24}
+  },
+  {
+    "long": {"op": "OR", "clauses": [{"type": "ema_cross", "fast": 12, "slow": 48, "dir": 1}, {"type": "donchian_break_high", "period": 36}]},
+    "short": {"op": "OR", "clauses": [{"type": "ema_cross", "fast": 12, "slow": 48, "dir": -1}, {"type": "donchian_break_low", "period": 36}]},
+    "htf_filter": {"h1_align": true, "h4_align": true},
+    "hours_utc": [7, 8, 9, 10, 11, 12, 13, 14, 15, 16],
+    "risk": {"k_sl": 2.5, "k_tp": 4.0, "max_hold_bars": 72}
+  },
+  {
+    "long": {"op": "AND", "clauses": [{"type": "ema_cross", "fast": 16, "slow": 64, "dir": 1}]},
+    "short": {"op": "AND", "clauses": [{"type": "ema_cross", "fast": 16, "slow": 64, "dir": -1}]},
+    "htf_filter": {"h1_align": false, "h4_align": true},
+    "hours_utc": [],
+    "risk": {"k_sl": 2.0, "k_tp": 4.0, "max_hold_bars": 72}
+  },
+  {
+    "long": {"op": "AND", "clauses": [{"type": "bb_break_upper", "period": 30, "std_mult": 1.5}, {"type": "rsi_lt", "period": 10, "level": 75}]},
+    "short": {"op": "AND", "clauses": [{"type": "bb_break_lower", "period": 30, "std_mult": 1.5}, {"type": "rsi_gt", "period": 10, "level": 25}]},
+    "htf_filter": {"h1_align": true, "h4_align": false},
+    "hours_utc": [7, 8, 9, 10, 11, 12, 13, 14, 15, 16],
+    "risk": {"k_sl": 2.0, "k_tp": 3.0, "max_hold_bars": 48}
+  },
+  {
+    "long": {"op": "AND", "clauses": [{"type": "donchian_break_high", "period": 12}]},
+    "short": {"op": "AND", "clauses": [{"type": "donchian_break_low", "period": 12}]},
+    "htf_filter": {"h1_align": true, "h4_align": true},
+    "hours_utc": [8, 9, 10, 11, 12, 13, 14, 15],
+    "risk": {"k_sl": 1.5, "k_tp": 3.0, "max_hold_bars": 24}
+  },
+  {
+    "long": {"op": "AND", "clauses": [{"type": "rsi_lt", "period": 21, "level": 35}]},
+    "short": {"op": "AND", "clauses": [{"type": "rsi_gt", "period": 21, "level": 65}]},
+    "htf_filter": {"h1_align": true, "h4_align": false},
+    "hours_utc": [0, 1, 2, 3, 4, 5, 6],
+    "risk": {"k_sl": 2.0, "k_tp": 2.5, "max_hold_bars": 48}
+  },
+  {
+    "long": {"op": "AND", "clauses": [{"type": "ema_cross", "fast": 12, "slow": 48, "dir": 1}, {"type": "bb_break_upper", "period": 20, "std_mult": 2.0}]},
+    "short": {"op": "AND", "clauses": [{"type": "ema_cross", "fast": 12, "slow": 48, "dir": -1}, {"type": "bb_break_lower", "period": 20, "std_mult": 2.0}]},
+    "htf_filter": {"h1_align": true, "h4_align": true},
+    "hours_utc": [7, 8, 9, 10, 11, 12, 13, 14, 15, 16],
+    "risk": {"k_sl": 2.0, "k_tp": 4.0, "max_hold_bars": 48}
+  }
+]

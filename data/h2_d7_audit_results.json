@@ -1,0 +1,1965 @@
+{
+  "re_audit_status": "P0_COMPLETED",
+  "track_a_p1_compatible": {
+    "specified_counts_out_of_36": {
+      "C00": 6,
+      "C10": 6,
+      "C01": 12,
+      "C11": 14
+    },
+    "ledger": {
+      "h2_d7_hawkes_process_s42_C00": {
+        "mu": [
+          1,
+          1,
+          0,
+          0,
+          "Mentioned in intensity MLE mu > 0, no window or likelihood"
+        ],
+        "alpha": [
+          1,
+          1,
+          0,
+          0,
+          "MLE with alpha < beta, no bounds or likelihood"
+        ],
+        "beta": [
+          1,
+          1,
+          0,
+          0,
+          "MLE with alpha < beta, no bounds or window"
+        ],
+        "lambda_star": [
+          1,
+          1,
+          1,
+          0,
+          "Rolling mean + 1 std over last 50 bars"
+        ],
+        "t_exec": [
+          1,
+          1,
+          1,
+          0,
+          "Next bar open O_{t+1}"
+        ],
+        "max_dd": [
+          1,
+          1,
+          0,
+          0,
+          "Fixed 5% constant"
+        ]
+      },
+      "h2_d7_hawkes_process_s42_C10": {
+        "mu": [
+          0,
+          0,
+          0,
+          0,
+          "Omitted from parameter estimation block"
+        ],
+        "alpha": [
+          1,
+          1,
+          0,
+          0,
+          "MLE over 100 bars, bounds [0.01, 0.5], discrete likelihood missing"
+        ],
+        "beta": [
+          1,
+          1,
+          0,
+          0,
+          "MLE over 100 bars, bounds [0.01, 0.1], discrete likelihood missing"
+        ],
+        "lambda_star": [
+          1,
+          1,
+          0,
+          0,
+          "Fixed 0.1 constant"
+        ],
+        "t_exec": [
+          1,
+          1,
+          1,
+          0,
+          "Next bar open O_{t+1}"
+        ],
+        "max_dd": [
+          1,
+          1,
+          0,
+          0,
+          "Fixed 5% constant"
+        ]
+      },
+      "h2_d7_hawkes_process_s42_C01": {
+        "mu": [
+          1,
+          1,
+          0,
+          0,
+          "D7 baseline hazard mu in [1e-4, 0.05], not P1 continuous Hawkes MLE"
+        ],
+        "alpha": [
+          1,
+          1,
+          0,
+          0,
+          "MLE with bounds [0.01, 1.0], no discrete likelihood formula"
+        ],
+        "beta": [
+          1,
+          1,
+          0,
+          0,
+          "MLE with bounds [0.01, 1.0], no discrete likelihood formula"
+        ],
+        "lambda_star": [
+          1,
+          0,
+          0,
+          0,
+          "hawkes_intensity_threshold left as placeholder 'to be determined'"
+        ],
+        "t_exec": [
+          1,
+          1,
+          1,
+          0,
+          "Next bar open O_{t+1}"
+        ],
+        "max_dd": [
+          1,
+          0,
+          0,
+          0,
+          "hawkes_max_drawdown_stop left as placeholder 'to be determined'"
+        ]
+      },
+      "h2_d7_hawkes_process_s42_C11": {
+        "mu": [
+          1,
+          1,
+          0,
+          0,
+          "D7 baseline hazard, not P1 continuous Hawkes MLE"
+        ],
+        "alpha": [
+          1,
+          1,
+          0,
+          0,
+          "MLE on events with bounds [0.01, 0.5], window missing"
+        ],
+        "beta": [
+          1,
+          1,
+          0,
+          0,
+          "MLE on events with bounds [0.01, 0.5], window missing"
+        ],
+        "lambda_star": [
+          1,
+          1,
+          1,
+          0,
+          "90th percentile of arrival intensities over 500 bars"
+        ],
+        "t_exec": [
+          1,
+          1,
+          1,
+          0,
+          "Next bar open O_{t+1}"
+        ],
+        "max_dd": [
+          1,
+          1,
+          0,
+          0,
+          "Fixed 5% constant"
+        ]
+      },
+      "h2_d7_hawkes_process_s43_C00": {
+        "mu": [
+          0,
+          0,
+          0,
+          0,
+          "Not mentioned"
+        ],
+        "alpha": [
+          1,
+          1,
+          0,
+          0,
+          "MLE with bounds [0.1, 2.0], window missing"
+        ],
+        "beta": [
+          1,
+          1,
+          0,
+          0,
+          "MLE with bounds [0.01, 0.5], window missing"
+        ],
+        "lambda_star": [
+          1,
+          0,
+          0,
+          0,
+          "Threshold without calibration rule"
+        ],
+        "t_exec": [
+          1,
+          1,
+          1,
+          0,
+          "Next bar open O_{t+1}"
+        ],
+        "max_dd": [
+          1,
+          1,
+          0,
+          0,
+          "Fixed 5% constant"
+        ]
+      },
+      "h2_d7_hawkes_process_s43_C10": {
+        "mu": [
+          0,
+          0,
+          0,
+          0,
+          "Not mentioned"
+        ],
+        "alpha": [
+          1,
+          1,
+          0,
+          0,
+          "Optimizing likelihood over 1 year, bounds [0.01, 1.0], discrete likelihood missing"
+        ],
+        "beta": [
+          1,
+          1,
+          0,
+          0,
+          "Optimizing likelihood over 1 year, bounds [0.01, 1.0], discrete likelihood missing"
+        ],
+        "lambda_star": [
+          1,
+          1,
+          1,
+          0,
+          "90th percentile of historical intensity over 1 year"
+        ],
+        "t_exec": [
+          1,
+          1,
+          1,
+          0,
+          "Next bar open O_{t+1}"
+        ],
+        "max_dd": [
+          1,
+          1,
+          0,
+          0,
+          "Fixed 2% constant"
+        ]
+      },
+      "h2_d7_hawkes_process_s43_C01": {
+        "mu": [
+          1,
+          1,
+          0,
+          0,
+          "D7 discrete hazard baseline, not P1 continuous Hawkes"
+        ],
+        "alpha": [
+          1,
+          1,
+          0,
+          0,
+          "MLE over 1000 bars with bounds [0.01, 0.5], discrete likelihood missing"
+        ],
+        "beta": [
+          1,
+          1,
+          0,
+          0,
+          "MLE over 1000 bars with bounds [0.01, 0.5], discrete likelihood missing"
+        ],
+        "lambda_star": [
+          1,
+          1,
+          1,
+          0,
+          "90th percentile over 500 bars"
+        ],
+        "t_exec": [
+          1,
+          1,
+          1,
+          0,
+          "Next bar open O_{t+1}"
+        ],
+        "max_dd": [
+          1,
+          1,
+          0,
+          0,
+          "Fixed 5% constant"
+        ]
+      },
+      "h2_d7_hawkes_process_s43_C11": {
+        "mu": [
+          1,
+          1,
+          0,
+          0,
+          "D7 discrete hazard baseline, not P1 continuous Hawkes"
+        ],
+        "alpha": [
+          1,
+          1,
+          0,
+          0,
+          "MLE over 1000 bars with bounds [0.01, 0.5], discrete likelihood missing"
+        ],
+        "beta": [
+          1,
+          1,
+          0,
+          0,
+          "MLE over 1000 bars with bounds [0.01, 0.5], discrete likelihood missing"
+        ],
+        "lambda_star": [
+          1,
+          1,
+          1,
+          0,
+          "90th percentile over 500 bars"
+        ],
+        "t_exec": [
+          1,
+          1,
+          1,
+          0,
+          "Next bar open O_{t+1}"
+        ],
+        "max_dd": [
+          1,
+          1,
+          0,
+          0,
+          "Fixed 5% constant"
+        ]
+      },
+      "h2_d7_hawkes_process_s44_C00": {
+        "mu": [
+          1,
+          1,
+          0,
+          0,
+          "MLE mu > 0, no window or likelihood"
+        ],
+        "alpha": [
+          1,
+          1,
+          0,
+          0,
+          "MLE alpha < beta, no bounds or likelihood"
+        ],
+        "beta": [
+          1,
+          1,
+          0,
+          0,
+          "MLE alpha < beta, no bounds or likelihood"
+        ],
+        "lambda_star": [
+          1,
+          1,
+          1,
+          0,
+          "Rolling mean + 1 std over last 50 bars"
+        ],
+        "t_exec": [
+          1,
+          1,
+          1,
+          0,
+          "Next bar open O_{t+1}"
+        ],
+        "max_dd": [
+          1,
+          1,
+          0,
+          0,
+          "Fixed 5% constant"
+        ]
+      },
+      "h2_d7_hawkes_process_s44_C10": {
+        "mu": [
+          0,
+          0,
+          0,
+          0,
+          "Not mentioned"
+        ],
+        "alpha": [
+          1,
+          1,
+          0,
+          0,
+          "MLE over 100 bars, bounds [0.01, 0.5], discrete likelihood missing"
+        ],
+        "beta": [
+          1,
+          1,
+          0,
+          0,
+          "MLE over 100 bars, bounds [0.01, 0.5], discrete likelihood missing"
+        ],
+        "lambda_star": [
+          1,
+          1,
+          1,
+          0,
+          "85th percentile over 100 bars"
+        ],
+        "t_exec": [
+          1,
+          1,
+          1,
+          0,
+          "Next bar open O_{t+1}"
+        ],
+        "max_dd": [
+          1,
+          1,
+          0,
+          0,
+          "Fixed 5% constant"
+        ]
+      },
+      "h2_d7_hawkes_process_s44_C01": {
+        "mu": [
+          1,
+          1,
+          0,
+          0,
+          "D7 discrete hazard baseline, not P1 continuous Hawkes"
+        ],
+        "alpha": [
+          1,
+          1,
+          0,
+          0,
+          "MLE on events with bounds [0.01, 0.5], window missing"
+        ],
+        "beta": [
+          1,
+          1,
+          0,
+          0,
+          "MLE on events with bounds [0.01, 0.5], window missing"
+        ],
+        "lambda_star": [
+          1,
+          1,
+          1,
+          0,
+          "90th percentile over 500 bars"
+        ],
+        "t_exec": [
+          1,
+          1,
+          1,
+          0,
+          "Next bar open O_{t+1}"
+        ],
+        "max_dd": [
+          1,
+          1,
+          0,
+          0,
+          "Fixed 5% constant"
+        ]
+      },
+      "h2_d7_hawkes_process_s44_C11": {
+        "mu": [
+          1,
+          1,
+          0,
+          0,
+          "D7 discrete hazard baseline, not P1 continuous Hawkes"
+        ],
+        "alpha": [
+          1,
+          1,
+          0,
+          0,
+          "MLE on events with bounds [0.01, 0.5], window missing"
+        ],
+        "beta": [
+          1,
+          1,
+          0,
+          0,
+          "MLE on events with bounds [0.01, 0.5], window missing"
+        ],
+        "lambda_star": [
+          1,
+          1,
+          1,
+          0,
+          "90th percentile over 500 bars"
+        ],
+        "t_exec": [
+          1,
+          1,
+          1,
+          0,
+          "Next bar open O_{t+1}"
+        ],
+        "max_dd": [
+          1,
+          1,
+          0,
+          0,
+          "Fixed 5% constant"
+        ]
+      },
+      "h2_d7_jump_diffusion_s42_C00": {
+        "theta_bv": [
+          1,
+          1,
+          0,
+          0,
+          "BV formula missing pi/2 scaling; 95th percentile specified"
+        ],
+        "p_trans": [
+          0,
+          0,
+          0,
+          0,
+          "Not mentioned"
+        ],
+        "sigma_ratio": [
+          0,
+          0,
+          0,
+          0,
+          "Not mentioned"
+        ],
+        "t_exec": [
+          1,
+          0,
+          0,
+          0,
+          "Bar close execution, no O_{t+1}"
+        ],
+        "stop_bps": [
+          1,
+          1,
+          0,
+          0,
+          "Fixed 1% constant"
+        ],
+        "j_star": [
+          1,
+          1,
+          0,
+          0,
+          "J_t > 0 uncalibrated cutoff"
+        ]
+      },
+      "h2_d7_jump_diffusion_s42_C10": {
+        "theta_bv": [
+          1,
+          1,
+          0,
+          0,
+          "BV formula missing pi/2; rolling 1000 obs 90th percentile"
+        ],
+        "p_trans": [
+          0,
+          0,
+          0,
+          0,
+          "Not mentioned"
+        ],
+        "sigma_ratio": [
+          0,
+          0,
+          0,
+          0,
+          "Not mentioned"
+        ],
+        "t_exec": [
+          1,
+          0,
+          0,
+          0,
+          "Bar close C_t execution"
+        ],
+        "stop_bps": [
+          1,
+          1,
+          0,
+          0,
+          "Fixed 2% constant"
+        ],
+        "j_star": [
+          1,
+          1,
+          0,
+          0,
+          "J_t > threshold tied to uncalibrated theta_BV"
+        ]
+      },
+      "h2_d7_jump_diffusion_s42_C01": {
+        "theta_bv": [
+          1,
+          1,
+          0,
+          0,
+          "BV formula (1/(2*K^2)) has incorrect scaling (missing pi/2); 90th percentile over 60 days"
+        ],
+        "p_trans": [
+          1,
+          1,
+          0,
+          0,
+          "MLE on regime switching over 2 years, EM update equations missing"
+        ],
+        "sigma_ratio": [
+          1,
+          1,
+          0,
+          0,
+          "75th percentile crisis to 25th percentile tranquil over 60 days, formula missing"
+        ],
+        "t_exec": [
+          1,
+          1,
+          1,
+          0,
+          "Next bar open O_{t+1}"
+        ],
+        "stop_bps": [
+          1,
+          1,
+          1,
+          0,
+          "1.5 * ATR(14) dynamic stop"
+        ],
+        "j_star": [
+          1,
+          1,
+          0,
+          0,
+          "J_t > 0 uncalibrated cutoff"
+        ]
+      },
+      "h2_d7_jump_diffusion_s42_C11": {
+        "theta_bv": [
+          1,
+          1,
+          0,
+          0,
+          "BV formula (1/(2*K^2)) missing pi/2 scaling; 75th percentile specified"
+        ],
+        "p_trans": [
+          1,
+          1,
+          0,
+          0,
+          "MLE on regime switching, EM update equations missing"
+        ],
+        "sigma_ratio": [
+          1,
+          1,
+          0,
+          0,
+          "Ratio of variances over 30 days, formula missing"
+        ],
+        "t_exec": [
+          1,
+          1,
+          1,
+          0,
+          "Next bar open O_{t+1}"
+        ],
+        "stop_bps": [
+          1,
+          1,
+          1,
+          0,
+          "1.5 * ATR(14) dynamic stop"
+        ],
+        "j_star": [
+          1,
+          1,
+          1,
+          0,
+          "J_t > 3.5 tied to standardized threshold L* = 3.5"
+        ]
+      },
+      "h2_d7_jump_diffusion_s43_C00": {
+        "theta_bv": [
+          1,
+          1,
+          0,
+          0,
+          "BV formula missing pi/2; threshold formula missing"
+        ],
+        "p_trans": [
+          0,
+          0,
+          0,
+          0,
+          "Not mentioned"
+        ],
+        "sigma_ratio": [
+          0,
+          0,
+          0,
+          0,
+          "Not mentioned"
+        ],
+        "t_exec": [
+          1,
+          0,
+          0,
+          0,
+          "Bar close C_t execution"
+        ],
+        "stop_bps": [
+          1,
+          1,
+          0,
+          0,
+          "Fixed 1% constant"
+        ],
+        "j_star": [
+          1,
+          1,
+          0,
+          0,
+          "J_t > threshold tied to unspecified theta_BV"
+        ]
+      },
+      "h2_d7_jump_diffusion_s43_C10": {
+        "theta_bv": [
+          1,
+          1,
+          0,
+          0,
+          "BV formula missing pi/2; 90th percentile over 60 days"
+        ],
+        "p_trans": [
+          1,
+          1,
+          0,
+          0,
+          "MLE on regime transitions over 5 years, EM algorithm missing"
+        ],
+        "sigma_ratio": [
+          1,
+          1,
+          0,
+          0,
+          "Variance ratio over 60 days, formula missing"
+        ],
+        "t_exec": [
+          1,
+          0,
+          0,
+          0,
+          "Bar close C_t execution"
+        ],
+        "stop_bps": [
+          1,
+          1,
+          0,
+          0,
+          "Fixed 2% constant"
+        ],
+        "j_star": [
+          1,
+          1,
+          0,
+          0,
+          "J_t > threshold tied to uncalibrated theta_BV"
+        ]
+      },
+      "h2_d7_jump_diffusion_s43_C01": {
+        "theta_bv": [
+          1,
+          1,
+          0,
+          0,
+          "BV formula missing pi/2 scaling; 90th percentile over 60 days"
+        ],
+        "p_trans": [
+          1,
+          1,
+          0,
+          0,
+          "MLE on regime data over 5 years, EM algorithm missing"
+        ],
+        "sigma_ratio": [
+          1,
+          1,
+          0,
+          0,
+          "Ratio of variances over 60 days, formula missing"
+        ],
+        "t_exec": [
+          1,
+          1,
+          1,
+          0,
+          "Next bar open O_{t+1}"
+        ],
+        "stop_bps": [
+          1,
+          1,
+          1,
+          0,
+          "1.5 * ATR(14) dynamic stop"
+        ],
+        "j_star": [
+          1,
+          1,
+          0,
+          0,
+          "J_t > 0 uncalibrated cutoff"
+        ]
+      },
+      "h2_d7_jump_diffusion_s43_C11": {
+        "theta_bv": [
+          1,
+          1,
+          0,
+          0,
+          "BV formula missing pi/2 scaling; 90th percentile specified"
+        ],
+        "p_trans": [
+          1,
+          1,
+          0,
+          0,
+          "MLE on regime data, EM algorithm missing"
+        ],
+        "sigma_ratio": [
+          1,
+          1,
+          0,
+          0,
+          "Ratio over 60 days, formula missing"
+        ],
+        "t_exec": [
+          1,
+          1,
+          1,
+          0,
+          "Next bar open O_{t+1}"
+        ],
+        "stop_bps": [
+          1,
+          1,
+          1,
+          0,
+          "1.5 * ATR(14) dynamic stop"
+        ],
+        "j_star": [
+          1,
+          1,
+          0,
+          0,
+          "J_t > 0 uncalibrated cutoff"
+        ]
+      },
+      "h2_d7_jump_diffusion_s44_C00": {
+        "theta_bv": [
+          1,
+          1,
+          0,
+          0,
+          "BV formula missing; 95th quantile specified"
+        ],
+        "p_trans": [
+          1,
+          1,
+          0,
+          0,
+          "Empirical transition frequency, EM missing"
+        ],
+        "sigma_ratio": [
+          0,
+          0,
+          0,
+          0,
+          "Not mentioned"
+        ],
+        "t_exec": [
+          1,
+          0,
+          0,
+          0,
+          "No execution timing specified"
+        ],
+        "stop_bps": [
+          1,
+          1,
+          1,
+          0,
+          "1.5 * ATR(288) dynamic stop"
+        ],
+        "j_star": [
+          1,
+          1,
+          0,
+          0,
+          "J_t > theta_BV tied to unspecified BV"
+        ]
+      },
+      "h2_d7_jump_diffusion_s44_C10": {
+        "theta_bv": [
+          1,
+          1,
+          0,
+          0,
+          "Bounds [0.5, 2.0], formula and window missing"
+        ],
+        "p_trans": [
+          1,
+          1,
+          0,
+          0,
+          "MLE with bounds [0.1, 0.9], window and EM missing"
+        ],
+        "sigma_ratio": [
+          1,
+          1,
+          0,
+          0,
+          "Regression with bounds [0.5, 2.0], formula missing"
+        ],
+        "t_exec": [
+          1,
+          1,
+          1,
+          0,
+          "Next bar open O_{t+1}"
+        ],
+        "stop_bps": [
+          1,
+          1,
+          0,
+          0,
+          "Fixed 2% constant"
+        ],
+        "j_star": [
+          1,
+          1,
+          0,
+          0,
+          "J_t > 0.01 uncalibrated constant"
+        ]
+      },
+      "h2_d7_jump_diffusion_s44_C01": {
+        "theta_bv": [
+          1,
+          1,
+          0,
+          0,
+          "BV formula missing pi/2 scaling; 95th percentile specified"
+        ],
+        "p_trans": [
+          1,
+          1,
+          0,
+          0,
+          "MLE on regime data over 250 days, EM missing"
+        ],
+        "sigma_ratio": [
+          1,
+          1,
+          0,
+          0,
+          "Two-sample F-test, formula missing"
+        ],
+        "t_exec": [
+          1,
+          1,
+          1,
+          0,
+          "Next bar open O_{t+1}"
+        ],
+        "stop_bps": [
+          1,
+          1,
+          1,
+          0,
+          "1.5 * ATR(14) dynamic stop"
+        ],
+        "j_star": [
+          1,
+          1,
+          1,
+          0,
+          "J_t > 3.5 tied to standardized threshold L* = 3.5"
+        ]
+      },
+      "h2_d7_jump_diffusion_s44_C11": {
+        "theta_bv": [
+          1,
+          1,
+          0,
+          0,
+          "BV formula missing pi/2 scaling; 90th percentile over 5 years"
+        ],
+        "p_trans": [
+          1,
+          1,
+          0,
+          0,
+          "Markov switching MLE over 3 years, EM missing"
+        ],
+        "sigma_ratio": [
+          1,
+          1,
+          0,
+          0,
+          "Ratio of volatilities over 2 years, formula missing"
+        ],
+        "t_exec": [
+          1,
+          1,
+          1,
+          0,
+          "Next bar open O_{t+1}"
+        ],
+        "stop_bps": [
+          1,
+          1,
+          1,
+          0,
+          "1.5 * ATR(14) dynamic stop"
+        ],
+        "j_star": [
+          1,
+          1,
+          1,
+          0,
+          "J_t tied to jump threshold L* = 3.5"
+        ]
+      }
+    }
+  },
+  "track_b_approved_v0_5": {
+    "approved_r_param_by_condition": {
+      "C00": 0.0,
+      "C10": 0.0,
+      "C01": 0.3333333333333333,
+      "C11": 0.16666666666666666
+    },
+    "primary_r_executable_by_condition": {
+      "C00": 0.0,
+      "C10": 0.0,
+      "C01": 0.8333333333333334,
+      "C11": 1.0
+    },
+    "model_params_ledger": {
+      "h2_d7_hawkes_process_s42_C00": {
+        "mu": [
+          1,
+          0,
+          "Continuous mu > 0, no discrete bounds"
+        ],
+        "rho": [
+          0,
+          0,
+          "Not present in continuous Hawkes"
+        ],
+        "gamma": [
+          0,
+          0,
+          "Not present in continuous Hawkes"
+        ]
+      },
+      "h2_d7_hawkes_process_s42_C10": {
+        "mu": [
+          0,
+          0,
+          "Omitted"
+        ],
+        "rho": [
+          0,
+          0,
+          "Not present"
+        ],
+        "gamma": [
+          0,
+          0,
+          "Not present"
+        ]
+      },
+      "h2_d7_hawkes_process_s42_C01": {
+        "mu": [
+          1,
+          1,
+          "Baseline hazard mu in [1e-4, 0.05] specified and bounded"
+        ],
+        "rho": [
+          1,
+          1,
+          "Memory persistence rho in [0.01, 0.95] specified and bounded"
+        ],
+        "gamma": [
+          1,
+          1,
+          "Excitation ratio gamma in [0.01, 0.95] specified and bounded"
+        ]
+      },
+      "h2_d7_hawkes_process_s42_C11": {
+        "mu": [
+          1,
+          0,
+          "Defined as Baseline hazard rate, but numeric bounds [1e-4, 0.05] omitted in text"
+        ],
+        "rho": [
+          1,
+          0,
+          "Defined as Autoregressive memory persistence, numeric bounds [0.01, 0.95] omitted"
+        ],
+        "gamma": [
+          1,
+          0,
+          "Defined as Relative excitation ratio, numeric bounds [0.01, 0.95] omitted"
+        ]
+      },
+      "h2_d7_hawkes_process_s43_C00": {
+        "mu": [
+          0,
+          0,
+          "Not present"
+        ],
+        "rho": [
+          0,
+          0,
+          "Not present"
+        ],
+        "gamma": [
+          0,
+          0,
+          "Not present"
+        ]
+      },
+      "h2_d7_hawkes_process_s43_C10": {
+        "mu": [
+          0,
+          0,
+          "Not present"
+        ],
+        "rho": [
+          0,
+          0,
+          "Not present"
+        ],
+        "gamma": [
+          0,
+          0,
+          "Not present"
+        ]
+      },
+      "h2_d7_hawkes_process_s43_C01": {
+        "mu": [
+          1,
+          1,
+          "mu in [1e-4, 0.05] specified and bounded"
+        ],
+        "rho": [
+          1,
+          1,
+          "rho in [0.01, 0.95] specified and bounded"
+        ],
+        "gamma": [
+          1,
+          1,
+          "gamma in [0.01, 0.95] specified and bounded"
+        ]
+      },
+      "h2_d7_hawkes_process_s43_C11": {
+        "mu": [
+          1,
+          1,
+          "mu in [1e-4, 0.05] specified and bounded"
+        ],
+        "rho": [
+          1,
+          1,
+          "rho in [0.01, 0.95] specified and bounded"
+        ],
+        "gamma": [
+          1,
+          1,
+          "gamma in [0.01, 0.95] specified and bounded"
+        ]
+      },
+      "h2_d7_hawkes_process_s44_C00": {
+        "mu": [
+          1,
+          0,
+          "Continuous mu > 0, no discrete bounds"
+        ],
+        "rho": [
+          0,
+          0,
+          "Not present"
+        ],
+        "gamma": [
+          0,
+          0,
+          "Not present"
+        ]
+      },
+      "h2_d7_hawkes_process_s44_C10": {
+        "mu": [
+          0,
+          0,
+          "Not present"
+        ],
+        "rho": [
+          0,
+          0,
+          "Not present"
+        ],
+        "gamma": [
+          0,
+          0,
+          "Not present"
+        ]
+      },
+      "h2_d7_hawkes_process_s44_C01": {
+        "mu": [
+          1,
+          0,
+          "Named Baseline hazard rate, numeric bounds omitted in text"
+        ],
+        "rho": [
+          1,
+          0,
+          "Named Autoregressive memory persistence, numeric bounds omitted"
+        ],
+        "gamma": [
+          1,
+          0,
+          "Named Relative excitation ratio, numeric bounds omitted"
+        ]
+      },
+      "h2_d7_hawkes_process_s44_C11": {
+        "mu": [
+          1,
+          0,
+          "Named Baseline hazard rate, numeric bounds omitted in text"
+        ],
+        "rho": [
+          1,
+          0,
+          "Named Autoregressive memory persistence, numeric bounds omitted"
+        ],
+        "gamma": [
+          1,
+          0,
+          "Named Relative excitation ratio, numeric bounds omitted"
+        ]
+      },
+      "h2_d7_jump_diffusion_s42_C00": {
+        "L_star": [
+          0,
+          0,
+          "Local jump statistic L_t not defined"
+        ],
+        "P": [
+          0,
+          0,
+          "Transition projection and EM algorithm not specified"
+        ],
+        "sigma_ratio": [
+          0,
+          0,
+          "Variance ratio formula not specified"
+        ]
+      },
+      "h2_d7_jump_diffusion_s42_C10": {
+        "L_star": [
+          0,
+          0,
+          "Local jump statistic L_t not defined"
+        ],
+        "P": [
+          0,
+          0,
+          "Transition projection and EM algorithm not specified"
+        ],
+        "sigma_ratio": [
+          0,
+          0,
+          "Variance ratio formula not specified"
+        ]
+      },
+      "h2_d7_jump_diffusion_s42_C01": {
+        "L_star": [
+          0,
+          0,
+          "Used J_t > 0 uncalibrated cutoff instead of L* = 3.5, BV missing pi/2"
+        ],
+        "P": [
+          1,
+          0,
+          "MLE on regime switching over 2 years, but EM equations and [0.5, 0.99] projection missing"
+        ],
+        "sigma_ratio": [
+          1,
+          0,
+          "Ratio over 60 days mentioned, but closed estimation formula missing"
+        ]
+      },
+      "h2_d7_jump_diffusion_s42_C11": {
+        "L_star": [
+          1,
+          1,
+          "Specified L* = 3.5 in entry condition (J_t > 3.5) with sign(r_t) direction"
+        ],
+        "P": [
+          1,
+          0,
+          "MLE on regime switching mentioned, but EM equations and [0.5, 0.99] projection missing"
+        ],
+        "sigma_ratio": [
+          1,
+          0,
+          "Variance ratio over 30 days mentioned, but closed formula missing"
+        ]
+      },
+      "h2_d7_jump_diffusion_s43_C00": {
+        "L_star": [
+          0,
+          0,
+          "Local jump statistic not defined"
+        ],
+        "P": [
+          0,
+          0,
+          "EM algorithm not specified"
+        ],
+        "sigma_ratio": [
+          0,
+          0,
+          "Variance ratio not specified"
+        ]
+      },
+      "h2_d7_jump_diffusion_s43_C10": {
+        "L_star": [
+          0,
+          0,
+          "Local jump statistic not defined"
+        ],
+        "P": [
+          0,
+          0,
+          "EM algorithm not specified"
+        ],
+        "sigma_ratio": [
+          0,
+          0,
+          "Variance ratio not specified"
+        ]
+      },
+      "h2_d7_jump_diffusion_s43_C01": {
+        "L_star": [
+          0,
+          0,
+          "J_t > 0 uncalibrated cutoff, BV missing pi/2"
+        ],
+        "P": [
+          1,
+          0,
+          "MLE on regime data over 5 years, EM equations missing"
+        ],
+        "sigma_ratio": [
+          1,
+          0,
+          "Variance ratio over 60 days, closed formula missing"
+        ]
+      },
+      "h2_d7_jump_diffusion_s43_C11": {
+        "L_star": [
+          0,
+          0,
+          "J_t > 0 uncalibrated cutoff, BV missing pi/2"
+        ],
+        "P": [
+          1,
+          0,
+          "MLE on regime data, EM equations missing"
+        ],
+        "sigma_ratio": [
+          1,
+          0,
+          "Ratio over 60 days, closed formula missing"
+        ]
+      },
+      "h2_d7_jump_diffusion_s44_C00": {
+        "L_star": [
+          0,
+          0,
+          "Local jump statistic not defined"
+        ],
+        "P": [
+          0,
+          0,
+          "EM algorithm not specified"
+        ],
+        "sigma_ratio": [
+          0,
+          0,
+          "Variance ratio not specified"
+        ]
+      },
+      "h2_d7_jump_diffusion_s44_C10": {
+        "L_star": [
+          0,
+          0,
+          "Local jump statistic not defined"
+        ],
+        "P": [
+          0,
+          0,
+          "EM algorithm not specified"
+        ],
+        "sigma_ratio": [
+          0,
+          0,
+          "Variance ratio not specified"
+        ]
+      },
+      "h2_d7_jump_diffusion_s44_C01": {
+        "L_star": [
+          1,
+          1,
+          "Specified L* = 3.5 in entry condition (J_t > 3.5) with directional long/short"
+        ],
+        "P": [
+          1,
+          0,
+          "MLE over 250 days, EM equations missing"
+        ],
+        "sigma_ratio": [
+          1,
+          0,
+          "Two-sample F-test, closed formula missing"
+        ]
+      },
+      "h2_d7_jump_diffusion_s44_C11": {
+        "L_star": [
+          1,
+          1,
+          "Specified L* = 3.5 in exit condition and directional J_t entry"
+        ],
+        "P": [
+          1,
+          0,
+          "Markov switching MLE over 3 years, EM equations missing"
+        ],
+        "sigma_ratio": [
+          1,
+          0,
+          "Ratio over 2 years, closed formula missing"
+        ]
+      }
+    },
+    "executable_ledger": {
+      "h2_d7_hawkes_process_s42_C00": [
+        0,
+        0,
+        1,
+        0,
+        "Continuous MLE without likelihood; execution O_{t+1} valid"
+      ],
+      "h2_d7_hawkes_process_s42_C10": [
+        0,
+        0,
+        1,
+        0,
+        "Continuous MLE without likelihood; execution O_{t+1} valid"
+      ],
+      "h2_d7_hawkes_process_s42_C01": [
+        1,
+        1,
+        0,
+        0,
+        "Discrete hazard valid, but threshold/stop left as 'to be determined'"
+      ],
+      "h2_d7_hawkes_process_s42_C11": [
+        1,
+        1,
+        1,
+        1,
+        "Discrete hazard equation, 90th percentile, O_{t+1} execution fully bound"
+      ],
+      "h2_d7_hawkes_process_s43_C00": [
+        0,
+        0,
+        1,
+        0,
+        "Continuous MLE without window/formula; execution O_{t+1} valid"
+      ],
+      "h2_d7_hawkes_process_s43_C10": [
+        0,
+        0,
+        1,
+        0,
+        "1-yr continuous MLE missing discrete hazard; execution O_{t+1} valid"
+      ],
+      "h2_d7_hawkes_process_s43_C01": [
+        1,
+        1,
+        1,
+        1,
+        "Discrete hazard valid, 90th percentile threshold, O_{t+1} execution bound"
+      ],
+      "h2_d7_hawkes_process_s43_C11": [
+        1,
+        1,
+        1,
+        1,
+        "Discrete hazard valid, 90th percentile threshold, O_{t+1} execution bound"
+      ],
+      "h2_d7_hawkes_process_s44_C00": [
+        0,
+        0,
+        1,
+        0,
+        "Continuous MLE without likelihood; execution O_{t+1} valid"
+      ],
+      "h2_d7_hawkes_process_s44_C10": [
+        0,
+        0,
+        1,
+        0,
+        "Continuous MLE without likelihood; execution O_{t+1} valid"
+      ],
+      "h2_d7_hawkes_process_s44_C01": [
+        1,
+        1,
+        1,
+        1,
+        "Discrete hazard valid, 90th percentile threshold, O_{t+1} execution bound"
+      ],
+      "h2_d7_hawkes_process_s44_C11": [
+        1,
+        1,
+        1,
+        1,
+        "Discrete hazard valid, 90th percentile threshold, O_{t+1} execution bound"
+      ],
+      "h2_d7_jump_diffusion_s42_C00": [
+        0,
+        0,
+        0,
+        0,
+        "BV missing pi/2; EM missing; bar close execution C_t"
+      ],
+      "h2_d7_jump_diffusion_s42_C10": [
+        0,
+        0,
+        0,
+        0,
+        "BV missing pi/2; EM missing; bar close execution C_t"
+      ],
+      "h2_d7_jump_diffusion_s42_C01": [
+        1,
+        1,
+        1,
+        1,
+        "Decoupled jump detector and Hamilton regime bound to O_{t+1} and ATR stop"
+      ],
+      "h2_d7_jump_diffusion_s42_C11": [
+        1,
+        1,
+        1,
+        1,
+        "Decoupled jump detector L* = 3.5 and Hamilton regime bound to O_{t+1} and ATR stop"
+      ],
+      "h2_d7_jump_diffusion_s43_C00": [
+        0,
+        0,
+        0,
+        0,
+        "BV missing pi/2; EM missing; bar close execution C_t"
+      ],
+      "h2_d7_jump_diffusion_s43_C10": [
+        0,
+        0,
+        0,
+        0,
+        "BV missing pi/2; EM missing; bar close execution C_t"
+      ],
+      "h2_d7_jump_diffusion_s43_C01": [
+        1,
+        1,
+        1,
+        1,
+        "Decoupled jump detector and Hamilton regime bound to O_{t+1} and ATR stop"
+      ],
+      "h2_d7_jump_diffusion_s43_C11": [
+        1,
+        1,
+        1,
+        1,
+        "Decoupled jump detector and Hamilton regime bound to O_{t+1} and ATR stop"
+      ],
+      "h2_d7_jump_diffusion_s44_C00": [
+        0,
+        0,
+        0,
+        0,
+        "BV missing; EM missing; execution timing unspecified"
+      ],
+      "h2_d7_jump_diffusion_s44_C10": [
+        0,
+        0,
+        1,
+        0,
+        "BV missing; EM missing; O_{t+1} execution specified"
+      ],
+      "h2_d7_jump_diffusion_s44_C01": [
+        1,
+        1,
+        1,
+        1,
+        "Decoupled jump detector L* = 3.5 and Hamilton regime bound to O_{t+1} and ATR stop"
+      ],
+      "h2_d7_jump_diffusion_s44_C11": [
+        1,
+        1,
+        1,
+        1,
+        "Decoupled jump detector L* = 3.5 and Hamilton regime bound to O_{t+1} and ATR stop"
+      ]
+    },
+    "r_executable_math_by_condition": {
+      "C00": 0.0,
+      "C10": 0.0,
+      "C01": 0.16666666666666666,
+      "C11": 0.16666666666666666
+    }
+  },
+  "block_analysis": [
+    {
+      "block_id": "h2_d7_hawkes_process_s42",
+      "concept_id": "hawkes_process",
+      "seed": 42,
+      "y_exec": {
+        "C00": 0,
+        "C10": 0,
+        "C01": 0,
+        "C11": 1
+      },
+      "deltas_exec": {
+        "d_cap": 0.5,
+        "d_skel": 0.5,
+        "d_inter": 1
+      },
+      "y_param_approved": {
+        "C00": 0,
+        "C10": 0,
+        "C01": 1,
+        "C11": 0
+      },
+      "deltas_param_approved": {
+        "d_cap": -0.5,
+        "d_skel": 0.5,
+        "d_inter": -1
+      },
+      "y_aux_specified": {
+        "C00": 2,
+        "C10": 1,
+        "C01": 1,
+        "C11": 2
+      },
+      "deltas_aux_specified": {
+        "d_cap": 0.0,
+        "d_skel": 0.0,
+        "d_inter": 2
+      },
+      "y_executable_math": {
+        "C00": 0,
+        "C10": 0,
+        "C01": 0,
+        "C11": 0
+      },
+      "deltas_executable_math": {
+        "d_cap": 0.0,
+        "d_skel": 0.0,
+        "d_inter": 0
+      }
+    },
+    {
+      "block_id": "h2_d7_hawkes_process_s43",
+      "concept_id": "hawkes_process",
+      "seed": 43,
+      "y_exec": {
+        "C00": 0,
+        "C10": 0,
+        "C01": 1,
+        "C11": 1
+      },
+      "deltas_exec": {
+        "d_cap": 0.0,
+        "d_skel": 1.0,
+        "d_inter": 0
+      },
+      "y_param_approved": {
+        "C00": 0,
+        "C10": 0,
+        "C01": 1,
+        "C11": 1
+      },
+      "deltas_param_approved": {
+        "d_cap": 0.0,
+        "d_skel": 1.0,
+        "d_inter": 0
+      },
+      "y_aux_specified": {
+        "C00": 1,
+        "C10": 2,
+        "C01": 2,
+        "C11": 2
+      },
+      "deltas_aux_specified": {
+        "d_cap": 0.5,
+        "d_skel": 0.5,
+        "d_inter": -1
+      },
+      "y_executable_math": {
+        "C00": 0,
+        "C10": 0,
+        "C01": 1,
+        "C11": 1
+      },
+      "deltas_executable_math": {
+        "d_cap": 0.0,
+        "d_skel": 1.0,
+        "d_inter": 0
+      }
+    },
+    {
+      "block_id": "h2_d7_hawkes_process_s44",
+      "concept_id": "hawkes_process",
+      "seed": 44,
+      "y_exec": {
+        "C00": 0,
+        "C10": 0,
+        "C01": 1,
+        "C11": 1
+      },
+      "deltas_exec": {
+        "d_cap": 0.0,
+        "d_skel": 1.0,
+        "d_inter": 0
+      },
+      "y_param_approved": {
+        "C00": 0,
+        "C10": 0,
+        "C01": 0,
+        "C11": 0
+      },
+      "deltas_param_approved": {
+        "d_cap": 0.0,
+        "d_skel": 0.0,
+        "d_inter": 0
+      },
+      "y_aux_specified": {
+        "C00": 2,
+        "C10": 2,
+        "C01": 2,
+        "C11": 2
+      },
+      "deltas_aux_specified": {
+        "d_cap": 0.0,
+        "d_skel": 0.0,
+        "d_inter": 0
+      },
+      "y_executable_math": {
+        "C00": 0,
+        "C10": 0,
+        "C01": 0,
+        "C11": 0
+      },
+      "deltas_executable_math": {
+        "d_cap": 0.0,
+        "d_skel": 0.0,
+        "d_inter": 0
+      }
+    },
+    {
+      "block_id": "h2_d7_jump_diffusion_s42",
+      "concept_id": "jump_diffusion",
+      "seed": 42,
+      "y_exec": {
+        "C00": 0,
+        "C10": 0,
+        "C01": 1,
+        "C11": 1
+      },
+      "deltas_exec": {
+        "d_cap": 0.0,
+        "d_skel": 1.0,
+        "d_inter": 0
+      },
+      "y_param_approved": {
+        "C00": 0,
+        "C10": 0,
+        "C01": 0,
+        "C11": 0
+      },
+      "deltas_param_approved": {
+        "d_cap": 0.0,
+        "d_skel": 0.0,
+        "d_inter": 0
+      },
+      "y_aux_specified": {
+        "C00": 0,
+        "C10": 0,
+        "C01": 2,
+        "C11": 3
+      },
+      "deltas_aux_specified": {
+        "d_cap": 0.5,
+        "d_skel": 2.5,
+        "d_inter": 1
+      },
+      "y_executable_math": {
+        "C00": 0,
+        "C10": 0,
+        "C01": 0,
+        "C11": 0
+      },
+      "deltas_executable_math": {
+        "d_cap": 0.0,
+        "d_skel": 0.0,
+        "d_inter": 0
+      }
+    },
+    {
+      "block_id": "h2_d7_jump_diffusion_s43",
+      "concept_id": "jump_diffusion",
+      "seed": 43,
+      "y_exec": {
+        "C00": 0,
+        "C10": 0,
+        "C01": 1,
+        "C11": 1
+      },
+      "deltas_exec": {
+        "d_cap": 0.0,
+        "d_skel": 1.0,
+        "d_inter": 0
+      },
+      "y_param_approved": {
+        "C00": 0,
+        "C10": 0,
+        "C01": 0,
+        "C11": 0
+      },
+      "deltas_param_approved": {
+        "d_cap": 0.0,
+        "d_skel": 0.0,
+        "d_inter": 0
+      },
+      "y_aux_specified": {
+        "C00": 0,
+        "C10": 0,
+        "C01": 2,
+        "C11": 2
+      },
+      "deltas_aux_specified": {
+        "d_cap": 0.0,
+        "d_skel": 2.0,
+        "d_inter": 0
+      },
+      "y_executable_math": {
+        "C00": 0,
+        "C10": 0,
+        "C01": 0,
+        "C11": 0
+      },
+      "deltas_executable_math": {
+        "d_cap": 0.0,
+        "d_skel": 0.0,
+        "d_inter": 0
+      }
+    },
+    {
+      "block_id": "h2_d7_jump_diffusion_s44",
+      "concept_id": "jump_diffusion",
+      "seed": 44,
+      "y_exec": {
+        "C00": 0,
+        "C10": 0,
+        "C01": 1,
+        "C11": 1
+      },
+      "deltas_exec": {
+        "d_cap": 0.0,
+        "d_skel": 1.0,
+        "d_inter": 0
+      },
+      "y_param_approved": {
+        "C00": 0,
+        "C10": 0,
+        "C01": 0,
+        "C11": 0
+      },
+      "deltas_param_approved": {
+        "d_cap": 0.0,
+        "d_skel": 0.0,
+        "d_inter": 0
+      },
+      "y_aux_specified": {
+        "C00": 1,
+        "C10": 1,
+        "C01": 3,
+        "C11": 3
+      },
+      "deltas_aux_specified": {
+        "d_cap": 0.0,
+        "d_skel": 2.0,
+        "d_inter": 0
+      },
+      "y_executable_math": {
+        "C00": 0,
+        "C10": 0,
+        "C01": 0,
+        "C11": 0
+      },
+      "deltas_executable_math": {
+        "d_cap": 0.0,
+        "d_skel": 0.0,
+        "d_inter": 0
+      }
+    }
+  ]
+}

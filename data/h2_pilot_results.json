@@ -1,0 +1,570 @@
+{
+  "total_calls": 12,
+  "total_cost_usd": 0.005150399999999999,
+  "results": [
+    {
+      "call_id": "h2_task_1_h2_c0",
+      "task_id": "task_1",
+      "task_name": "Short-Term Price Movement & Order Flow Prediction",
+      "condition_id": "H2-C0",
+      "prompt_sha256": "420f05c4eccaa641dd2a75938103ac2ee7eb942e52da1e25139f60cbc62452b9",
+      "candidate": {
+        "hypothesis_id": "H2-C0-USDJPY-001",
+        "condition_id": "H2-C0",
+        "task_id": "task_1",
+        "title": "Invariant Order Flow Prediction for USDJPY Using Multivariate Hawkes Processes",
+        "target_phenomenon": "Short-term price movements in USDJPY exhibit predictable patterns influenced by endogenous liquidity cascades and exogenous shocks, leading to inefficiencies in execution strategies.",
+        "proposed_mechanism": "Utilizing multivariate Hawkes point processes to model and predict order flow dynamics, distinguishing between endogenous liquidity cascades and exogenous market shocks, thereby enhancing predictability across varying market regimes.",
+        "analogical_source": "The foundational model of multivariate Hawkes processes as applied in high-frequency trading contexts, particularly in the context of flash crash propagation as discussed in arxiv_2303_01007.",
+        "claim": "By accurately modeling the order flow using multivariate Hawkes processes, we can predict short-term price movements in USDJPY, leading to improved execution strategies that outperform traditional methods during both stable and volatile market conditions.",
+        "grounding_rationale": "The literature indicates that traditional prediction methods fail during regime shifts due to non-stationarity (arxiv_2303_01006). Multivariate Hawkes processes provide a robust framework for capturing the feedback loops in order flow that lead to price movements, thus addressing the inefficiencies caused by rapid market changes.",
+        "supporting_path": null,
+        "supporting_evidence_quotes": [],
+        "testable_falsification_condition": "The hypothesis will be falsified if the strategy fails to achieve a Sharpe ratio greater than 1.0 over a backtest period of 6 months, with a maximum drawdown not exceeding 5%.",
+        "backtest_spec": {
+          "target_asset": "USDJPY",
+          "timeframe": "M5",
+          "feature_engineering": "Incorporate features such as order book imbalance, recent price volatility, and historical order flow data to capture market dynamics.",
+          "entry_condition": "Enter a long position when the predicted order flow indicates a high likelihood of upward price movement, confirmed by a positive change in the Hawkes process intensity function.",
+          "exit_condition": "Exit the position when the predicted order flow shifts to indicate a high likelihood of downward price movement or when a predefined profit target is reached.",
+          "risk_management": "Implement a stop-loss at 1% of the entry price and a take-profit at 2% of the entry price, with position sizing based on a maximum risk of 1% of the trading capital per trade.",
+          "benchmark_baseline": "Compare performance against a simple moving average crossover strategy on the same asset and timeframe.",
+          "falsification_metric": "Sharpe ratio < 1.0 or maximum drawdown > 5% during the backtest period."
+        }
+      },
+      "evaluation": {
+        "hypothesis_id": "H2-C0-USDJPY-001",
+        "is_disqualified": false,
+        "disqualification_reason": null,
+        "testability_score": 1.0,
+        "grounding_validity_score": 1.0,
+        "novelty_score": 1.0,
+        "operational_concreteness": 1.0,
+        "overall_score": 1.0,
+        "evaluator_feedback": "Testability: 1.00 (falsification=True), Grounding: 1.00 (matched_concepts=4), Novelty: 1.00 (analogical_source='The foundational model of multivariate Hawkes processes as applied in high-frequency trading contexts, particularly in the context of flash crash propagation as discussed in arxiv_2303_01007.'), AlgoForge Concreteness: 1.00."
+      },
+      "tokens": {
+        "input": 767,
+        "output": 586
+      },
+      "cost_usd": 0.00046665000000000004
+    },
+    {
+      "call_id": "h2_task_1_h2_c1",
+      "task_id": "task_1",
+      "task_name": "Short-Term Price Movement & Order Flow Prediction",
+      "condition_id": "H2-C1",
+      "prompt_sha256": "3ef91a3628104cf89d114e61b7e9226af4c902fbff80b81a51a88491d11c98d8",
+      "candidate": {
+        "hypothesis_id": "H2-C1-USDJPY-001",
+        "condition_id": "H2-C1",
+        "task_id": "task_1",
+        "title": "Invariant Risk Minimization for Predicting Short-Term USDJPY Price Movements via Order Flow Analysis",
+        "target_phenomenon": "Short-term price movements in USDJPY exhibit predictability based on order flow dynamics, which can be disrupted by regime shifts and endogenous liquidity cascades.",
+        "proposed_mechanism": "Utilizing invariant risk minimization techniques to model and predict non-stationary order flow, combined with multivariate Hawkes point processes to identify and differentiate between endogenous liquidity cascades and exogenous shocks.",
+        "analogical_source": "Invariant Risk Minimization and Multivariate Hawkes Point Processes from the literature on order flow prediction and market microstructure.",
+        "claim": "By applying invariant risk minimization to order flow data, we can achieve consistent predictive performance for USDJPY price movements across different market regimes, effectively distinguishing between endogenous and exogenous influences.",
+        "grounding_rationale": "The literature indicates that invariant risk minimization enhances predictability in non-stationary environments (arxiv_2303_01006), while multivariate Hawkes point processes provide a robust framework for detecting endogenous cascade risks (arxiv_2303_01007). Together, these methodologies can improve the accuracy of short-term price movement predictions in the USDJPY market.",
+        "supporting_path": null,
+        "supporting_evidence_quotes": [],
+        "testable_falsification_condition": "The hypothesis will be falsified if the backtested strategy does not achieve a Sharpe ratio greater than 1.0 over a rolling 6-month period.",
+        "backtest_spec": {
+          "target_asset": "USDJPY",
+          "timeframe": "M5",
+          "feature_engineering": "Extract features from order flow data including volume, price changes, and order book depth, along with calculated metrics from Hawkes point processes to identify potential liquidity cascades.",
+          "entry_condition": "Enter a long position when the invariant risk minimization model predicts a positive price movement with a confidence level above 70%, and the Hawkes process indicates low endogenous cascade risk.",
+          "exit_condition": "Exit the position when the price moves against the position by 20 pips or when the invariant risk minimization model predicts a negative price movement.",
+          "risk_management": "Implement a maximum drawdown limit of 2% of the trading capital per trade and use a trailing stop-loss to secure profits.",
+          "benchmark_baseline": "Compare against a simple moving average crossover strategy on the same asset and timeframe.",
+          "falsification_metric": "Sharpe ratio must exceed 1.0 over a rolling 6-month backtest period."
+        }
+      },
+      "evaluation": {
+        "hypothesis_id": "H2-C1-USDJPY-001",
+        "is_disqualified": true,
+        "disqualification_reason": "DQ: Testable falsification condition lacks quantitative metric threshold or clear operational falsification boundary.",
+        "testability_score": 0.1,
+        "grounding_validity_score": 0.2,
+        "novelty_score": 0.2,
+        "operational_concreteness": 0.2,
+        "overall_score": 0.0,
+        "evaluator_feedback": "Disqualified at Gate A: Unfalsifiable or non-quantitative failure criteria."
+      },
+      "tokens": {
+        "input": 863,
+        "output": 569
+      },
+      "cost_usd": 0.00047085
+    },
+    {
+      "call_id": "h2_task_1_h2_c2",
+      "task_id": "task_1",
+      "task_name": "Short-Term Price Movement & Order Flow Prediction",
+      "condition_id": "H2-C2",
+      "prompt_sha256": "2fa2019fc491b7afc6fbbb1119d34a5aab9cd92021a2b946dbe2f4086ab47d13",
+      "candidate": {
+        "hypothesis_id": "H2-C2-001",
+        "condition_id": "H2-C2",
+        "task_id": "task_1",
+        "title": "Invariant Risk Minimization for Predicting USDJPY Short-Term Price Movements",
+        "target_phenomenon": "Market inefficiency in predicting short-term price movements of USDJPY due to non-stationary order flow and regime shifts.",
+        "proposed_mechanism": "Utilizing invariant risk minimization techniques to predict non-stationary order flow, thereby distinguishing between endogenous liquidity cascades and exogenous shocks in the USDJPY market.",
+        "analogical_source": "Invariant Risk Minimization framework as discussed in 'Invariant Risk Minimization for Non-Stationary Order Flow Prediction' (arxiv_2303_01006).",
+        "claim": "By applying invariant risk minimization to model order flow, we can achieve superior predictive performance for USDJPY price movements, particularly during regime shifts, compared to traditional methods.",
+        "grounding_rationale": "The literature indicates that traditional predictive models fail during regime shifts due to their inability to adapt to changing market environments. Invariant risk minimization provides a robust framework that maintains predictive accuracy across different market conditions, as evidenced by the findings in the referenced papers.",
+        "supporting_path": null,
+        "supporting_evidence_quotes": [],
+        "testable_falsification_condition": "The hypothesis will be disproven if the backtested strategy achieves a Sharpe ratio below 1.0 over a period of 6 months.",
+        "backtest_spec": {
+          "target_asset": "USDJPY",
+          "timeframe": "M5",
+          "feature_engineering": "Incorporate features such as order flow imbalance, volatility measures, and historical price movements, along with regime indicators derived from multivariate Hawkes point processes.",
+          "entry_condition": "Enter a long position when the invariant risk minimization model predicts a positive price movement with a confidence level above 70%.",
+          "exit_condition": "Exit the position when the predicted price movement turns negative or after a fixed profit target of 20 pips is reached.",
+          "risk_management": "Implement a maximum drawdown limit of 2% of the trading capital and use a trailing stop-loss to secure profits.",
+          "benchmark_baseline": "Compare against a simple moving average crossover strategy on the same asset and timeframe.",
+          "falsification_metric": "Sharpe ratio < 1.0"
+        }
+      },
+      "evaluation": {
+        "hypothesis_id": "H2-C2-001",
+        "is_disqualified": true,
+        "disqualification_reason": "DQ: Testable falsification condition lacks quantitative metric threshold or clear operational falsification boundary.",
+        "testability_score": 0.1,
+        "grounding_validity_score": 0.2,
+        "novelty_score": 0.2,
+        "operational_concreteness": 0.2,
+        "overall_score": 0.0,
+        "evaluator_feedback": "Disqualified at Gate A: Unfalsifiable or non-quantitative failure criteria."
+      },
+      "tokens": {
+        "input": 897,
+        "output": 502
+      },
+      "cost_usd": 0.00043574999999999994
+    },
+    {
+      "call_id": "h2_task_1_h2_c3",
+      "task_id": "task_1",
+      "task_name": "Short-Term Price Movement & Order Flow Prediction",
+      "condition_id": "H2-C3",
+      "prompt_sha256": "eef4fd3d09b1f37390d8d1d16aa2b04203ef22152013b3689617d0f65ea257f5",
+      "candidate": {
+        "hypothesis_id": "H774-001",
+        "condition_id": "H2-C3",
+        "task_id": "task_1",
+        "title": "Invariant Risk Minimization for Predicting USDJPY Short-Term Price Movements",
+        "target_phenomenon": "The inefficiency in predicting short-term price movements in USDJPY due to non-stationary order flow and regime shifts.",
+        "proposed_mechanism": "Utilizing invariant risk minimization techniques to enhance the predictability of order flow in USDJPY across different market regimes, thereby distinguishing endogenous liquidity cascades from exogenous shocks.",
+        "analogical_source": "Invariant Risk Minimization as discussed in 'Invariant Risk Minimization for Non-Stationary Order Flow Prediction' (arxiv_2303_01006).",
+        "claim": "By applying invariant risk minimization, we can achieve stable predictive performance for USDJPY price movements, even during volatile market conditions, thus addressing the inefficiency caused by regime shifts.",
+        "grounding_rationale": "The literature indicates that invariant risk minimization can maintain predictive accuracy across fragmented trading venues and volatile market sessions, which is crucial for effective trading strategies in the USDJPY market.",
+        "supporting_path": null,
+        "supporting_evidence_quotes": [],
+        "testable_falsification_condition": "The hypothesis will be disproven if the strategy fails to achieve a Sharpe ratio greater than 1.0 over a backtest period of 6 months.",
+        "backtest_spec": {
+          "target_asset": "USDJPY",
+          "timeframe": "M5",
+          "feature_engineering": "Incorporate features such as order book imbalance, recent price volatility, and historical price patterns using multivariate Hawkes point processes to model order flow.",
+          "entry_condition": "Enter a long position when the invariant risk minimization model predicts a high probability of upward price movement based on order flow signals.",
+          "exit_condition": "Exit the position when the model indicates a reversal or when a predefined profit target or stop-loss is hit.",
+          "risk_management": "Implement a maximum drawdown limit of 2% per trade and a position sizing algorithm based on the Kelly criterion to optimize capital allocation.",
+          "benchmark_baseline": "Compare performance against a simple moving average crossover strategy on the same asset and timeframe.",
+          "falsification_metric": "Sharpe ratio must exceed 1.0; if not, the hypothesis is considered disproven."
+        }
+      },
+      "evaluation": {
+        "hypothesis_id": "H774-001",
+        "is_disqualified": false,
+        "disqualification_reason": null,
+        "testability_score": 1.0,
+        "grounding_validity_score": 1.0,
+        "novelty_score": 1.0,
+        "operational_concreteness": 1.0,
+        "overall_score": 1.0,
+        "evaluator_feedback": "Testability: 1.00 (falsification=True), Grounding: 1.00 (matched_concepts=3), Novelty: 1.00 (analogical_source='Invariant Risk Minimization as discussed in 'Invariant Risk Minimization for Non-Stationary Order Flow Prediction' (arxiv_2303_01006).'), AlgoForge Concreteness: 1.00."
+      },
+      "tokens": {
+        "input": 1000,
+        "output": 500
+      },
+      "cost_usd": 0.00045
+    },
+    {
+      "call_id": "h2_task_2_h2_c0",
+      "task_id": "task_2",
+      "task_name": "Volatility & Regime Adaptation",
+      "condition_id": "H2-C0",
+      "prompt_sha256": "854469ff4636bff0ea39e28a05fa7c4212cfc97199905eefcd00b769d14f4e08",
+      "candidate": {
+        "hypothesis_id": "H2-774-001",
+        "condition_id": "H2-C0",
+        "task_id": "task_2",
+        "title": "Dynamic Volatility Surface Recalibration for USDJPY During Regime Shifts",
+        "target_phenomenon": "Market inefficiency in USDJPY pricing during central bank interest rate announcements, leading to mispriced volatility and jump risks.",
+        "proposed_mechanism": "Utilizing a regime-switching jump diffusion model to infer latent jump probabilities and recalibrate the volatility surface dynamically based on observed market conditions and historical data.",
+        "analogical_source": "Regime-Switching Jump Diffusion Models as discussed in arxiv_2303_01004, which provides a framework for understanding jump dynamics in FX markets.",
+        "claim": "The proposed mechanism will enhance predictive accuracy of USDJPY price movements during regime shifts, leading to superior trading performance compared to traditional models.",
+        "grounding_rationale": "The literature indicates that jump diffusion models can effectively capture the dynamics of currency rates during critical events, while stochastic volatility calibration techniques can refine the volatility surface, thus improving the model's responsiveness to market changes.",
+        "supporting_path": null,
+        "supporting_evidence_quotes": [],
+        "testable_falsification_condition": "The hypothesis will be disproven if the strategy fails to achieve a Sharpe ratio greater than 1.0 over a backtest period of 6 months.",
+        "backtest_spec": {
+          "target_asset": "USDJPY",
+          "timeframe": "M5",
+          "feature_engineering": "Extract features including historical volatility, jump intensity estimates, and macroeconomic indicators related to interest rate changes.",
+          "entry_condition": "Enter a long position when the model predicts a significant upward jump probability and volatility recalibration indicates a bullish regime.",
+          "exit_condition": "Exit the position when the predicted jump probability decreases below a threshold or when volatility recalibration indicates a bearish regime.",
+          "risk_management": "Implement a maximum drawdown limit of 2% per trade and a stop-loss at 1% below the entry price.",
+          "benchmark_baseline": "Compare against a simple moving average crossover strategy on USDJPY.",
+          "falsification_metric": "Sharpe ratio must exceed 1.0; otherwise, the hypothesis is considered disproven."
+        }
+      },
+      "evaluation": {
+        "hypothesis_id": "H2-774-001",
+        "is_disqualified": false,
+        "disqualification_reason": null,
+        "testability_score": 1.0,
+        "grounding_validity_score": 1.0,
+        "novelty_score": 1.0,
+        "operational_concreteness": 1.0,
+        "overall_score": 1.0,
+        "evaluator_feedback": "Testability: 1.00 (falsification=True), Grounding: 1.00 (matched_concepts=4), Novelty: 1.00 (analogical_source='Regime-Switching Jump Diffusion Models as discussed in arxiv_2303_01004, which provides a framework for understanding jump dynamics in FX markets.'), AlgoForge Concreteness: 1.00."
+      },
+      "tokens": {
+        "input": 742,
+        "output": 477
+      },
+      "cost_usd": 0.00039749999999999996
+    },
+    {
+      "call_id": "h2_task_2_h2_c1",
+      "task_id": "task_2",
+      "task_name": "Volatility & Regime Adaptation",
+      "condition_id": "H2-C1",
+      "prompt_sha256": "c6a1091299014d756f8713ef1bea782bad1e3510a8316b22bbe695dd9fed21c4",
+      "candidate": {
+        "hypothesis_id": "H2-C1-774",
+        "condition_id": "H2-C1",
+        "task_id": "task_2",
+        "title": "Dynamic Volatility Surface Calibration and Jump Intensity Inference for USDJPY Trading",
+        "target_phenomenon": "Market inefficiencies during regime shifts in USDJPY, particularly around central bank announcements, leading to mispriced options and volatility surfaces.",
+        "proposed_mechanism": "Utilizing a regime-switching jump diffusion model to infer latent jump intensities and recalibrate the volatility surface dynamically, leveraging GARCH models for volatility estimation.",
+        "analogical_source": "The regime-switching jump diffusion model from the literature, which provides a framework for understanding jump dynamics in financial markets.",
+        "claim": "By accurately inferring jump probabilities and recalibrating the volatility surface during regime shifts, traders can exploit mispriced options and enhance returns in USDJPY trading.",
+        "grounding_rationale": "The literature indicates that the regime-switching jump diffusion model effectively captures jump dynamics during critical events, while GARCH models provide robust volatility estimates. This combination allows for a more accurate representation of market conditions, particularly during high-impact announcements.",
+        "supporting_path": null,
+        "supporting_evidence_quotes": [],
+        "testable_falsification_condition": "If the strategy does not achieve a Sharpe ratio greater than 1.5 over a backtest period of 6 months, the hypothesis is considered disproven.",
+        "backtest_spec": {
+          "target_asset": "USDJPY",
+          "timeframe": "M5",
+          "feature_engineering": "Extract features including historical volatility, jump intensity estimates, and regime indicators based on central bank announcement schedules.",
+          "entry_condition": "Enter a long position when the model indicates a low jump intensity and a high probability of upward volatility shift; enter a short position under the opposite conditions.",
+          "exit_condition": "Exit positions when the volatility surface indicates a return to normal conditions or when a predefined profit target or stop-loss is hit.",
+          "risk_management": "Implement a maximum drawdown limit of 5% per trade and a position sizing algorithm based on volatility estimates.",
+          "benchmark_baseline": "Compare against a simple moving average crossover strategy on USDJPY.",
+          "falsification_metric": "Sharpe ratio must exceed 1.5; otherwise, the hypothesis is falsified."
+        }
+      },
+      "evaluation": {
+        "hypothesis_id": "H2-C1-774",
+        "is_disqualified": true,
+        "disqualification_reason": "DQ: Testable falsification condition lacks quantitative metric threshold or clear operational falsification boundary.",
+        "testability_score": 0.1,
+        "grounding_validity_score": 0.2,
+        "novelty_score": 0.2,
+        "operational_concreteness": 0.2,
+        "overall_score": 0.0,
+        "evaluator_feedback": "Disqualified at Gate A: Unfalsifiable or non-quantitative failure criteria."
+      },
+      "tokens": {
+        "input": 868,
+        "output": 488
+      },
+      "cost_usd": 0.000423
+    },
+    {
+      "call_id": "h2_task_2_h2_c2",
+      "task_id": "task_2",
+      "task_name": "Volatility & Regime Adaptation",
+      "condition_id": "H2-C2",
+      "prompt_sha256": "56ec4cd4daf5e9f26f999405f6c93152f2d846259e965dac163d03e7b565ed55",
+      "candidate": {
+        "hypothesis_id": "H2-C2-001",
+        "condition_id": "H2-C2",
+        "task_id": "task_2",
+        "title": "Dynamic Volatility Surface Recalibration for USDJPY During Regime Shifts",
+        "target_phenomenon": "Market inefficiencies in USDJPY during central bank interest rate announcements leading to latent jump dynamics.",
+        "proposed_mechanism": "Utilizing a regime-switching jump diffusion model to infer latent jump intensities and recalibrate the volatility surface dynamically based on observed market conditions.",
+        "analogical_source": "Regime-Switching Jump Diffusion Models for Foreign Exchange Parities (arxiv_2303_01004)",
+        "claim": "The dynamic recalibration of the volatility surface using inferred jump intensities will yield superior trading signals during regime shifts, leading to enhanced risk-adjusted returns.",
+        "grounding_rationale": "The literature indicates that jump diffusion models effectively capture the dynamics of currency rates during critical events, and stochastic volatility calibration can adapt to changing market conditions, thus providing a robust framework for trading strategies.",
+        "supporting_path": null,
+        "supporting_evidence_quotes": [],
+        "testable_falsification_condition": "The hypothesis will be disproven if the strategy achieves a Sharpe ratio below 1.0 over the backtest period.",
+        "backtest_spec": {
+          "target_asset": "USDJPY",
+          "timeframe": "M5",
+          "feature_engineering": "Calculate implied volatility surfaces using GARCH models and infer jump intensities from regime-switching models during central bank announcements.",
+          "entry_condition": "Enter a long position when the inferred jump intensity indicates a high probability of upward movement in USDJPY, confirmed by a volatility spike.",
+          "exit_condition": "Exit the position when the volatility surface indicates a return to normal levels or when a predefined profit target is reached.",
+          "risk_management": "Implement a maximum drawdown limit of 2% per trade and a stop-loss at 1% below the entry price.",
+          "benchmark_baseline": "Compare against a simple moving average crossover strategy on USDJPY.",
+          "falsification_metric": "Sharpe ratio < 1.0"
+        }
+      },
+      "evaluation": {
+        "hypothesis_id": "H2-C2-001",
+        "is_disqualified": true,
+        "disqualification_reason": "DQ: Testable falsification condition lacks quantitative metric threshold or clear operational falsification boundary.",
+        "testability_score": 0.1,
+        "grounding_validity_score": 0.2,
+        "novelty_score": 0.2,
+        "operational_concreteness": 0.2,
+        "overall_score": 0.0,
+        "evaluator_feedback": "Disqualified at Gate A: Unfalsifiable or non-quantitative failure criteria."
+      },
+      "tokens": {
+        "input": 915,
+        "output": 453
+      },
+      "cost_usd": 0.00040905
+    },
+    {
+      "call_id": "h2_task_2_h2_c3",
+      "task_id": "task_2",
+      "task_name": "Volatility & Regime Adaptation",
+      "condition_id": "H2-C3",
+      "prompt_sha256": "f9a83ad343ad64a15208f4bd46a5eb595d66b25bf1a07d5af0d9018339b79cfa",
+      "candidate": {
+        "hypothesis_id": "H2-C3-774",
+        "condition_id": "H2-C3",
+        "task_id": "task_2",
+        "title": "Dynamic Volatility Surface Recalibration for USDJPY During Regime Shifts",
+        "target_phenomenon": "Inefficiencies in USDJPY pricing during central bank interest rate announcements leading to latent jump dynamics.",
+        "proposed_mechanism": "Utilizing a regime-switching jump diffusion model to infer latent jump intensities and recalibrate the volatility surface dynamically based on observed market conditions.",
+        "analogical_source": "Regime-Switching Jump Diffusion Models for Foreign Exchange Parities (arxiv_2303_01004)",
+        "claim": "The dynamic recalibration of the volatility surface during regime shifts will lead to superior predictive performance and trading profitability in USDJPY compared to static models.",
+        "grounding_rationale": "The literature indicates that regime-switching models can effectively capture jump dynamics and volatility shifts during critical market events, suggesting that adapting to these changes can exploit inefficiencies in pricing.",
+        "supporting_path": null,
+        "supporting_evidence_quotes": [],
+        "testable_falsification_condition": "A Sharpe ratio below 1.0 during backtesting will disprove the hypothesis.",
+        "backtest_spec": {
+          "target_asset": "USDJPY",
+          "timeframe": "M5",
+          "feature_engineering": "Calculate implied volatility surfaces using GARCH models and infer latent jump intensities from historical price data around central bank announcements.",
+          "entry_condition": "Enter a long position when the inferred jump intensity indicates a high probability of upward movement post-announcement, and volatility is recalibrated to reflect this.",
+          "exit_condition": "Exit the position when the volatility surface indicates a return to normal levels or when a predefined profit target is reached.",
+          "risk_management": "Implement a maximum drawdown limit of 2% per trade and a stop-loss at 1% below the entry price.",
+          "benchmark_baseline": "Compare against a simple moving average crossover strategy on USDJPY.",
+          "falsification_metric": "Sharpe ratio < 1.0"
+        }
+      },
+      "evaluation": {
+        "hypothesis_id": "H2-C3-774",
+        "is_disqualified": true,
+        "disqualification_reason": "DQ: Testable falsification condition lacks quantitative metric threshold or clear operational falsification boundary.",
+        "testability_score": 0.1,
+        "grounding_validity_score": 0.2,
+        "novelty_score": 0.2,
+        "operational_concreteness": 0.2,
+        "overall_score": 0.0,
+        "evaluator_feedback": "Disqualified at Gate A: Unfalsifiable or non-quantitative failure criteria."
+      },
+      "tokens": {
+        "input": 1027,
+        "output": 446
+      },
+      "cost_usd": 0.00042165
+    },
+    {
+      "call_id": "h2_task_3_h2_c0",
+      "task_id": "task_3",
+      "task_name": "Execution & Liquidation Cost Optimization",
+      "condition_id": "H2-C0",
+      "prompt_sha256": "db0110c25ad9f17f0015058ef6091f32990c998283c44f8018106dd34b604c03",
+      "candidate": {
+        "hypothesis_id": "H2-774-001",
+        "condition_id": "H2-C0",
+        "task_id": "task_3",
+        "title": "Optimal Liquidation Trajectories for USDJPY under Transient Price Impact",
+        "target_phenomenon": "Market inefficiency in execution costs due to transient price impact during large trades in USDJPY.",
+        "proposed_mechanism": "Utilizing the Almgren-Chriss framework with linear quadratic controls to derive optimal liquidation trajectories that minimize execution slippage while managing market risk.",
+        "analogical_source": "Theoretical foundations from optimal control theory and Hamilton-Jacobi-Bellman equations as applied in high-dimensional settings.",
+        "claim": "By implementing optimal liquidation strategies derived from the Almgren-Chriss model, traders can significantly reduce execution costs in USDJPY trades compared to traditional execution methods.",
+        "grounding_rationale": "The literature indicates that transient price impact leads to increased execution costs, and the Almgren-Chriss framework provides a mathematically rigorous approach to balance these costs against market risk. Additionally, the application of physics-informed neural networks allows for efficient computation of optimal policies in high-dimensional spaces, enhancing execution strategies.",
+        "supporting_path": null,
+        "supporting_evidence_quotes": [],
+        "testable_falsification_condition": "If the strategy fails to achieve a Sharpe ratio greater than 1.0 over a backtest period of 6 months, the hypothesis will be considered disproven.",
+        "backtest_spec": {
+          "target_asset": "USDJPY",
+          "timeframe": "M5",
+          "feature_engineering": "Incorporate features such as historical volatility, order book depth, and recent price trends to inform execution strategy.",
+          "entry_condition": "Initiate liquidation when the cumulative position exceeds a predefined threshold and market conditions indicate high transient price impact.",
+          "exit_condition": "Terminate liquidation when the target execution cost is achieved or if the market conditions change unfavorably, as indicated by a significant deviation from expected price impact.",
+          "risk_management": "Implement a dynamic stop-loss based on real-time volatility and a maximum drawdown limit of 2% of the total capital allocated for the trade.",
+          "benchmark_baseline": "Compare against a simple VWAP (Volume Weighted Average Price) execution strategy over the same period.",
+          "falsification_metric": "Sharpe ratio < 1.0"
+        }
+      },
+      "evaluation": {
+        "hypothesis_id": "H2-774-001",
+        "is_disqualified": false,
+        "disqualification_reason": null,
+        "testability_score": 1.0,
+        "grounding_validity_score": 1.0,
+        "novelty_score": 1.0,
+        "operational_concreteness": 1.0,
+        "overall_score": 1.0,
+        "evaluator_feedback": "Testability: 1.00 (falsification=True), Grounding: 1.00 (matched_concepts=4), Novelty: 1.00 (analogical_source='Theoretical foundations from optimal control theory and Hamilton-Jacobi-Bellman equations as applied in high-dimensional settings.'), AlgoForge Concreteness: 1.00."
+      },
+      "tokens": {
+        "input": 747,
+        "output": 495
+      },
+      "cost_usd": 0.00040905
+    },
+    {
+      "call_id": "h2_task_3_h2_c1",
+      "task_id": "task_3",
+      "task_name": "Execution & Liquidation Cost Optimization",
+      "condition_id": "H2-C1",
+      "prompt_sha256": "c57b5b2080dee19aa74bb5e8b8d04d1d75dd57e7a6a01a5a4b96aafa29f23e05",
+      "candidate": {
+        "hypothesis_id": "H2-C1-774",
+        "condition_id": "H2-C1",
+        "task_id": "task_3",
+        "title": "Optimal Liquidation Trajectories for USDJPY Execution under Transient Price Impact",
+        "target_phenomenon": "Transient price impact leading to increased execution costs in USDJPY trades.",
+        "proposed_mechanism": "Utilizing the Almgren-Chriss framework with linear quadratic controls to compute optimal liquidation trajectories that minimize execution slippage while considering transient price impact.",
+        "analogical_source": "The Almgren-Chriss Liquidation Framework, which provides a structured approach to optimal execution strategies in financial markets.",
+        "claim": "By applying the Almgren-Chriss transient impact model, traders can achieve lower execution costs in USDJPY by optimizing liquidation trajectories based on market conditions.",
+        "grounding_rationale": "The Almgren-Chriss model has been shown to effectively balance market risk and execution slippage, while physics-informed neural networks can enhance the computation of equilibrium policy functions in high-dimensional settings, allowing for more precise execution strategies.",
+        "supporting_path": null,
+        "supporting_evidence_quotes": [],
+        "testable_falsification_condition": "If the strategy fails to achieve a Sharpe ratio greater than 1.0 over a backtest period of 6 months, the hypothesis will be considered disproven.",
+        "backtest_spec": {
+          "target_asset": "USDJPY",
+          "timeframe": "M5",
+          "feature_engineering": "Incorporate features such as historical price volatility, order book depth, and recent trade volume to inform the execution strategy.",
+          "entry_condition": "Enter a trade when the predicted optimal liquidation trajectory indicates a favorable price movement based on the Almgren-Chriss model.",
+          "exit_condition": "Exit the trade when the execution cost exceeds a predefined threshold or when the optimal liquidation trajectory indicates a reversal.",
+          "risk_management": "Implement a maximum drawdown limit of 2% of the trading capital and dynamically adjust position sizes based on real-time volatility estimates.",
+          "benchmark_baseline": "Compare against a simple market order execution strategy without optimization.",
+          "falsification_metric": "Sharpe ratio must exceed 1.0 over the backtest period."
+        }
+      },
+      "evaluation": {
+        "hypothesis_id": "H2-C1-774",
+        "is_disqualified": false,
+        "disqualification_reason": null,
+        "testability_score": 1.0,
+        "grounding_validity_score": 1.0,
+        "novelty_score": 1.0,
+        "operational_concreteness": 1.0,
+        "overall_score": 1.0,
+        "evaluator_feedback": "Testability: 1.00 (falsification=True), Grounding: 1.00 (matched_concepts=4), Novelty: 1.00 (analogical_source='The Almgren-Chriss Liquidation Framework, which provides a structured approach to optimal execution strategies in financial markets.'), AlgoForge Concreteness: 1.00."
+      },
+      "tokens": {
+        "input": 895,
+        "output": 468
+      },
+      "cost_usd": 0.00041505
+    },
+    {
+      "call_id": "h2_task_3_h2_c2",
+      "task_id": "task_3",
+      "task_name": "Execution & Liquidation Cost Optimization",
+      "condition_id": "H2-C2",
+      "prompt_sha256": "cabdab424e07a80b51419d2e790a77894581bc2c802b033e2ec1e91610fdf7fb",
+      "candidate": {
+        "hypothesis_id": "H2-C2-774",
+        "condition_id": "H2-C2",
+        "task_id": "task_3",
+        "title": "Optimal Liquidation Trajectories for USDJPY Execution under Transient Price Impact",
+        "target_phenomenon": "Transient price impact leading to execution slippage in USDJPY trades.",
+        "proposed_mechanism": "Utilizing the Almgren-Chriss framework with linear quadratic controls to compute optimal liquidation trajectories that minimize execution costs while considering transient price impact.",
+        "analogical_source": "Almgren-Chriss Liquidation Framework, which provides a structured approach to optimal execution in financial markets.",
+        "claim": "By applying the Almgren-Chriss model to USDJPY execution, traders can achieve lower execution costs through optimized liquidation strategies that account for transient price impacts.",
+        "grounding_rationale": "The Almgren-Chriss model has been shown to effectively balance market risk and execution slippage, and its application in high-dimensional settings can be enhanced using physics-informed neural networks to solve Hamilton-Jacobi-Bellman equations for optimal policy functions.",
+        "supporting_path": null,
+        "supporting_evidence_quotes": [],
+        "testable_falsification_condition": "The hypothesis will be disproven if the backtested strategy does not achieve a Sharpe ratio greater than 1.0 over the testing period.",
+        "backtest_spec": {
+          "target_asset": "USDJPY",
+          "timeframe": "M5",
+          "feature_engineering": "Incorporate features such as historical price volatility, order book depth, and recent trade volume to inform the execution strategy.",
+          "entry_condition": "Initiate liquidation when the price deviates from the optimal trajectory by a predefined threshold based on transient price impact calculations.",
+          "exit_condition": "Cease liquidation when the target volume is reached or when the price returns to within a specified range of the optimal trajectory.",
+          "risk_management": "Implement a stop-loss mechanism that triggers if execution costs exceed a certain percentage of the expected slippage.",
+          "benchmark_baseline": "Compare against a simple market order execution strategy without optimization.",
+          "falsification_metric": "Sharpe ratio < 1.0"
+        }
+      },
+      "evaluation": {
+        "hypothesis_id": "H2-C2-774",
+        "is_disqualified": true,
+        "disqualification_reason": "DQ: Testable falsification condition lacks quantitative metric threshold or clear operational falsification boundary.",
+        "testability_score": 0.1,
+        "grounding_validity_score": 0.2,
+        "novelty_score": 0.2,
+        "operational_concreteness": 0.2,
+        "overall_score": 0.0,
+        "evaluator_feedback": "Disqualified at Gate A: Unfalsifiable or non-quantitative failure criteria."
+      },
+      "tokens": {
+        "input": 952,
+        "output": 457
+      },
+      "cost_usd": 0.000417
+    },
+    {
+      "call_id": "h2_task_3_h2_c3",
+      "task_id": "task_3",
+      "task_name": "Execution & Liquidation Cost Optimization",
+      "condition_id": "H2-C3",
+      "prompt_sha256": "46e7cb1e4d50d2d97d1312a4cddc97fc5e78252f718c9e0dcc87e1ec15380757",
+      "candidate": {
+        "hypothesis_id": "H2-C3-774",
+        "condition_id": "H2-C3",
+        "task_id": "task_3",
+        "title": "Optimal Liquidation Trajectories for USDJPY Execution under Transient Price Impact",
+        "target_phenomenon": "Transient price impact leading to execution slippage in USDJPY trades.",
+        "proposed_mechanism": "Utilizing the Almgren-Chriss framework with linear quadratic controls to compute optimal liquidation trajectories that minimize execution costs while managing market risk.",
+        "analogical_source": "The Almgren-Chriss Liquidation Framework, which provides a structured approach to optimal execution under transient price impact.",
+        "claim": "By applying the Almgren-Chriss model, traders can achieve lower execution costs in USDJPY by optimizing liquidation trajectories that account for transient price impacts.",
+        "grounding_rationale": "The Almgren-Chriss framework has been shown to effectively balance market risk against execution slippage, and recent advancements in solving high-dimensional Hamilton-Jacobi-Bellman equations using physics-informed neural networks can enhance the computation of optimal policies in this context.",
+        "supporting_path": null,
+        "supporting_evidence_quotes": [],
+        "testable_falsification_condition": "If the strategy does not achieve a Sharpe ratio greater than 1.0 over a backtest period, the hypothesis is disproven.",
+        "backtest_spec": {
+          "target_asset": "USDJPY",
+          "timeframe": "M5",
+          "feature_engineering": "Incorporate features such as historical price volatility, order book depth, and recent trade volume to inform the execution strategy.",
+          "entry_condition": "Initiate liquidation when the price deviates from the optimal trajectory by a predefined threshold based on historical volatility.",
+          "exit_condition": "Complete liquidation when the cumulative execution cost exceeds a specified percentage of the target position size or when the optimal trajectory is reached.",
+          "risk_management": "Implement a stop-loss mechanism that triggers if execution costs exceed a certain threshold relative to the expected slippage.",
+          "benchmark_baseline": "Compare against a simple market order execution strategy without optimization.",
+          "falsification_metric": "Sharpe ratio < 1.0"
+        }
+      },
+      "evaluation": {
+        "hypothesis_id": "H2-C3-774",
+        "is_disqualified": true,
+        "disqualification_reason": "DQ: Testable falsification condition lacks quantitative metric threshold or clear operational falsification boundary.",
+        "testability_score": 0.1,
+        "grounding_validity_score": 0.2,
+        "novelty_score": 0.2,
+        "operational_concreteness": 0.2,
+        "overall_score": 0.0,
+        "evaluator_feedback": "Disqualified at Gate A: Unfalsifiable or non-quantitative failure criteria."
+      },
+      "tokens": {
+        "input": 1079,
+        "output": 455
+      },
+      "cost_usd": 0.00043484999999999997
+    }
+  ]
+}

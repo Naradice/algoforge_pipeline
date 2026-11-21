@@ -1,0 +1,110 @@
+{
+  "timestamp_utc": "2026-11-21T17:12:57.279721+00:00",
+  "elapsed_sec": 61.40526103973389,
+  "comparison": {
+    "OpenAI_API": {
+      "submitted": 20,
+      "valid_json": 20,
+      "unique": 17,
+      "intra_dups": 3,
+      "cache_hits": 3,
+      "eligible": 17,
+      "profitable": 0,
+      "cost_usd": 0.0019971,
+      "explore_sharpe_dist": {
+        "min": -7.900133149288238,
+        "q25": -3.7226158172730965,
+        "median": -2.5967235982480896,
+        "q75": -1.5766453405025276,
+        "max": -0.07999607363046647
+      },
+      "top1_diag40d": {
+        "final_equity": 935189.5499999264,
+        "total_return_pct": -6.481045000007368,
+        "annualized_sharpe": -2.454455037604644,
+        "max_drawdown_pct": -7.492118636448369,
+        "trade_count": 184,
+        "win_rate": 0.42391304347826086,
+        "post_fill_risk_exceeded_count": 143
+      }
+    },
+    "Claude_Code": {
+      "submitted": 20,
+      "valid_json": 20,
+      "unique": 20,
+      "intra_dups": 0,
+      "cache_hits": 1,
+      "eligible": 17,
+      "profitable": 5,
+      "cost_usd": 0.0,
+      "explore_sharpe_dist": {
+        "min": -9.586542366243611,
+        "q25": -4.688641428804227,
+        "median": -3.191310858848341,
+        "q75": 0.07549296367878319,
+        "max": 2.2859044501859644
+      },
+      "top1_diag40d": {
+        "final_equity": 980967.6999999805,
+        "total_return_pct": -1.9032300000019542,
+        "annualized_sharpe": -0.8358182899865283,
+        "max_drawdown_pct": -6.475417917960259,
+        "trade_count": 73,
+        "win_rate": 0.2602739726027397,
+        "post_fill_risk_exceeded_count": 55
+      }
+    },
+    "Antigravity": {
+      "submitted": 20,
+      "valid_json": 20,
+      "unique": 20,
+      "intra_dups": 0,
+      "cache_hits": 10,
+      "eligible": 18,
+      "profitable": 4,
+      "cost_usd": 0.0,
+      "explore_sharpe_dist": {
+        "min": -4.370644003959462,
+        "q25": -2.4811961794652,
+        "median": -1.0489449082032114,
+        "q75": -0.060334394148645436,
+        "max": 1.6940485136925338
+      },
+      "top1_diag40d": {
+        "final_equity": 957428.1999999594,
+        "total_return_pct": -4.257180000004057,
+        "annualized_sharpe": -1.842592708473045,
+        "max_drawdown_pct": -5.82714999084721,
+        "trade_count": 106,
+        "win_rate": 0.3867924528301887,
+        "post_fill_risk_exceeded_count": 77
+      }
+    },
+    "Evolution": {
+      "submitted": 20,
+      "valid_json": 20,
+      "unique": 20,
+      "intra_dups": 0,
+      "cache_hits": 0,
+      "eligible": 20,
+      "profitable": 1,
+      "cost_usd": 0.0,
+      "explore_sharpe_dist": {
+        "min": -5.895418173904386,
+        "q25": -3.418547899274328,
+        "median": -2.444301202200037,
+        "q75": -1.3427382380358668,
+        "max": 0.46173478282545477
+      },
+      "top1_diag40d": {
+        "final_equity": 975817.0499999619,
+        "total_return_pct": -2.4182950000038117,
+        "annualized_sharpe": -1.0503883085834806,
+        "max_drawdown_pct": -5.90123606615174,
+        "trade_count": 105,
+        "win_rate": 0.4380952380952381,
+        "post_fill_risk_exceeded_count": 74
+      }
+    }
+  }
+}

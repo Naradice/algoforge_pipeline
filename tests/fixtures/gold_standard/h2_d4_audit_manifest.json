@@ -1,0 +1,32 @@
+{
+  "experiment_id": "RP-HDE-H2-D4",
+  "protocol_version": "v0.2",
+  "prompts_fixture_path": "c:\\Users\\ksato\\workspace\\finance\\research_pipeline\\tests\\fixtures\\gold_standard\\h2_d4_prompts.json",
+  "prompts_sha256": "1f181dc8f40afdce688c5e41534ccb848bfccfb47fd4d8f26243acc3444831ba",
+  "intent_criteria_path": "c:\\Users\\ksato\\workspace\\finance\\research_pipeline\\tests\\fixtures\\gold_standard\\h2_d4_intent_criteria.json",
+  "intent_criteria_sha256": "90b3f1565027e8eb4554274812c1e856d924a5eff46fdc4e681e7d36763b0ec5",
+  "evaluator_d2b_path": "c:\\Users\\ksato\\workspace\\finance\\research_pipeline\\src\\research_pipeline\\discovery\\diagnostic_evaluator.py",
+  "evaluator_d2b_sha256": "650f7dda01673b3cfbe2dee5376f52d67c3260ec10aa6d2b383e7d22d2b879cc",
+  "gate_d3_path": "c:\\Users\\ksato\\workspace\\finance\\research_pipeline\\src\\research_pipeline\\discovery\\data_feasibility_gate.py",
+  "gate_d3_sha256": "9adf0eb127879b2b01676fc0d7b860619831636b757ee01266c5f4752bb3b891",
+  "seeds": [
+    42,
+    43,
+    44
+  ],
+  "concepts": [
+    "almgren_chriss",
+    "hawkes_process",
+    "irm",
+    "jump_diffusion"
+  ],
+  "conditions": [
+    "C0",
+    "C1",
+    "C2"
+  ],
+  "total_calls": 36,
+  "model_id": "gpt-4o-mini-2024-07-18",
+  "temperature": 0.2,
+  "frozen_before_generation": true
+}

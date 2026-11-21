@@ -1,0 +1,167 @@
+{
+  "timestamp_utc": "2026-11-21T17:23:10.226840+00:00",
+  "elapsed_sec": 114.96854591369629,
+  "api_spend_usd": 0.0,
+  "conditions": {
+    "A_Random": {
+      "attempts": 129,
+      "adopted": 100,
+      "retry_failures": 0,
+      "unique": 100,
+      "executed_backtests": 100,
+      "cache_hits": 0,
+      "top1_root_share": 0.1,
+      "init_20": {
+        "count": 20,
+        "eligible": 19,
+        "positive_sharpe": 3,
+        "median_min_cv": -3.1279289916109487,
+        "max_min_cv": 0.15636763043321722
+      },
+      "evo_80": {
+        "count": 80,
+        "eligible": 80,
+        "positive_sharpe": 21,
+        "median_min_cv": -1.809721557833507,
+        "max_min_cv": 2.6820576220702033
+      },
+      "final_100": {
+        "count": 100,
+        "eligible": 99,
+        "positive_sharpe": 24,
+        "median_min_cv": -1.9447583495720189,
+        "max_min_cv": 2.6820576220702033
+      },
+      "delta_top1_min_cv": 2.525689991636986,
+      "diag_top1_ref": {
+        "final_equity": 973728.9999999757,
+        "total_return_pct": -2.627100000002436,
+        "annualized_sharpe": -1.2532176950022984,
+        "max_drawdown_pct": -4.767842537977174,
+        "trade_count": 48,
+        "win_rate": 0.3333333333333333,
+        "post_fill_risk_exceeded_count": 41
+      }
+    },
+    "B_Claude": {
+      "attempts": 127,
+      "adopted": 100,
+      "retry_failures": 0,
+      "unique": 100,
+      "executed_backtests": 98,
+      "cache_hits": 2,
+      "top1_root_share": 0.1,
+      "init_20": {
+        "count": 20,
+        "eligible": 17,
+        "positive_sharpe": 4,
+        "median_min_cv": -3.14308819621728,
+        "max_min_cv": 0.046101832416139014
+      },
+      "evo_80": {
+        "count": 80,
+        "eligible": 76,
+        "positive_sharpe": 29,
+        "median_min_cv": -1.3524444679383918,
+        "max_min_cv": 2.536851397816434
+      },
+      "final_100": {
+        "count": 100,
+        "eligible": 93,
+        "positive_sharpe": 33,
+        "median_min_cv": -1.505237560118121,
+        "max_min_cv": 2.536851397816434
+      },
+      "delta_top1_min_cv": 2.490749565400295,
+      "diag_top1_ref": {
+        "final_equity": 992916.7799999621,
+        "total_return_pct": -0.7083220000037915,
+        "annualized_sharpe": -0.1535681825465674,
+        "max_drawdown_pct": -5.893277221216821,
+        "trade_count": 105,
+        "win_rate": 0.3523809523809524,
+        "post_fill_risk_exceeded_count": 84
+      }
+    },
+    "C_Antigravity": {
+      "attempts": 119,
+      "adopted": 100,
+      "retry_failures": 0,
+      "unique": 100,
+      "executed_backtests": 100,
+      "cache_hits": 0,
+      "top1_root_share": 0.1,
+      "init_20": {
+        "count": 20,
+        "eligible": 18,
+        "positive_sharpe": 3,
+        "median_min_cv": -2.943605999796592,
+        "max_min_cv": 0.22721767921956784
+      },
+      "evo_80": {
+        "count": 80,
+        "eligible": 79,
+        "positive_sharpe": 25,
+        "median_min_cv": -1.7740967555001825,
+        "max_min_cv": 0.9452617285515674
+      },
+      "final_100": {
+        "count": 100,
+        "eligible": 97,
+        "positive_sharpe": 28,
+        "median_min_cv": -1.8127321690823186,
+        "max_min_cv": 0.9452617285515674
+      },
+      "delta_top1_min_cv": 0.7180440493319996,
+      "diag_top1_ref": {
+        "final_equity": 1029944.9999999879,
+        "total_return_pct": 2.99449999999879,
+        "annualized_sharpe": 1.8685582258703652,
+        "max_drawdown_pct": -3.23014248093412,
+        "trade_count": 57,
+        "win_rate": 0.45614035087719296,
+        "post_fill_risk_exceeded_count": 38
+      }
+    },
+    "D_Mixed": {
+      "attempts": 122,
+      "adopted": 100,
+      "retry_failures": 0,
+      "unique": 100,
+      "executed_backtests": 76,
+      "cache_hits": 24,
+      "top1_root_share": 0.1,
+      "init_20": {
+        "count": 20,
+        "eligible": 19,
+        "positive_sharpe": 1,
+        "median_min_cv": -3.3372150443341613,
+        "max_min_cv": -1.0290852077057089
+      },
+      "evo_80": {
+        "count": 80,
+        "eligible": 76,
+        "positive_sharpe": 26,
+        "median_min_cv": -1.7389469980327006,
+        "max_min_cv": 2.8207016151965645
+      },
+      "final_100": {
+        "count": 100,
+        "eligible": 95,
+        "positive_sharpe": 27,
+        "median_min_cv": -1.9718487327313174,
+        "max_min_cv": 2.8207016151965645
+      },
+      "delta_top1_min_cv": 3.8497868229022734,
+      "diag_top1_ref": {
+        "final_equity": 963592.7999999755,
+        "total_return_pct": -3.640720000002451,
+        "annualized_sharpe": -2.2564263621751337,
+        "max_drawdown_pct": -5.517275529679733,
+        "trade_count": 62,
+        "win_rate": 0.3709677419354839,
+        "post_fill_risk_exceeded_count": 48
+      }
+    }
+  }
+}

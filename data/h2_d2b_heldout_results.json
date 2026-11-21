@@ -1,0 +1,276 @@
+{
+  "benchmark_id": "RP-HDE-H2-D2b-HELDOUT",
+  "timestamp": "2026-11-18T03:58:33.425556+00:00",
+  "run_count": 1,
+  "dev36_sha256": "89abd531ec785f7efcad2f9759be0371358a4cd841a254565f923a54dcd46546",
+  "heldout_sha256": "d45f8aa4399e43bdb2a4c2a6f1786114b448106c6bccb7bcedbd474e212780c0",
+  "evaluator_sha256": "650f7dda01673b3cfbe2dee5376f52d67c3260ec10aa6d2b383e7d22d2b879cc",
+  "verdict": "PASS (合格)",
+  "metrics": {
+    "total_specs": 8,
+    "exact_matches": 8,
+    "exact_match_ratio": 1.0,
+    "micro_sensitivity": 1.0,
+    "micro_specificity": 1.0,
+    "macro_sensitivity": 1.0,
+    "macro_specificity": 1.0,
+    "axis_metrics": {
+      "E_role": {
+        "tp": 2,
+        "fp": 0,
+        "tn": 6,
+        "fn": 0,
+        "sensitivity": 1.0,
+        "specificity": 1.0
+      },
+      "E_math": {
+        "tp": 2,
+        "fp": 0,
+        "tn": 6,
+        "fn": 0,
+        "sensitivity": 1.0,
+        "specificity": 1.0
+      },
+      "E_data": {
+        "tp": 2,
+        "fp": 0,
+        "tn": 6,
+        "fn": 0,
+        "sensitivity": 1.0,
+        "specificity": 1.0
+      },
+      "E_leap": {
+        "tp": 1,
+        "fp": 0,
+        "tn": 7,
+        "fn": 0,
+        "sensitivity": 1.0,
+        "specificity": 1.0
+      },
+      "E_inop": {
+        "tp": 2,
+        "fp": 0,
+        "tn": 6,
+        "fn": 0,
+        "sensitivity": 1.0,
+        "specificity": 1.0
+      }
+    },
+    "tri_state_confusion_matrix": {
+      "SUPPORTED": {
+        "SUPPORTED": 6,
+        "UNSUPPORTED": 0,
+        "UNKNOWN": 0
+      },
+      "UNSUPPORTED": {
+        "SUPPORTED": 0,
+        "UNSUPPORTED": 2,
+        "UNKNOWN": 0
+      },
+      "UNKNOWN": {
+        "SUPPORTED": 0,
+        "UNSUPPORTED": 0,
+        "UNKNOWN": 0
+      }
+    }
+  },
+  "case_evaluations": [
+    {
+      "case_id": "heldout_01_ac_sound",
+      "concept_id": "almgren_chriss",
+      "gold_flags": {
+        "E_role": 0,
+        "E_math": 0,
+        "E_data": 0,
+        "E_leap": 0,
+        "E_inop": 0
+      },
+      "pred_flags": {
+        "E_role": 0,
+        "E_math": 0,
+        "E_data": 0,
+        "E_leap": 0,
+        "E_inop": 0
+      },
+      "gold_feasibility": "SUPPORTED",
+      "pred_feasibility": "SUPPORTED",
+      "spec_exact_match": true,
+      "error_evidence": {},
+      "evaluator_notes": "Clean: No objective error violations detected. Data Feasibility: SUPPORTED."
+    },
+    {
+      "case_id": "heldout_02_ac_compound",
+      "concept_id": "almgren_chriss",
+      "gold_flags": {
+        "E_role": 1,
+        "E_math": 1,
+        "E_data": 0,
+        "E_leap": 0,
+        "E_inop": 1
+      },
+      "pred_flags": {
+        "E_role": 1,
+        "E_math": 1,
+        "E_data": 0,
+        "E_leap": 0,
+        "E_inop": 1
+      },
+      "gold_feasibility": "SUPPORTED",
+      "pred_feasibility": "SUPPORTED",
+      "spec_exact_match": true,
+      "error_evidence": {
+        "E_role": "Offending text: 'buy usdjpy aggressively whenever the spot'. Violation: Almgren-Chriss optimal liquidation model repurposed as speculative directional trade entry signal.",
+        "E_math": "Offending text: 'spot exchange rate drifts below the optimal liquidation trajectory'. Violation: Remaining inventory trajectory x(t) conflated with spot price trajectory S(t).",
+        "E_inop": "Offending decision text: 'liquidity appears to dry up'. Violation: Trading/execution decision directly depends on an unprogrammable, qualitative condition."
+      },
+      "evaluator_notes": "[E_role: Offending text: 'buy usdjpy aggressively whenever the spot'. Violation: Almgren-Chriss optimal liquidation model repurposed as speculative directional trade entry signal.] | [E_math: Offending text: 'spot exchange rate drifts below the optimal liquidation trajectory'. Violation: Remaining inventory trajectory x(t) conflated with spot price trajectory S(t).] | [E_inop: Offending decision text: 'liquidity appears to dry up'. Violation: Trading/execution decision directly depends on an unprogrammable, qualitative condition.]"
+    },
+    {
+      "case_id": "heldout_03_hawkes_sound",
+      "concept_id": "hawkes_process",
+      "gold_flags": {
+        "E_role": 0,
+        "E_math": 0,
+        "E_data": 0,
+        "E_leap": 0,
+        "E_inop": 0
+      },
+      "pred_flags": {
+        "E_role": 0,
+        "E_math": 0,
+        "E_data": 0,
+        "E_leap": 0,
+        "E_inop": 0
+      },
+      "gold_feasibility": "SUPPORTED",
+      "pred_feasibility": "SUPPORTED",
+      "spec_exact_match": true,
+      "error_evidence": {},
+      "evaluator_notes": "Clean: No objective error violations detected. Data Feasibility: SUPPORTED."
+    },
+    {
+      "case_id": "heldout_04_hawkes_compound",
+      "concept_id": "hawkes_process",
+      "gold_flags": {
+        "E_role": 0,
+        "E_math": 0,
+        "E_data": 1,
+        "E_leap": 0,
+        "E_inop": 1
+      },
+      "pred_flags": {
+        "E_role": 0,
+        "E_math": 0,
+        "E_data": 1,
+        "E_leap": 0,
+        "E_inop": 1
+      },
+      "gold_feasibility": "UNSUPPORTED",
+      "pred_feasibility": "UNSUPPORTED",
+      "spec_exact_match": true,
+      "error_evidence": {
+        "E_data": "Offending text: 'sub-millisecond dealer quote message stream'. Violation: Requires physical microstructure/external data not available under USDJPY M5 OHLCV contract.",
+        "E_inop": "Offending decision text: 'opportune market momentum'. Violation: Trading/execution decision directly depends on an unprogrammable, qualitative condition."
+      },
+      "evaluator_notes": "[E_data (UNSUPPORTED): Offending text: 'sub-millisecond dealer quote message stream'. Violation: Requires physical microstructure/external data not available under USDJPY M5 OHLCV contract.] | [E_inop: Offending decision text: 'opportune market momentum'. Violation: Trading/execution decision directly depends on an unprogrammable, qualitative condition.]"
+    },
+    {
+      "case_id": "heldout_05_irm_sound",
+      "concept_id": "irm",
+      "gold_flags": {
+        "E_role": 0,
+        "E_math": 0,
+        "E_data": 0,
+        "E_leap": 0,
+        "E_inop": 0
+      },
+      "pred_flags": {
+        "E_role": 0,
+        "E_math": 0,
+        "E_data": 0,
+        "E_leap": 0,
+        "E_inop": 0
+      },
+      "gold_feasibility": "SUPPORTED",
+      "pred_feasibility": "SUPPORTED",
+      "spec_exact_match": true,
+      "error_evidence": {},
+      "evaluator_notes": "Clean: No objective error violations detected. Data Feasibility: SUPPORTED."
+    },
+    {
+      "case_id": "heldout_06_irm_compound",
+      "concept_id": "irm",
+      "gold_flags": {
+        "E_role": 0,
+        "E_math": 1,
+        "E_data": 0,
+        "E_leap": 1,
+        "E_inop": 0
+      },
+      "pred_flags": {
+        "E_role": 0,
+        "E_math": 1,
+        "E_data": 0,
+        "E_leap": 1,
+        "E_inop": 0
+      },
+      "gold_feasibility": "SUPPORTED",
+      "pred_feasibility": "SUPPORTED",
+      "spec_exact_match": true,
+      "error_evidence": {
+        "E_math": "Offending text: 'guarantees absolute invariance'. Violation: Invariant Risk Minimization claimed to provide mathematically guaranteed invariance or zero risk.",
+        "E_leap": "Offending text: 'proven to yield 35%'. Violation: Empirical excess profitability claimed as an established literature fact rather than a falsifiable hypothesis."
+      },
+      "evaluator_notes": "[E_math: Offending text: 'guarantees absolute invariance'. Violation: Invariant Risk Minimization claimed to provide mathematically guaranteed invariance or zero risk.] | [E_leap: Offending text: 'proven to yield 35%'. Violation: Empirical excess profitability claimed as an established literature fact rather than a falsifiable hypothesis.]"
+    },
+    {
+      "case_id": "heldout_07_jump_sound",
+      "concept_id": "jump_diffusion",
+      "gold_flags": {
+        "E_role": 0,
+        "E_math": 0,
+        "E_data": 0,
+        "E_leap": 0,
+        "E_inop": 0
+      },
+      "pred_flags": {
+        "E_role": 0,
+        "E_math": 0,
+        "E_data": 0,
+        "E_leap": 0,
+        "E_inop": 0
+      },
+      "gold_feasibility": "SUPPORTED",
+      "pred_feasibility": "SUPPORTED",
+      "spec_exact_match": true,
+      "error_evidence": {},
+      "evaluator_notes": "Clean: No objective error violations detected. Data Feasibility: SUPPORTED."
+    },
+    {
+      "case_id": "heldout_08_jump_compound",
+      "concept_id": "jump_diffusion",
+      "gold_flags": {
+        "E_role": 1,
+        "E_math": 0,
+        "E_data": 1,
+        "E_leap": 0,
+        "E_inop": 0
+      },
+      "pred_flags": {
+        "E_role": 1,
+        "E_math": 0,
+        "E_data": 1,
+        "E_leap": 0,
+        "E_inop": 0
+      },
+      "gold_feasibility": "UNSUPPORTED",
+      "pred_feasibility": "UNSUPPORTED",
+      "spec_exact_match": true,
+      "error_evidence": {
+        "E_role": "Jump diffusion process misused as multi-venue limit order routing scheduler.",
+        "E_data": "Offending text: 'multi-venue real-time order book queue depth feeds'. Violation: Requires physical microstructure/external data not available under USDJPY M5 OHLCV contract."
+      },
+      "evaluator_notes": "[E_role: Jump diffusion process misused as multi-venue limit order routing scheduler.] | [E_data (UNSUPPORTED): Offending text: 'multi-venue real-time order book queue depth feeds'. Violation: Requires physical microstructure/external data not available under USDJPY M5 OHLCV contract.]"
+    }
+  ]
+}

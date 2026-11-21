@@ -1,0 +1,1928 @@
+[
+  {
+    "base_unit_id": "h2_d6_hawkes_process_s42",
+    "concept_id": "hawkes_process",
+    "seed": 42,
+    "total_unit_cost_usd": 0.002183,
+    "candidates": {
+      "S0": {
+        "call_id": "h2_d6_hawkes_process_s42_s0",
+        "candidate": {
+          "hypothesis_id": "h2_d6_hawkes_process_s42_s0",
+          "condition_id": "S0",
+          "task_id": "d6_hawkes_process",
+          "title": "Standard title",
+          "target_phenomenon": "High-Frequency Flash Crash Propagation in USDJPY",
+          "proposed_mechanism": "Utilization of a Multivariate Hawkes Point Process to model self-exciting event arrival intensities based on M5 bar return exceedances.",
+          "analogical_source": "Hawkes Point Process literature, particularly its application in financial market event modeling.",
+          "claim": "The self-exciting nature of the Multivariate Hawkes Point Process can predict periods of heightened volatility in USDJPY, allowing for profitable trading strategies during these events.",
+          "grounding_rationale": "Literature indicates that the Multivariate Hawkes Point Process effectively captures the endogenous cascade risks associated with market events, which can lead to flash crashes. The model's ability to estimate arrival intensities provides insights into when significant price movements are likely to occur.",
+          "supporting_path": null,
+          "supporting_evidence_quotes": [],
+          "testable_falsification_condition": "If the strategy fails to achieve a Sharpe ratio greater than 1.0 over a validation period of 6 months, the hypothesis is disproven.",
+          "backtest_spec": {
+            "target_asset": "USDJPY",
+            "timeframe": "M5",
+            "feature_engineering": "Calculate M5 bar returns and their rolling standard deviation. Define event arrivals as abs(return_t) > 2.0 * rolling_std.",
+            "entry_condition": "Enter a long position at the next bar open O_{t+1} if the estimated intensity lambda(t) exceeds a threshold of 0.05, indicating a high likelihood of a price movement.",
+            "exit_condition": "Exit the position at the next bar open O_{t+1} if the estimated intensity lambda(t) drops below 0.02, indicating a return to normal market conditions.",
+            "risk_management": "Set a maximum drawdown limit of 2% per trade and use a trailing stop loss of 1% from the highest price achieved post-entry.",
+            "benchmark_baseline": "Compare performance against a simple buy-and-hold strategy on USDJPY over the same period.",
+            "falsification_metric": "Sharpe ratio must be greater than 1.0 over a validation period of 6 months."
+          }
+        },
+        "diagnostics": {
+          "in_tokens": 825,
+          "out_tokens": 673,
+          "finish_reason": "stop",
+          "cost_usd": 0.00052755
+        }
+      },
+      "S1": {
+        "call_id": "h2_d6_hawkes_process_s42_s1",
+        "stage1_model_spec": {
+          "TargetPhenomenon": "High-Frequency Flash Crash Propagation in USDJPY",
+          "ProposedMechanism": "Utilization of a Multivariate Hawkes Point Process to model the self-exciting nature of event arrivals in the USDJPY market, capturing the endogenous cascade risks associated with rapid price movements.",
+          "InternalModelParameters": {
+            "mu": "Baseline intensity of event arrivals, must be positive (mu > 0)",
+            "alpha": "Self-excitation parameter, representing the influence of past events on future event arrivals, must satisfy alpha < beta",
+            "beta": "Decay parameter, controlling the rate at which the influence of past events diminishes, must satisfy alpha < beta"
+          },
+          "TheoreticalBoundaries": {
+            "StationarityCondition": "The process must remain stationary with respect to the parameters, specifically requiring that alpha < beta for model stability.",
+            "ParameterEstimation": "Parameters are estimated using Maximum Likelihood Estimation (MLE) or moment matching techniques."
+          },
+          "InSampleEstimationProtocol": {
+            "SearchRange": {
+              "mu": "0.01 to 0.1",
+              "alpha": "0.0 to 0.5",
+              "beta": "0.1 to 1.0"
+            },
+            "ObjectiveLikelihood": "Maximize the log-likelihood function derived from the Hawkes process for the observed event arrival sequences.",
+            "LookbackWindow": "A fixed window of 100 M5 bars for parameter estimation.",
+            "ValidationSplit": "20% of the data reserved for validation to avoid overfitting.",
+            "UpdateTiming": "Parameters are updated at the end of each M5 bar based on the observed event arrivals.",
+            "LookaheadProtection": "Ensure that the estimation does not use future data points beyond the current bar."
+          },
+          "FilteredOutputs": {
+            "FilteredIntensityLambda": "The estimated conditional event arrival intensity lambda(t) at time t, representing the frequency of event occurrences.",
+            "FilteredRegimeProbability": "The estimated probability of being in a specific regime P(S_t|F_t) based on the observed features."
+          }
+        },
+        "candidate": {
+          "hypothesis_id": "h2_d6_hawkes_process_s42_s1",
+          "condition_id": "S1",
+          "task_id": "d6_hawkes_process",
+          "title": "Standard title",
+          "target_phenomenon": "High-Frequency Flash Crash Propagation in USDJPY",
+          "proposed_mechanism": "Utilization of a Multivariate Hawkes Point Process to model the self-exciting nature of event arrivals in the USDJPY market, capturing the endogenous cascade risks associated with rapid price movements.",
+          "analogical_source": "Hawkes Processes in econometrics and finance literature, particularly in modeling market microstructure and volatility clustering.",
+          "claim": "The self-exciting nature of the Hawkes process will allow for predictive insights into imminent price movements, enabling profitable trading opportunities during periods of heightened volatility.",
+          "grounding_rationale": "The literature indicates that financial markets exhibit clustering of volatility and event arrivals, which can be effectively modeled using Hawkes processes. The parameters mu, alpha, and beta provide a framework for understanding the intensity and timing of price movements, thus allowing for strategic trading decisions.",
+          "supporting_path": null,
+          "supporting_evidence_quotes": [],
+          "testable_falsification_condition": "{\"SharpeRatio\": 1.0, \"MaxDrawdown\": 0.05, \"PValue\": 0.05}",
+          "backtest_spec": {
+            "target_asset": "USDJPY",
+            "timeframe": "M5",
+            "feature_engineering": "{\"FilteredIntensityLambda\": \"Use the estimated conditional event arrival intensity lambda(t) to determine entry signals.\", \"FilteredRegimeProbability\": \"Incorporate the estimated regime probabilities to adjust position sizing.\"}",
+            "entry_condition": "{\"Type\": \"SignalBased\", \"Criteria\": \"Enter a long position when lambda(t) exceeds a threshold of 0.05 and the regime probability indicates a bullish market (P(S_t|F_t) > 0.7). Enter a short position under the opposite conditions.\"}",
+            "exit_condition": "{\"Type\": \"TimeStopOrSignalReversal\", \"Criteria\": \"Exit the position after 3 M5 bars or if lambda(t) falls below 0.02, indicating reduced event intensity.\"}",
+            "risk_management": "{\"StopLoss\": \"Set a stop loss at 20 pips from the entry price.\", \"PositionSizing\": \"Risk no more than 1% of the total account balance per trade.\"}",
+            "benchmark_baseline": "Compare against a simple moving average crossover strategy on the same asset and timeframe.",
+            "falsification_metric": "If the Sharpe ratio falls below 1.0 or the maximum drawdown exceeds 5%, the hypothesis is considered falsified."
+          }
+        },
+        "diagnostics": {
+          "stage1": {
+            "in_tokens": 830,
+            "out_tokens": 450,
+            "finish_reason": "stop",
+            "cost_usd": 0.0003945
+          },
+          "stage2": {
+            "in_tokens": 881,
+            "out_tokens": 587,
+            "finish_reason": "stop",
+            "cost_usd": 0.00048434999999999993
+          },
+          "total_output_tokens": 1037
+        }
+      },
+      "S2a": {
+        "call_id": "h2_d6_hawkes_process_s42_s2a",
+        "raw_patch": {
+          "patch_summary": "Enhanced clarity and specificity in feature engineering, entry conditions, exit conditions, and risk management parameters to ensure operational completeness.",
+          "updates": {
+            "feature_engineering": "{\"FilteredIntensityLambda\": \"Use the estimated conditional event arrival intensity lambda(t) to determine entry signals, calculated using a rolling window of the last 100 events.\", \"FilteredRegimeProbability\": \"Incorporate the estimated regime probabilities to adjust position sizing, using a Bayesian update mechanism based on recent price movements.\"}",
+            "entry_condition": "{\"Type\": \"SignalBased\", \"Criteria\": \"Enter a long position when lambda(t) exceeds a threshold of 0.05 and the regime probability indicates a bullish market (P(S_t|F_t) > 0.7). Enter a short position when lambda(t) falls below 0.03 and the regime probability indicates a bearish market (P(S_t|F_t) < 0.3).\"}",
+            "exit_condition": "{\"Type\": \"TimeStopOrSignalReversal\", \"Criteria\": \"Exit the position after 3 M5 bars or if lambda(t) falls below 0.02, indicating reduced event intensity. Additionally, exit if the regime probability shifts to a neutral state (0.4 < P(S_t|F_t) < 0.6).\"}",
+            "risk_management": "{\"StopLoss\": \"Set a stop loss at 20 pips from the entry price, adjusted dynamically based on recent volatility (using ATR).\", \"PositionSizing\": \"Risk no more than 1% of the total account balance per trade, with position size adjusted based on the current volatility (using ATR) to maintain consistent risk exposure.\"}",
+            "falsification_metric": null
+          }
+        },
+        "candidate": {
+          "hypothesis_id": "h2_d6_hawkes_process_s42_s2a",
+          "condition_id": "S2a",
+          "task_id": "d6_hawkes_process",
+          "title": "Standard title",
+          "target_phenomenon": "High-Frequency Flash Crash Propagation in USDJPY",
+          "proposed_mechanism": "Utilization of a Multivariate Hawkes Point Process to model the self-exciting nature of event arrivals in the USDJPY market, capturing the endogenous cascade risks associated with rapid price movements.",
+          "analogical_source": "Hawkes Processes in econometrics and finance literature, particularly in modeling market microstructure and volatility clustering.",
+          "claim": "The self-exciting nature of the Hawkes process will allow for predictive insights into imminent price movements, enabling profitable trading opportunities during periods of heightened volatility.",
+          "grounding_rationale": "The literature indicates that financial markets exhibit clustering of volatility and event arrivals, which can be effectively modeled using Hawkes processes. The parameters mu, alpha, and beta provide a framework for understanding the intensity and timing of price movements, thus allowing for strategic trading decisions.",
+          "supporting_path": null,
+          "supporting_evidence_quotes": [],
+          "testable_falsification_condition": "{\"SharpeRatio\": 1.0, \"MaxDrawdown\": 0.05, \"PValue\": 0.05}",
+          "backtest_spec": {
+            "target_asset": "USDJPY",
+            "timeframe": "M5",
+            "feature_engineering": "{\"FilteredIntensityLambda\": \"Use the estimated conditional event arrival intensity lambda(t) to determine entry signals, calculated using a rolling window of the last 100 events.\", \"FilteredRegimeProbability\": \"Incorporate the estimated regime probabilities to adjust position sizing, using a Bayesian update mechanism based on recent price movements.\"}",
+            "entry_condition": "{\"Type\": \"SignalBased\", \"Criteria\": \"Enter a long position when lambda(t) exceeds a threshold of 0.05 and the regime probability indicates a bullish market (P(S_t|F_t) > 0.7). Enter a short position when lambda(t) falls below 0.03 and the regime probability indicates a bearish market (P(S_t|F_t) < 0.3).\"}",
+            "exit_condition": "{\"Type\": \"TimeStopOrSignalReversal\", \"Criteria\": \"Exit the position after 3 M5 bars or if lambda(t) falls below 0.02, indicating reduced event intensity. Additionally, exit if the regime probability shifts to a neutral state (0.4 < P(S_t|F_t) < 0.6).\"}",
+            "risk_management": "{\"StopLoss\": \"Set a stop loss at 20 pips from the entry price, adjusted dynamically based on recent volatility (using ATR).\", \"PositionSizing\": \"Risk no more than 1% of the total account balance per trade, with position size adjusted based on the current volatility (using ATR) to maintain consistent risk exposure.\"}",
+            "benchmark_baseline": "Compare against a simple moving average crossover strategy on the same asset and timeframe.",
+            "falsification_metric": "If the Sharpe ratio falls below 1.0 or the maximum drawdown exceeds 5%, the hypothesis is considered falsified."
+          }
+        },
+        "diagnostics": {
+          "in_tokens": 1027,
+          "out_tokens": 363,
+          "finish_reason": "stop",
+          "cost_usd": 0.00037184999999999996
+        }
+      },
+      "S2b": {
+        "call_id": "h2_d6_hawkes_process_s42_s2b",
+        "checklist_prompted": [
+          {
+            "param_id": "hawkes_excitation_alpha",
+            "symbol": "alpha",
+            "layer": "layer1_model",
+            "necessity": "MODEL_REQUIRED",
+            "description": "Excitation magnitude / jump reflexivity"
+          },
+          {
+            "param_id": "hawkes_decay_beta",
+            "symbol": "beta",
+            "layer": "layer1_model",
+            "necessity": "MODEL_REQUIRED",
+            "description": "Exponential memory decay rate"
+          },
+          {
+            "param_id": "hawkes_execution_timing_rule",
+            "symbol": "t_exec",
+            "layer": "layer4_execution",
+            "necessity": "STRATEGY_REQUIRED",
+            "description": "Temporal execution ordering"
+          },
+          {
+            "param_id": "hawkes_max_drawdown_stop",
+            "symbol": "max_dd",
+            "layer": "layer3_risk",
+            "necessity": "STRATEGY_REQUIRED",
+            "description": "Risk stop loss / maximum adverse excursion threshold"
+          }
+        ],
+        "checklist_inspection_audit_log": [
+          {
+            "param_id": "hawkes_baseline_mu",
+            "symbol": "mu",
+            "layer": "layer1_model",
+            "necessity": "MODEL_REQUIRED",
+            "is_required_for_strategy": true,
+            "is_determined": true,
+            "s1_reference": "Mentioned with estimation/threshold cues in text"
+          },
+          {
+            "param_id": "hawkes_excitation_alpha",
+            "symbol": "alpha",
+            "layer": "layer1_model",
+            "necessity": "MODEL_REQUIRED",
+            "is_required_for_strategy": true,
+            "is_determined": false,
+            "s1_reference": "Symbol 'alpha' completely absent from specification"
+          },
+          {
+            "param_id": "hawkes_decay_beta",
+            "symbol": "beta",
+            "layer": "layer1_model",
+            "necessity": "MODEL_REQUIRED",
+            "is_required_for_strategy": true,
+            "is_determined": false,
+            "s1_reference": "Symbol 'beta' completely absent from specification"
+          },
+          {
+            "param_id": "hawkes_intensity_threshold",
+            "symbol": "lambda*",
+            "layer": "layer2_decision",
+            "necessity": "STRATEGY_REQUIRED",
+            "is_required_for_strategy": true,
+            "is_determined": true,
+            "s1_reference": "Mentioned with estimation/threshold cues in text"
+          },
+          {
+            "param_id": "hawkes_execution_timing_rule",
+            "symbol": "t_exec",
+            "layer": "layer4_execution",
+            "necessity": "STRATEGY_REQUIRED",
+            "is_required_for_strategy": true,
+            "is_determined": false,
+            "s1_reference": "Symbol 't_exec' completely absent from specification"
+          },
+          {
+            "param_id": "hawkes_max_drawdown_stop",
+            "symbol": "max_dd",
+            "layer": "layer3_risk",
+            "necessity": "STRATEGY_REQUIRED",
+            "is_required_for_strategy": true,
+            "is_determined": false,
+            "s1_reference": "Symbol 'max_dd' completely absent from specification"
+          },
+          {
+            "param_id": "hawkes_branching_ratio_threshold",
+            "symbol": "(alpha/beta)*",
+            "layer": "layer2_decision",
+            "necessity": "CONDITIONAL",
+            "is_required_for_strategy": false,
+            "is_determined": false,
+            "s1_reference": "Symbol '(alpha/beta)*' completely absent from specification"
+          },
+          {
+            "param_id": "hawkes_risk_sizing_scale",
+            "symbol": "w_risk",
+            "layer": "layer3_risk",
+            "necessity": "CONDITIONAL",
+            "is_required_for_strategy": false,
+            "is_determined": false,
+            "s1_reference": "Symbol 'w_risk' completely absent from specification"
+          },
+          {
+            "param_id": "hawkes_max_holding_horizon",
+            "symbol": "K_horizon",
+            "layer": "layer4_execution",
+            "necessity": "OPTIONAL",
+            "is_required_for_strategy": false,
+            "is_determined": false,
+            "s1_reference": "Symbol 'k_horizon' completely absent from specification"
+          }
+        ],
+        "raw_patch": {
+          "patch_summary": "Resolved missing parameters by specifying in-sample estimation protocols for alpha and beta, and defined execution timing and maximum drawdown thresholds.",
+          "updates": {
+            "feature_engineering": "{\"FilteredIntensityLambda\": \"Use the estimated conditional event arrival intensity lambda(t) to determine entry signals. Estimate alpha using a grid search over [0.1, 1.0] based on historical event data to maximize the log-likelihood function. Estimate beta using a similar grid search over [0.01, 0.5] to optimize the decay of intensity over time.\", \"FilteredRegimeProbability\": \"Incorporate the estimated regime probabilities to adjust position sizing.\"}",
+            "entry_condition": "{\"Type\": \"SignalBased\", \"Criteria\": \"Enter a long position when lambda(t) exceeds a threshold of 0.05 and the regime probability indicates a bullish market (P(S_t|F_t) > 0.7). Enter a short position under the opposite conditions. Execution timing is based on the next available tick after the signal is generated.\"}",
+            "exit_condition": "{\"Type\": \"TimeStopOrSignalReversal\", \"Criteria\": \"Exit the position after 3 M5 bars or if lambda(t) falls below 0.02, indicating reduced event intensity.\"}",
+            "risk_management": "{\"StopLoss\": \"Set a stop loss at 20 pips from the entry price. Maximum drawdown threshold is set at 5% of the total account balance, triggering a halt in trading if exceeded.\", \"PositionSizing\": \"Risk no more than 1% of the total account balance per trade.\"}",
+            "falsification_metric": "If the Sharpe ratio falls below 1.0 or the maximum drawdown exceeds 5%, the hypothesis is considered falsified."
+          }
+        },
+        "candidate": {
+          "hypothesis_id": "h2_d6_hawkes_process_s42_s2b",
+          "condition_id": "S2b",
+          "task_id": "d6_hawkes_process",
+          "title": "Standard title",
+          "target_phenomenon": "High-Frequency Flash Crash Propagation in USDJPY",
+          "proposed_mechanism": "Utilization of a Multivariate Hawkes Point Process to model the self-exciting nature of event arrivals in the USDJPY market, capturing the endogenous cascade risks associated with rapid price movements.",
+          "analogical_source": "Hawkes Processes in econometrics and finance literature, particularly in modeling market microstructure and volatility clustering.",
+          "claim": "The self-exciting nature of the Hawkes process will allow for predictive insights into imminent price movements, enabling profitable trading opportunities during periods of heightened volatility.",
+          "grounding_rationale": "The literature indicates that financial markets exhibit clustering of volatility and event arrivals, which can be effectively modeled using Hawkes processes. The parameters mu, alpha, and beta provide a framework for understanding the intensity and timing of price movements, thus allowing for strategic trading decisions.",
+          "supporting_path": null,
+          "supporting_evidence_quotes": [],
+          "testable_falsification_condition": "{\"SharpeRatio\": 1.0, \"MaxDrawdown\": 0.05, \"PValue\": 0.05}",
+          "backtest_spec": {
+            "target_asset": "USDJPY",
+            "timeframe": "M5",
+            "feature_engineering": "{\"FilteredIntensityLambda\": \"Use the estimated conditional event arrival intensity lambda(t) to determine entry signals. Estimate alpha using a grid search over [0.1, 1.0] based on historical event data to maximize the log-likelihood function. Estimate beta using a similar grid search over [0.01, 0.5] to optimize the decay of intensity over time.\", \"FilteredRegimeProbability\": \"Incorporate the estimated regime probabilities to adjust position sizing.\"}",
+            "entry_condition": "{\"Type\": \"SignalBased\", \"Criteria\": \"Enter a long position when lambda(t) exceeds a threshold of 0.05 and the regime probability indicates a bullish market (P(S_t|F_t) > 0.7). Enter a short position under the opposite conditions. Execution timing is based on the next available tick after the signal is generated.\"}",
+            "exit_condition": "{\"Type\": \"TimeStopOrSignalReversal\", \"Criteria\": \"Exit the position after 3 M5 bars or if lambda(t) falls below 0.02, indicating reduced event intensity.\"}",
+            "risk_management": "{\"StopLoss\": \"Set a stop loss at 20 pips from the entry price. Maximum drawdown threshold is set at 5% of the total account balance, triggering a halt in trading if exceeded.\", \"PositionSizing\": \"Risk no more than 1% of the total account balance per trade.\"}",
+            "benchmark_baseline": "Compare against a simple moving average crossover strategy on the same asset and timeframe.",
+            "falsification_metric": "If the Sharpe ratio falls below 1.0 or the maximum drawdown exceeds 5%, the hypothesis is considered falsified."
+          }
+        },
+        "diagnostics": {
+          "in_tokens": 1196,
+          "out_tokens": 376,
+          "finish_reason": "stop",
+          "cost_usd": 0.000405
+        }
+      }
+    }
+  },
+  {
+    "base_unit_id": "h2_d6_hawkes_process_s43",
+    "concept_id": "hawkes_process",
+    "seed": 43,
+    "total_unit_cost_usd": 0.002159,
+    "candidates": {
+      "S0": {
+        "call_id": "h2_d6_hawkes_process_s43_s0",
+        "candidate": {
+          "hypothesis_id": "h2_d6_hawkes_process_s43_s0",
+          "condition_id": "S0",
+          "task_id": "d6_hawkes_process",
+          "title": "Standard title",
+          "target_phenomenon": "High-Frequency Flash Crash Propagation in USDJPY",
+          "proposed_mechanism": "Utilizing a Multivariate Hawkes Point Process to model self-exciting arrival intensities of price exceedances in USDJPY M5 OHLCV data.",
+          "analogical_source": "Hawkes Point Process model from point process theory, adapted for financial market event modeling.",
+          "claim": "The self-exciting nature of the Multivariate Hawkes Point Process can predict periods of heightened volatility in USDJPY, allowing for profitable execution strategies during these events.",
+          "grounding_rationale": "Literature indicates that financial markets exhibit self-exciting behavior during periods of stress, where past events increase the likelihood of future events. The Multivariate Hawkes Point Process captures this phenomenon effectively, providing a statistical framework to estimate the intensity of price movements based on historical exceedances.",
+          "supporting_path": null,
+          "supporting_evidence_quotes": [],
+          "testable_falsification_condition": "{\"metric\": \"Sharpe Ratio\", \"threshold\": 1.0}",
+          "backtest_spec": {
+            "target_asset": "USDJPY",
+            "timeframe": "M5",
+            "feature_engineering": "{\"eventDefinition\": \"Define arrivals as instances where abs(return_t) > 2.0 * rolling_std over a lookback window of 50 bars.\", \"intensityEstimation\": \"Estimate parameters (mu, alpha, beta) via Maximum Likelihood Estimation (MLE) under the condition alpha < beta and mu > 0.\"}",
+            "entry_condition": "Enter a long position at the open of the next bar O_{t+1} if the estimated intensity lambda(t) exceeds a threshold derived from historical data (e.g., lambda(t) > 1.5 * rolling_mean(lambda)).",
+            "exit_condition": "Exit the position at the open of the next bar O_{t+1} if the intensity lambda(t) falls below the threshold (e.g., lambda(t) < rolling_mean(lambda)).",
+            "risk_management": "{\"stopLoss\": \"Set a stop loss at 1.5 times the average true range (ATR) of the last 14 bars.\", \"takeProfit\": \"Set a take profit at 2 times the risk taken (distance to stop loss).\"}",
+            "benchmark_baseline": "Compare against a simple buy-and-hold strategy for USDJPY over the same period.",
+            "falsification_metric": "If the Sharpe Ratio of the strategy falls below 1.0, the hypothesis is considered disproven."
+          }
+        },
+        "diagnostics": {
+          "in_tokens": 825,
+          "out_tokens": 551,
+          "finish_reason": "stop",
+          "cost_usd": 0.00045434999999999996
+        }
+      },
+      "S1": {
+        "call_id": "h2_d6_hawkes_process_s43_s1",
+        "stage1_model_spec": {
+          "TargetPhenomenon": "High-Frequency Flash Crash Propagation in USDJPY",
+          "ProposedMechanism": "Utilization of a Multivariate Hawkes Point Process to model self-exciting arrival intensities of price movements, capturing the endogenous nature of market events that can lead to flash crashes.",
+          "InternalModelParameters": {
+            "mu": "Baseline intensity of event arrivals, must be positive (mu > 0)",
+            "alpha": "Self-excitation parameter, representing the influence of past events on future event intensity, must satisfy alpha < beta",
+            "beta": "Decay parameter, representing the rate at which the influence of past events diminishes, must satisfy alpha < beta"
+          },
+          "TheoreticalBoundaries": {
+            "StationarityCondition": "The model assumes stationarity, requiring that the parameters remain constant over the estimation period.",
+            "ParameterConstraints": "Parameters must satisfy alpha < beta and mu > 0."
+          },
+          "InSampleEstimationProtocol": {
+            "SearchRange": {
+              "mu": [
+                0.001,
+                0.1
+              ],
+              "alpha": [
+                0.01,
+                0.5
+              ],
+              "beta": [
+                0.1,
+                1.0
+              ]
+            },
+            "ObjectiveLikelihood": "Maximize the log-likelihood function derived from the Hawkes process for the observed event arrival times.",
+            "LookbackWindow": "Fixed window of 1000 M5 bars for parameter estimation.",
+            "ValidationSplit": "Use the last 20% of the data for validation to assess model performance.",
+            "UpdateTiming": "Parameters are updated every 100 M5 bars to reflect recent market conditions.",
+            "LookaheadProtection": "Ensure that parameter estimation does not use future data points beyond the current bar."
+          },
+          "FilteredOutputs": {
+            "FilteredIntensityLambda": "The estimated conditional event arrival intensity lambda(t) based on the observed event arrivals.",
+            "FilteredRegimeProbability": "The probability of being in a specific market regime P(S_t|F_t) based on the estimated parameters."
+          }
+        },
+        "candidate": {
+          "hypothesis_id": "h2_d6_hawkes_process_s43_s1",
+          "condition_id": "S1",
+          "task_id": "d6_hawkes_process",
+          "title": "Standard title",
+          "target_phenomenon": "High-Frequency Flash Crash Propagation in USDJPY",
+          "proposed_mechanism": "Utilization of a Multivariate Hawkes Point Process to model self-exciting arrival intensities of price movements, capturing the endogenous nature of market events that can lead to flash crashes.",
+          "analogical_source": "Theoretical foundations of point processes in stochastic modeling, particularly the Hawkes process literature.",
+          "claim": "The self-exciting nature of price movements, as modeled by the Multivariate Hawkes Point Process, can predict imminent price spikes or drops in USDJPY, allowing for profitable trading opportunities during high volatility periods.",
+          "grounding_rationale": "Literature indicates that financial markets exhibit self-exciting behavior, where past price movements influence future price dynamics. The Hawkes process effectively captures this phenomenon, providing a framework to anticipate flash crashes.",
+          "supporting_path": null,
+          "supporting_evidence_quotes": [],
+          "testable_falsification_condition": "The hypothesis will be disproven if the strategy fails to achieve a Sharpe ratio greater than 1.0 over a backtest period of 6 months, with a maximum drawdown exceeding 5%.",
+          "backtest_spec": {
+            "target_asset": "USDJPY",
+            "timeframe": "M5",
+            "feature_engineering": "{\"FilteredIntensityLambda\": \"Estimated conditional event arrival intensity lambda(t) derived from the Multivariate Hawkes Point Process.\", \"FilteredRegimeProbability\": \"Probability of being in a specific market regime P(S_t|F_t) based on the estimated parameters.\"}",
+            "entry_condition": "Enter a long position when the filtered intensity lambda(t) exceeds a threshold of 0.05 and the filtered regime probability indicates a bullish market regime (P(S_t|F_t) > 0.7). Enter a short position under the opposite conditions.",
+            "exit_condition": "Exit the position after 10 M5 bars or if the filtered intensity lambda(t) drops below 0.02, indicating reduced volatility.",
+            "risk_management": "{\"StopLoss\": \"Set a stop loss at 1.5 times the average true range (ATR) of the last 20 M5 bars.\", \"PositionSizing\": \"Risk no more than 1% of the total account equity on each trade.\"}",
+            "benchmark_baseline": "The benchmark for performance comparison will be a simple moving average crossover strategy on the same asset and timeframe.",
+            "falsification_metric": "Sharpe ratio must exceed 1.0 and maximum drawdown must not exceed 5% over the backtest period."
+          }
+        },
+        "diagnostics": {
+          "stage1": {
+            "in_tokens": 830,
+            "out_tokens": 434,
+            "finish_reason": "stop",
+            "cost_usd": 0.0003849
+          },
+          "stage2": {
+            "in_tokens": 880,
+            "out_tokens": 596,
+            "finish_reason": "stop",
+            "cost_usd": 0.0004896
+          },
+          "total_output_tokens": 1030
+        }
+      },
+      "S2a": {
+        "call_id": "h2_d6_hawkes_process_s43_s2a",
+        "raw_patch": {
+          "patch_summary": "Enhanced clarity and specificity in feature engineering, entry conditions, exit conditions, and risk management parameters to ensure operational completeness.",
+          "updates": {
+            "feature_engineering": "{\"FilteredIntensityLambda\": \"Estimated conditional event arrival intensity lambda(t) derived from the Multivariate Hawkes Point Process, calculated using historical price data over the last 100 M5 bars.\", \"FilteredRegimeProbability\": \"Probability of being in a specific market regime P(S_t|F_t) based on the estimated parameters, calculated using a rolling window of the last 50 M5 bars.\"}",
+            "entry_condition": "Enter a long position when the filtered intensity lambda(t) exceeds a threshold of 0.05 and the filtered regime probability indicates a bullish market regime (P(S_t|F_t) > 0.7). Enter a short position when lambda(t) is below 0.05 and P(S_t|F_t) < 0.3, indicating a bearish market regime.",
+            "exit_condition": "Exit the position after 10 M5 bars or if the filtered intensity lambda(t) drops below 0.02, indicating reduced volatility. Additionally, exit if the price moves against the position by more than the stop loss threshold.",
+            "risk_management": "{\"StopLoss\": \"Set a stop loss at 1.5 times the average true range (ATR) of the last 20 M5 bars, recalculated every 20 bars.\", \"PositionSizing\": \"Risk no more than 1% of the total account equity on each trade, with position size adjusted based on the current volatility as indicated by the ATR.\"}",
+            "falsification_metric": "Sharpe ratio must exceed 1.0 and maximum drawdown must not exceed 5% over the backtest period, with a minimum of 100 trades executed."
+          }
+        },
+        "candidate": {
+          "hypothesis_id": "h2_d6_hawkes_process_s43_s2a",
+          "condition_id": "S2a",
+          "task_id": "d6_hawkes_process",
+          "title": "Standard title",
+          "target_phenomenon": "High-Frequency Flash Crash Propagation in USDJPY",
+          "proposed_mechanism": "Utilization of a Multivariate Hawkes Point Process to model self-exciting arrival intensities of price movements, capturing the endogenous nature of market events that can lead to flash crashes.",
+          "analogical_source": "Theoretical foundations of point processes in stochastic modeling, particularly the Hawkes process literature.",
+          "claim": "The self-exciting nature of price movements, as modeled by the Multivariate Hawkes Point Process, can predict imminent price spikes or drops in USDJPY, allowing for profitable trading opportunities during high volatility periods.",
+          "grounding_rationale": "Literature indicates that financial markets exhibit self-exciting behavior, where past price movements influence future price dynamics. The Hawkes process effectively captures this phenomenon, providing a framework to anticipate flash crashes.",
+          "supporting_path": null,
+          "supporting_evidence_quotes": [],
+          "testable_falsification_condition": "The hypothesis will be disproven if the strategy fails to achieve a Sharpe ratio greater than 1.0 over a backtest period of 6 months, with a maximum drawdown exceeding 5%.",
+          "backtest_spec": {
+            "target_asset": "USDJPY",
+            "timeframe": "M5",
+            "feature_engineering": "{\"FilteredIntensityLambda\": \"Estimated conditional event arrival intensity lambda(t) derived from the Multivariate Hawkes Point Process, calculated using historical price data over the last 100 M5 bars.\", \"FilteredRegimeProbability\": \"Probability of being in a specific market regime P(S_t|F_t) based on the estimated parameters, calculated using a rolling window of the last 50 M5 bars.\"}",
+            "entry_condition": "Enter a long position when the filtered intensity lambda(t) exceeds a threshold of 0.05 and the filtered regime probability indicates a bullish market regime (P(S_t|F_t) > 0.7). Enter a short position when lambda(t) is below 0.05 and P(S_t|F_t) < 0.3, indicating a bearish market regime.",
+            "exit_condition": "Exit the position after 10 M5 bars or if the filtered intensity lambda(t) drops below 0.02, indicating reduced volatility. Additionally, exit if the price moves against the position by more than the stop loss threshold.",
+            "risk_management": "{\"StopLoss\": \"Set a stop loss at 1.5 times the average true range (ATR) of the last 20 M5 bars, recalculated every 20 bars.\", \"PositionSizing\": \"Risk no more than 1% of the total account equity on each trade, with position size adjusted based on the current volatility as indicated by the ATR.\"}",
+            "benchmark_baseline": "The benchmark for performance comparison will be a simple moving average crossover strategy on the same asset and timeframe.",
+            "falsification_metric": "Sharpe ratio must exceed 1.0 and maximum drawdown must not exceed 5% over the backtest period, with a minimum of 100 trades executed."
+          }
+        },
+        "diagnostics": {
+          "in_tokens": 1043,
+          "out_tokens": 384,
+          "finish_reason": "stop",
+          "cost_usd": 0.00038685
+        }
+      },
+      "S2b": {
+        "call_id": "h2_d6_hawkes_process_s43_s2b",
+        "checklist_prompted": [
+          {
+            "param_id": "hawkes_excitation_alpha",
+            "symbol": "alpha",
+            "layer": "layer1_model",
+            "necessity": "MODEL_REQUIRED",
+            "description": "Excitation magnitude / jump reflexivity"
+          },
+          {
+            "param_id": "hawkes_decay_beta",
+            "symbol": "beta",
+            "layer": "layer1_model",
+            "necessity": "MODEL_REQUIRED",
+            "description": "Exponential memory decay rate"
+          },
+          {
+            "param_id": "hawkes_execution_timing_rule",
+            "symbol": "t_exec",
+            "layer": "layer4_execution",
+            "necessity": "STRATEGY_REQUIRED",
+            "description": "Temporal execution ordering"
+          },
+          {
+            "param_id": "hawkes_max_drawdown_stop",
+            "symbol": "max_dd",
+            "layer": "layer3_risk",
+            "necessity": "STRATEGY_REQUIRED",
+            "description": "Risk stop loss / maximum adverse excursion threshold"
+          }
+        ],
+        "checklist_inspection_audit_log": [
+          {
+            "param_id": "hawkes_baseline_mu",
+            "symbol": "mu",
+            "layer": "layer1_model",
+            "necessity": "MODEL_REQUIRED",
+            "is_required_for_strategy": true,
+            "is_determined": true,
+            "s1_reference": "Mentioned with estimation/threshold cues in text"
+          },
+          {
+            "param_id": "hawkes_excitation_alpha",
+            "symbol": "alpha",
+            "layer": "layer1_model",
+            "necessity": "MODEL_REQUIRED",
+            "is_required_for_strategy": true,
+            "is_determined": false,
+            "s1_reference": "Symbol 'alpha' completely absent from specification"
+          },
+          {
+            "param_id": "hawkes_decay_beta",
+            "symbol": "beta",
+            "layer": "layer1_model",
+            "necessity": "MODEL_REQUIRED",
+            "is_required_for_strategy": true,
+            "is_determined": false,
+            "s1_reference": "Symbol 'beta' completely absent from specification"
+          },
+          {
+            "param_id": "hawkes_intensity_threshold",
+            "symbol": "lambda*",
+            "layer": "layer2_decision",
+            "necessity": "STRATEGY_REQUIRED",
+            "is_required_for_strategy": true,
+            "is_determined": true,
+            "s1_reference": "Mentioned with estimation/threshold cues in text"
+          },
+          {
+            "param_id": "hawkes_execution_timing_rule",
+            "symbol": "t_exec",
+            "layer": "layer4_execution",
+            "necessity": "STRATEGY_REQUIRED",
+            "is_required_for_strategy": true,
+            "is_determined": false,
+            "s1_reference": "Symbol 't_exec' completely absent from specification"
+          },
+          {
+            "param_id": "hawkes_max_drawdown_stop",
+            "symbol": "max_dd",
+            "layer": "layer3_risk",
+            "necessity": "STRATEGY_REQUIRED",
+            "is_required_for_strategy": true,
+            "is_determined": false,
+            "s1_reference": "Symbol 'max_dd' completely absent from specification"
+          },
+          {
+            "param_id": "hawkes_branching_ratio_threshold",
+            "symbol": "(alpha/beta)*",
+            "layer": "layer2_decision",
+            "necessity": "CONDITIONAL",
+            "is_required_for_strategy": false,
+            "is_determined": false,
+            "s1_reference": "Symbol '(alpha/beta)*' completely absent from specification"
+          },
+          {
+            "param_id": "hawkes_risk_sizing_scale",
+            "symbol": "w_risk",
+            "layer": "layer3_risk",
+            "necessity": "CONDITIONAL",
+            "is_required_for_strategy": false,
+            "is_determined": false,
+            "s1_reference": "Symbol 'w_risk' completely absent from specification"
+          },
+          {
+            "param_id": "hawkes_max_holding_horizon",
+            "symbol": "K_horizon",
+            "layer": "layer4_execution",
+            "necessity": "OPTIONAL",
+            "is_required_for_strategy": false,
+            "is_determined": false,
+            "s1_reference": "Symbol 'k_horizon' completely absent from specification"
+          }
+        ],
+        "raw_patch": {
+          "patch_summary": "Added explicit in-sample estimation protocols for missing parameters 'alpha', 'beta', 't_exec', and 'max_dd' based on literature and empirical methods.",
+          "updates": {
+            "feature_engineering": "{\"FilteredIntensityLambda\": \"Estimated conditional event arrival intensity lambda(t) derived from the Multivariate Hawkes Point Process.\", \"FilteredRegimeProbability\": \"Probability of being in a specific market regime P(S_t|F_t) based on the estimated parameters.\", \"HawkesExcitationAlpha\": \"Estimated using maximum likelihood estimation from historical price data, with bounds set between 0.1 and 0.5 to capture realistic excitation levels.\", \"HawkesDecayBeta\": \"Estimated using maximum likelihood estimation from historical price data, with bounds set between 0.01 and 0.1 to reflect the decay of influence over time.\"}",
+            "entry_condition": "Enter a long position when the filtered intensity lambda(t) exceeds a threshold of 0.05 and the filtered regime probability indicates a bullish market regime (P(S_t|F_t) > 0.7). Enter a short position under the opposite conditions. Execution timing will be determined by the Hawkes execution timing rule, which will prioritize trades based on the predicted intensity and market conditions.",
+            "exit_condition": "Exit the position after 10 M5 bars or if the filtered intensity lambda(t) drops below 0.02, indicating reduced volatility.",
+            "risk_management": "{\"StopLoss\": \"Set a stop loss at 1.5 times the average true range (ATR) of the last 20 M5 bars.\", \"PositionSizing\": \"Risk no more than 1% of the total account equity on each trade.\", \"HawkesMaxDrawdownStop\": \"Set a maximum drawdown threshold at 5% of the account equity, with real-time monitoring to trigger exit if this threshold is breached.\"}",
+            "falsification_metric": "Sharpe ratio must exceed 1.0 and maximum drawdown must not exceed 5% over the backtest period."
+          }
+        },
+        "candidate": {
+          "hypothesis_id": "h2_d6_hawkes_process_s43_s2b",
+          "condition_id": "S2b",
+          "task_id": "d6_hawkes_process",
+          "title": "Standard title",
+          "target_phenomenon": "High-Frequency Flash Crash Propagation in USDJPY",
+          "proposed_mechanism": "Utilization of a Multivariate Hawkes Point Process to model self-exciting arrival intensities of price movements, capturing the endogenous nature of market events that can lead to flash crashes.",
+          "analogical_source": "Theoretical foundations of point processes in stochastic modeling, particularly the Hawkes process literature.",
+          "claim": "The self-exciting nature of price movements, as modeled by the Multivariate Hawkes Point Process, can predict imminent price spikes or drops in USDJPY, allowing for profitable trading opportunities during high volatility periods.",
+          "grounding_rationale": "Literature indicates that financial markets exhibit self-exciting behavior, where past price movements influence future price dynamics. The Hawkes process effectively captures this phenomenon, providing a framework to anticipate flash crashes.",
+          "supporting_path": null,
+          "supporting_evidence_quotes": [],
+          "testable_falsification_condition": "The hypothesis will be disproven if the strategy fails to achieve a Sharpe ratio greater than 1.0 over a backtest period of 6 months, with a maximum drawdown exceeding 5%.",
+          "backtest_spec": {
+            "target_asset": "USDJPY",
+            "timeframe": "M5",
+            "feature_engineering": "{\"FilteredIntensityLambda\": \"Estimated conditional event arrival intensity lambda(t) derived from the Multivariate Hawkes Point Process.\", \"FilteredRegimeProbability\": \"Probability of being in a specific market regime P(S_t|F_t) based on the estimated parameters.\", \"HawkesExcitationAlpha\": \"Estimated using maximum likelihood estimation from historical price data, with bounds set between 0.1 and 0.5 to capture realistic excitation levels.\", \"HawkesDecayBeta\": \"Estimated using maximum likelihood estimation from historical price data, with bounds set between 0.01 and 0.1 to reflect the decay of influence over time.\"}",
+            "entry_condition": "Enter a long position when the filtered intensity lambda(t) exceeds a threshold of 0.05 and the filtered regime probability indicates a bullish market regime (P(S_t|F_t) > 0.7). Enter a short position under the opposite conditions. Execution timing will be determined by the Hawkes execution timing rule, which will prioritize trades based on the predicted intensity and market conditions.",
+            "exit_condition": "Exit the position after 10 M5 bars or if the filtered intensity lambda(t) drops below 0.02, indicating reduced volatility.",
+            "risk_management": "{\"StopLoss\": \"Set a stop loss at 1.5 times the average true range (ATR) of the last 20 M5 bars.\", \"PositionSizing\": \"Risk no more than 1% of the total account equity on each trade.\", \"HawkesMaxDrawdownStop\": \"Set a maximum drawdown threshold at 5% of the account equity, with real-time monitoring to trigger exit if this threshold is breached.\"}",
+            "benchmark_baseline": "The benchmark for performance comparison will be a simple moving average crossover strategy on the same asset and timeframe.",
+            "falsification_metric": "Sharpe ratio must exceed 1.0 and maximum drawdown must not exceed 5% over the backtest period."
+          }
+        },
+        "diagnostics": {
+          "in_tokens": 1212,
+          "out_tokens": 436,
+          "finish_reason": "stop",
+          "cost_usd": 0.00044340000000000004
+        }
+      }
+    }
+  },
+  {
+    "base_unit_id": "h2_d6_hawkes_process_s44",
+    "concept_id": "hawkes_process",
+    "seed": 44,
+    "total_unit_cost_usd": 0.002146,
+    "candidates": {
+      "S0": {
+        "call_id": "h2_d6_hawkes_process_s44_s0",
+        "candidate": {
+          "hypothesis_id": "h2_d6_hawkes_process_s44_s0",
+          "condition_id": "S0",
+          "task_id": "d6_hawkes_process",
+          "title": "Standard title",
+          "target_phenomenon": "High-Frequency Flash Crash Propagation in USDJPY",
+          "proposed_mechanism": "Utilizing a Multivariate Hawkes Point Process to model self-exciting event arrival intensities based on M5 bar return exceedances.",
+          "analogical_source": "Statistical Point Processes in Finance, specifically the Hawkes Process framework.",
+          "claim": "The Multivariate Hawkes Point Process can effectively capture and predict endogenous cascade risks in USDJPY trading, leading to profitable trading opportunities during periods of heightened volatility.",
+          "grounding_rationale": "Literature indicates that financial markets exhibit self-exciting behavior during periods of stress, where past events increase the likelihood of future events. The Hawkes Process has been successfully applied to model such phenomena, suggesting that similar dynamics can be exploited in USDJPY trading.",
+          "supporting_path": null,
+          "supporting_evidence_quotes": [],
+          "testable_falsification_condition": "If the strategy fails to achieve a Sharpe ratio greater than 1.0 over a validation period of 6 months, the hypothesis is disproven.",
+          "backtest_spec": {
+            "target_asset": "USDJPY",
+            "timeframe": "M5",
+            "feature_engineering": "{\"eventDefinition\": \"Define events as M5 bar returns exceeding 2.0 times the rolling standard deviation of returns over a lookback window of 20 bars.\", \"inputData\": \"M5 OHLCV data for USDJPY.\"}",
+            "entry_condition": "{\"criteria\": \"Enter a long position at the open of the next bar if the estimated intensity lambda(t) exceeds a threshold derived from the historical mean intensity plus one standard deviation.\"}",
+            "exit_condition": "{\"criteria\": \"Exit the position at the open of the next bar if the estimated intensity lambda(t) falls below the historical mean intensity.\"}",
+            "risk_management": "{\"stopLoss\": \"Set a stop loss at 1.5 times the average true range (ATR) of the last 20 bars.\", \"takeProfit\": \"Set a take profit at 2 times the risk taken.\"}",
+            "benchmark_baseline": "Compare against a simple buy-and-hold strategy on USDJPY over the same period.",
+            "falsification_metric": "Sharpe ratio must exceed 1.0 over a 6-month validation period."
+          }
+        },
+        "diagnostics": {
+          "in_tokens": 825,
+          "out_tokens": 698,
+          "finish_reason": "stop",
+          "cost_usd": 0.00054255
+        }
+      },
+      "S1": {
+        "call_id": "h2_d6_hawkes_process_s44_s1",
+        "stage1_model_spec": {
+          "TargetPhenomenon": "High-Frequency Flash Crash Propagation",
+          "ProposedMechanism": "Utilization of a Multivariate Hawkes Point Process to model self-exciting event arrival intensities based on significant return exceedances in USDJPY M5 OHLCV data.",
+          "InternalModelParameters": {
+            "mu": "Baseline intensity, must be positive (mu > 0)",
+            "alpha": "Self-excitation parameter, must satisfy alpha < beta",
+            "beta": "Decay parameter, must satisfy alpha < beta"
+          },
+          "TheoreticalBoundaries": {
+            "StationarityCondition": "The process must remain stationary with respect to the parameters over the estimation window.",
+            "ParameterConstraints": "Estimation must ensure alpha < beta to maintain the validity of the Hawkes process."
+          },
+          "InSampleEstimationProtocol": {
+            "SearchRange": {
+              "mu": [
+                0.01,
+                0.1
+              ],
+              "alpha": [
+                0.01,
+                0.5
+              ],
+              "beta": [
+                0.1,
+                1.0
+              ]
+            },
+            "ObjectiveLikelihood": "Maximize the log-likelihood function derived from the Hawkes process.",
+            "LookbackWindow": "Fixed window of 1000 M5 bars for parameter estimation.",
+            "ValidationSplit": "20% of the data reserved for validation after parameter estimation.",
+            "UpdateTiming": "Parameters updated every 100 M5 bars.",
+            "LookaheadProtection": "Ensure that the estimation does not use future data points beyond the current bar."
+          },
+          "FilteredOutputs": {
+            "FilteredIntensityLambda": "Estimated conditional event arrival intensity lambda(t) based on the M5 bar return exceedance.",
+            "FilteredRegimeProbability": "Probability of being in a specific regime P(S_t|F_t) based on the estimated parameters."
+          }
+        },
+        "candidate": {
+          "hypothesis_id": "h2_d6_hawkes_process_s44_s1",
+          "condition_id": "S1",
+          "task_id": "d6_hawkes_process",
+          "title": "Standard title",
+          "target_phenomenon": "High-Frequency Flash Crash Propagation",
+          "proposed_mechanism": "Utilization of a Multivariate Hawkes Point Process to model self-exciting event arrival intensities based on significant return exceedances in USDJPY M5 OHLCV data.",
+          "analogical_source": "Point Process Theory in stochastic modeling, particularly the application of Hawkes processes in finance.",
+          "claim": "The self-exciting nature of the Hawkes process will allow for predictive insights into the likelihood of flash crash events in USDJPY, enabling profitable trading opportunities.",
+          "grounding_rationale": "Literature indicates that financial markets exhibit clustering behavior in volatility and returns, which can be captured by Hawkes processes. The self-excitation mechanism allows for the modeling of increased event intensity following significant price movements, which is indicative of potential flash crashes.",
+          "supporting_path": null,
+          "supporting_evidence_quotes": [],
+          "testable_falsification_condition": "{\"Metric\": \"Sharpe Ratio\", \"Threshold\": 1.0}",
+          "backtest_spec": {
+            "target_asset": "USDJPY",
+            "timeframe": "M5",
+            "feature_engineering": "{\"FilteredIntensityLambda\": \"Estimated conditional event arrival intensity lambda(t) based on the M5 bar return exceedance.\", \"FilteredRegimeProbability\": \"Probability of being in a specific regime P(S_t|F_t) based on the estimated parameters.\"}",
+            "entry_condition": "{\"Description\": \"Enter a long position when the filtered intensity lambda(t) exceeds a threshold of 0.05 and the regime probability indicates a high likelihood of upward price movement (P(S_t|F_t) > 0.7).\", \"ExecutionTiming\": \"Decision made at time C_t, with execution at the next bar O_{t+1}.\"}",
+            "exit_condition": "{\"Description\": \"Exit the position either after 10 M5 bars or if the filtered intensity lambda(t) drops below 0.02, indicating reduced likelihood of continued upward movement.\"}",
+            "risk_management": "{\"StopLoss\": \"Set at 50 pips below the entry price.\", \"PositionSizing\": \"Risk no more than 2% of total capital on a single trade.\"}",
+            "benchmark_baseline": "Comparison against a buy-and-hold strategy over the same period.",
+            "falsification_metric": "Sharpe Ratio must exceed 1.0 to validate the hypothesis."
+          }
+        },
+        "diagnostics": {
+          "stage1": {
+            "in_tokens": 830,
+            "out_tokens": 390,
+            "finish_reason": "stop",
+            "cost_usd": 0.0003585
+          },
+          "stage2": {
+            "in_tokens": 836,
+            "out_tokens": 528,
+            "finish_reason": "stop",
+            "cost_usd": 0.0004422
+          },
+          "total_output_tokens": 918
+        }
+      },
+      "S2a": {
+        "call_id": "h2_d6_hawkes_process_s44_s2a",
+        "raw_patch": {
+          "patch_summary": "Enhanced operational parameters for clarity and completeness in feature engineering, entry conditions, exit conditions, and risk management.",
+          "updates": {
+            "feature_engineering": "{\"FilteredIntensityLambda\": \"Estimated conditional event arrival intensity lambda(t) based on the M5 bar return exceedance, incorporating a decay factor to model the temporal influence of past events.\", \"FilteredRegimeProbability\": \"Probability of being in a specific regime P(S_t|F_t) based on the estimated parameters, using a rolling window of the last 100 M5 bars for stability.\"}",
+            "entry_condition": "{\"Description\": \"Enter a long position when the filtered intensity lambda(t) exceeds a threshold of 0.05 and the regime probability indicates a high likelihood of upward price movement (P(S_t|F_t) > 0.7). Additionally, confirm that the last closing price is above the 50-period moving average to ensure trend alignment.\", \"ExecutionTiming\": \"Decision made at time C_t, with execution at the next bar O_{t+1} after confirmation of conditions.\"}",
+            "exit_condition": "{\"Description\": \"Exit the position either after 10 M5 bars or if the filtered intensity lambda(t) drops below 0.02, indicating reduced likelihood of continued upward movement. Additionally, exit if the price closes below the 50-period moving average to avoid trend reversals.\", \"ExecutionTiming\": \"Exit executed at the close of the bar meeting exit conditions.\"}",
+            "risk_management": "{\"StopLoss\": \"Set at 50 pips below the entry price, with a trailing stop activated if the trade moves in favor by 30 pips.\", \"PositionSizing\": \"Risk no more than 2% of total capital on a single trade, calculated based on the distance to the stop loss to determine position size.\"}",
+            "falsification_metric": "Sharpe Ratio must exceed 1.0 to validate the hypothesis."
+          }
+        },
+        "candidate": {
+          "hypothesis_id": "h2_d6_hawkes_process_s44_s2a",
+          "condition_id": "S2a",
+          "task_id": "d6_hawkes_process",
+          "title": "Standard title",
+          "target_phenomenon": "High-Frequency Flash Crash Propagation",
+          "proposed_mechanism": "Utilization of a Multivariate Hawkes Point Process to model self-exciting event arrival intensities based on significant return exceedances in USDJPY M5 OHLCV data.",
+          "analogical_source": "Point Process Theory in stochastic modeling, particularly the application of Hawkes processes in finance.",
+          "claim": "The self-exciting nature of the Hawkes process will allow for predictive insights into the likelihood of flash crash events in USDJPY, enabling profitable trading opportunities.",
+          "grounding_rationale": "Literature indicates that financial markets exhibit clustering behavior in volatility and returns, which can be captured by Hawkes processes. The self-excitation mechanism allows for the modeling of increased event intensity following significant price movements, which is indicative of potential flash crashes.",
+          "supporting_path": null,
+          "supporting_evidence_quotes": [],
+          "testable_falsification_condition": "{\"Metric\": \"Sharpe Ratio\", \"Threshold\": 1.0}",
+          "backtest_spec": {
+            "target_asset": "USDJPY",
+            "timeframe": "M5",
+            "feature_engineering": "{\"FilteredIntensityLambda\": \"Estimated conditional event arrival intensity lambda(t) based on the M5 bar return exceedance, incorporating a decay factor to model the temporal influence of past events.\", \"FilteredRegimeProbability\": \"Probability of being in a specific regime P(S_t|F_t) based on the estimated parameters, using a rolling window of the last 100 M5 bars for stability.\"}",
+            "entry_condition": "{\"Description\": \"Enter a long position when the filtered intensity lambda(t) exceeds a threshold of 0.05 and the regime probability indicates a high likelihood of upward price movement (P(S_t|F_t) > 0.7). Additionally, confirm that the last closing price is above the 50-period moving average to ensure trend alignment.\", \"ExecutionTiming\": \"Decision made at time C_t, with execution at the next bar O_{t+1} after confirmation of conditions.\"}",
+            "exit_condition": "{\"Description\": \"Exit the position either after 10 M5 bars or if the filtered intensity lambda(t) drops below 0.02, indicating reduced likelihood of continued upward movement. Additionally, exit if the price closes below the 50-period moving average to avoid trend reversals.\", \"ExecutionTiming\": \"Exit executed at the close of the bar meeting exit conditions.\"}",
+            "risk_management": "{\"StopLoss\": \"Set at 50 pips below the entry price, with a trailing stop activated if the trade moves in favor by 30 pips.\", \"PositionSizing\": \"Risk no more than 2% of total capital on a single trade, calculated based on the distance to the stop loss to determine position size.\"}",
+            "benchmark_baseline": "Comparison against a buy-and-hold strategy over the same period.",
+            "falsification_metric": "Sharpe Ratio must exceed 1.0 to validate the hypothesis."
+          }
+        },
+        "diagnostics": {
+          "in_tokens": 1009,
+          "out_tokens": 406,
+          "finish_reason": "stop",
+          "cost_usd": 0.00039495
+        }
+      },
+      "S2b": {
+        "call_id": "h2_d6_hawkes_process_s44_s2b",
+        "checklist_prompted": [
+          {
+            "param_id": "hawkes_excitation_alpha",
+            "symbol": "alpha",
+            "layer": "layer1_model",
+            "necessity": "MODEL_REQUIRED",
+            "description": "Excitation magnitude / jump reflexivity"
+          },
+          {
+            "param_id": "hawkes_decay_beta",
+            "symbol": "beta",
+            "layer": "layer1_model",
+            "necessity": "MODEL_REQUIRED",
+            "description": "Exponential memory decay rate"
+          },
+          {
+            "param_id": "hawkes_execution_timing_rule",
+            "symbol": "t_exec",
+            "layer": "layer4_execution",
+            "necessity": "STRATEGY_REQUIRED",
+            "description": "Temporal execution ordering"
+          },
+          {
+            "param_id": "hawkes_max_drawdown_stop",
+            "symbol": "max_dd",
+            "layer": "layer3_risk",
+            "necessity": "STRATEGY_REQUIRED",
+            "description": "Risk stop loss / maximum adverse excursion threshold"
+          }
+        ],
+        "checklist_inspection_audit_log": [
+          {
+            "param_id": "hawkes_baseline_mu",
+            "symbol": "mu",
+            "layer": "layer1_model",
+            "necessity": "MODEL_REQUIRED",
+            "is_required_for_strategy": true,
+            "is_determined": true,
+            "s1_reference": "Mentioned with estimation/threshold cues in text"
+          },
+          {
+            "param_id": "hawkes_excitation_alpha",
+            "symbol": "alpha",
+            "layer": "layer1_model",
+            "necessity": "MODEL_REQUIRED",
+            "is_required_for_strategy": true,
+            "is_determined": false,
+            "s1_reference": "Symbol 'alpha' completely absent from specification"
+          },
+          {
+            "param_id": "hawkes_decay_beta",
+            "symbol": "beta",
+            "layer": "layer1_model",
+            "necessity": "MODEL_REQUIRED",
+            "is_required_for_strategy": true,
+            "is_determined": false,
+            "s1_reference": "Symbol 'beta' completely absent from specification"
+          },
+          {
+            "param_id": "hawkes_intensity_threshold",
+            "symbol": "lambda*",
+            "layer": "layer2_decision",
+            "necessity": "STRATEGY_REQUIRED",
+            "is_required_for_strategy": true,
+            "is_determined": true,
+            "s1_reference": "Mentioned with estimation/threshold cues in text"
+          },
+          {
+            "param_id": "hawkes_execution_timing_rule",
+            "symbol": "t_exec",
+            "layer": "layer4_execution",
+            "necessity": "STRATEGY_REQUIRED",
+            "is_required_for_strategy": true,
+            "is_determined": false,
+            "s1_reference": "Symbol 't_exec' completely absent from specification"
+          },
+          {
+            "param_id": "hawkes_max_drawdown_stop",
+            "symbol": "max_dd",
+            "layer": "layer3_risk",
+            "necessity": "STRATEGY_REQUIRED",
+            "is_required_for_strategy": true,
+            "is_determined": false,
+            "s1_reference": "Symbol 'max_dd' completely absent from specification"
+          },
+          {
+            "param_id": "hawkes_branching_ratio_threshold",
+            "symbol": "(alpha/beta)*",
+            "layer": "layer2_decision",
+            "necessity": "CONDITIONAL",
+            "is_required_for_strategy": false,
+            "is_determined": false,
+            "s1_reference": "Symbol '(alpha/beta)*' completely absent from specification"
+          },
+          {
+            "param_id": "hawkes_risk_sizing_scale",
+            "symbol": "w_risk",
+            "layer": "layer3_risk",
+            "necessity": "CONDITIONAL",
+            "is_required_for_strategy": false,
+            "is_determined": false,
+            "s1_reference": "Symbol 'w_risk' completely absent from specification"
+          },
+          {
+            "param_id": "hawkes_max_holding_horizon",
+            "symbol": "K_horizon",
+            "layer": "layer4_execution",
+            "necessity": "OPTIONAL",
+            "is_required_for_strategy": false,
+            "is_determined": false,
+            "s1_reference": "Symbol 'k_horizon' completely absent from specification"
+          }
+        ],
+        "raw_patch": {
+          "patch_summary": "Added explicit in-sample estimation protocols for missing parameters and clarified execution timing and risk management specifications.",
+          "updates": {
+            "feature_engineering": "{\"FilteredIntensityLambda\": \"Estimated conditional event arrival intensity lambda(t) based on the M5 bar return exceedance.\", \"FilteredRegimeProbability\": \"Probability of being in a specific regime P(S_t|F_t) based on the estimated parameters.\", \"HawkesExcitationAlpha\": \"Estimated using maximum likelihood estimation from historical event data, with bounds [0.01, 0.5].\", \"HawkesDecayBeta\": \"Estimated using maximum likelihood estimation from historical event data, with bounds [0.01, 1.0].\"}",
+            "entry_condition": "{\"Description\": \"Enter a long position when the filtered intensity lambda(t) exceeds a threshold of 0.05 and the regime probability indicates a high likelihood of upward price movement (P(S_t|F_t) > 0.7).\", \"ExecutionTiming\": \"Decision made at time C_t, with execution at the next bar O_{t+1}, ensuring that the execution aligns with the temporal dynamics of the Hawkes process.\"}",
+            "exit_condition": "{\"Description\": \"Exit the position either after 10 M5 bars or if the filtered intensity lambda(t) drops below 0.02, indicating reduced likelihood of continued upward movement.\"}",
+            "risk_management": "{\"StopLoss\": \"Set at 50 pips below the entry price.\", \"PositionSizing\": \"Risk no more than 2% of total capital on a single trade.\", \"MaxDrawdown\": \"Set a maximum drawdown threshold of 5% of total capital to limit adverse excursions.\"}",
+            "falsification_metric": "Sharpe Ratio must exceed 1.0 to validate the hypothesis."
+          }
+        },
+        "candidate": {
+          "hypothesis_id": "h2_d6_hawkes_process_s44_s2b",
+          "condition_id": "S2b",
+          "task_id": "d6_hawkes_process",
+          "title": "Standard title",
+          "target_phenomenon": "High-Frequency Flash Crash Propagation",
+          "proposed_mechanism": "Utilization of a Multivariate Hawkes Point Process to model self-exciting event arrival intensities based on significant return exceedances in USDJPY M5 OHLCV data.",
+          "analogical_source": "Point Process Theory in stochastic modeling, particularly the application of Hawkes processes in finance.",
+          "claim": "The self-exciting nature of the Hawkes process will allow for predictive insights into the likelihood of flash crash events in USDJPY, enabling profitable trading opportunities.",
+          "grounding_rationale": "Literature indicates that financial markets exhibit clustering behavior in volatility and returns, which can be captured by Hawkes processes. The self-excitation mechanism allows for the modeling of increased event intensity following significant price movements, which is indicative of potential flash crashes.",
+          "supporting_path": null,
+          "supporting_evidence_quotes": [],
+          "testable_falsification_condition": "{\"Metric\": \"Sharpe Ratio\", \"Threshold\": 1.0}",
+          "backtest_spec": {
+            "target_asset": "USDJPY",
+            "timeframe": "M5",
+            "feature_engineering": "{\"FilteredIntensityLambda\": \"Estimated conditional event arrival intensity lambda(t) based on the M5 bar return exceedance.\", \"FilteredRegimeProbability\": \"Probability of being in a specific regime P(S_t|F_t) based on the estimated parameters.\", \"HawkesExcitationAlpha\": \"Estimated using maximum likelihood estimation from historical event data, with bounds [0.01, 0.5].\", \"HawkesDecayBeta\": \"Estimated using maximum likelihood estimation from historical event data, with bounds [0.01, 1.0].\"}",
+            "entry_condition": "{\"Description\": \"Enter a long position when the filtered intensity lambda(t) exceeds a threshold of 0.05 and the regime probability indicates a high likelihood of upward price movement (P(S_t|F_t) > 0.7).\", \"ExecutionTiming\": \"Decision made at time C_t, with execution at the next bar O_{t+1}, ensuring that the execution aligns with the temporal dynamics of the Hawkes process.\"}",
+            "exit_condition": "{\"Description\": \"Exit the position either after 10 M5 bars or if the filtered intensity lambda(t) drops below 0.02, indicating reduced likelihood of continued upward movement.\"}",
+            "risk_management": "{\"StopLoss\": \"Set at 50 pips below the entry price.\", \"PositionSizing\": \"Risk no more than 2% of total capital on a single trade.\", \"MaxDrawdown\": \"Set a maximum drawdown threshold of 5% of total capital to limit adverse excursions.\"}",
+            "benchmark_baseline": "Comparison against a buy-and-hold strategy over the same period.",
+            "falsification_metric": "Sharpe Ratio must exceed 1.0 to validate the hypothesis."
+          }
+        },
+        "diagnostics": {
+          "in_tokens": 1178,
+          "out_tokens": 385,
+          "finish_reason": "stop",
+          "cost_usd": 0.0004077
+        }
+      }
+    }
+  },
+  {
+    "base_unit_id": "h2_d6_jump_diffusion_s42",
+    "concept_id": "jump_diffusion",
+    "seed": 42,
+    "total_unit_cost_usd": 0.0022,
+    "candidates": {
+      "S0": {
+        "call_id": "h2_d6_jump_diffusion_s42_s0",
+        "candidate": {
+          "hypothesis_id": "h2_d6_jump_diffusion_s42_s0",
+          "condition_id": "S0",
+          "task_id": "d6_jump_diffusion",
+          "title": "Standard title",
+          "target_phenomenon": "Central Bank Rate Announcement Jumps",
+          "proposed_mechanism": "Regime-Switching Jump Diffusion Model that filters continuous Gaussian diffusion from discrete Poisson jumps across latent market regimes.",
+          "analogical_source": "Merton Jump Diffusion Model, which provides a foundational framework for modeling price dynamics with jumps.",
+          "claim": "The model captures the latent market regimes and jump intensities, allowing for profitable trading strategies during central bank announcements by exploiting the inefficiencies in price movements.",
+          "grounding_rationale": "The literature indicates that financial markets exhibit jumps in response to significant news events, such as central bank announcements. The Regime-Switching Jump Diffusion Model effectively identifies these jumps and the underlying market regime, providing a statistical edge in trading.",
+          "supporting_path": null,
+          "supporting_evidence_quotes": [],
+          "testable_falsification_condition": "{\"metric\": \"Sharpe ratio\", \"threshold\": 1.0}",
+          "backtest_spec": {
+            "target_asset": "USDJPY",
+            "timeframe": "M5",
+            "feature_engineering": "{\"inputFeatures\": [\"M5 log-returns r_t\", \"Realized Variance RV_t\", \"Bipower Variation BV_t (computed over a rolling lookback window of 288 M5 bars)\"], \"outputMetrics\": [\"Jump component test statistic J_t = max(0, RV_t - BV_t)\", \"Filtered regime state probability P(S_t = tranquil | F_t)\", \"Filtered Poisson jump arrival intensity lambda_jump\"]}",
+            "entry_condition": "Enter long position when P(S_t = tranquil | F_t) > 0.7 and J_t > threshold (to be calibrated based on historical data).",
+            "exit_condition": "Exit position when P(S_t = tranquil | F_t) < 0.3 or after 3 M5 bars if no jump is detected.",
+            "risk_management": "Use a stop-loss of 1.5x the average true range (ATR) over the last 288 M5 bars.",
+            "benchmark_baseline": "Buy-and-hold strategy on USDJPY over the same period.",
+            "falsification_metric": "If the Sharpe ratio falls below 1.0 during the backtest period, the hypothesis is considered falsified."
+          }
+        },
+        "diagnostics": {
+          "in_tokens": 855,
+          "out_tokens": 646,
+          "finish_reason": "stop",
+          "cost_usd": 0.00051585
+        }
+      },
+      "S1": {
+        "call_id": "h2_d6_jump_diffusion_s42_s1",
+        "stage1_model_spec": {
+          "TargetPhenomenon": "Central Bank Rate Announcement Jumps",
+          "ProposedMechanism": "The Regime-Switching Jump Diffusion Model filters continuous Gaussian diffusion from discrete Poisson jumps across latent market regimes, allowing for the identification of jumps in the USDJPY exchange rate that occur around central bank announcements.",
+          "InternalModelParameters": {
+            "StateTransitionMatrix": "2-state Markov chain with transition probabilities estimated via Hamilton filter",
+            "JumpIntensity": "Filtered Poisson jump arrival intensity lambda_jump",
+            "ContinuousVariance": "sigma_tranquil for tranquil state, sigma_crisis for crisis state",
+            "Threshold": "Bipower variation threshold RV_t > BV_t for jump detection"
+          },
+          "TheoreticalBoundaries": {
+            "sigma_crisis": "Must be greater than sigma_tranquil",
+            "StateProbability": "Filtered probabilities P(S_t | F_t) must be used for trading decisions"
+          },
+          "InSampleEstimationProtocol": {
+            "SearchRange": "Parameter space for sigma_tranquil and sigma_crisis defined by historical volatility of USDJPY",
+            "ObjectiveLikelihood": "Maximize the likelihood function based on observed M5 log-returns and computed jump statistics",
+            "LookbackWindow": "288 M5 bars for computing Realized Variance RV_t and Bipower Variation BV_t",
+            "ValidationSplit": "70% in-sample for estimation, 30% out-of-sample for validation",
+            "UpdateTiming": "Model parameters updated at the end of each trading day based on the latest available data",
+            "LookaheadProtection": "Ensure that only past data is used for estimating current state probabilities and jump intensities"
+          },
+          "FilteredOutputs": {
+            "JumpComponentTestStatistic": "J_t = max(0, RV_t - BV_t)",
+            "FilteredRegimeProbability": "P(S_t = tranquil | F_t)",
+            "FilteredJumpIntensity": "lambda_jump"
+          }
+        },
+        "candidate": {
+          "hypothesis_id": "h2_d6_jump_diffusion_s42_s1",
+          "condition_id": "S1",
+          "task_id": "d6_jump_diffusion",
+          "title": "Standard title",
+          "target_phenomenon": "Central Bank Rate Announcement Jumps",
+          "proposed_mechanism": "The Regime-Switching Jump Diffusion Model filters continuous Gaussian diffusion from discrete Poisson jumps across latent market regimes, allowing for the identification of jumps in the USDJPY exchange rate that occur around central bank announcements.",
+          "analogical_source": "Theoretical foundations of jump diffusion processes and regime-switching models in financial econometrics.",
+          "claim": "The identification of jumps in the USDJPY exchange rate around central bank announcements can be effectively captured and traded using a regime-switching jump diffusion model, leading to profitable trading opportunities.",
+          "grounding_rationale": "Literature indicates that financial markets exhibit jumps in response to macroeconomic announcements, and the regime-switching model allows for capturing these dynamics by distinguishing between tranquil and crisis states, which influence volatility and jump intensity.",
+          "supporting_path": null,
+          "supporting_evidence_quotes": [],
+          "testable_falsification_condition": "{\"Metric\": \"Sharpe Ratio\", \"Threshold\": \"Sharpe Ratio < 1.0 over the out-of-sample validation period\"}",
+          "backtest_spec": {
+            "target_asset": "USDJPY",
+            "timeframe": "M5",
+            "feature_engineering": "{\"RealizedVariance\": \"RV_t computed from the last 288 M5 bars\", \"BipowerVariation\": \"BV_t computed from the last 288 M5 bars\", \"FilteredJumpIntensity\": \"lambda_jump derived from the model\"}",
+            "entry_condition": "Enter a long position if P(S_t = tranquil | F_t) > 0.7 and J_t > 0, or enter a short position if P(S_t = crisis | F_t) > 0.7 and J_t > 0.",
+            "exit_condition": "Exit position after 60 minutes or if the opposite signal is generated.",
+            "risk_management": "{\"StopLoss\": \"Set at 1.5 times the average true range (ATR) of the last 14 M5 bars.\", \"PositionSizing\": \"Risk 1% of total capital per trade.\"}",
+            "benchmark_baseline": "Benchmark against a simple buy-and-hold strategy on USDJPY over the same period.",
+            "falsification_metric": "Sharpe Ratio < 1.0 over the out-of-sample validation period."
+          }
+        },
+        "diagnostics": {
+          "stage1": {
+            "in_tokens": 860,
+            "out_tokens": 413,
+            "finish_reason": "stop",
+            "cost_usd": 0.0003768
+          },
+          "stage2": {
+            "in_tokens": 847,
+            "out_tokens": 533,
+            "finish_reason": "stop",
+            "cost_usd": 0.00044685000000000005
+          },
+          "total_output_tokens": 946
+        }
+      },
+      "S2a": {
+        "call_id": "h2_d6_jump_diffusion_s42_s2a",
+        "raw_patch": {
+          "patch_summary": "Enhanced operational parameters for feature engineering, entry conditions, exit rules, and risk management to ensure clarity and completeness.",
+          "updates": {
+            "feature_engineering": "{\"RealizedVariance\": \"RV_t computed from the last 288 M5 bars using the formula RV_t = \frac{1}{T} \times \text{sum}((R_i - \bar{R})^2) where R_i is the return of each bar and \bar{R} is the average return.\", \"BipowerVariation\": \"BV_t computed from the last 288 M5 bars using the formula BV_t = \frac{1}{2} \times \text{sum}(|R_i| \times |R_{i-1}|) where R_i is the return of each bar.\", \"FilteredJumpIntensity\": \"lambda_jump derived from the model, calculated as the average jump intensity over the last 288 M5 bars.\"}",
+            "entry_condition": "Enter a long position if P(S_t = tranquil | F_t) > 0.7 and J_t > 0, where J_t is the jump indicator derived from the model; or enter a short position if P(S_t = crisis | F_t) > 0.7 and J_t > 0.",
+            "exit_condition": "Exit position after 60 minutes or if the opposite signal is generated, with a maximum of 2% slippage allowed on exit.",
+            "risk_management": "{\"StopLoss\": \"Set at 1.5 times the average true range (ATR) of the last 14 M5 bars, calculated using ATR = \frac{1}{N} \times \text{sum}(\text{max}(H_i - L_i, |H_i - C_{i-1}|, |L_i - C_{i-1}|)) where H_i, L_i, and C_{i-1} are the high, low, and previous close prices respectively.\", \"PositionSizing\": \"Risk 1% of total capital per trade, calculated based on the distance to the stop loss from the entry price.\"}",
+            "falsification_metric": "Sharpe Ratio < 1.0 over the out-of-sample validation period."
+          }
+        },
+        "candidate": {
+          "hypothesis_id": "h2_d6_jump_diffusion_s42_s2a",
+          "condition_id": "S2a",
+          "task_id": "d6_jump_diffusion",
+          "title": "Standard title",
+          "target_phenomenon": "Central Bank Rate Announcement Jumps",
+          "proposed_mechanism": "The Regime-Switching Jump Diffusion Model filters continuous Gaussian diffusion from discrete Poisson jumps across latent market regimes, allowing for the identification of jumps in the USDJPY exchange rate that occur around central bank announcements.",
+          "analogical_source": "Theoretical foundations of jump diffusion processes and regime-switching models in financial econometrics.",
+          "claim": "The identification of jumps in the USDJPY exchange rate around central bank announcements can be effectively captured and traded using a regime-switching jump diffusion model, leading to profitable trading opportunities.",
+          "grounding_rationale": "Literature indicates that financial markets exhibit jumps in response to macroeconomic announcements, and the regime-switching model allows for capturing these dynamics by distinguishing between tranquil and crisis states, which influence volatility and jump intensity.",
+          "supporting_path": null,
+          "supporting_evidence_quotes": [],
+          "testable_falsification_condition": "{\"Metric\": \"Sharpe Ratio\", \"Threshold\": \"Sharpe Ratio < 1.0 over the out-of-sample validation period\"}",
+          "backtest_spec": {
+            "target_asset": "USDJPY",
+            "timeframe": "M5",
+            "feature_engineering": "{\"RealizedVariance\": \"RV_t computed from the last 288 M5 bars using the formula RV_t = \frac{1}{T} \times \text{sum}((R_i - \bar{R})^2) where R_i is the return of each bar and \bar{R} is the average return.\", \"BipowerVariation\": \"BV_t computed from the last 288 M5 bars using the formula BV_t = \frac{1}{2} \times \text{sum}(|R_i| \times |R_{i-1}|) where R_i is the return of each bar.\", \"FilteredJumpIntensity\": \"lambda_jump derived from the model, calculated as the average jump intensity over the last 288 M5 bars.\"}",
+            "entry_condition": "Enter a long position if P(S_t = tranquil | F_t) > 0.7 and J_t > 0, where J_t is the jump indicator derived from the model; or enter a short position if P(S_t = crisis | F_t) > 0.7 and J_t > 0.",
+            "exit_condition": "Exit position after 60 minutes or if the opposite signal is generated, with a maximum of 2% slippage allowed on exit.",
+            "risk_management": "{\"StopLoss\": \"Set at 1.5 times the average true range (ATR) of the last 14 M5 bars, calculated using ATR = \frac{1}{N} \times \text{sum}(\text{max}(H_i - L_i, |H_i - C_{i-1}|, |L_i - C_{i-1}|)) where H_i, L_i, and C_{i-1} are the high, low, and previous close prices respectively.\", \"PositionSizing\": \"Risk 1% of total capital per trade, calculated based on the distance to the stop loss from the entry price.\"}",
+            "benchmark_baseline": "Benchmark against a simple buy-and-hold strategy on USDJPY over the same period.",
+            "falsification_metric": "Sharpe Ratio < 1.0 over the out-of-sample validation period."
+          }
+        },
+        "diagnostics": {
+          "in_tokens": 989,
+          "out_tokens": 475,
+          "finish_reason": "stop",
+          "cost_usd": 0.00043335
+        }
+      },
+      "S2b": {
+        "call_id": "h2_d6_jump_diffusion_s42_s2b",
+        "checklist_prompted": [
+          {
+            "param_id": "jump_bipower_threshold_theta",
+            "symbol": "theta_BV",
+            "layer": "layer1_model",
+            "necessity": "MODEL_REQUIRED",
+            "description": "Truncation threshold multiplier separating jump variance from diffusive variance"
+          },
+          {
+            "param_id": "jump_hamilton_transition_probs",
+            "symbol": "p_00, p_11",
+            "layer": "layer1_model",
+            "necessity": "MODEL_REQUIRED",
+            "description": "Hamilton Markov regime transition probabilities"
+          },
+          {
+            "param_id": "jump_regime_variance_ratio",
+            "symbol": "sigma_ratio",
+            "layer": "layer1_model",
+            "necessity": "MODEL_REQUIRED",
+            "description": "Variance separability scale between crisis and tranquil regimes"
+          },
+          {
+            "param_id": "jump_execution_timing_rule",
+            "symbol": "t_exec",
+            "layer": "layer4_execution",
+            "necessity": "STRATEGY_REQUIRED",
+            "description": "Temporal execution ordering"
+          },
+          {
+            "param_id": "jump_trailing_stop_threshold",
+            "symbol": "stop_bps",
+            "layer": "layer3_risk",
+            "necessity": "STRATEGY_REQUIRED",
+            "description": "Dynamic volatility-scaled stop loss rule"
+          },
+          {
+            "param_id": "jump_regime_posterior_threshold",
+            "symbol": "P(crisis)*",
+            "layer": "layer2_decision",
+            "necessity": "CONDITIONAL",
+            "description": "Filtered posterior regime probability cutoff triggering defensive action"
+          }
+        ],
+        "checklist_inspection_audit_log": [
+          {
+            "param_id": "jump_bipower_threshold_theta",
+            "symbol": "theta_BV",
+            "layer": "layer1_model",
+            "necessity": "MODEL_REQUIRED",
+            "is_required_for_strategy": true,
+            "is_determined": false,
+            "s1_reference": "Symbol 'theta_bv' completely absent from specification"
+          },
+          {
+            "param_id": "jump_hamilton_transition_probs",
+            "symbol": "p_00, p_11",
+            "layer": "layer1_model",
+            "necessity": "MODEL_REQUIRED",
+            "is_required_for_strategy": true,
+            "is_determined": false,
+            "s1_reference": "Symbol 'p_00, p_11' completely absent from specification"
+          },
+          {
+            "param_id": "jump_regime_variance_ratio",
+            "symbol": "sigma_ratio",
+            "layer": "layer1_model",
+            "necessity": "MODEL_REQUIRED",
+            "is_required_for_strategy": true,
+            "is_determined": false,
+            "s1_reference": "Symbol 'sigma_ratio' completely absent from specification"
+          },
+          {
+            "param_id": "jump_execution_timing_rule",
+            "symbol": "t_exec",
+            "layer": "layer4_execution",
+            "necessity": "STRATEGY_REQUIRED",
+            "is_required_for_strategy": true,
+            "is_determined": false,
+            "s1_reference": "Symbol 't_exec' completely absent from specification"
+          },
+          {
+            "param_id": "jump_trailing_stop_threshold",
+            "symbol": "stop_bps",
+            "layer": "layer3_risk",
+            "necessity": "STRATEGY_REQUIRED",
+            "is_required_for_strategy": true,
+            "is_determined": false,
+            "s1_reference": "Symbol 'stop_bps' completely absent from specification"
+          },
+          {
+            "param_id": "jump_regime_posterior_threshold",
+            "symbol": "P(crisis)*",
+            "layer": "layer2_decision",
+            "necessity": "CONDITIONAL",
+            "is_required_for_strategy": true,
+            "is_determined": false,
+            "s1_reference": "Symbol 'p(crisis)*' completely absent from specification"
+          },
+          {
+            "param_id": "jump_component_size_threshold",
+            "symbol": "J_t*",
+            "layer": "layer2_decision",
+            "necessity": "CONDITIONAL",
+            "is_required_for_strategy": false,
+            "is_determined": false,
+            "s1_reference": "Mentioned but lacks concrete estimation protocol"
+          },
+          {
+            "param_id": "jump_regime_lot_multiplier",
+            "symbol": "lot_crisis",
+            "layer": "layer3_risk",
+            "necessity": "CONDITIONAL",
+            "is_required_for_strategy": false,
+            "is_determined": false,
+            "s1_reference": "Symbol 'lot_crisis' completely absent from specification"
+          },
+          {
+            "param_id": "jump_regime_rebalance_interval",
+            "symbol": "K_rebal",
+            "layer": "layer4_execution",
+            "necessity": "OPTIONAL",
+            "is_required_for_strategy": false,
+            "is_determined": false,
+            "s1_reference": "Symbol 'k_rebal' completely absent from specification"
+          }
+        ],
+        "raw_patch": {
+          "patch_summary": "Resolved missing parameters by specifying in-sample estimation protocols and theoretical justifications for each parameter.",
+          "updates": {
+            "feature_engineering": "{\"RealizedVariance\": \"RV_t computed from the last 288 M5 bars\", \"BipowerVariation\": \"BV_t computed from the last 288 M5 bars\", \"FilteredJumpIntensity\": \"lambda_jump derived from the model\", \"theta_BV\": \"Estimate using historical jump data; set threshold as the 90th percentile of observed bipower variation during central bank announcements.\", \"p_00, p_11\": \"Estimate using a maximum likelihood approach on historical regime transitions, focusing on the periods around central bank announcements.\", \"sigma_ratio\": \"Estimate using the ratio of realized variances in tranquil vs. crisis regimes, calculated from historical data surrounding announcements.\"}",
+            "entry_condition": "Enter a long position if P(S_t = tranquil | F_t) > 0.7 and J_t > 0, or enter a short position if P(S_t = crisis | F_t) > 0.7 and J_t > 0. Set P(crisis)* threshold at 0.6 for defensive action.",
+            "exit_condition": "Exit position after 60 minutes or if the opposite signal is generated. Adjust exit if P(S_t = crisis | F_t) > 0.7 while in a long position.",
+            "risk_management": "{\"StopLoss\": \"Set at 1.5 times the average true range (ATR) of the last 14 M5 bars.\", \"PositionSizing\": \"Risk 1% of total capital per trade.\", \"stop_bps\": \"Dynamic stop loss set at 2 times the current volatility (measured by ATR) to adapt to market conditions.\"}",
+            "falsification_metric": "Sharpe Ratio < 1.0 over the out-of-sample validation period."
+          }
+        },
+        "candidate": {
+          "hypothesis_id": "h2_d6_jump_diffusion_s42_s2b",
+          "condition_id": "S2b",
+          "task_id": "d6_jump_diffusion",
+          "title": "Standard title",
+          "target_phenomenon": "Central Bank Rate Announcement Jumps",
+          "proposed_mechanism": "The Regime-Switching Jump Diffusion Model filters continuous Gaussian diffusion from discrete Poisson jumps across latent market regimes, allowing for the identification of jumps in the USDJPY exchange rate that occur around central bank announcements.",
+          "analogical_source": "Theoretical foundations of jump diffusion processes and regime-switching models in financial econometrics.",
+          "claim": "The identification of jumps in the USDJPY exchange rate around central bank announcements can be effectively captured and traded using a regime-switching jump diffusion model, leading to profitable trading opportunities.",
+          "grounding_rationale": "Literature indicates that financial markets exhibit jumps in response to macroeconomic announcements, and the regime-switching model allows for capturing these dynamics by distinguishing between tranquil and crisis states, which influence volatility and jump intensity.",
+          "supporting_path": null,
+          "supporting_evidence_quotes": [],
+          "testable_falsification_condition": "{\"Metric\": \"Sharpe Ratio\", \"Threshold\": \"Sharpe Ratio < 1.0 over the out-of-sample validation period\"}",
+          "backtest_spec": {
+            "target_asset": "USDJPY",
+            "timeframe": "M5",
+            "feature_engineering": "{\"RealizedVariance\": \"RV_t computed from the last 288 M5 bars\", \"BipowerVariation\": \"BV_t computed from the last 288 M5 bars\", \"FilteredJumpIntensity\": \"lambda_jump derived from the model\", \"theta_BV\": \"Estimate using historical jump data; set threshold as the 90th percentile of observed bipower variation during central bank announcements.\", \"p_00, p_11\": \"Estimate using a maximum likelihood approach on historical regime transitions, focusing on the periods around central bank announcements.\", \"sigma_ratio\": \"Estimate using the ratio of realized variances in tranquil vs. crisis regimes, calculated from historical data surrounding announcements.\"}",
+            "entry_condition": "Enter a long position if P(S_t = tranquil | F_t) > 0.7 and J_t > 0, or enter a short position if P(S_t = crisis | F_t) > 0.7 and J_t > 0. Set P(crisis)* threshold at 0.6 for defensive action.",
+            "exit_condition": "Exit position after 60 minutes or if the opposite signal is generated. Adjust exit if P(S_t = crisis | F_t) > 0.7 while in a long position.",
+            "risk_management": "{\"StopLoss\": \"Set at 1.5 times the average true range (ATR) of the last 14 M5 bars.\", \"PositionSizing\": \"Risk 1% of total capital per trade.\", \"stop_bps\": \"Dynamic stop loss set at 2 times the current volatility (measured by ATR) to adapt to market conditions.\"}",
+            "benchmark_baseline": "Benchmark against a simple buy-and-hold strategy on USDJPY over the same period.",
+            "falsification_metric": "Sharpe Ratio < 1.0 over the out-of-sample validation period."
+          }
+        },
+        "diagnostics": {
+          "in_tokens": 1243,
+          "out_tokens": 401,
+          "finish_reason": "stop",
+          "cost_usd": 0.00042705
+        }
+      }
+    }
+  },
+  {
+    "base_unit_id": "h2_d6_jump_diffusion_s43",
+    "concept_id": "jump_diffusion",
+    "seed": 43,
+    "total_unit_cost_usd": 0.002035,
+    "candidates": {
+      "S0": {
+        "call_id": "h2_d6_jump_diffusion_s43_s0",
+        "candidate": {
+          "hypothesis_id": "h2_d6_jump_diffusion_s43_s0",
+          "condition_id": "S0",
+          "task_id": "d6_jump_diffusion",
+          "title": "Standard title",
+          "target_phenomenon": "Central Bank Rate Announcement Jumps",
+          "proposed_mechanism": "Regime-Switching Jump Diffusion Model that filters continuous Gaussian diffusion from discrete Poisson jumps across latent market regimes.",
+          "analogical_source": "Merton Jump Diffusion Model, extended to incorporate regime-switching dynamics.",
+          "claim": "The model predicts significant price jumps in USDJPY around central bank announcements by identifying tranquil and crisis regimes, thus capturing the market inefficiency associated with these events.",
+          "grounding_rationale": "Literature indicates that financial markets exhibit jumps in volatility and price around central bank announcements. The Regime-Switching Jump Diffusion Model effectively captures these dynamics by estimating state transition probabilities and jump intensities, allowing for informed trading decisions.",
+          "supporting_path": null,
+          "supporting_evidence_quotes": [],
+          "testable_falsification_condition": "{\"metric\": \"Sharpe Ratio\", \"threshold\": 1.0}",
+          "backtest_spec": {
+            "target_asset": "USDJPY",
+            "timeframe": "M5",
+            "feature_engineering": "{\"inputFeatures\": [\"M5 log-returns r_t\", \"Realized Variance RV_t\", \"Bipower Variation BV_t\"], \"lookbackWindow\": 288}",
+            "entry_condition": "Enter long position when P(S_t = tranquil | F_t) > 0.7 and J_t > 0.01",
+            "exit_condition": "Exit position when P(S_t = crisis | F_t) > 0.5 or J_t < 0.005",
+            "risk_management": "{\"stopLoss\": \"2% of entry price\", \"takeProfit\": \"4% of entry price\"}",
+            "benchmark_baseline": "Buy and Hold strategy on USDJPY over the same period",
+            "falsification_metric": "Sharpe Ratio < 1.0"
+          }
+        },
+        "diagnostics": {
+          "in_tokens": 855,
+          "out_tokens": 578,
+          "finish_reason": "stop",
+          "cost_usd": 0.00047505
+        }
+      },
+      "S1": {
+        "call_id": "h2_d6_jump_diffusion_s43_s1",
+        "stage1_model_spec": {
+          "TargetPhenomenon": "Central Bank Rate Announcement Jumps",
+          "ProposedMechanism": "The Regime-Switching Jump Diffusion Model filters continuous Gaussian diffusion from discrete Poisson jumps across latent market regimes, allowing for the identification of sudden price movements associated with central bank announcements.",
+          "InternalModelParameters": {
+            "JumpIntensity": "lambda_jump",
+            "StateTransitionMatrix": "2-state Markov chain with states: tranquil and crisis",
+            "ContinuousVariance": "sigma_tranquil",
+            "JumpVariance": "sigma_crisis"
+          },
+          "TheoreticalBoundaries": {
+            "sigma_crisis": "> sigma_tranquil",
+            "JumpArrival": "Poisson process with stochastic arrival times"
+          },
+          "InSampleEstimationProtocol": {
+            "SearchRange": {
+              "lambda_jump": "[0, 1]",
+              "sigma_tranquil": "[0, 1]",
+              "sigma_crisis": "[0, 1]"
+            },
+            "ObjectiveLikelihood": "Maximize the likelihood function based on observed M5 log-returns and computed jump statistics",
+            "LookbackWindow": "288 M5 bars for computing Realized Variance RV_t and Bipower Variation BV_t",
+            "ValidationSplit": "70% training, 30% validation for model performance assessment",
+            "UpdateTiming": "Model parameters updated at the close of each M5 bar",
+            "LookaheadProtection": "Filtered probabilities P(S_t | F_t) used for trading decisions to prevent future leak"
+          },
+          "FilteredOutputs": {
+            "JumpComponentTestStatistic": "J_t = max(0, RV_t - BV_t)",
+            "FilteredRegimeProbability": "P(S_t = tranquil | F_t)",
+            "FilteredJumpIntensity": "lambda_jump"
+          }
+        },
+        "candidate": {
+          "hypothesis_id": "h2_d6_jump_diffusion_s43_s1",
+          "condition_id": "S1",
+          "task_id": "d6_jump_diffusion",
+          "title": "Standard title",
+          "target_phenomenon": "Central Bank Rate Announcement Jumps",
+          "proposed_mechanism": "The Regime-Switching Jump Diffusion Model filters continuous Gaussian diffusion from discrete Poisson jumps across latent market regimes, allowing for the identification of sudden price movements associated with central bank announcements.",
+          "analogical_source": "Theoretical foundations of jump diffusion processes in financial mathematics, particularly the work of Merton (1976) on jump-diffusion models.",
+          "claim": "The identification of jump components during central bank announcements leads to profitable trading opportunities in the USDJPY market by exploiting sudden price movements.",
+          "grounding_rationale": "Empirical studies have shown that central bank announcements often lead to significant price jumps in currency pairs, and the Regime-Switching Jump Diffusion Model effectively captures these dynamics by distinguishing between tranquil and crisis regimes.",
+          "supporting_path": null,
+          "supporting_evidence_quotes": [],
+          "testable_falsification_condition": "{\"SharpeRatio\": \"< 1.0\", \"MaxDrawdown\": \"> 5%\"}",
+          "backtest_spec": {
+            "target_asset": "USDJPY",
+            "timeframe": "M5",
+            "feature_engineering": "{\"FilteredJumpIntensity\": \"lambda_jump\", \"FilteredRegimeProbability\": \"P(S_t = tranquil | F_t)\", \"JumpComponentTestStatistic\": \"J_t = max(0, RV_t - BV_t)\"}",
+            "entry_condition": "Enter a long position when P(S_t = tranquil | F_t) > 0.7 and J_t > threshold (e.g., 0.01) indicating a significant jump potential.",
+            "exit_condition": "Exit the position after 30 minutes or if P(S_t = crisis | F_t) > 0.5 indicating a regime shift.",
+            "risk_management": "{\"StopLoss\": \"1.5 times the average true range (ATR) of the last 10 M5 bars\", \"PositionSizing\": \"Risk 1% of total capital per trade\"}",
+            "benchmark_baseline": "Comparison against a simple buy-and-hold strategy on USDJPY over the same period.",
+            "falsification_metric": "Sharpe Ratio < 1.0 or Max Drawdown > 5% during backtesting period."
+          }
+        },
+        "diagnostics": {
+          "stage1": {
+            "in_tokens": 860,
+            "out_tokens": 380,
+            "finish_reason": "stop",
+            "cost_usd": 0.000357
+          },
+          "stage2": {
+            "in_tokens": 814,
+            "out_tokens": 517,
+            "finish_reason": "stop",
+            "cost_usd": 0.00043230000000000005
+          },
+          "total_output_tokens": 897
+        }
+      },
+      "S2a": {
+        "call_id": "h2_d6_jump_diffusion_s43_s2a",
+        "raw_patch": {
+          "patch_summary": "Enhanced clarity and specificity in feature engineering, entry and exit conditions, and risk management parameters to ensure operability and completeness.",
+          "updates": {
+            "feature_engineering": "{\"FilteredJumpIntensity\": \"lambda_jump\", \"FilteredRegimeProbability\": \"P(S_t = tranquil | F_t)\", \"JumpComponentTestStatistic\": \"J_t = max(0, RV_t - BV_t)\", \"RealizedVolatility\": \"RV_t = sqrt(sum((price_t - price_{t-1})^2) / N)\", \"BaselineVolatility\": \"BV_t = mean(RV_t over last 10 periods}\"",
+            "entry_condition": "Enter a long position when P(S_t = tranquil | F_t) > 0.7 and J_t > 0.01, with confirmation from a bullish candlestick pattern on the M5 chart.",
+            "exit_condition": "Exit the position after 30 minutes, if P(S_t = crisis | F_t) > 0.5, or if a bearish candlestick pattern forms on the M5 chart, indicating a potential reversal.",
+            "risk_management": "{\"StopLoss\": \"1.5 times the average true range (ATR) of the last 10 M5 bars, calculated at the time of entry\", \"PositionSizing\": \"Risk 1% of total capital per trade, calculated based on the distance to StopLoss\"}",
+            "falsification_metric": "Sharpe Ratio < 1.0 or Max Drawdown > 5% during backtesting period, with a minimum of 100 trades executed."
+          }
+        },
+        "candidate": {
+          "hypothesis_id": "h2_d6_jump_diffusion_s43_s2a",
+          "condition_id": "S2a",
+          "task_id": "d6_jump_diffusion",
+          "title": "Standard title",
+          "target_phenomenon": "Central Bank Rate Announcement Jumps",
+          "proposed_mechanism": "The Regime-Switching Jump Diffusion Model filters continuous Gaussian diffusion from discrete Poisson jumps across latent market regimes, allowing for the identification of sudden price movements associated with central bank announcements.",
+          "analogical_source": "Theoretical foundations of jump diffusion processes in financial mathematics, particularly the work of Merton (1976) on jump-diffusion models.",
+          "claim": "The identification of jump components during central bank announcements leads to profitable trading opportunities in the USDJPY market by exploiting sudden price movements.",
+          "grounding_rationale": "Empirical studies have shown that central bank announcements often lead to significant price jumps in currency pairs, and the Regime-Switching Jump Diffusion Model effectively captures these dynamics by distinguishing between tranquil and crisis regimes.",
+          "supporting_path": null,
+          "supporting_evidence_quotes": [],
+          "testable_falsification_condition": "{\"SharpeRatio\": \"< 1.0\", \"MaxDrawdown\": \"> 5%\"}",
+          "backtest_spec": {
+            "target_asset": "USDJPY",
+            "timeframe": "M5",
+            "feature_engineering": "{\"FilteredJumpIntensity\": \"lambda_jump\", \"FilteredRegimeProbability\": \"P(S_t = tranquil | F_t)\", \"JumpComponentTestStatistic\": \"J_t = max(0, RV_t - BV_t)\", \"RealizedVolatility\": \"RV_t = sqrt(sum((price_t - price_{t-1})^2) / N)\", \"BaselineVolatility\": \"BV_t = mean(RV_t over last 10 periods}\"",
+            "entry_condition": "Enter a long position when P(S_t = tranquil | F_t) > 0.7 and J_t > 0.01, with confirmation from a bullish candlestick pattern on the M5 chart.",
+            "exit_condition": "Exit the position after 30 minutes, if P(S_t = crisis | F_t) > 0.5, or if a bearish candlestick pattern forms on the M5 chart, indicating a potential reversal.",
+            "risk_management": "{\"StopLoss\": \"1.5 times the average true range (ATR) of the last 10 M5 bars, calculated at the time of entry\", \"PositionSizing\": \"Risk 1% of total capital per trade, calculated based on the distance to StopLoss\"}",
+            "benchmark_baseline": "Comparison against a simple buy-and-hold strategy on USDJPY over the same period.",
+            "falsification_metric": "Sharpe Ratio < 1.0 or Max Drawdown > 5% during backtesting period, with a minimum of 100 trades executed."
+          }
+        },
+        "diagnostics": {
+          "in_tokens": 977,
+          "out_tokens": 338,
+          "finish_reason": "stop",
+          "cost_usd": 0.00034934999999999995
+        }
+      },
+      "S2b": {
+        "call_id": "h2_d6_jump_diffusion_s43_s2b",
+        "checklist_prompted": [
+          {
+            "param_id": "jump_bipower_threshold_theta",
+            "symbol": "theta_BV",
+            "layer": "layer1_model",
+            "necessity": "MODEL_REQUIRED",
+            "description": "Truncation threshold multiplier separating jump variance from diffusive variance"
+          },
+          {
+            "param_id": "jump_hamilton_transition_probs",
+            "symbol": "p_00, p_11",
+            "layer": "layer1_model",
+            "necessity": "MODEL_REQUIRED",
+            "description": "Hamilton Markov regime transition probabilities"
+          },
+          {
+            "param_id": "jump_regime_variance_ratio",
+            "symbol": "sigma_ratio",
+            "layer": "layer1_model",
+            "necessity": "MODEL_REQUIRED",
+            "description": "Variance separability scale between crisis and tranquil regimes"
+          },
+          {
+            "param_id": "jump_execution_timing_rule",
+            "symbol": "t_exec",
+            "layer": "layer4_execution",
+            "necessity": "STRATEGY_REQUIRED",
+            "description": "Temporal execution ordering"
+          },
+          {
+            "param_id": "jump_trailing_stop_threshold",
+            "symbol": "stop_bps",
+            "layer": "layer3_risk",
+            "necessity": "STRATEGY_REQUIRED",
+            "description": "Dynamic volatility-scaled stop loss rule"
+          },
+          {
+            "param_id": "jump_regime_posterior_threshold",
+            "symbol": "P(crisis)*",
+            "layer": "layer2_decision",
+            "necessity": "CONDITIONAL",
+            "description": "Filtered posterior regime probability cutoff triggering defensive action"
+          }
+        ],
+        "checklist_inspection_audit_log": [
+          {
+            "param_id": "jump_bipower_threshold_theta",
+            "symbol": "theta_BV",
+            "layer": "layer1_model",
+            "necessity": "MODEL_REQUIRED",
+            "is_required_for_strategy": true,
+            "is_determined": false,
+            "s1_reference": "Symbol 'theta_bv' completely absent from specification"
+          },
+          {
+            "param_id": "jump_hamilton_transition_probs",
+            "symbol": "p_00, p_11",
+            "layer": "layer1_model",
+            "necessity": "MODEL_REQUIRED",
+            "is_required_for_strategy": true,
+            "is_determined": false,
+            "s1_reference": "Symbol 'p_00, p_11' completely absent from specification"
+          },
+          {
+            "param_id": "jump_regime_variance_ratio",
+            "symbol": "sigma_ratio",
+            "layer": "layer1_model",
+            "necessity": "MODEL_REQUIRED",
+            "is_required_for_strategy": true,
+            "is_determined": false,
+            "s1_reference": "Symbol 'sigma_ratio' completely absent from specification"
+          },
+          {
+            "param_id": "jump_execution_timing_rule",
+            "symbol": "t_exec",
+            "layer": "layer4_execution",
+            "necessity": "STRATEGY_REQUIRED",
+            "is_required_for_strategy": true,
+            "is_determined": false,
+            "s1_reference": "Symbol 't_exec' completely absent from specification"
+          },
+          {
+            "param_id": "jump_trailing_stop_threshold",
+            "symbol": "stop_bps",
+            "layer": "layer3_risk",
+            "necessity": "STRATEGY_REQUIRED",
+            "is_required_for_strategy": true,
+            "is_determined": false,
+            "s1_reference": "Symbol 'stop_bps' completely absent from specification"
+          },
+          {
+            "param_id": "jump_regime_posterior_threshold",
+            "symbol": "P(crisis)*",
+            "layer": "layer2_decision",
+            "necessity": "CONDITIONAL",
+            "is_required_for_strategy": true,
+            "is_determined": false,
+            "s1_reference": "Symbol 'p(crisis)*' completely absent from specification"
+          },
+          {
+            "param_id": "jump_component_size_threshold",
+            "symbol": "J_t*",
+            "layer": "layer2_decision",
+            "necessity": "CONDITIONAL",
+            "is_required_for_strategy": false,
+            "is_determined": true,
+            "s1_reference": "Mentioned with estimation/threshold cues in text"
+          },
+          {
+            "param_id": "jump_regime_lot_multiplier",
+            "symbol": "lot_crisis",
+            "layer": "layer3_risk",
+            "necessity": "CONDITIONAL",
+            "is_required_for_strategy": false,
+            "is_determined": false,
+            "s1_reference": "Symbol 'lot_crisis' completely absent from specification"
+          },
+          {
+            "param_id": "jump_regime_rebalance_interval",
+            "symbol": "K_rebal",
+            "layer": "layer4_execution",
+            "necessity": "OPTIONAL",
+            "is_required_for_strategy": false,
+            "is_determined": false,
+            "s1_reference": "Symbol 'k_rebal' completely absent from specification"
+          }
+        ],
+        "raw_patch": {
+          "patch_summary": "Added explicit in-sample estimation protocols for missing parameters based on literature and theoretical justifications.",
+          "updates": {
+            "feature_engineering": "{\"FilteredJumpIntensity\": \"lambda_jump\", \"FilteredRegimeProbability\": \"P(S_t = tranquil | F_t)\", \"JumpComponentTestStatistic\": \"J_t = max(0, RV_t - BV_t)\", \"theta_BV\": \"Estimate using historical jump data with a threshold of 1.5 standard deviations from the mean jump size.\", \"p_00, p_11\": \"Estimate using a maximum likelihood approach on historical regime transitions, with bounds [0, 1] ensuring probabilities sum to 1.\", \"sigma_ratio\": \"Estimate using the ratio of variances from tranquil and crisis regimes over a rolling window of 100 observations.\"}",
+            "entry_condition": "Enter a long position when P(S_t = tranquil | F_t) > 0.7 and J_t > threshold (e.g., 0.01) indicating a significant jump potential. Additionally, ensure that jump_bipower_threshold_theta is set based on in-sample estimation.",
+            "exit_condition": "Exit the position after 30 minutes or if P(S_t = crisis | F_t) > 0.5 indicating a regime shift. The jump_regime_posterior_threshold should be set to 0.5 based on historical crisis probabilities.",
+            "risk_management": "{\"StopLoss\": \"1.5 times the average true range (ATR) of the last 10 M5 bars\", \"PositionSizing\": \"Risk 1% of total capital per trade\", \"stop_bps\": \"Dynamic stop loss set at 2 times the ATR to account for volatility scaling.\"}",
+            "falsification_metric": "Sharpe Ratio < 1.0 or Max Drawdown > 5% during backtesting period."
+          }
+        },
+        "candidate": {
+          "hypothesis_id": "h2_d6_jump_diffusion_s43_s2b",
+          "condition_id": "S2b",
+          "task_id": "d6_jump_diffusion",
+          "title": "Standard title",
+          "target_phenomenon": "Central Bank Rate Announcement Jumps",
+          "proposed_mechanism": "The Regime-Switching Jump Diffusion Model filters continuous Gaussian diffusion from discrete Poisson jumps across latent market regimes, allowing for the identification of sudden price movements associated with central bank announcements.",
+          "analogical_source": "Theoretical foundations of jump diffusion processes in financial mathematics, particularly the work of Merton (1976) on jump-diffusion models.",
+          "claim": "The identification of jump components during central bank announcements leads to profitable trading opportunities in the USDJPY market by exploiting sudden price movements.",
+          "grounding_rationale": "Empirical studies have shown that central bank announcements often lead to significant price jumps in currency pairs, and the Regime-Switching Jump Diffusion Model effectively captures these dynamics by distinguishing between tranquil and crisis regimes.",
+          "supporting_path": null,
+          "supporting_evidence_quotes": [],
+          "testable_falsification_condition": "{\"SharpeRatio\": \"< 1.0\", \"MaxDrawdown\": \"> 5%\"}",
+          "backtest_spec": {
+            "target_asset": "USDJPY",
+            "timeframe": "M5",
+            "feature_engineering": "{\"FilteredJumpIntensity\": \"lambda_jump\", \"FilteredRegimeProbability\": \"P(S_t = tranquil | F_t)\", \"JumpComponentTestStatistic\": \"J_t = max(0, RV_t - BV_t)\", \"theta_BV\": \"Estimate using historical jump data with a threshold of 1.5 standard deviations from the mean jump size.\", \"p_00, p_11\": \"Estimate using a maximum likelihood approach on historical regime transitions, with bounds [0, 1] ensuring probabilities sum to 1.\", \"sigma_ratio\": \"Estimate using the ratio of variances from tranquil and crisis regimes over a rolling window of 100 observations.\"}",
+            "entry_condition": "Enter a long position when P(S_t = tranquil | F_t) > 0.7 and J_t > threshold (e.g., 0.01) indicating a significant jump potential. Additionally, ensure that jump_bipower_threshold_theta is set based on in-sample estimation.",
+            "exit_condition": "Exit the position after 30 minutes or if P(S_t = crisis | F_t) > 0.5 indicating a regime shift. The jump_regime_posterior_threshold should be set to 0.5 based on historical crisis probabilities.",
+            "risk_management": "{\"StopLoss\": \"1.5 times the average true range (ATR) of the last 10 M5 bars\", \"PositionSizing\": \"Risk 1% of total capital per trade\", \"stop_bps\": \"Dynamic stop loss set at 2 times the ATR to account for volatility scaling.\"}",
+            "benchmark_baseline": "Comparison against a simple buy-and-hold strategy on USDJPY over the same period.",
+            "falsification_metric": "Sharpe Ratio < 1.0 or Max Drawdown > 5% during backtesting period."
+          }
+        },
+        "diagnostics": {
+          "in_tokens": 1231,
+          "out_tokens": 395,
+          "finish_reason": "stop",
+          "cost_usd": 0.00042165
+        }
+      }
+    }
+  },
+  {
+    "base_unit_id": "h2_d6_jump_diffusion_s44",
+    "concept_id": "jump_diffusion",
+    "seed": 44,
+    "total_unit_cost_usd": 0.00215,
+    "candidates": {
+      "S0": {
+        "call_id": "h2_d6_jump_diffusion_s44_s0",
+        "candidate": {
+          "hypothesis_id": "h2_d6_jump_diffusion_s44_s0",
+          "condition_id": "S0",
+          "task_id": "d6_jump_diffusion",
+          "title": "Standard title",
+          "target_phenomenon": "Central Bank Rate Announcement Jumps",
+          "proposed_mechanism": "Regime-Switching Jump Diffusion Model that filters continuous Gaussian diffusion from discrete Poisson jumps across latent market regimes.",
+          "analogical_source": "Merton Jump Diffusion Model, which provides a foundational framework for modeling price jumps in financial markets.",
+          "claim": "The regime-switching model captures the latent market states and jump intensities, allowing for profitable trading strategies during central bank announcements by exploiting the inefficiencies in the USDJPY exchange rate.",
+          "grounding_rationale": "Literature indicates that financial markets exhibit jumps during significant events such as central bank announcements. The Regime-Switching Jump Diffusion Model effectively identifies these jumps and the corresponding market regimes, allowing traders to position themselves advantageously.",
+          "supporting_path": null,
+          "supporting_evidence_quotes": [],
+          "testable_falsification_condition": "{\"Metric\": \"Sharpe Ratio\", \"Threshold\": 1.0}",
+          "backtest_spec": {
+            "target_asset": "USDJPY",
+            "timeframe": "M5",
+            "feature_engineering": "{\"LogReturns\": \"r_t = log(C_t / C_{t-1})\", \"RealizedVariance\": \"RV_t = 1/N * sum((r_i - mean(r))^2) for i in [t-N, t]\", \"BipowerVariation\": \"BV_t = 1/(2 * N^2) * sum(|r_i| * |r_j|) for i, j in [t-N, t] with i != j\"}",
+            "entry_condition": "Enter long position if P(S_t = tranquil | F_t) > 0.7 and J_t > threshold, where J_t = max(0, RV_t - BV_t)",
+            "exit_condition": "Exit position if P(S_t = crisis | F_t) > 0.7 or if the position has been held for 5 bars",
+            "risk_management": "Set stop-loss at 1.5 * ATR(14) below entry price and take profit at 3 * ATR(14) above entry price.",
+            "benchmark_baseline": "Buy and Hold strategy on USDJPY over the same timeframe.",
+            "falsification_metric": "If the Sharpe Ratio falls below 1.0 during backtesting, the hypothesis is considered falsified."
+          }
+        },
+        "diagnostics": {
+          "in_tokens": 855,
+          "out_tokens": 663,
+          "finish_reason": "stop",
+          "cost_usd": 0.0005260499999999999
+        }
+      },
+      "S1": {
+        "call_id": "h2_d6_jump_diffusion_s44_s1",
+        "stage1_model_spec": {
+          "TargetPhenomenon": "Central Bank Rate Announcement Jumps",
+          "ProposedMechanism": "The Regime-Switching Jump Diffusion Model filters continuous Gaussian diffusion from discrete Poisson jumps across latent market regimes, allowing for the identification of sudden price movements associated with central bank announcements.",
+          "InternalModelParameters": {
+            "StateTransitionMatrix": "2-state Markov chain with transition probabilities estimated via Hamilton filter.",
+            "JumpIntensity": "Filtered Poisson jump arrival intensity lambda_jump.",
+            "VarianceParameters": {
+              "sigma_crisis": "Volatility during crisis regime, must be greater than sigma_tranquil.",
+              "sigma_tranquil": "Volatility during tranquil regime."
+            }
+          },
+          "TheoreticalBoundaries": {
+            "JumpThreshold": "Bipower variation threshold RV_t > BV_t to identify jump events.",
+            "StateProbabilityConstraints": "Filtered probabilities P(S_t | F_t) must be used for trading decisions."
+          },
+          "InSampleEstimationProtocol": {
+            "SearchRange": "Parameter estimation for sigma_crisis and sigma_tranquil over historical data.",
+            "ObjectiveLikelihood": "Maximize the likelihood function based on observed log-returns and jump statistics.",
+            "LookbackWindow": "288 M5 bars for computing Realized Variance RV_t and Bipower Variation BV_t.",
+            "ValidationSplit": "70% training data, 30% validation data for model performance evaluation.",
+            "UpdateTiming": "Model parameters updated at the end of each trading day based on the latest available data.",
+            "LookaheadProtection": "Ensure that only past data is used for parameter estimation to avoid future leakage."
+          },
+          "FilteredOutputs": {
+            "JumpComponentTestStatistic": "J_t = max(0, RV_t - BV_t)",
+            "FilteredRegimeProbability": "P(S_t = tranquil | F_t)",
+            "FilteredJumpIntensity": "lambda_jump"
+          }
+        },
+        "candidate": {
+          "hypothesis_id": "h2_d6_jump_diffusion_s44_s1",
+          "condition_id": "S1",
+          "task_id": "d6_jump_diffusion",
+          "title": "Standard title",
+          "target_phenomenon": "Central Bank Rate Announcement Jumps",
+          "proposed_mechanism": "The Regime-Switching Jump Diffusion Model filters continuous Gaussian diffusion from discrete Poisson jumps across latent market regimes, allowing for the identification of sudden price movements associated with central bank announcements.",
+          "analogical_source": "Theoretical foundations of jump diffusion models and regime-switching processes in financial econometrics.",
+          "claim": "The identification of jump events during central bank announcements leads to profitable trading opportunities in USDJPY by exploiting the market's inefficiency in pricing sudden volatility spikes.",
+          "grounding_rationale": "Literature indicates that market reactions to central bank announcements often result in significant price jumps, which can be captured using a regime-switching jump diffusion model that distinguishes between tranquil and crisis states.",
+          "supporting_path": null,
+          "supporting_evidence_quotes": [],
+          "testable_falsification_condition": "{\"Metric\": \"Sharpe Ratio\", \"Threshold\": \"Sharpe Ratio < 1.0 over a backtest period of 6 months.\"}",
+          "backtest_spec": {
+            "target_asset": "USDJPY",
+            "timeframe": "M5",
+            "feature_engineering": "{\"RealizedVariance\": \"RV_t computed over the last 288 M5 bars.\", \"BipowerVariation\": \"BV_t computed over the same window.\", \"FilteredJumpIntensity\": \"lambda_jump derived from the model.\"}",
+            "entry_condition": "{\"Criteria\": \"Enter a long position if P(S_t = tranquil | F_t) > 0.7 and J_t > 0.5% (indicating a significant jump).\", \"ExecutionTiming\": \"Decision made at C_t, with execution at O_{t+1} (next M5 bar open).\"}",
+            "exit_condition": "{\"Criteria\": \"Exit position if J_t < 0.1% or after 60 minutes (12 M5 bars) from entry.\"}",
+            "risk_management": "{\"StopLoss\": \"Set at 1.5 times the average true range (ATR) over the last 10 bars.\", \"PositionSizing\": \"Risk no more than 1% of total capital per trade.\"}",
+            "benchmark_baseline": "Compare against a buy-and-hold strategy on USDJPY over the same period.",
+            "falsification_metric": "Sharpe Ratio < 1.0 over the backtest period."
+          }
+        },
+        "diagnostics": {
+          "stage1": {
+            "in_tokens": 860,
+            "out_tokens": 406,
+            "finish_reason": "stop",
+            "cost_usd": 0.00037259999999999995
+          },
+          "stage2": {
+            "in_tokens": 840,
+            "out_tokens": 521,
+            "finish_reason": "stop",
+            "cost_usd": 0.00043859999999999993
+          },
+          "total_output_tokens": 927
+        }
+      },
+      "S2a": {
+        "call_id": "h2_d6_jump_diffusion_s44_s2a",
+        "raw_patch": {
+          "patch_summary": "Enhanced operational parameters for clarity and completeness in feature engineering, entry conditions, exit conditions, and risk management.",
+          "updates": {
+            "feature_engineering": "{\"RealizedVariance\": \"RV_t computed over the last 288 M5 bars, capturing volatility dynamics.\", \"BipowerVariation\": \"BV_t computed over the same window, providing a robust measure of volatility.\", \"FilteredJumpIntensity\": \"lambda_jump derived from the model, indicating the intensity of jump events based on historical data and current market conditions.\"}",
+            "entry_condition": "{\"Criteria\": \"Enter a long position if P(S_t = tranquil | F_t) > 0.7 and J_t > 0.5% (indicating a significant jump) at the time of the central bank announcement.\", \"ExecutionTiming\": \"Decision made at C_t, with execution at O_{t+1} (next M5 bar open) to capture immediate market reaction.\"}",
+            "exit_condition": "{\"Criteria\": \"Exit position if J_t < 0.1% or after 60 minutes (12 M5 bars) from entry, whichever comes first, to lock in profits or minimize losses.\", \"ExitTrigger\": \"Monitor for volatility drop below threshold during the exit period.\"}",
+            "risk_management": "{\"StopLoss\": \"Set at 1.5 times the average true range (ATR) over the last 10 bars, adjusted dynamically based on market conditions.\", \"PositionSizing\": \"Risk no more than 1% of total capital per trade, with adjustments based on current volatility levels to ensure appropriate sizing.\", \"MaximumDrawdown\": \"Limit maximum drawdown to 5% of total capital to manage risk effectively.\"}",
+            "falsification_metric": "Sharpe Ratio < 1.0 over the backtest period."
+          }
+        },
+        "candidate": {
+          "hypothesis_id": "h2_d6_jump_diffusion_s44_s2a",
+          "condition_id": "S2a",
+          "task_id": "d6_jump_diffusion",
+          "title": "Standard title",
+          "target_phenomenon": "Central Bank Rate Announcement Jumps",
+          "proposed_mechanism": "The Regime-Switching Jump Diffusion Model filters continuous Gaussian diffusion from discrete Poisson jumps across latent market regimes, allowing for the identification of sudden price movements associated with central bank announcements.",
+          "analogical_source": "Theoretical foundations of jump diffusion models and regime-switching processes in financial econometrics.",
+          "claim": "The identification of jump events during central bank announcements leads to profitable trading opportunities in USDJPY by exploiting the market's inefficiency in pricing sudden volatility spikes.",
+          "grounding_rationale": "Literature indicates that market reactions to central bank announcements often result in significant price jumps, which can be captured using a regime-switching jump diffusion model that distinguishes between tranquil and crisis states.",
+          "supporting_path": null,
+          "supporting_evidence_quotes": [],
+          "testable_falsification_condition": "{\"Metric\": \"Sharpe Ratio\", \"Threshold\": \"Sharpe Ratio < 1.0 over a backtest period of 6 months.\"}",
+          "backtest_spec": {
+            "target_asset": "USDJPY",
+            "timeframe": "M5",
+            "feature_engineering": "{\"RealizedVariance\": \"RV_t computed over the last 288 M5 bars, capturing volatility dynamics.\", \"BipowerVariation\": \"BV_t computed over the same window, providing a robust measure of volatility.\", \"FilteredJumpIntensity\": \"lambda_jump derived from the model, indicating the intensity of jump events based on historical data and current market conditions.\"}",
+            "entry_condition": "{\"Criteria\": \"Enter a long position if P(S_t = tranquil | F_t) > 0.7 and J_t > 0.5% (indicating a significant jump) at the time of the central bank announcement.\", \"ExecutionTiming\": \"Decision made at C_t, with execution at O_{t+1} (next M5 bar open) to capture immediate market reaction.\"}",
+            "exit_condition": "{\"Criteria\": \"Exit position if J_t < 0.1% or after 60 minutes (12 M5 bars) from entry, whichever comes first, to lock in profits or minimize losses.\", \"ExitTrigger\": \"Monitor for volatility drop below threshold during the exit period.\"}",
+            "risk_management": "{\"StopLoss\": \"Set at 1.5 times the average true range (ATR) over the last 10 bars, adjusted dynamically based on market conditions.\", \"PositionSizing\": \"Risk no more than 1% of total capital per trade, with adjustments based on current volatility levels to ensure appropriate sizing.\", \"MaximumDrawdown\": \"Limit maximum drawdown to 5% of total capital to manage risk effectively.\"}",
+            "benchmark_baseline": "Compare against a buy-and-hold strategy on USDJPY over the same period.",
+            "falsification_metric": "Sharpe Ratio < 1.0 over the backtest period."
+          }
+        },
+        "diagnostics": {
+          "in_tokens": 1001,
+          "out_tokens": 384,
+          "finish_reason": "stop",
+          "cost_usd": 0.00038055
+        }
+      },
+      "S2b": {
+        "call_id": "h2_d6_jump_diffusion_s44_s2b",
+        "checklist_prompted": [
+          {
+            "param_id": "jump_bipower_threshold_theta",
+            "symbol": "theta_BV",
+            "layer": "layer1_model",
+            "necessity": "MODEL_REQUIRED",
+            "description": "Truncation threshold multiplier separating jump variance from diffusive variance"
+          },
+          {
+            "param_id": "jump_hamilton_transition_probs",
+            "symbol": "p_00, p_11",
+            "layer": "layer1_model",
+            "necessity": "MODEL_REQUIRED",
+            "description": "Hamilton Markov regime transition probabilities"
+          },
+          {
+            "param_id": "jump_regime_variance_ratio",
+            "symbol": "sigma_ratio",
+            "layer": "layer1_model",
+            "necessity": "MODEL_REQUIRED",
+            "description": "Variance separability scale between crisis and tranquil regimes"
+          },
+          {
+            "param_id": "jump_execution_timing_rule",
+            "symbol": "t_exec",
+            "layer": "layer4_execution",
+            "necessity": "STRATEGY_REQUIRED",
+            "description": "Temporal execution ordering"
+          },
+          {
+            "param_id": "jump_trailing_stop_threshold",
+            "symbol": "stop_bps",
+            "layer": "layer3_risk",
+            "necessity": "STRATEGY_REQUIRED",
+            "description": "Dynamic volatility-scaled stop loss rule"
+          },
+          {
+            "param_id": "jump_regime_posterior_threshold",
+            "symbol": "P(crisis)*",
+            "layer": "layer2_decision",
+            "necessity": "CONDITIONAL",
+            "description": "Filtered posterior regime probability cutoff triggering defensive action"
+          }
+        ],
+        "checklist_inspection_audit_log": [
+          {
+            "param_id": "jump_bipower_threshold_theta",
+            "symbol": "theta_BV",
+            "layer": "layer1_model",
+            "necessity": "MODEL_REQUIRED",
+            "is_required_for_strategy": true,
+            "is_determined": false,
+            "s1_reference": "Symbol 'theta_bv' completely absent from specification"
+          },
+          {
+            "param_id": "jump_hamilton_transition_probs",
+            "symbol": "p_00, p_11",
+            "layer": "layer1_model",
+            "necessity": "MODEL_REQUIRED",
+            "is_required_for_strategy": true,
+            "is_determined": false,
+            "s1_reference": "Symbol 'p_00, p_11' completely absent from specification"
+          },
+          {
+            "param_id": "jump_regime_variance_ratio",
+            "symbol": "sigma_ratio",
+            "layer": "layer1_model",
+            "necessity": "MODEL_REQUIRED",
+            "is_required_for_strategy": true,
+            "is_determined": false,
+            "s1_reference": "Symbol 'sigma_ratio' completely absent from specification"
+          },
+          {
+            "param_id": "jump_execution_timing_rule",
+            "symbol": "t_exec",
+            "layer": "layer4_execution",
+            "necessity": "STRATEGY_REQUIRED",
+            "is_required_for_strategy": true,
+            "is_determined": false,
+            "s1_reference": "Symbol 't_exec' completely absent from specification"
+          },
+          {
+            "param_id": "jump_trailing_stop_threshold",
+            "symbol": "stop_bps",
+            "layer": "layer3_risk",
+            "necessity": "STRATEGY_REQUIRED",
+            "is_required_for_strategy": true,
+            "is_determined": false,
+            "s1_reference": "Symbol 'stop_bps' completely absent from specification"
+          },
+          {
+            "param_id": "jump_regime_posterior_threshold",
+            "symbol": "P(crisis)*",
+            "layer": "layer2_decision",
+            "necessity": "CONDITIONAL",
+            "is_required_for_strategy": true,
+            "is_determined": false,
+            "s1_reference": "Symbol 'p(crisis)*' completely absent from specification"
+          },
+          {
+            "param_id": "jump_component_size_threshold",
+            "symbol": "J_t*",
+            "layer": "layer2_decision",
+            "necessity": "CONDITIONAL",
+            "is_required_for_strategy": false,
+            "is_determined": true,
+            "s1_reference": "Mentioned with estimation/threshold cues in text"
+          },
+          {
+            "param_id": "jump_regime_lot_multiplier",
+            "symbol": "lot_crisis",
+            "layer": "layer3_risk",
+            "necessity": "CONDITIONAL",
+            "is_required_for_strategy": false,
+            "is_determined": false,
+            "s1_reference": "Symbol 'lot_crisis' completely absent from specification"
+          },
+          {
+            "param_id": "jump_regime_rebalance_interval",
+            "symbol": "K_rebal",
+            "layer": "layer4_execution",
+            "necessity": "OPTIONAL",
+            "is_required_for_strategy": false,
+            "is_determined": false,
+            "s1_reference": "Symbol 'k_rebal' completely absent from specification"
+          }
+        ],
+        "raw_patch": {
+          "patch_summary": "Resolved missing parameters by specifying in-sample estimation protocols and literature-grounded justifications for the jump diffusion model.",
+          "updates": {
+            "feature_engineering": "{\"RealizedVariance\": \"RV_t computed over the last 288 M5 bars.\", \"BipowerVariation\": \"BV_t computed over the same window, with theta_BV estimated as the 75th percentile of BV_t values during tranquil periods.\", \"FilteredJumpIntensity\": \"lambda_jump derived from the model, with p_00 and p_11 estimated using a maximum likelihood approach on historical regime transitions over the last 2 years of data, and sigma_ratio determined by comparing the variance of returns in crisis vs. tranquil states over the same period.\"}",
+            "entry_condition": "{\"Criteria\": \"Enter a long position if P(S_t = tranquil | F_t) > 0.7 and J_t > 0.5% (indicating a significant jump). If P(crisis)* > 0.3, trigger defensive action by not entering a position.\", \"ExecutionTiming\": \"Decision made at C_t, with execution at O_{t+1} (next M5 bar open).\"}",
+            "exit_condition": "{\"Criteria\": \"Exit position if J_t < 0.1% or after 60 minutes (12 M5 bars) from entry.\", \"ExecutionTiming\": \"Exit executed at the next M5 bar open after the exit condition is met.\"}",
+            "risk_management": "{\"StopLoss\": \"Set at 1.5 times the average true range (ATR) over the last 10 bars, with a dynamic trailing stop loss set at stop_bps = 20 basis points from the highest price since entry.\", \"PositionSizing\": \"Risk no more than 1% of total capital per trade.\"}",
+            "falsification_metric": "Sharpe Ratio < 1.0 over the backtest period."
+          }
+        },
+        "candidate": {
+          "hypothesis_id": "h2_d6_jump_diffusion_s44_s2b",
+          "condition_id": "S2b",
+          "task_id": "d6_jump_diffusion",
+          "title": "Standard title",
+          "target_phenomenon": "Central Bank Rate Announcement Jumps",
+          "proposed_mechanism": "The Regime-Switching Jump Diffusion Model filters continuous Gaussian diffusion from discrete Poisson jumps across latent market regimes, allowing for the identification of sudden price movements associated with central bank announcements.",
+          "analogical_source": "Theoretical foundations of jump diffusion models and regime-switching processes in financial econometrics.",
+          "claim": "The identification of jump events during central bank announcements leads to profitable trading opportunities in USDJPY by exploiting the market's inefficiency in pricing sudden volatility spikes.",
+          "grounding_rationale": "Literature indicates that market reactions to central bank announcements often result in significant price jumps, which can be captured using a regime-switching jump diffusion model that distinguishes between tranquil and crisis states.",
+          "supporting_path": null,
+          "supporting_evidence_quotes": [],
+          "testable_falsification_condition": "{\"Metric\": \"Sharpe Ratio\", \"Threshold\": \"Sharpe Ratio < 1.0 over a backtest period of 6 months.\"}",
+          "backtest_spec": {
+            "target_asset": "USDJPY",
+            "timeframe": "M5",
+            "feature_engineering": "{\"RealizedVariance\": \"RV_t computed over the last 288 M5 bars.\", \"BipowerVariation\": \"BV_t computed over the same window, with theta_BV estimated as the 75th percentile of BV_t values during tranquil periods.\", \"FilteredJumpIntensity\": \"lambda_jump derived from the model, with p_00 and p_11 estimated using a maximum likelihood approach on historical regime transitions over the last 2 years of data, and sigma_ratio determined by comparing the variance of returns in crisis vs. tranquil states over the same period.\"}",
+            "entry_condition": "{\"Criteria\": \"Enter a long position if P(S_t = tranquil | F_t) > 0.7 and J_t > 0.5% (indicating a significant jump). If P(crisis)* > 0.3, trigger defensive action by not entering a position.\", \"ExecutionTiming\": \"Decision made at C_t, with execution at O_{t+1} (next M5 bar open).\"}",
+            "exit_condition": "{\"Criteria\": \"Exit position if J_t < 0.1% or after 60 minutes (12 M5 bars) from entry.\", \"ExecutionTiming\": \"Exit executed at the next M5 bar open after the exit condition is met.\"}",
+            "risk_management": "{\"StopLoss\": \"Set at 1.5 times the average true range (ATR) over the last 10 bars, with a dynamic trailing stop loss set at stop_bps = 20 basis points from the highest price since entry.\", \"PositionSizing\": \"Risk no more than 1% of total capital per trade.\"}",
+            "benchmark_baseline": "Compare against a buy-and-hold strategy on USDJPY over the same period.",
+            "falsification_metric": "Sharpe Ratio < 1.0 over the backtest period."
+          }
+        },
+        "diagnostics": {
+          "in_tokens": 1255,
+          "out_tokens": 406,
+          "finish_reason": "stop",
+          "cost_usd": 0.00043185
+        }
+      }
+    }
+  }
+]

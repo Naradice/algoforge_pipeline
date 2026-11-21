@@ -1,0 +1,208 @@
+{
+  "hawkes_process": {
+    "concept_name": "Multivariate Hawkes Point Process",
+    "essential_parameters": {
+      "layer1_model_parameters": [
+        {
+          "param_id": "hawkes_baseline_mu",
+          "symbol": "mu",
+          "description": "Baseline background arrival rate",
+          "admissible_dispositions": [
+            "IN_SAMPLE_ESTIMATED",
+            "EMPIRICAL_FIXED"
+          ],
+          "theoretical_constraint": "mu > 0"
+        },
+        {
+          "param_id": "hawkes_excitation_alpha",
+          "symbol": "alpha",
+          "description": "Excitation magnitude / jump reflexivity",
+          "admissible_dispositions": [
+            "IN_SAMPLE_ESTIMATED",
+            "EMPIRICAL_FIXED"
+          ],
+          "theoretical_constraint": "alpha >= 0"
+        },
+        {
+          "param_id": "hawkes_decay_beta",
+          "symbol": "beta",
+          "description": "Exponential memory decay rate",
+          "admissible_dispositions": [
+            "IN_SAMPLE_ESTIMATED",
+            "EMPIRICAL_FIXED"
+          ],
+          "theoretical_constraint": "beta > 0 and alpha < beta (subcritical stationarity)"
+        }
+      ],
+      "layer2_decision_thresholds": [
+        {
+          "param_id": "hawkes_branching_ratio_threshold",
+          "symbol": "(alpha/beta)*",
+          "description": "Critical cascade risk threshold triggering de-risking or position entry",
+          "admissible_dispositions": [
+            "IN_SAMPLE_ESTIMATED",
+            "EMPIRICAL_FIXED"
+          ],
+          "theoretical_constraint": "0 < (alpha/beta)* < 1.0"
+        },
+        {
+          "param_id": "hawkes_intensity_threshold",
+          "symbol": "lambda*",
+          "description": "Absolute arrival intensity spike threshold",
+          "admissible_dispositions": [
+            "IN_SAMPLE_ESTIMATED",
+            "EMPIRICAL_FIXED"
+          ],
+          "theoretical_constraint": "lambda* > mu"
+        }
+      ],
+      "layer3_risk_constraints": [
+        {
+          "param_id": "hawkes_risk_sizing_scale",
+          "symbol": "w_risk",
+          "description": "Position sizing scale factor inversely proportional to cascade intensity",
+          "admissible_dispositions": [
+            "IN_SAMPLE_ESTIMATED",
+            "EMPIRICAL_FIXED"
+          ],
+          "theoretical_constraint": "0 <= w_risk <= 1.0"
+        },
+        {
+          "param_id": "hawkes_max_drawdown_stop",
+          "symbol": "max_dd_stop",
+          "description": "Maximum adverse excursion / stop loss threshold in basis points or pips",
+          "admissible_dispositions": [
+            "EMPIRICAL_FIXED",
+            "IN_SAMPLE_ESTIMATED"
+          ],
+          "theoretical_constraint": "max_dd_stop > 0"
+        }
+      ],
+      "layer4_execution_constraints": [
+        {
+          "param_id": "hawkes_execution_timing_rule",
+          "symbol": "t_exec",
+          "description": "Decision evaluated at confirmed bar close C_t and executed at open O_{t+1}",
+          "admissible_dispositions": [
+            "THEORETICAL_CONSTRAINT",
+            "EMPIRICAL_FIXED"
+          ],
+          "theoretical_constraint": "available_at(C_t) <= decision_time < execution_time(O_{t+1})"
+        },
+        {
+          "param_id": "hawkes_max_holding_horizon",
+          "symbol": "K_horizon",
+          "description": "Finite maximum holding duration in M5 bars (time-stop exit)",
+          "admissible_dispositions": [
+            "IN_SAMPLE_ESTIMATED",
+            "EMPIRICAL_FIXED"
+          ],
+          "theoretical_constraint": "K_horizon >= 1"
+        }
+      ]
+    }
+  },
+  "jump_diffusion": {
+    "concept_name": "Regime-Switching Jump Diffusion Model",
+    "essential_parameters": {
+      "layer1_model_parameters": [
+        {
+          "param_id": "jump_bipower_threshold_theta",
+          "symbol": "theta_BV",
+          "description": "Truncation threshold multiplier separating jump variance from diffusive variance",
+          "admissible_dispositions": [
+            "IN_SAMPLE_ESTIMATED",
+            "EMPIRICAL_FIXED"
+          ],
+          "theoretical_constraint": "theta_BV > 0 (typically 3.0 * sigma_M5)"
+        },
+        {
+          "param_id": "jump_hamilton_transition_probs",
+          "symbol": "p_00, p_11",
+          "description": "Markov state transition persistence probabilities (tranquil vs crisis)",
+          "admissible_dispositions": [
+            "IN_SAMPLE_ESTIMATED",
+            "EMPIRICAL_FIXED"
+          ],
+          "theoretical_constraint": "0 < p_00, p_11 < 1.0"
+        },
+        {
+          "param_id": "jump_regime_variance_ratio",
+          "symbol": "sigma_crisis / sigma_tranquil",
+          "description": "Variance separability scale between latent regimes",
+          "admissible_dispositions": [
+            "IN_SAMPLE_ESTIMATED",
+            "EMPIRICAL_FIXED"
+          ],
+          "theoretical_constraint": "sigma_crisis > sigma_tranquil > 0"
+        }
+      ],
+      "layer2_decision_thresholds": [
+        {
+          "param_id": "jump_regime_posterior_threshold",
+          "symbol": "P(S_t = crisis)*",
+          "description": "Posterior regime probability threshold triggering protective de-risking or hedging",
+          "admissible_dispositions": [
+            "IN_SAMPLE_ESTIMATED",
+            "EMPIRICAL_FIXED"
+          ],
+          "theoretical_constraint": "0.5 <= P(crisis)* < 1.0"
+        },
+        {
+          "param_id": "jump_component_size_threshold",
+          "symbol": "J_t*",
+          "description": "Minimum realized jump component J_t = max(0, RV_t - BV_t) triggering jump alert",
+          "admissible_dispositions": [
+            "IN_SAMPLE_ESTIMATED",
+            "EMPIRICAL_FIXED"
+          ],
+          "theoretical_constraint": "J_t* > 0"
+        }
+      ],
+      "layer3_risk_constraints": [
+        {
+          "param_id": "jump_regime_lot_multiplier",
+          "symbol": "lot_crisis",
+          "description": "Capital allocation fraction during crisis/jump regime",
+          "admissible_dispositions": [
+            "EMPIRICAL_FIXED",
+            "IN_SAMPLE_ESTIMATED"
+          ],
+          "theoretical_constraint": "0.0 <= lot_crisis < 1.0"
+        },
+        {
+          "param_id": "jump_trailing_stop_threshold",
+          "symbol": "trailing_stop_bps",
+          "description": "Dynamic volatility-scaled stop loss in bps based on tranquil diffusion sigma",
+          "admissible_dispositions": [
+            "EMPIRICAL_FIXED",
+            "IN_SAMPLE_ESTIMATED"
+          ],
+          "theoretical_constraint": "trailing_stop_bps > 0"
+        }
+      ],
+      "layer4_execution_constraints": [
+        {
+          "param_id": "jump_execution_timing_rule",
+          "symbol": "t_exec",
+          "description": "Bipower metrics evaluated on confirmed bar close C_t and executed at open O_{t+1}",
+          "admissible_dispositions": [
+            "THEORETICAL_CONSTRAINT",
+            "EMPIRICAL_FIXED"
+          ],
+          "theoretical_constraint": "available_at(C_t) <= decision_time < execution_time(O_{t+1})"
+        },
+        {
+          "param_id": "jump_regime_rebalance_interval",
+          "symbol": "K_rebalance",
+          "description": "Regime filtering update frequency (e.g. every M5 bar or every 12 bars)",
+          "admissible_dispositions": [
+            "EMPIRICAL_FIXED",
+            "IN_SAMPLE_ESTIMATED"
+          ],
+          "theoretical_constraint": "K_rebalance >= 1"
+        }
+      ]
+    }
+  }
+}

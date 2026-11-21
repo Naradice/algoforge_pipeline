@@ -1,0 +1,176 @@
+{
+  "execution_metadata": {
+    "execution_timestamp": "2026-11-21T07:32:49.692353+00:00",
+    "snapshot_path": "C:\\Users\\ksato\\workspace\\finance\\research_pipeline\\data\\usdjpy_m5_2024_oanda_snapshot.parquet",
+    "snapshot_sha256": "bbc7a9c24b701f78d0d4716e7f633246f05445a198f6a2cdca771861e43939a0",
+    "total_bars": 55201,
+    "trading_days": 192,
+    "warmup_days": 60,
+    "eval_days": 132,
+    "api_spend_usd": 0.0,
+    "algoforge_clean": true
+  },
+  "stage_1_hawkes": {
+    "total_events": 3728,
+    "event_rate": 0.06753500842376044,
+    "elapsed_time_periodic_sec": 12.160215139389038,
+    "elapsed_time_continuous_sec": 277.3440341949463,
+    "speedup_ratio": 22.807494029984802,
+    "mean_nll_periodic": 0.246081630659775,
+    "mean_nll_continuous": 0.24611383565858347,
+    "mean_nll_iid": 0.24608539709749225,
+    "h1a_test": {
+      "mean_diff": -3.7664377172306818e-06,
+      "se_hac": 0.00039597325496293926,
+      "t_stat": -0.009511848767622445,
+      "p_val": 0.4962053785817951
+    },
+    "h1b_test": {
+      "mean_diff": -3.220499880848913e-05,
+      "margin": 0.005,
+      "se_hac": 0.00013234828916230802,
+      "t_stat": -38.02244086916108,
+      "p_val": 0.0
+    }
+  },
+  "stage_2_jump_bv": {
+    "total_jumps_bv": 1141,
+    "total_jumps_std": 965,
+    "total_clusters_bv": 267,
+    "total_clusters_std": 166,
+    "mean_cluster_rate_bv": 0.003998316498316498,
+    "mean_cluster_rate_std": 0.002656776094276094,
+    "h2_test_all_132_days": {
+      "mean_diff": 0.001341540404040404,
+      "se_hac": 0.00024929602883174296,
+      "t_stat": 5.381314777965629,
+      "p_val": 0.999999963028119
+    },
+    "high_rv_stratified_subgroup": {
+      "n_days": 14,
+      "rv_threshold_90pct": 0.00011236864126624463,
+      "wilcoxon_stat": 28.0,
+      "wilcoxon_p_val": 0.9959245142032487,
+      "median_diff": 0.003472222222222222
+    }
+  },
+  "stage_3_hamilton": {
+    "informed_convergence_rate": 0.9545454545454546,
+    "quantile_convergence_rate": 0.9772727272727273,
+    "confidence_rate_informed": 0.9772727272727273,
+    "confidence_rate_quantile": 0.9621212121212122,
+    "h3_test": {
+      "mean_diff": -0.022727272727272728,
+      "se_hac": 0.01550487151737153,
+      "t_stat": -1.465814966722509,
+      "p_val": 0.9286506487374981
+    },
+    "hac_sensitivity_by_lag": {
+      "lag_4": {
+        "mean": -0.022727272727272728,
+        "se": 0.01550487151737153,
+        "t_stat": -1.465814966722509,
+        "p_val": 0.9286506487374981
+      },
+      "lag_10": {
+        "mean": -0.022727272727272728,
+        "se": 0.012986624472373608,
+        "t_stat": -1.7500523539138566,
+        "p_val": 0.9599453598845845
+      },
+      "lag_20": {
+        "mean": -0.022727272727272728,
+        "se": 0.013413361929567841,
+        "t_stat": -1.6943755671852632,
+        "p_val": 0.9549030303583406
+      },
+      "lag_30": {
+        "mean": -0.022727272727272728,
+        "se": 0.012460180992900307,
+        "t_stat": -1.823992182795941,
+        "p_val": 0.9659233729710115
+      }
+    },
+    "bootstrap_sensitivity_by_block": {
+      "block_5": {
+        "ci_95": [
+          -0.05303030303030303,
+          0.007575757575757576
+        ],
+        "boot_p_val": 0.1025
+      },
+      "block_15": {
+        "ci_95": [
+          -0.05303030303030303,
+          0.0
+        ],
+        "boot_p_val": 0.093
+      },
+      "block_30": {
+        "ci_95": [
+          -0.045454545454545456,
+          0.0
+        ],
+        "boot_p_val": 0.074
+      }
+    }
+  },
+  "stage_4_macro_case_study": {
+    "event_date": "2024-07-11",
+    "event_day_idx": 69,
+    "pre_event_baseline_valid": false,
+    "pre_event_highvol_mean": 0.3092470771669693,
+    "first_arrival_delay_days": 1,
+    "first_arrival_date": "2024-07-12",
+    "sustained_tracking": true,
+    "relapse_detected": true,
+    "post_event_log_score_informed": -2.6551713104324075,
+    "post_event_log_score_quantile": -2.64846869755824
+  },
+  "holm_bonferroni_family": [
+    {
+      "id": "H_P2-1B",
+      "name": "Hawkes Periodic Non-Inferiority (margin=0.005)",
+      "raw_p": 0.0,
+      "stat": -38.02244086916108,
+      "mean_diff": -3.220499880848913e-05,
+      "rank": 1,
+      "holm_alpha": 0.0125,
+      "decision": "REJECT_H0 (Supported)",
+      "supported": true
+    },
+    {
+      "id": "H_P2-1A",
+      "name": "Hawkes Predictive Superiority (Periodic vs iid)",
+      "raw_p": 0.4962053785817951,
+      "stat": -0.009511848767622445,
+      "mean_diff": -3.7664377172306818e-06,
+      "rank": 2,
+      "holm_alpha": 0.016666666666666666,
+      "decision": "FAIL_TO_REJECT (Not Supported)",
+      "supported": false
+    },
+    {
+      "id": "H_P2-3",
+      "name": "Hamilton Informed EM Convergence Advantage",
+      "raw_p": 0.9286506487374981,
+      "stat": -1.465814966722509,
+      "mean_diff": -0.022727272727272728,
+      "rank": 3,
+      "holm_alpha": 0.025,
+      "decision": "FAIL_TO_REJECT (Not Supported)",
+      "supported": false
+    },
+    {
+      "id": "H_P2-2",
+      "name": "Jump/BV Cluster Rate Suppression",
+      "raw_p": 0.999999963028119,
+      "stat": 5.381314777965629,
+      "mean_diff": 0.001341540404040404,
+      "rank": 4,
+      "holm_alpha": 0.05,
+      "decision": "FAIL_TO_REJECT (Not Supported)",
+      "supported": false
+    }
+  ]
+}

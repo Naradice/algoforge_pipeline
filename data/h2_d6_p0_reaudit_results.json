@@ -1,0 +1,1036 @@
+{
+  "audit_version": "H2-D6_P0_SCIENTIFIC_REAUDIT",
+  "timestamp": "2026-11-19T22:50:00+09:00",
+  "denominator_specification": {
+    "required_coverage": "determined_required_params / required_total_count (denominator = 6 for all series: 3 MODEL_REQUIRED + 2-3 STRATEGY_REQUIRED + 0-1 architecture CONDITIONAL)",
+    "gold_coverage_raw": "determined_raw_params / 9 (denominator = 9, all Gold fixture parameters)"
+  },
+  "condition_summary": {
+    "S0": {
+      "n_series": 6,
+      "avg_in_tokens": 840.0,
+      "avg_out_tokens": 634.8,
+      "avg_total_tokens": 1474.8,
+      "required_coverage": 0.2222,
+      "gold_coverage_raw": 0.2037,
+      "syntactically_executable_rate": 1.0,
+      "grounded_executable_rate": 0.0,
+      "hallucination_rate": 0.0,
+      "structural_fidelity_rate": 1.0,
+      "trivialization_rate": 0.0,
+      "auto_pass_rate": 0.0
+    },
+    "S1": {
+      "n_series": 6,
+      "avg_in_tokens": 1694.7,
+      "avg_out_tokens": 959.2,
+      "avg_total_tokens": 2653.8,
+      "required_coverage": 0.2222,
+      "gold_coverage_raw": 0.2037,
+      "syntactically_executable_rate": 1.0,
+      "grounded_executable_rate": 0.0,
+      "hallucination_rate": 0.0,
+      "structural_fidelity_rate": 1.0,
+      "trivialization_rate": 0.0,
+      "auto_pass_rate": 0.0
+    },
+    "S2a": {
+      "n_series": 6,
+      "avg_in_tokens": 1007.7,
+      "avg_out_tokens": 391.7,
+      "avg_total_tokens": 1399.3,
+      "required_coverage": 0.2222,
+      "gold_coverage_raw": 0.2037,
+      "syntactically_executable_rate": 1.0,
+      "grounded_executable_rate": 0.0,
+      "hallucination_rate": 0.1667,
+      "structural_fidelity_rate": 1.0,
+      "trivialization_rate": 0.0,
+      "auto_pass_rate": 0.0
+    },
+    "S2b": {
+      "n_series": 6,
+      "avg_in_tokens": 1219.2,
+      "avg_out_tokens": 399.8,
+      "avg_total_tokens": 1619.0,
+      "required_coverage": 0.7222,
+      "gold_coverage_raw": 0.537,
+      "syntactically_executable_rate": 1.0,
+      "grounded_executable_rate": 0.0,
+      "hallucination_rate": 0.0,
+      "structural_fidelity_rate": 1.0,
+      "trivialization_rate": 0.0,
+      "auto_pass_rate": 0.0
+    }
+  },
+  "concept_summary": {
+    "hawkes_process": {
+      "S0": {
+        "n_series": 3,
+        "required_coverage": 0.4444,
+        "gold_coverage_raw": 0.2963,
+        "grounded_executable_rate": 0.0,
+        "hallucination_rate": 0.0
+      },
+      "S1": {
+        "n_series": 3,
+        "required_coverage": 0.4444,
+        "gold_coverage_raw": 0.2963,
+        "grounded_executable_rate": 0.0,
+        "hallucination_rate": 0.0
+      },
+      "S2a": {
+        "n_series": 3,
+        "required_coverage": 0.4444,
+        "gold_coverage_raw": 0.2963,
+        "grounded_executable_rate": 0.0,
+        "hallucination_rate": 0.0
+      },
+      "S2b": {
+        "n_series": 3,
+        "required_coverage": 0.6667,
+        "gold_coverage_raw": 0.4444,
+        "grounded_executable_rate": 0.0,
+        "hallucination_rate": 0.0
+      }
+    },
+    "jump_diffusion": {
+      "S0": {
+        "n_series": 3,
+        "required_coverage": 0.0,
+        "gold_coverage_raw": 0.1111,
+        "grounded_executable_rate": 0.0,
+        "hallucination_rate": 0.0
+      },
+      "S1": {
+        "n_series": 3,
+        "required_coverage": 0.0,
+        "gold_coverage_raw": 0.1111,
+        "grounded_executable_rate": 0.0,
+        "hallucination_rate": 0.0
+      },
+      "S2a": {
+        "n_series": 3,
+        "required_coverage": 0.0,
+        "gold_coverage_raw": 0.1111,
+        "grounded_executable_rate": 0.0,
+        "hallucination_rate": 0.3333
+      },
+      "S2b": {
+        "n_series": 3,
+        "required_coverage": 0.7778,
+        "gold_coverage_raw": 0.6297,
+        "grounded_executable_rate": 0.0,
+        "hallucination_rate": 0.0
+      }
+    }
+  },
+  "series_records": [
+    {
+      "series_id": "hawkes_process_S0_s42",
+      "base_unit_id": "h2_d6_hawkes_process_s42",
+      "call_id": "h2_d6_hawkes_process_s42_s0",
+      "concept_id": "hawkes_process",
+      "condition_id": "S0",
+      "seed": 42,
+      "tokens": {
+        "in_tokens": 825,
+        "out_tokens": 673,
+        "total_tokens": 1498
+      },
+      "metrics": {
+        "required_total_count": 6,
+        "required_determined_count": 2,
+        "required_coverage": 0.3333,
+        "raw_total_count": 9,
+        "raw_determined_count": 2,
+        "gold_coverage_raw": 0.2222,
+        "syntactically_executable": true,
+        "grounded_executable": false,
+        "has_hallucinations": false,
+        "hallucinated_numbers": [],
+        "structural_fidelity": true,
+        "is_trivialized": false,
+        "auto_pass": false
+      },
+      "determined_required_params": [
+        "hawkes_baseline_mu",
+        "hawkes_intensity_threshold"
+      ],
+      "missing_required_params": [
+        "hawkes_excitation_alpha",
+        "hawkes_decay_beta",
+        "hawkes_execution_timing_rule",
+        "hawkes_max_drawdown_stop"
+      ]
+    },
+    {
+      "series_id": "hawkes_process_S1_s42",
+      "base_unit_id": "h2_d6_hawkes_process_s42",
+      "call_id": "h2_d6_hawkes_process_s42_s1",
+      "concept_id": "hawkes_process",
+      "condition_id": "S1",
+      "seed": 42,
+      "tokens": {
+        "in_tokens": 1711,
+        "out_tokens": 1037,
+        "total_tokens": 2748
+      },
+      "metrics": {
+        "required_total_count": 6,
+        "required_determined_count": 4,
+        "required_coverage": 0.6667,
+        "raw_total_count": 9,
+        "raw_determined_count": 4,
+        "gold_coverage_raw": 0.4444,
+        "syntactically_executable": true,
+        "grounded_executable": false,
+        "has_hallucinations": false,
+        "hallucinated_numbers": [],
+        "structural_fidelity": true,
+        "is_trivialized": false,
+        "auto_pass": false
+      },
+      "determined_required_params": [
+        "hawkes_baseline_mu",
+        "hawkes_excitation_alpha",
+        "hawkes_decay_beta",
+        "hawkes_intensity_threshold"
+      ],
+      "missing_required_params": [
+        "hawkes_execution_timing_rule",
+        "hawkes_max_drawdown_stop"
+      ]
+    },
+    {
+      "series_id": "hawkes_process_S2a_s42",
+      "base_unit_id": "h2_d6_hawkes_process_s42",
+      "call_id": "h2_d6_hawkes_process_s42_s2a",
+      "concept_id": "hawkes_process",
+      "condition_id": "S2a",
+      "seed": 42,
+      "tokens": {
+        "in_tokens": 1027,
+        "out_tokens": 363,
+        "total_tokens": 1390
+      },
+      "metrics": {
+        "required_total_count": 6,
+        "required_determined_count": 4,
+        "required_coverage": 0.6667,
+        "raw_total_count": 9,
+        "raw_determined_count": 4,
+        "gold_coverage_raw": 0.4444,
+        "syntactically_executable": true,
+        "grounded_executable": false,
+        "has_hallucinations": false,
+        "hallucinated_numbers": [],
+        "structural_fidelity": true,
+        "is_trivialized": false,
+        "auto_pass": false
+      },
+      "determined_required_params": [
+        "hawkes_baseline_mu",
+        "hawkes_excitation_alpha",
+        "hawkes_decay_beta",
+        "hawkes_intensity_threshold"
+      ],
+      "missing_required_params": [
+        "hawkes_execution_timing_rule",
+        "hawkes_max_drawdown_stop"
+      ]
+    },
+    {
+      "series_id": "hawkes_process_S2b_s42",
+      "base_unit_id": "h2_d6_hawkes_process_s42",
+      "call_id": "h2_d6_hawkes_process_s42_s2b",
+      "concept_id": "hawkes_process",
+      "condition_id": "S2b",
+      "seed": 42,
+      "tokens": {
+        "in_tokens": 1196,
+        "out_tokens": 376,
+        "total_tokens": 1572
+      },
+      "metrics": {
+        "required_total_count": 6,
+        "required_determined_count": 4,
+        "required_coverage": 0.6667,
+        "raw_total_count": 9,
+        "raw_determined_count": 4,
+        "gold_coverage_raw": 0.4444,
+        "syntactically_executable": true,
+        "grounded_executable": false,
+        "has_hallucinations": false,
+        "hallucinated_numbers": [],
+        "structural_fidelity": true,
+        "is_trivialized": false,
+        "auto_pass": false
+      },
+      "determined_required_params": [
+        "hawkes_baseline_mu",
+        "hawkes_excitation_alpha",
+        "hawkes_decay_beta",
+        "hawkes_intensity_threshold"
+      ],
+      "missing_required_params": [
+        "hawkes_execution_timing_rule",
+        "hawkes_max_drawdown_stop"
+      ]
+    },
+    {
+      "series_id": "hawkes_process_S0_s43",
+      "base_unit_id": "h2_d6_hawkes_process_s43",
+      "call_id": "h2_d6_hawkes_process_s43_s0",
+      "concept_id": "hawkes_process",
+      "condition_id": "S0",
+      "seed": 43,
+      "tokens": {
+        "in_tokens": 825,
+        "out_tokens": 551,
+        "total_tokens": 1376
+      },
+      "metrics": {
+        "required_total_count": 6,
+        "required_determined_count": 4,
+        "required_coverage": 0.6667,
+        "raw_total_count": 9,
+        "raw_determined_count": 4,
+        "gold_coverage_raw": 0.4444,
+        "syntactically_executable": true,
+        "grounded_executable": false,
+        "has_hallucinations": false,
+        "hallucinated_numbers": [],
+        "structural_fidelity": true,
+        "is_trivialized": false,
+        "auto_pass": false
+      },
+      "determined_required_params": [
+        "hawkes_baseline_mu",
+        "hawkes_excitation_alpha",
+        "hawkes_decay_beta",
+        "hawkes_intensity_threshold"
+      ],
+      "missing_required_params": [
+        "hawkes_execution_timing_rule",
+        "hawkes_max_drawdown_stop"
+      ]
+    },
+    {
+      "series_id": "hawkes_process_S1_s43",
+      "base_unit_id": "h2_d6_hawkes_process_s43",
+      "call_id": "h2_d6_hawkes_process_s43_s1",
+      "concept_id": "hawkes_process",
+      "condition_id": "S1",
+      "seed": 43,
+      "tokens": {
+        "in_tokens": 1710,
+        "out_tokens": 1030,
+        "total_tokens": 2740
+      },
+      "metrics": {
+        "required_total_count": 6,
+        "required_determined_count": 2,
+        "required_coverage": 0.3333,
+        "raw_total_count": 9,
+        "raw_determined_count": 2,
+        "gold_coverage_raw": 0.2222,
+        "syntactically_executable": true,
+        "grounded_executable": false,
+        "has_hallucinations": false,
+        "hallucinated_numbers": [],
+        "structural_fidelity": true,
+        "is_trivialized": false,
+        "auto_pass": false
+      },
+      "determined_required_params": [
+        "hawkes_baseline_mu",
+        "hawkes_intensity_threshold"
+      ],
+      "missing_required_params": [
+        "hawkes_excitation_alpha",
+        "hawkes_decay_beta",
+        "hawkes_execution_timing_rule",
+        "hawkes_max_drawdown_stop"
+      ]
+    },
+    {
+      "series_id": "hawkes_process_S2a_s43",
+      "base_unit_id": "h2_d6_hawkes_process_s43",
+      "call_id": "h2_d6_hawkes_process_s43_s2a",
+      "concept_id": "hawkes_process",
+      "condition_id": "S2a",
+      "seed": 43,
+      "tokens": {
+        "in_tokens": 1043,
+        "out_tokens": 384,
+        "total_tokens": 1427
+      },
+      "metrics": {
+        "required_total_count": 6,
+        "required_determined_count": 2,
+        "required_coverage": 0.3333,
+        "raw_total_count": 9,
+        "raw_determined_count": 2,
+        "gold_coverage_raw": 0.2222,
+        "syntactically_executable": true,
+        "grounded_executable": false,
+        "has_hallucinations": false,
+        "hallucinated_numbers": [],
+        "structural_fidelity": true,
+        "is_trivialized": false,
+        "auto_pass": false
+      },
+      "determined_required_params": [
+        "hawkes_baseline_mu",
+        "hawkes_intensity_threshold"
+      ],
+      "missing_required_params": [
+        "hawkes_excitation_alpha",
+        "hawkes_decay_beta",
+        "hawkes_execution_timing_rule",
+        "hawkes_max_drawdown_stop"
+      ]
+    },
+    {
+      "series_id": "hawkes_process_S2b_s43",
+      "base_unit_id": "h2_d6_hawkes_process_s43",
+      "call_id": "h2_d6_hawkes_process_s43_s2b",
+      "concept_id": "hawkes_process",
+      "condition_id": "S2b",
+      "seed": 43,
+      "tokens": {
+        "in_tokens": 1212,
+        "out_tokens": 436,
+        "total_tokens": 1648
+      },
+      "metrics": {
+        "required_total_count": 6,
+        "required_determined_count": 4,
+        "required_coverage": 0.6667,
+        "raw_total_count": 9,
+        "raw_determined_count": 4,
+        "gold_coverage_raw": 0.4444,
+        "syntactically_executable": true,
+        "grounded_executable": false,
+        "has_hallucinations": false,
+        "hallucinated_numbers": [],
+        "structural_fidelity": true,
+        "is_trivialized": false,
+        "auto_pass": false
+      },
+      "determined_required_params": [
+        "hawkes_baseline_mu",
+        "hawkes_excitation_alpha",
+        "hawkes_decay_beta",
+        "hawkes_intensity_threshold"
+      ],
+      "missing_required_params": [
+        "hawkes_execution_timing_rule",
+        "hawkes_max_drawdown_stop"
+      ]
+    },
+    {
+      "series_id": "hawkes_process_S0_s44",
+      "base_unit_id": "h2_d6_hawkes_process_s44",
+      "call_id": "h2_d6_hawkes_process_s44_s0",
+      "concept_id": "hawkes_process",
+      "condition_id": "S0",
+      "seed": 44,
+      "tokens": {
+        "in_tokens": 825,
+        "out_tokens": 698,
+        "total_tokens": 1523
+      },
+      "metrics": {
+        "required_total_count": 6,
+        "required_determined_count": 2,
+        "required_coverage": 0.3333,
+        "raw_total_count": 9,
+        "raw_determined_count": 2,
+        "gold_coverage_raw": 0.2222,
+        "syntactically_executable": true,
+        "grounded_executable": false,
+        "has_hallucinations": false,
+        "hallucinated_numbers": [],
+        "structural_fidelity": true,
+        "is_trivialized": false,
+        "auto_pass": false
+      },
+      "determined_required_params": [
+        "hawkes_baseline_mu",
+        "hawkes_intensity_threshold"
+      ],
+      "missing_required_params": [
+        "hawkes_excitation_alpha",
+        "hawkes_decay_beta",
+        "hawkes_execution_timing_rule",
+        "hawkes_max_drawdown_stop"
+      ]
+    },
+    {
+      "series_id": "hawkes_process_S1_s44",
+      "base_unit_id": "h2_d6_hawkes_process_s44",
+      "call_id": "h2_d6_hawkes_process_s44_s1",
+      "concept_id": "hawkes_process",
+      "condition_id": "S1",
+      "seed": 44,
+      "tokens": {
+        "in_tokens": 1666,
+        "out_tokens": 918,
+        "total_tokens": 2584
+      },
+      "metrics": {
+        "required_total_count": 6,
+        "required_determined_count": 2,
+        "required_coverage": 0.3333,
+        "raw_total_count": 9,
+        "raw_determined_count": 2,
+        "gold_coverage_raw": 0.2222,
+        "syntactically_executable": true,
+        "grounded_executable": false,
+        "has_hallucinations": false,
+        "hallucinated_numbers": [],
+        "structural_fidelity": true,
+        "is_trivialized": false,
+        "auto_pass": false
+      },
+      "determined_required_params": [
+        "hawkes_baseline_mu",
+        "hawkes_intensity_threshold"
+      ],
+      "missing_required_params": [
+        "hawkes_excitation_alpha",
+        "hawkes_decay_beta",
+        "hawkes_execution_timing_rule",
+        "hawkes_max_drawdown_stop"
+      ]
+    },
+    {
+      "series_id": "hawkes_process_S2a_s44",
+      "base_unit_id": "h2_d6_hawkes_process_s44",
+      "call_id": "h2_d6_hawkes_process_s44_s2a",
+      "concept_id": "hawkes_process",
+      "condition_id": "S2a",
+      "seed": 44,
+      "tokens": {
+        "in_tokens": 1009,
+        "out_tokens": 406,
+        "total_tokens": 1415
+      },
+      "metrics": {
+        "required_total_count": 6,
+        "required_determined_count": 2,
+        "required_coverage": 0.3333,
+        "raw_total_count": 9,
+        "raw_determined_count": 2,
+        "gold_coverage_raw": 0.2222,
+        "syntactically_executable": true,
+        "grounded_executable": false,
+        "has_hallucinations": false,
+        "hallucinated_numbers": [],
+        "structural_fidelity": true,
+        "is_trivialized": false,
+        "auto_pass": false
+      },
+      "determined_required_params": [
+        "hawkes_baseline_mu",
+        "hawkes_intensity_threshold"
+      ],
+      "missing_required_params": [
+        "hawkes_excitation_alpha",
+        "hawkes_decay_beta",
+        "hawkes_execution_timing_rule",
+        "hawkes_max_drawdown_stop"
+      ]
+    },
+    {
+      "series_id": "hawkes_process_S2b_s44",
+      "base_unit_id": "h2_d6_hawkes_process_s44",
+      "call_id": "h2_d6_hawkes_process_s44_s2b",
+      "concept_id": "hawkes_process",
+      "condition_id": "S2b",
+      "seed": 44,
+      "tokens": {
+        "in_tokens": 1178,
+        "out_tokens": 385,
+        "total_tokens": 1563
+      },
+      "metrics": {
+        "required_total_count": 6,
+        "required_determined_count": 4,
+        "required_coverage": 0.6667,
+        "raw_total_count": 9,
+        "raw_determined_count": 4,
+        "gold_coverage_raw": 0.4444,
+        "syntactically_executable": true,
+        "grounded_executable": false,
+        "has_hallucinations": false,
+        "hallucinated_numbers": [],
+        "structural_fidelity": true,
+        "is_trivialized": false,
+        "auto_pass": false
+      },
+      "determined_required_params": [
+        "hawkes_baseline_mu",
+        "hawkes_excitation_alpha",
+        "hawkes_decay_beta",
+        "hawkes_intensity_threshold"
+      ],
+      "missing_required_params": [
+        "hawkes_execution_timing_rule",
+        "hawkes_max_drawdown_stop"
+      ]
+    },
+    {
+      "series_id": "jump_diffusion_S0_s42",
+      "base_unit_id": "h2_d6_jump_diffusion_s42",
+      "call_id": "h2_d6_jump_diffusion_s42_s0",
+      "concept_id": "jump_diffusion",
+      "condition_id": "S0",
+      "seed": 42,
+      "tokens": {
+        "in_tokens": 855,
+        "out_tokens": 646,
+        "total_tokens": 1501
+      },
+      "metrics": {
+        "required_total_count": 6,
+        "required_determined_count": 0,
+        "required_coverage": 0.0,
+        "raw_total_count": 9,
+        "raw_determined_count": 1,
+        "gold_coverage_raw": 0.1111,
+        "syntactically_executable": true,
+        "grounded_executable": false,
+        "has_hallucinations": false,
+        "hallucinated_numbers": [],
+        "structural_fidelity": true,
+        "is_trivialized": false,
+        "auto_pass": false
+      },
+      "determined_required_params": [],
+      "missing_required_params": [
+        "jump_bipower_threshold_theta",
+        "jump_hamilton_transition_probs",
+        "jump_regime_variance_ratio",
+        "jump_execution_timing_rule",
+        "jump_trailing_stop_threshold",
+        "jump_regime_posterior_threshold"
+      ]
+    },
+    {
+      "series_id": "jump_diffusion_S1_s42",
+      "base_unit_id": "h2_d6_jump_diffusion_s42",
+      "call_id": "h2_d6_jump_diffusion_s42_s1",
+      "concept_id": "jump_diffusion",
+      "condition_id": "S1",
+      "seed": 42,
+      "tokens": {
+        "in_tokens": 1707,
+        "out_tokens": 946,
+        "total_tokens": 2653
+      },
+      "metrics": {
+        "required_total_count": 6,
+        "required_determined_count": 0,
+        "required_coverage": 0.0,
+        "raw_total_count": 9,
+        "raw_determined_count": 1,
+        "gold_coverage_raw": 0.1111,
+        "syntactically_executable": true,
+        "grounded_executable": false,
+        "has_hallucinations": false,
+        "hallucinated_numbers": [],
+        "structural_fidelity": true,
+        "is_trivialized": false,
+        "auto_pass": false
+      },
+      "determined_required_params": [],
+      "missing_required_params": [
+        "jump_bipower_threshold_theta",
+        "jump_hamilton_transition_probs",
+        "jump_regime_variance_ratio",
+        "jump_execution_timing_rule",
+        "jump_trailing_stop_threshold",
+        "jump_regime_posterior_threshold"
+      ]
+    },
+    {
+      "series_id": "jump_diffusion_S2a_s42",
+      "base_unit_id": "h2_d6_jump_diffusion_s42",
+      "call_id": "h2_d6_jump_diffusion_s42_s2a",
+      "concept_id": "jump_diffusion",
+      "condition_id": "S2a",
+      "seed": 42,
+      "tokens": {
+        "in_tokens": 989,
+        "out_tokens": 475,
+        "total_tokens": 1464
+      },
+      "metrics": {
+        "required_total_count": 6,
+        "required_determined_count": 0,
+        "required_coverage": 0.0,
+        "raw_total_count": 9,
+        "raw_determined_count": 1,
+        "gold_coverage_raw": 0.1111,
+        "syntactically_executable": true,
+        "grounded_executable": false,
+        "has_hallucinations": false,
+        "hallucinated_numbers": [],
+        "structural_fidelity": true,
+        "is_trivialized": false,
+        "auto_pass": false
+      },
+      "determined_required_params": [],
+      "missing_required_params": [
+        "jump_bipower_threshold_theta",
+        "jump_hamilton_transition_probs",
+        "jump_regime_variance_ratio",
+        "jump_execution_timing_rule",
+        "jump_trailing_stop_threshold",
+        "jump_regime_posterior_threshold"
+      ]
+    },
+    {
+      "series_id": "jump_diffusion_S2b_s42",
+      "base_unit_id": "h2_d6_jump_diffusion_s42",
+      "call_id": "h2_d6_jump_diffusion_s42_s2b",
+      "concept_id": "jump_diffusion",
+      "condition_id": "S2b",
+      "seed": 42,
+      "tokens": {
+        "in_tokens": 1243,
+        "out_tokens": 401,
+        "total_tokens": 1644
+      },
+      "metrics": {
+        "required_total_count": 6,
+        "required_determined_count": 5,
+        "required_coverage": 0.8333,
+        "raw_total_count": 9,
+        "raw_determined_count": 6,
+        "gold_coverage_raw": 0.6667,
+        "syntactically_executable": true,
+        "grounded_executable": false,
+        "has_hallucinations": false,
+        "hallucinated_numbers": [],
+        "structural_fidelity": true,
+        "is_trivialized": false,
+        "auto_pass": false
+      },
+      "determined_required_params": [
+        "jump_bipower_threshold_theta",
+        "jump_hamilton_transition_probs",
+        "jump_regime_variance_ratio",
+        "jump_trailing_stop_threshold",
+        "jump_regime_posterior_threshold"
+      ],
+      "missing_required_params": [
+        "jump_execution_timing_rule"
+      ]
+    },
+    {
+      "series_id": "jump_diffusion_S0_s43",
+      "base_unit_id": "h2_d6_jump_diffusion_s43",
+      "call_id": "h2_d6_jump_diffusion_s43_s0",
+      "concept_id": "jump_diffusion",
+      "condition_id": "S0",
+      "seed": 43,
+      "tokens": {
+        "in_tokens": 855,
+        "out_tokens": 578,
+        "total_tokens": 1433
+      },
+      "metrics": {
+        "required_total_count": 6,
+        "required_determined_count": 0,
+        "required_coverage": 0.0,
+        "raw_total_count": 9,
+        "raw_determined_count": 1,
+        "gold_coverage_raw": 0.1111,
+        "syntactically_executable": true,
+        "grounded_executable": false,
+        "has_hallucinations": false,
+        "hallucinated_numbers": [],
+        "structural_fidelity": true,
+        "is_trivialized": false,
+        "auto_pass": false
+      },
+      "determined_required_params": [],
+      "missing_required_params": [
+        "jump_bipower_threshold_theta",
+        "jump_hamilton_transition_probs",
+        "jump_regime_variance_ratio",
+        "jump_execution_timing_rule",
+        "jump_trailing_stop_threshold",
+        "jump_regime_posterior_threshold"
+      ]
+    },
+    {
+      "series_id": "jump_diffusion_S1_s43",
+      "base_unit_id": "h2_d6_jump_diffusion_s43",
+      "call_id": "h2_d6_jump_diffusion_s43_s1",
+      "concept_id": "jump_diffusion",
+      "condition_id": "S1",
+      "seed": 43,
+      "tokens": {
+        "in_tokens": 1674,
+        "out_tokens": 897,
+        "total_tokens": 2571
+      },
+      "metrics": {
+        "required_total_count": 6,
+        "required_determined_count": 0,
+        "required_coverage": 0.0,
+        "raw_total_count": 9,
+        "raw_determined_count": 1,
+        "gold_coverage_raw": 0.1111,
+        "syntactically_executable": true,
+        "grounded_executable": false,
+        "has_hallucinations": false,
+        "hallucinated_numbers": [],
+        "structural_fidelity": true,
+        "is_trivialized": false,
+        "auto_pass": false
+      },
+      "determined_required_params": [],
+      "missing_required_params": [
+        "jump_bipower_threshold_theta",
+        "jump_hamilton_transition_probs",
+        "jump_regime_variance_ratio",
+        "jump_execution_timing_rule",
+        "jump_trailing_stop_threshold",
+        "jump_regime_posterior_threshold"
+      ]
+    },
+    {
+      "series_id": "jump_diffusion_S2a_s43",
+      "base_unit_id": "h2_d6_jump_diffusion_s43",
+      "call_id": "h2_d6_jump_diffusion_s43_s2a",
+      "concept_id": "jump_diffusion",
+      "condition_id": "S2a",
+      "seed": 43,
+      "tokens": {
+        "in_tokens": 977,
+        "out_tokens": 338,
+        "total_tokens": 1315
+      },
+      "metrics": {
+        "required_total_count": 6,
+        "required_determined_count": 0,
+        "required_coverage": 0.0,
+        "raw_total_count": 9,
+        "raw_determined_count": 1,
+        "gold_coverage_raw": 0.1111,
+        "syntactically_executable": true,
+        "grounded_executable": false,
+        "has_hallucinations": true,
+        "hallucinated_numbers": [
+          "arbitrary_entry_0.7",
+          "arbitrary_entry_0.01"
+        ],
+        "structural_fidelity": true,
+        "is_trivialized": false,
+        "auto_pass": false
+      },
+      "determined_required_params": [],
+      "missing_required_params": [
+        "jump_bipower_threshold_theta",
+        "jump_hamilton_transition_probs",
+        "jump_regime_variance_ratio",
+        "jump_execution_timing_rule",
+        "jump_trailing_stop_threshold",
+        "jump_regime_posterior_threshold"
+      ]
+    },
+    {
+      "series_id": "jump_diffusion_S2b_s43",
+      "base_unit_id": "h2_d6_jump_diffusion_s43",
+      "call_id": "h2_d6_jump_diffusion_s43_s2b",
+      "concept_id": "jump_diffusion",
+      "condition_id": "S2b",
+      "seed": 43,
+      "tokens": {
+        "in_tokens": 1231,
+        "out_tokens": 395,
+        "total_tokens": 1626
+      },
+      "metrics": {
+        "required_total_count": 6,
+        "required_determined_count": 5,
+        "required_coverage": 0.8333,
+        "raw_total_count": 9,
+        "raw_determined_count": 6,
+        "gold_coverage_raw": 0.6667,
+        "syntactically_executable": true,
+        "grounded_executable": false,
+        "has_hallucinations": false,
+        "hallucinated_numbers": [],
+        "structural_fidelity": true,
+        "is_trivialized": false,
+        "auto_pass": false
+      },
+      "determined_required_params": [
+        "jump_bipower_threshold_theta",
+        "jump_hamilton_transition_probs",
+        "jump_regime_variance_ratio",
+        "jump_trailing_stop_threshold",
+        "jump_regime_posterior_threshold"
+      ],
+      "missing_required_params": [
+        "jump_execution_timing_rule"
+      ]
+    },
+    {
+      "series_id": "jump_diffusion_S0_s44",
+      "base_unit_id": "h2_d6_jump_diffusion_s44",
+      "call_id": "h2_d6_jump_diffusion_s44_s0",
+      "concept_id": "jump_diffusion",
+      "condition_id": "S0",
+      "seed": 44,
+      "tokens": {
+        "in_tokens": 855,
+        "out_tokens": 663,
+        "total_tokens": 1518
+      },
+      "metrics": {
+        "required_total_count": 6,
+        "required_determined_count": 0,
+        "required_coverage": 0.0,
+        "raw_total_count": 9,
+        "raw_determined_count": 1,
+        "gold_coverage_raw": 0.1111,
+        "syntactically_executable": true,
+        "grounded_executable": false,
+        "has_hallucinations": false,
+        "hallucinated_numbers": [],
+        "structural_fidelity": true,
+        "is_trivialized": false,
+        "auto_pass": false
+      },
+      "determined_required_params": [],
+      "missing_required_params": [
+        "jump_bipower_threshold_theta",
+        "jump_hamilton_transition_probs",
+        "jump_regime_variance_ratio",
+        "jump_execution_timing_rule",
+        "jump_trailing_stop_threshold",
+        "jump_regime_posterior_threshold"
+      ]
+    },
+    {
+      "series_id": "jump_diffusion_S1_s44",
+      "base_unit_id": "h2_d6_jump_diffusion_s44",
+      "call_id": "h2_d6_jump_diffusion_s44_s1",
+      "concept_id": "jump_diffusion",
+      "condition_id": "S1",
+      "seed": 44,
+      "tokens": {
+        "in_tokens": 1700,
+        "out_tokens": 927,
+        "total_tokens": 2627
+      },
+      "metrics": {
+        "required_total_count": 6,
+        "required_determined_count": 0,
+        "required_coverage": 0.0,
+        "raw_total_count": 9,
+        "raw_determined_count": 1,
+        "gold_coverage_raw": 0.1111,
+        "syntactically_executable": true,
+        "grounded_executable": false,
+        "has_hallucinations": false,
+        "hallucinated_numbers": [],
+        "structural_fidelity": true,
+        "is_trivialized": false,
+        "auto_pass": false
+      },
+      "determined_required_params": [],
+      "missing_required_params": [
+        "jump_bipower_threshold_theta",
+        "jump_hamilton_transition_probs",
+        "jump_regime_variance_ratio",
+        "jump_execution_timing_rule",
+        "jump_trailing_stop_threshold",
+        "jump_regime_posterior_threshold"
+      ]
+    },
+    {
+      "series_id": "jump_diffusion_S2a_s44",
+      "base_unit_id": "h2_d6_jump_diffusion_s44",
+      "call_id": "h2_d6_jump_diffusion_s44_s2a",
+      "concept_id": "jump_diffusion",
+      "condition_id": "S2a",
+      "seed": 44,
+      "tokens": {
+        "in_tokens": 1001,
+        "out_tokens": 384,
+        "total_tokens": 1385
+      },
+      "metrics": {
+        "required_total_count": 6,
+        "required_determined_count": 0,
+        "required_coverage": 0.0,
+        "raw_total_count": 9,
+        "raw_determined_count": 1,
+        "gold_coverage_raw": 0.1111,
+        "syntactically_executable": true,
+        "grounded_executable": false,
+        "has_hallucinations": false,
+        "hallucinated_numbers": [],
+        "structural_fidelity": true,
+        "is_trivialized": false,
+        "auto_pass": false
+      },
+      "determined_required_params": [],
+      "missing_required_params": [
+        "jump_bipower_threshold_theta",
+        "jump_hamilton_transition_probs",
+        "jump_regime_variance_ratio",
+        "jump_execution_timing_rule",
+        "jump_trailing_stop_threshold",
+        "jump_regime_posterior_threshold"
+      ]
+    },
+    {
+      "series_id": "jump_diffusion_S2b_s44",
+      "base_unit_id": "h2_d6_jump_diffusion_s44",
+      "call_id": "h2_d6_jump_diffusion_s44_s2b",
+      "concept_id": "jump_diffusion",
+      "condition_id": "S2b",
+      "seed": 44,
+      "tokens": {
+        "in_tokens": 1255,
+        "out_tokens": 406,
+        "total_tokens": 1661
+      },
+      "metrics": {
+        "required_total_count": 6,
+        "required_determined_count": 4,
+        "required_coverage": 0.6667,
+        "raw_total_count": 9,
+        "raw_determined_count": 5,
+        "gold_coverage_raw": 0.5556,
+        "syntactically_executable": true,
+        "grounded_executable": false,
+        "has_hallucinations": false,
+        "hallucinated_numbers": [],
+        "structural_fidelity": true,
+        "is_trivialized": false,
+        "auto_pass": false
+      },
+      "determined_required_params": [
+        "jump_bipower_threshold_theta",
+        "jump_regime_variance_ratio",
+        "jump_trailing_stop_threshold",
+        "jump_regime_posterior_threshold"
+      ],
+      "missing_required_params": [
+        "jump_hamilton_transition_probs",
+        "jump_execution_timing_rule"
+      ]
+    }
+  ]
+}

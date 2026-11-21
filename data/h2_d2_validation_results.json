@@ -1,0 +1,543 @@
+{
+  "overall_sensitivity": 1.0,
+  "overall_specificity": 0.96,
+  "clean_accuracy": 1.0,
+  "category_stats": {
+    "e_role": {
+      "TP": 4,
+      "FP": 0,
+      "TN": 20,
+      "FN": 0
+    },
+    "e_math": {
+      "TP": 4,
+      "FP": 0,
+      "TN": 20,
+      "FN": 0
+    },
+    "e_data": {
+      "TP": 4,
+      "FP": 4,
+      "TN": 16,
+      "FN": 0
+    },
+    "e_leap": {
+      "TP": 4,
+      "FP": 0,
+      "TN": 20,
+      "FN": 0
+    },
+    "e_inop": {
+      "TP": 4,
+      "FP": 0,
+      "TN": 20,
+      "FN": 0
+    }
+  },
+  "case_results": [
+    {
+      "case_id": "case_01",
+      "concept_id": "almgren_chriss",
+      "perturbation_type": "clean",
+      "match": true,
+      "ground_truth": {
+        "e_role": false,
+        "e_math": false,
+        "e_data": false,
+        "e_leap": false,
+        "e_inop": false
+      },
+      "predicted": {
+        "e_role": false,
+        "e_math": false,
+        "e_data": false,
+        "e_leap": false,
+        "e_inop": false
+      },
+      "notes": "Clean: No objective error violations detected."
+    },
+    {
+      "case_id": "case_02",
+      "concept_id": "almgren_chriss",
+      "perturbation_type": "e_role",
+      "match": true,
+      "ground_truth": {
+        "e_role": true,
+        "e_math": false,
+        "e_data": false,
+        "e_leap": false,
+        "e_inop": false
+      },
+      "predicted": {
+        "e_role": true,
+        "e_math": false,
+        "e_data": false,
+        "e_leap": false,
+        "e_inop": false
+      },
+      "notes": "[E_role: Offending text in entry/mech: 'enter a trade when'. Violation: Almgren-Chriss liquidation model used as a speculative trade entry signal.]"
+    },
+    {
+      "case_id": "case_03",
+      "concept_id": "almgren_chriss",
+      "perturbation_type": "e_math",
+      "match": true,
+      "ground_truth": {
+        "e_role": false,
+        "e_math": true,
+        "e_data": false,
+        "e_leap": false,
+        "e_inop": false
+      },
+      "predicted": {
+        "e_role": false,
+        "e_math": true,
+        "e_data": false,
+        "e_leap": false,
+        "e_inop": false
+      },
+      "notes": "[E_math: Offending text: 'price deviates from the optimal trajectory'. Violation: Inventory trajectory x(t) conflated with mid-price trajectory S(t).]"
+    },
+    {
+      "case_id": "case_04",
+      "concept_id": "almgren_chriss",
+      "perturbation_type": "e_data",
+      "match": true,
+      "ground_truth": {
+        "e_role": false,
+        "e_math": false,
+        "e_data": true,
+        "e_leap": false,
+        "e_inop": false
+      },
+      "predicted": {
+        "e_role": false,
+        "e_math": false,
+        "e_data": true,
+        "e_leap": false,
+        "e_inop": false
+      },
+      "notes": "[E_data: Assumed transient price impact kernel is estimated directly from raw M5 OHLC bars alone without trade logs or order book data.]"
+    },
+    {
+      "case_id": "case_05",
+      "concept_id": "almgren_chriss",
+      "perturbation_type": "e_leap",
+      "match": true,
+      "ground_truth": {
+        "e_role": false,
+        "e_math": false,
+        "e_data": false,
+        "e_leap": true,
+        "e_inop": false
+      },
+      "predicted": {
+        "e_role": false,
+        "e_math": false,
+        "e_data": false,
+        "e_leap": true,
+        "e_inop": false
+      },
+      "notes": "[E_leap: Empirical profitability claimed as an established literature fact rather than a falsifiable hypothesis.]"
+    },
+    {
+      "case_id": "case_06",
+      "concept_id": "almgren_chriss",
+      "perturbation_type": "e_inop",
+      "match": true,
+      "ground_truth": {
+        "e_role": false,
+        "e_math": false,
+        "e_data": false,
+        "e_leap": false,
+        "e_inop": true
+      },
+      "predicted": {
+        "e_role": false,
+        "e_math": false,
+        "e_data": false,
+        "e_leap": false,
+        "e_inop": true
+      },
+      "notes": "[E_inop: Entry or exit condition relies on vague, unprogrammable qualitative criteria.]"
+    },
+    {
+      "case_id": "case_07",
+      "concept_id": "hawkes_process",
+      "perturbation_type": "clean",
+      "match": true,
+      "ground_truth": {
+        "e_role": false,
+        "e_math": false,
+        "e_data": false,
+        "e_leap": false,
+        "e_inop": false
+      },
+      "predicted": {
+        "e_role": false,
+        "e_math": false,
+        "e_data": false,
+        "e_leap": false,
+        "e_inop": false
+      },
+      "notes": "Clean: No objective error violations detected."
+    },
+    {
+      "case_id": "case_08",
+      "concept_id": "hawkes_process",
+      "perturbation_type": "e_role",
+      "match": false,
+      "ground_truth": {
+        "e_role": true,
+        "e_math": false,
+        "e_data": false,
+        "e_leap": false,
+        "e_inop": false
+      },
+      "predicted": {
+        "e_role": true,
+        "e_math": false,
+        "e_data": true,
+        "e_leap": false,
+        "e_inop": false
+      },
+      "notes": "[E_role: Hawkes process misused as portfolio weight optimizer or routing engine.] | [E_data: Hawkes process mathematically requires discrete event arrival timestamps without defining an intraday proxy or event reconstruction mechanism on M5.]"
+    },
+    {
+      "case_id": "case_09",
+      "concept_id": "hawkes_process",
+      "perturbation_type": "e_math",
+      "match": false,
+      "ground_truth": {
+        "e_role": false,
+        "e_math": true,
+        "e_data": false,
+        "e_leap": false,
+        "e_inop": false
+      },
+      "predicted": {
+        "e_role": false,
+        "e_math": true,
+        "e_data": true,
+        "e_leap": false,
+        "e_inop": false
+      },
+      "notes": "[E_math: Hawkes conditional intensity lambda(t) conflated with expected directional return.] | [E_data: Hawkes process mathematically requires discrete event arrival timestamps without defining an intraday proxy or event reconstruction mechanism on M5.]"
+    },
+    {
+      "case_id": "case_10",
+      "concept_id": "hawkes_process",
+      "perturbation_type": "e_data",
+      "match": true,
+      "ground_truth": {
+        "e_role": false,
+        "e_math": false,
+        "e_data": true,
+        "e_leap": false,
+        "e_inop": false
+      },
+      "predicted": {
+        "e_role": false,
+        "e_math": false,
+        "e_data": true,
+        "e_leap": false,
+        "e_inop": false
+      },
+      "notes": "[E_data: Hawkes process mathematically requires discrete event arrival timestamps without defining an intraday proxy or event reconstruction mechanism on M5.]"
+    },
+    {
+      "case_id": "case_11",
+      "concept_id": "hawkes_process",
+      "perturbation_type": "e_leap",
+      "match": false,
+      "ground_truth": {
+        "e_role": false,
+        "e_math": false,
+        "e_data": false,
+        "e_leap": true,
+        "e_inop": false
+      },
+      "predicted": {
+        "e_role": false,
+        "e_math": false,
+        "e_data": true,
+        "e_leap": true,
+        "e_inop": false
+      },
+      "notes": "[E_data: Hawkes process mathematically requires discrete event arrival timestamps without defining an intraday proxy or event reconstruction mechanism on M5.] | [E_leap: Empirical profitability claimed as an established literature fact rather than a falsifiable hypothesis.]"
+    },
+    {
+      "case_id": "case_12",
+      "concept_id": "hawkes_process",
+      "perturbation_type": "e_inop",
+      "match": false,
+      "ground_truth": {
+        "e_role": false,
+        "e_math": false,
+        "e_data": false,
+        "e_leap": false,
+        "e_inop": true
+      },
+      "predicted": {
+        "e_role": false,
+        "e_math": false,
+        "e_data": true,
+        "e_leap": false,
+        "e_inop": true
+      },
+      "notes": "[E_data: Hawkes process mathematically requires discrete event arrival timestamps without defining an intraday proxy or event reconstruction mechanism on M5.] | [E_inop: Entry or exit condition relies on vague, unprogrammable qualitative criteria.]"
+    },
+    {
+      "case_id": "case_13",
+      "concept_id": "irm",
+      "perturbation_type": "clean",
+      "match": true,
+      "ground_truth": {
+        "e_role": false,
+        "e_math": false,
+        "e_data": false,
+        "e_leap": false,
+        "e_inop": false
+      },
+      "predicted": {
+        "e_role": false,
+        "e_math": false,
+        "e_data": false,
+        "e_leap": false,
+        "e_inop": false
+      },
+      "notes": "Clean: No objective error violations detected."
+    },
+    {
+      "case_id": "case_14",
+      "concept_id": "irm",
+      "perturbation_type": "e_role",
+      "match": true,
+      "ground_truth": {
+        "e_role": true,
+        "e_math": false,
+        "e_data": false,
+        "e_leap": false,
+        "e_inop": false
+      },
+      "predicted": {
+        "e_role": true,
+        "e_math": false,
+        "e_data": false,
+        "e_leap": false,
+        "e_inop": false
+      },
+      "notes": "[E_role: IRM misused as order execution routing engine rather than representation learning.]"
+    },
+    {
+      "case_id": "case_15",
+      "concept_id": "irm",
+      "perturbation_type": "e_math",
+      "match": true,
+      "ground_truth": {
+        "e_role": false,
+        "e_math": true,
+        "e_data": false,
+        "e_leap": false,
+        "e_inop": false
+      },
+      "predicted": {
+        "e_role": false,
+        "e_math": true,
+        "e_data": false,
+        "e_leap": false,
+        "e_inop": false
+      },
+      "notes": "[E_math: IRM claimed to provide guaranteed causal invariance under arbitrary unobserved shifts.]"
+    },
+    {
+      "case_id": "case_16",
+      "concept_id": "irm",
+      "perturbation_type": "e_data",
+      "match": true,
+      "ground_truth": {
+        "e_role": false,
+        "e_math": false,
+        "e_data": true,
+        "e_leap": false,
+        "e_inop": false
+      },
+      "predicted": {
+        "e_role": false,
+        "e_math": false,
+        "e_data": true,
+        "e_leap": false,
+        "e_inop": false
+      },
+      "notes": "[E_data: Required limit order book L3 queue depth data while input timeframe is specified as standard M5 OHLC bars.]"
+    },
+    {
+      "case_id": "case_17",
+      "concept_id": "irm",
+      "perturbation_type": "e_leap",
+      "match": true,
+      "ground_truth": {
+        "e_role": false,
+        "e_math": false,
+        "e_data": false,
+        "e_leap": true,
+        "e_inop": false
+      },
+      "predicted": {
+        "e_role": false,
+        "e_math": false,
+        "e_data": false,
+        "e_leap": true,
+        "e_inop": false
+      },
+      "notes": "[E_leap: Empirical profitability claimed as an established literature fact rather than a falsifiable hypothesis.]"
+    },
+    {
+      "case_id": "case_18",
+      "concept_id": "irm",
+      "perturbation_type": "e_inop",
+      "match": true,
+      "ground_truth": {
+        "e_role": false,
+        "e_math": false,
+        "e_data": false,
+        "e_leap": false,
+        "e_inop": true
+      },
+      "predicted": {
+        "e_role": false,
+        "e_math": false,
+        "e_data": false,
+        "e_leap": false,
+        "e_inop": true
+      },
+      "notes": "[E_inop: Entry or exit condition relies on vague, unprogrammable qualitative criteria.]"
+    },
+    {
+      "case_id": "case_19",
+      "concept_id": "jump_diffusion",
+      "perturbation_type": "clean",
+      "match": true,
+      "ground_truth": {
+        "e_role": false,
+        "e_math": false,
+        "e_data": false,
+        "e_leap": false,
+        "e_inop": false
+      },
+      "predicted": {
+        "e_role": false,
+        "e_math": false,
+        "e_data": false,
+        "e_leap": false,
+        "e_inop": false
+      },
+      "notes": "Clean: No objective error violations detected."
+    },
+    {
+      "case_id": "case_20",
+      "concept_id": "jump_diffusion",
+      "perturbation_type": "e_role",
+      "match": true,
+      "ground_truth": {
+        "e_role": true,
+        "e_math": false,
+        "e_data": false,
+        "e_leap": false,
+        "e_inop": false
+      },
+      "predicted": {
+        "e_role": true,
+        "e_math": false,
+        "e_data": false,
+        "e_leap": false,
+        "e_inop": false
+      },
+      "notes": "[E_role: Jump diffusion process misused as automated limit order routing scheduler.]"
+    },
+    {
+      "case_id": "case_21",
+      "concept_id": "jump_diffusion",
+      "perturbation_type": "e_math",
+      "match": true,
+      "ground_truth": {
+        "e_role": false,
+        "e_math": true,
+        "e_data": false,
+        "e_leap": false,
+        "e_inop": false
+      },
+      "predicted": {
+        "e_role": false,
+        "e_math": true,
+        "e_data": false,
+        "e_leap": false,
+        "e_inop": false
+      },
+      "notes": "[E_math: Latent regime probability or stochastic Poisson jump amplitude treated as deterministic trend.]"
+    },
+    {
+      "case_id": "case_22",
+      "concept_id": "jump_diffusion",
+      "perturbation_type": "e_data",
+      "match": true,
+      "ground_truth": {
+        "e_role": false,
+        "e_math": false,
+        "e_data": true,
+        "e_leap": false,
+        "e_inop": false
+      },
+      "predicted": {
+        "e_role": false,
+        "e_math": false,
+        "e_data": true,
+        "e_leap": false,
+        "e_inop": false
+      },
+      "notes": "[E_data: Assumed exact microsecond Poisson jump arrival timestamps can be uniquely recovered from raw M5 OHLC bars alone.]"
+    },
+    {
+      "case_id": "case_23",
+      "concept_id": "jump_diffusion",
+      "perturbation_type": "e_leap",
+      "match": true,
+      "ground_truth": {
+        "e_role": false,
+        "e_math": false,
+        "e_data": false,
+        "e_leap": true,
+        "e_inop": false
+      },
+      "predicted": {
+        "e_role": false,
+        "e_math": false,
+        "e_data": false,
+        "e_leap": true,
+        "e_inop": false
+      },
+      "notes": "[E_leap: Empirical profitability claimed as an established literature fact rather than a falsifiable hypothesis.]"
+    },
+    {
+      "case_id": "case_24",
+      "concept_id": "jump_diffusion",
+      "perturbation_type": "e_inop",
+      "match": true,
+      "ground_truth": {
+        "e_role": false,
+        "e_math": false,
+        "e_data": false,
+        "e_leap": false,
+        "e_inop": true
+      },
+      "predicted": {
+        "e_role": false,
+        "e_math": false,
+        "e_data": false,
+        "e_leap": false,
+        "e_inop": true
+      },
+      "notes": "[E_inop: Entry or exit condition relies on vague, unprogrammable qualitative criteria.]"
+    }
+  ]
+}

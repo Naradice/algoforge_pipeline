@@ -1,0 +1,298 @@
+{
+  "timestamp_utc": "2026-11-21T16:42:55.947682+00:00",
+  "elapsed_sec": 950.0337090492249,
+  "api_spend_usd": 0.0,
+  "seeds": {
+    "seed_42": {
+      "A": {
+        "submitted": 500,
+        "unique": 273,
+        "intra_dup": 227,
+        "cache_hit": 327,
+        "executed_backtest": 173,
+        "saved_sec": 88.23680233955383,
+        "profitable": 332,
+        "best_sharpe": 4.533312143520425,
+        "median_sharpe": 1.1542049212317806,
+        "top1_root_share": 0.742,
+        "trajectory": [
+          {
+            "gen": 1,
+            "new_exec": 0,
+            "best_sharpe": 1.7474124974158156,
+            "med_sharpe": -1.2398245722363626
+          },
+          {
+            "gen": 2,
+            "new_exec": 62,
+            "best_sharpe": 3.7284227264422136,
+            "med_sharpe": 1.0290886899084404
+          },
+          {
+            "gen": 3,
+            "new_exec": 46,
+            "best_sharpe": 4.533312143520425,
+            "med_sharpe": 2.038015758121645
+          },
+          {
+            "gen": 4,
+            "new_exec": 39,
+            "best_sharpe": 4.533312143520425,
+            "med_sharpe": 1.9992666541605273
+          },
+          {
+            "gen": 5,
+            "new_exec": 26,
+            "best_sharpe": 4.533312143520425,
+            "med_sharpe": 2.1536240778823172
+          }
+        ],
+        "diag_top1": {
+          "final_equity": 1012016.8499999864,
+          "total_return_pct": 1.2016849999986423,
+          "annualized_sharpe": 1.0449353705520672,
+          "max_drawdown_pct": -1.467160073344369,
+          "trade_count": 41,
+          "win_rate": 0.5121951219512195,
+          "post_fill_risk_exceeded_count": 25
+        }
+      },
+      "B": {
+        "attempts": 1194,
+        "adopted": 482,
+        "retry_failures": 18,
+        "unique": 482,
+        "executed_backtests": 482,
+        "cache_hits": 0,
+        "top1_root_share": 0.1037344398340249,
+        "best_explore_sharpe": 5.071607915462231,
+        "median_explore_sharpe": 0.8941611713728037,
+        "diag_sharpe": 0.44240223168939247,
+        "diag_return_pct": 0.6197499999988088,
+        "diag_trades": 39
+      },
+      "C": {
+        "attempts": 500,
+        "adopted": 500,
+        "retry_failures": 0,
+        "unique": 279,
+        "executed_backtests": 259,
+        "cache_hits": 241,
+        "top1_root_share": 0.754,
+        "best_explore_sharpe": 2.6692198193608374,
+        "median_explore_sharpe": 0.5118251948467913,
+        "diag_sharpe": -1.095279290100621,
+        "diag_return_pct": -1.8416600000019767,
+        "diag_trades": 62
+      },
+      "D": {
+        "attempts": 1248,
+        "adopted": 482,
+        "retry_failures": 18,
+        "unique": 482,
+        "executed_backtests": 379,
+        "cache_hits": 103,
+        "top1_root_share": 0.1037344398340249,
+        "best_explore_sharpe": 4.719625014457669,
+        "median_explore_sharpe": 0.6381173174152288,
+        "diag_sharpe": 2.0783834978307087,
+        "diag_return_pct": 3.1338549999990084,
+        "diag_trades": 34
+      }
+    },
+    "seed_101": {
+      "A": {
+        "submitted": 500,
+        "unique": 308,
+        "intra_dup": 192,
+        "cache_hit": 292,
+        "executed_backtest": 208,
+        "saved_sec": 80.41190958023071,
+        "profitable": 347,
+        "best_sharpe": 4.700994890334421,
+        "median_sharpe": 1.2390954485160108,
+        "top1_root_share": 0.634,
+        "trajectory": [
+          {
+            "gen": 1,
+            "new_exec": 0,
+            "best_sharpe": 2.7757088663154406,
+            "med_sharpe": -1.6116292847905047
+          },
+          {
+            "gen": 2,
+            "new_exec": 61,
+            "best_sharpe": 3.0436384101056437,
+            "med_sharpe": 1.220612985554363
+          },
+          {
+            "gen": 3,
+            "new_exec": 43,
+            "best_sharpe": 4.276984043595744,
+            "med_sharpe": 1.4893340075622143
+          },
+          {
+            "gen": 4,
+            "new_exec": 54,
+            "best_sharpe": 4.700994890334421,
+            "med_sharpe": 2.119402737603593
+          },
+          {
+            "gen": 5,
+            "new_exec": 50,
+            "best_sharpe": 4.700994890334421,
+            "med_sharpe": 2.436075369816611
+          }
+        ],
+        "diag_top1": {
+          "final_equity": 1007461.3999999883,
+          "total_return_pct": 0.7461399999988183,
+          "annualized_sharpe": 0.5303940288729231,
+          "max_drawdown_pct": -2.3000565290682506,
+          "trade_count": 39,
+          "win_rate": 0.4358974358974359,
+          "post_fill_risk_exceeded_count": 29
+        }
+      },
+      "B": {
+        "attempts": 1126,
+        "adopted": 480,
+        "retry_failures": 20,
+        "unique": 480,
+        "executed_backtests": 480,
+        "cache_hits": 0,
+        "top1_root_share": 0.10416666666666667,
+        "best_explore_sharpe": 4.332116503106047,
+        "median_explore_sharpe": 0.6834896328998102,
+        "diag_sharpe": 2.8535977990656347,
+        "diag_return_pct": 5.088109999998691,
+        "diag_trades": 43
+      },
+      "C": {
+        "attempts": 500,
+        "adopted": 500,
+        "retry_failures": 0,
+        "unique": 325,
+        "executed_backtests": 308,
+        "cache_hits": 192,
+        "top1_root_share": 0.658,
+        "best_explore_sharpe": 4.204255927380981,
+        "median_explore_sharpe": 0.7629690525145026,
+        "diag_sharpe": 1.931402277504558,
+        "diag_return_pct": 2.92124499999884,
+        "diag_trades": 40
+      },
+      "D": {
+        "attempts": 1156,
+        "adopted": 480,
+        "retry_failures": 20,
+        "unique": 480,
+        "executed_backtests": 360,
+        "cache_hits": 120,
+        "top1_root_share": 0.10416666666666667,
+        "best_explore_sharpe": 4.332116503106047,
+        "median_explore_sharpe": 0.5759069693506761,
+        "diag_sharpe": 2.8535977990656347,
+        "diag_return_pct": 5.088109999998691,
+        "diag_trades": 43
+      }
+    },
+    "seed_202": {
+      "A": {
+        "submitted": 500,
+        "unique": 266,
+        "intra_dup": 234,
+        "cache_hit": 334,
+        "executed_backtest": 166,
+        "saved_sec": 91.02489376068115,
+        "profitable": 369,
+        "best_sharpe": 5.866033828799813,
+        "median_sharpe": 1.9776750699535448,
+        "top1_root_share": 0.62,
+        "trajectory": [
+          {
+            "gen": 1,
+            "new_exec": 0,
+            "best_sharpe": 2.454918738372024,
+            "med_sharpe": -1.3669725007543176
+          },
+          {
+            "gen": 2,
+            "new_exec": 71,
+            "best_sharpe": 3.4813598245161916,
+            "med_sharpe": 1.674670562674567
+          },
+          {
+            "gen": 3,
+            "new_exec": 56,
+            "best_sharpe": 5.866033828799813,
+            "med_sharpe": 2.059651231540127
+          },
+          {
+            "gen": 4,
+            "new_exec": 27,
+            "best_sharpe": 5.866033828799813,
+            "med_sharpe": 4.261412467179825
+          },
+          {
+            "gen": 5,
+            "new_exec": 12,
+            "best_sharpe": 5.866033828799813,
+            "med_sharpe": 4.430040195023504
+          }
+        ],
+        "diag_top1": {
+          "final_equity": 1001482.2499999919,
+          "total_return_pct": 0.14822499999918026,
+          "annualized_sharpe": 0.17290911882477156,
+          "max_drawdown_pct": -1.9724881111404495,
+          "trade_count": 24,
+          "win_rate": 0.4583333333333333,
+          "post_fill_risk_exceeded_count": 17
+        }
+      },
+      "B": {
+        "attempts": 1179,
+        "adopted": 482,
+        "retry_failures": 18,
+        "unique": 482,
+        "executed_backtests": 482,
+        "cache_hits": 0,
+        "top1_root_share": 0.1037344398340249,
+        "best_explore_sharpe": 5.866033828799813,
+        "median_explore_sharpe": 0.9354816977090896,
+        "diag_sharpe": 0.17290911882477156,
+        "diag_return_pct": 0.14822499999918026,
+        "diag_trades": 24
+      },
+      "C": {
+        "attempts": 500,
+        "adopted": 500,
+        "retry_failures": 0,
+        "unique": 287,
+        "executed_backtests": 257,
+        "cache_hits": 243,
+        "top1_root_share": 0.452,
+        "best_explore_sharpe": 2.2183804890257646,
+        "median_explore_sharpe": 0.8237072783965255,
+        "diag_sharpe": -1.681916525995311,
+        "diag_return_pct": -2.4601400000008655,
+        "diag_trades": 31
+      },
+      "D": {
+        "attempts": 1236,
+        "adopted": 482,
+        "retry_failures": 18,
+        "unique": 482,
+        "executed_backtests": 359,
+        "cache_hits": 123,
+        "top1_root_share": 0.1037344398340249,
+        "best_explore_sharpe": 3.6553796892045463,
+        "median_explore_sharpe": 0.6728977993140661,
+        "diag_sharpe": 1.0617526748307344,
+        "diag_return_pct": 2.035729999998681,
+        "diag_trades": 51
+      }
+    }
+  }
+}

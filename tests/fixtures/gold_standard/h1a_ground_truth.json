@@ -1,0 +1,2709 @@
+[
+  {
+    "source_id": "arxiv_2301_01001",
+    "version_id": "v1",
+    "version_hash": "649f4c66597a06b1d21e8863067cf0182ab16a3b48b97fb5ad0f9f395dae31bb",
+    "split": "development",
+    "source_type": "paper",
+    "arxiv_base_id": "2301.01001",
+    "repository_id": 0,
+    "root_parent_repo_id": 0,
+    "target_fields": {
+      "title_text": "Minority Game and Volatility Clustering in Financial Markets",
+      "abstract_text": "We demonstrate that the Minority Game model reproduces volatility clustering in financial time series. The model assumes that market participants have bounded rationality and finite memory capacity. Using this framework, we simulate synthetic return series from inductive choice parameters. However, multi-asset extension suffers from exponential state space growth.",
+      "readme_text": ""
+    },
+    "target_field_hashes": {
+      "title_text": "127c4d961773cc7ea54885759bac6f982e86e886059fa462f2c7388b88998f83",
+      "abstract_text": "dfe6bde6448018ec49f6faa152b5a53d983339ccb81d9fba519c3bf47027b538"
+    },
+    "entities": [
+      {
+        "local_id": "phe_01",
+        "entity_type": "phenomenon",
+        "name": "Volatility Clustering",
+        "description": "Clustering of volatile periods",
+        "synonyms": [
+          "clustering of volatility",
+          "volatility clusters"
+        ],
+        "evidence": {
+          "target_field_name": "abstract_text",
+          "target_field_hash": "dfe6bde6448018ec49f6faa152b5a53d983339ccb81d9fba519c3bf47027b538",
+          "verbatim_quote": "volatility clustering",
+          "start_char": 55,
+          "end_char": 76,
+          "raw_start_char": 55,
+          "raw_end_char": 76,
+          "raw_offset_valid": true,
+          "resolved_offset_valid": true,
+          "offset_resolution_status": "unchanged"
+        }
+      },
+      {
+        "local_id": "mod_01",
+        "entity_type": "model",
+        "name": "Minority Game",
+        "category": "agent_based",
+        "description": "Agent-based game theoretical model",
+        "synonyms": [
+          "Minority Game model",
+          "MG"
+        ],
+        "evidence": {
+          "target_field_name": "abstract_text",
+          "target_field_hash": "dfe6bde6448018ec49f6faa152b5a53d983339ccb81d9fba519c3bf47027b538",
+          "verbatim_quote": "Minority Game model",
+          "start_char": 24,
+          "end_char": 43,
+          "raw_start_char": 24,
+          "raw_end_char": 43,
+          "raw_offset_valid": true,
+          "resolved_offset_valid": true,
+          "offset_resolution_status": "unchanged"
+        }
+      },
+      {
+        "local_id": "cap_01",
+        "entity_type": "capability",
+        "name": "Simulate Return Series",
+        "operation": "generate",
+        "synonyms": [
+          "synthetic return simulation"
+        ],
+        "evidence": {
+          "target_field_name": "abstract_text",
+          "target_field_hash": "dfe6bde6448018ec49f6faa152b5a53d983339ccb81d9fba519c3bf47027b538",
+          "verbatim_quote": "simulate synthetic return series from inductive choice parameters",
+          "start_char": 224,
+          "end_char": 289,
+          "raw_start_char": 224,
+          "raw_end_char": 289,
+          "raw_offset_valid": true,
+          "resolved_offset_valid": true,
+          "offset_resolution_status": "unchanged"
+        }
+      },
+      {
+        "local_id": "asm_01",
+        "entity_type": "assumption",
+        "statement": "Market participants have bounded rationality and finite memory capacity.",
+        "synonyms": [],
+        "evidence": {
+          "target_field_name": "abstract_text",
+          "target_field_hash": "dfe6bde6448018ec49f6faa152b5a53d983339ccb81d9fba519c3bf47027b538",
+          "verbatim_quote": "market participants have bounded rationality and finite memory capacity",
+          "start_char": 126,
+          "end_char": 197,
+          "raw_start_char": 126,
+          "raw_end_char": 197,
+          "raw_offset_valid": true,
+          "resolved_offset_valid": true,
+          "offset_resolution_status": "unchanged"
+        }
+      },
+      {
+        "local_id": "lim_01",
+        "entity_type": "limitation",
+        "statement": "Multi-asset extension suffers from exponential state space growth.",
+        "synonyms": [],
+        "evidence": {
+          "target_field_name": "abstract_text",
+          "target_field_hash": "dfe6bde6448018ec49f6faa152b5a53d983339ccb81d9fba519c3bf47027b538",
+          "verbatim_quote": "multi-asset extension suffers from exponential state space growth",
+          "start_char": 300,
+          "end_char": 365,
+          "raw_start_char": 300,
+          "raw_end_char": 365,
+          "raw_offset_valid": true,
+          "resolved_offset_valid": true,
+          "offset_resolution_status": "unchanged"
+        }
+      }
+    ],
+    "relations": [
+      {
+        "relation_id": "rel_01",
+        "src_local_id": "mod_01",
+        "dst_local_id": "phe_01",
+        "relation_type": "EXPLAINS",
+        "evidence": {
+          "target_field_name": "abstract_text",
+          "target_field_hash": "dfe6bde6448018ec49f6faa152b5a53d983339ccb81d9fba519c3bf47027b538",
+          "verbatim_quote": "Minority Game model reproduces volatility clustering",
+          "start_char": 24,
+          "end_char": 76,
+          "raw_start_char": 24,
+          "raw_end_char": 76,
+          "raw_offset_valid": true,
+          "resolved_offset_valid": true,
+          "offset_resolution_status": "unchanged"
+        }
+      },
+      {
+        "relation_id": "rel_02",
+        "src_local_id": "cap_01",
+        "dst_local_id": "mod_01",
+        "relation_type": "PROVIDED_BY",
+        "evidence": {
+          "target_field_name": "abstract_text",
+          "target_field_hash": "dfe6bde6448018ec49f6faa152b5a53d983339ccb81d9fba519c3bf47027b538",
+          "verbatim_quote": "Using this framework, we simulate synthetic return series from inductive choice parameters",
+          "start_char": 199,
+          "end_char": 289,
+          "raw_start_char": 199,
+          "raw_end_char": 289,
+          "raw_offset_valid": true,
+          "resolved_offset_valid": true,
+          "offset_resolution_status": "unchanged"
+        }
+      }
+    ],
+    "sentence_annotations": [
+      {
+        "model": 1,
+        "phenomenon": 1,
+        "method": 0,
+        "capability": 0,
+        "assumption": 0,
+        "limitation": 0
+      },
+      {
+        "model": 0,
+        "phenomenon": 0,
+        "method": 0,
+        "capability": 0,
+        "assumption": 1,
+        "limitation": 0
+      },
+      {
+        "model": 0,
+        "phenomenon": 0,
+        "method": 0,
+        "capability": 1,
+        "assumption": 0,
+        "limitation": 0
+      },
+      {
+        "model": 0,
+        "phenomenon": 0,
+        "method": 0,
+        "capability": 0,
+        "assumption": 0,
+        "limitation": 1
+      }
+    ]
+  },
+  {
+    "source_id": "arxiv_2301_01002",
+    "version_id": "v1",
+    "version_hash": "9d3319bdab944ae37d38955b0adcaf63101f73ae11a5f56a870e7d44f9f83c00",
+    "split": "development",
+    "source_type": "paper",
+    "arxiv_base_id": "2301.01002",
+    "repository_id": 0,
+    "root_parent_repo_id": 0,
+    "target_fields": {
+      "title_text": "Hawkes Process Calibration for High-Frequency Order Flow Imbalance",
+      "abstract_text": "We calibrate mutually exciting Hawkes processes to model high-frequency order flow imbalance. We employ Maximum Likelihood Estimation to recover baseline intensities and excitation matrices. The model predicts short-term mid-price movements from limit order arrivals. We assume that order events follow Poisson point dynamics with exponential kernels.",
+      "readme_text": ""
+    },
+    "target_field_hashes": {
+      "title_text": "edd5bf28a8715aa513b6cc2585443d2fa9184ad2d5ea84e22eef4022beb3ad84",
+      "abstract_text": "8e586059fb6a07dd5c2ceec03d0771f2263294587a11296f8df3fdc57a5947f3"
+    },
+    "entities": [
+      {
+        "local_id": "phe_01",
+        "entity_type": "phenomenon",
+        "name": "Order Flow Imbalance",
+        "synonyms": [
+          "order flow asymmetry"
+        ],
+        "evidence": {
+          "target_field_name": "abstract_text",
+          "target_field_hash": "8e586059fb6a07dd5c2ceec03d0771f2263294587a11296f8df3fdc57a5947f3",
+          "verbatim_quote": "high-frequency order flow imbalance",
+          "start_char": 57,
+          "end_char": 92,
+          "raw_start_char": 57,
+          "raw_end_char": 92,
+          "raw_offset_valid": true,
+          "resolved_offset_valid": true,
+          "offset_resolution_status": "unchanged"
+        }
+      },
+      {
+        "local_id": "mod_01",
+        "entity_type": "model",
+        "name": "Hawkes Process",
+        "category": "stochastic_process",
+        "synonyms": [
+          "mutually exciting Hawkes process"
+        ],
+        "evidence": {
+          "target_field_name": "abstract_text",
+          "target_field_hash": "8e586059fb6a07dd5c2ceec03d0771f2263294587a11296f8df3fdc57a5947f3",
+          "verbatim_quote": "mutually exciting Hawkes processes",
+          "start_char": 13,
+          "end_char": 47,
+          "raw_start_char": 13,
+          "raw_end_char": 47,
+          "raw_offset_valid": true,
+          "resolved_offset_valid": true,
+          "offset_resolution_status": "unchanged"
+        }
+      },
+      {
+        "local_id": "met_01",
+        "entity_type": "method",
+        "name": "Maximum Likelihood Estimation",
+        "category": "parameter_inference",
+        "synonyms": [
+          "MLE"
+        ],
+        "evidence": {
+          "target_field_name": "abstract_text",
+          "target_field_hash": "8e586059fb6a07dd5c2ceec03d0771f2263294587a11296f8df3fdc57a5947f3",
+          "verbatim_quote": "Maximum Likelihood Estimation",
+          "start_char": 104,
+          "end_char": 133,
+          "raw_start_char": 104,
+          "raw_end_char": 133,
+          "raw_offset_valid": true,
+          "resolved_offset_valid": true,
+          "offset_resolution_status": "unchanged"
+        }
+      },
+      {
+        "local_id": "cap_01",
+        "entity_type": "capability",
+        "name": "Predict Price Movements",
+        "operation": "predict",
+        "synonyms": [
+          "predict mid-price moves"
+        ],
+        "evidence": {
+          "target_field_name": "abstract_text",
+          "target_field_hash": "8e586059fb6a07dd5c2ceec03d0771f2263294587a11296f8df3fdc57a5947f3",
+          "verbatim_quote": "predicts short-term mid-price movements from limit order arrivals",
+          "start_char": 201,
+          "end_char": 266,
+          "raw_start_char": 201,
+          "raw_end_char": 266,
+          "raw_offset_valid": true,
+          "resolved_offset_valid": true,
+          "offset_resolution_status": "unchanged"
+        }
+      }
+    ],
+    "relations": [
+      {
+        "relation_id": "rel_01",
+        "src_local_id": "met_01",
+        "dst_local_id": "mod_01",
+        "relation_type": "APPLIES_TO",
+        "evidence": {
+          "target_field_name": "abstract_text",
+          "target_field_hash": "8e586059fb6a07dd5c2ceec03d0771f2263294587a11296f8df3fdc57a5947f3",
+          "verbatim_quote": "employ Maximum Likelihood Estimation to recover baseline intensities",
+          "start_char": 97,
+          "end_char": 165,
+          "raw_start_char": 97,
+          "raw_end_char": 165,
+          "raw_offset_valid": true,
+          "resolved_offset_valid": true,
+          "offset_resolution_status": "unchanged"
+        }
+      },
+      {
+        "relation_id": "rel_02",
+        "src_local_id": "cap_01",
+        "dst_local_id": "mod_01",
+        "relation_type": "PROVIDED_BY",
+        "evidence": {
+          "target_field_name": "abstract_text",
+          "target_field_hash": "8e586059fb6a07dd5c2ceec03d0771f2263294587a11296f8df3fdc57a5947f3",
+          "verbatim_quote": "The model predicts short-term mid-price movements from limit order arrivals",
+          "start_char": 191,
+          "end_char": 266,
+          "raw_start_char": 191,
+          "raw_end_char": 266,
+          "raw_offset_valid": true,
+          "resolved_offset_valid": true,
+          "offset_resolution_status": "unchanged"
+        }
+      }
+    ],
+    "sentence_annotations": [
+      {
+        "model": 1,
+        "phenomenon": 1,
+        "method": 0,
+        "capability": 0,
+        "assumption": 0,
+        "limitation": 0
+      },
+      {
+        "model": 0,
+        "phenomenon": 0,
+        "method": 1,
+        "capability": 0,
+        "assumption": 0,
+        "limitation": 0
+      },
+      {
+        "model": 0,
+        "phenomenon": 0,
+        "method": 0,
+        "capability": 1,
+        "assumption": 0,
+        "limitation": 0
+      },
+      {
+        "model": 0,
+        "phenomenon": 0,
+        "method": 0,
+        "capability": 0,
+        "assumption": 1,
+        "limitation": 0
+      }
+    ]
+  },
+  {
+    "source_id": "arxiv_2301_01003",
+    "version_id": "v1",
+    "version_hash": "91637f4338ec17919367841b7b8b32c14700df94021f72ea750f0c169825785b",
+    "split": "development",
+    "source_type": "paper",
+    "arxiv_base_id": "2301.01003",
+    "repository_id": 0,
+    "root_parent_repo_id": 0,
+    "target_fields": {
+      "title_text": "Limit Order Book Dynamic Regimes using Deep Transformer-XL",
+      "abstract_text": "We propose a deep Transformer-XL architecture to detect hidden market regimes in limit order books. The model processes multi-level orderbook snapshots to infer discrete latent volatility states. The primary limitation is computational latency during real-time inference.",
+      "readme_text": ""
+    },
+    "target_field_hashes": {
+      "title_text": "0a3206db0b19022f7851f67811da5f3f31c324008c780e6ab071fc2c169bab8e",
+      "abstract_text": "cbd16d056e4b88b63dd48b162f5b7c6efdc87ebacc75ba70f376a7958b30c848"
+    },
+    "entities": [
+      {
+        "local_id": "mod_01",
+        "entity_type": "model",
+        "name": "Transformer-XL",
+        "category": "deep_learning",
+        "synonyms": [
+          "deep Transformer-XL"
+        ],
+        "evidence": {
+          "target_field_name": "abstract_text",
+          "target_field_hash": "cbd16d056e4b88b63dd48b162f5b7c6efdc87ebacc75ba70f376a7958b30c848",
+          "verbatim_quote": "deep Transformer-XL architecture",
+          "start_char": 13,
+          "end_char": 45,
+          "raw_start_char": 13,
+          "raw_end_char": 45,
+          "raw_offset_valid": true,
+          "resolved_offset_valid": true,
+          "offset_resolution_status": "unchanged"
+        }
+      },
+      {
+        "local_id": "cap_01",
+        "entity_type": "capability",
+        "name": "Infer Latent Volatility States",
+        "operation": "infer",
+        "synonyms": [
+          "detect market regimes"
+        ],
+        "evidence": {
+          "target_field_name": "abstract_text",
+          "target_field_hash": "cbd16d056e4b88b63dd48b162f5b7c6efdc87ebacc75ba70f376a7958b30c848",
+          "verbatim_quote": "processes multi-level orderbook snapshots to infer discrete latent volatility states",
+          "start_char": 110,
+          "end_char": 194,
+          "raw_start_char": 110,
+          "raw_end_char": 194,
+          "raw_offset_valid": true,
+          "resolved_offset_valid": true,
+          "offset_resolution_status": "unchanged"
+        }
+      },
+      {
+        "local_id": "lim_01",
+        "entity_type": "limitation",
+        "statement": "Computational latency during real-time inference.",
+        "synonyms": [],
+        "evidence": {
+          "target_field_name": "abstract_text",
+          "target_field_hash": "cbd16d056e4b88b63dd48b162f5b7c6efdc87ebacc75ba70f376a7958b30c848",
+          "verbatim_quote": "computational latency during real-time inference",
+          "start_char": 222,
+          "end_char": 270,
+          "raw_start_char": 222,
+          "raw_end_char": 270,
+          "raw_offset_valid": true,
+          "resolved_offset_valid": true,
+          "offset_resolution_status": "unchanged"
+        }
+      }
+    ],
+    "relations": [
+      {
+        "relation_id": "rel_01",
+        "src_local_id": "cap_01",
+        "dst_local_id": "mod_01",
+        "relation_type": "PROVIDED_BY",
+        "evidence": {
+          "target_field_name": "abstract_text",
+          "target_field_hash": "cbd16d056e4b88b63dd48b162f5b7c6efdc87ebacc75ba70f376a7958b30c848",
+          "verbatim_quote": "The model processes multi-level orderbook snapshots to infer discrete latent volatility states",
+          "start_char": 100,
+          "end_char": 194,
+          "raw_start_char": 100,
+          "raw_end_char": 194,
+          "raw_offset_valid": true,
+          "resolved_offset_valid": true,
+          "offset_resolution_status": "unchanged"
+        }
+      }
+    ],
+    "sentence_annotations": [
+      {
+        "model": 1,
+        "phenomenon": 0,
+        "method": 0,
+        "capability": 0,
+        "assumption": 0,
+        "limitation": 0
+      },
+      {
+        "model": 0,
+        "phenomenon": 0,
+        "method": 0,
+        "capability": 1,
+        "assumption": 0,
+        "limitation": 0
+      },
+      {
+        "model": 0,
+        "phenomenon": 0,
+        "method": 0,
+        "capability": 0,
+        "assumption": 0,
+        "limitation": 1
+      }
+    ]
+  },
+  {
+    "source_id": "arxiv_2301_01004",
+    "version_id": "v1",
+    "version_hash": "2c6c6102b3c2259e99f6bdbd55b4765c04a46e39320caf74d049bcd0375e4d98",
+    "split": "development",
+    "source_type": "paper",
+    "arxiv_base_id": "2301.01004",
+    "repository_id": 0,
+    "root_parent_repo_id": 0,
+    "target_fields": {
+      "title_text": "Neural Posterior Estimation for Agent-Based Financial Microstructure Models",
+      "abstract_text": "We introduce Neural Posterior Estimation (NPE) to calibrate intractable agent-based market models. NPE learns an amortized mapping from simulated return statistics to agent behavior parameters. We assume that synthetic simulations accurately encompass the true data generating process.",
+      "readme_text": ""
+    },
+    "target_field_hashes": {
+      "title_text": "c0359bf0ef98d48c146dc44fc13fc7f66bc9cf5e2fc44cf68a45171194f3a061",
+      "abstract_text": "b3790cf9aa7adb0c58dd60bab6c189939d403f3813ef350f105c1407afc7e2aa"
+    },
+    "entities": [
+      {
+        "local_id": "met_01",
+        "entity_type": "method",
+        "name": "Neural Posterior Estimation",
+        "category": "parameter_inference",
+        "synonyms": [
+          "NPE"
+        ],
+        "evidence": {
+          "target_field_name": "abstract_text",
+          "target_field_hash": "b3790cf9aa7adb0c58dd60bab6c189939d403f3813ef350f105c1407afc7e2aa",
+          "verbatim_quote": "Neural Posterior Estimation (NPE)",
+          "start_char": 13,
+          "end_char": 46,
+          "raw_start_char": 13,
+          "raw_end_char": 46,
+          "raw_offset_valid": true,
+          "resolved_offset_valid": true,
+          "offset_resolution_status": "unchanged"
+        }
+      },
+      {
+        "local_id": "mod_01",
+        "entity_type": "model",
+        "name": "Agent-Based Market Model",
+        "category": "agent_based",
+        "synonyms": [
+          "ABM"
+        ],
+        "evidence": {
+          "target_field_name": "abstract_text",
+          "target_field_hash": "b3790cf9aa7adb0c58dd60bab6c189939d403f3813ef350f105c1407afc7e2aa",
+          "verbatim_quote": "agent-based market models",
+          "start_char": 72,
+          "end_char": 97,
+          "raw_start_char": 72,
+          "raw_end_char": 97,
+          "raw_offset_valid": true,
+          "resolved_offset_valid": true,
+          "offset_resolution_status": "unchanged"
+        }
+      },
+      {
+        "local_id": "cap_01",
+        "entity_type": "capability",
+        "name": "Amortized Parameter Calibration",
+        "operation": "infer",
+        "synonyms": [
+          "parameter inference"
+        ],
+        "evidence": {
+          "target_field_name": "abstract_text",
+          "target_field_hash": "b3790cf9aa7adb0c58dd60bab6c189939d403f3813ef350f105c1407afc7e2aa",
+          "verbatim_quote": "learns an amortized mapping from simulated return statistics to agent behavior parameters",
+          "start_char": 103,
+          "end_char": 192,
+          "raw_start_char": 103,
+          "raw_end_char": 192,
+          "raw_offset_valid": true,
+          "resolved_offset_valid": true,
+          "offset_resolution_status": "unchanged"
+        }
+      }
+    ],
+    "relations": [
+      {
+        "relation_id": "rel_01",
+        "src_local_id": "met_01",
+        "dst_local_id": "mod_01",
+        "relation_type": "APPLIES_TO",
+        "evidence": {
+          "target_field_name": "abstract_text",
+          "target_field_hash": "b3790cf9aa7adb0c58dd60bab6c189939d403f3813ef350f105c1407afc7e2aa",
+          "verbatim_quote": "Neural Posterior Estimation (NPE) to calibrate intractable agent-based market models",
+          "start_char": 13,
+          "end_char": 97,
+          "raw_start_char": 13,
+          "raw_end_char": 97,
+          "raw_offset_valid": true,
+          "resolved_offset_valid": true,
+          "offset_resolution_status": "unchanged"
+        }
+      }
+    ],
+    "sentence_annotations": [
+      {
+        "model": 1,
+        "phenomenon": 0,
+        "method": 1,
+        "capability": 0,
+        "assumption": 0,
+        "limitation": 0
+      },
+      {
+        "model": 0,
+        "phenomenon": 0,
+        "method": 0,
+        "capability": 1,
+        "assumption": 0,
+        "limitation": 0
+      },
+      {
+        "model": 0,
+        "phenomenon": 0,
+        "method": 0,
+        "capability": 0,
+        "assumption": 1,
+        "limitation": 0
+      }
+    ]
+  },
+  {
+    "source_id": "arxiv_2301_02001",
+    "version_id": "v1",
+    "version_hash": "ffce9cd55f99e34a08476e995c3ea4a7ed45aec95a23f748179dea502c7fecc2",
+    "split": "development",
+    "source_type": "paper",
+    "arxiv_base_id": "2301.02001",
+    "repository_id": 0,
+    "root_parent_repo_id": 0,
+    "target_fields": {
+      "title_text": "Simulation-Based Inference with Neural Density Estimation for Complex Physical Systems",
+      "abstract_text": "Simulation-based inference (SBI) enables Bayesian parameter estimation without likelihood evaluation. We apply Sequential Neural Posterior Estimation (SNPE) to stochastic differential equations in fluid turbulence. The method yields accurate posterior distributions for physical transport parameters.",
+      "readme_text": ""
+    },
+    "target_field_hashes": {
+      "title_text": "664dee0ea1911143eaf9c3c99f047ebd4add1e0b682e95d1dd4cd8db5433f07e",
+      "abstract_text": "652d2707c7c3537a99eb8245358736c13bf38b84dffe7257e6b807d3c45dea66"
+    },
+    "entities": [
+      {
+        "local_id": "met_01",
+        "entity_type": "method",
+        "name": "Sequential Neural Posterior Estimation",
+        "category": "parameter_inference",
+        "synonyms": [
+          "SNPE",
+          "SBI"
+        ],
+        "evidence": {
+          "target_field_name": "abstract_text",
+          "target_field_hash": "652d2707c7c3537a99eb8245358736c13bf38b84dffe7257e6b807d3c45dea66",
+          "verbatim_quote": "Sequential Neural Posterior Estimation (SNPE)",
+          "start_char": 111,
+          "end_char": 156,
+          "raw_start_char": 111,
+          "raw_end_char": 156,
+          "raw_offset_valid": true,
+          "resolved_offset_valid": true,
+          "offset_resolution_status": "unchanged"
+        }
+      },
+      {
+        "local_id": "mod_01",
+        "entity_type": "model",
+        "name": "Stochastic Differential Equations",
+        "category": "stochastic_process",
+        "synonyms": [
+          "SDE"
+        ],
+        "evidence": {
+          "target_field_name": "abstract_text",
+          "target_field_hash": "652d2707c7c3537a99eb8245358736c13bf38b84dffe7257e6b807d3c45dea66",
+          "verbatim_quote": "stochastic differential equations in fluid turbulence",
+          "start_char": 160,
+          "end_char": 213,
+          "raw_start_char": 160,
+          "raw_end_char": 213,
+          "raw_offset_valid": true,
+          "resolved_offset_valid": true,
+          "offset_resolution_status": "unchanged"
+        }
+      },
+      {
+        "local_id": "cap_01",
+        "entity_type": "capability",
+        "name": "Estimate Posterior Distributions",
+        "operation": "infer",
+        "synonyms": [
+          "posterior estimation"
+        ],
+        "evidence": {
+          "target_field_name": "abstract_text",
+          "target_field_hash": "652d2707c7c3537a99eb8245358736c13bf38b84dffe7257e6b807d3c45dea66",
+          "verbatim_quote": "yields accurate posterior distributions for physical transport parameters",
+          "start_char": 226,
+          "end_char": 299,
+          "raw_start_char": 226,
+          "raw_end_char": 299,
+          "raw_offset_valid": true,
+          "resolved_offset_valid": true,
+          "offset_resolution_status": "unchanged"
+        }
+      }
+    ],
+    "relations": [
+      {
+        "relation_id": "rel_01",
+        "src_local_id": "met_01",
+        "dst_local_id": "mod_01",
+        "relation_type": "APPLIES_TO",
+        "evidence": {
+          "target_field_name": "abstract_text",
+          "target_field_hash": "652d2707c7c3537a99eb8245358736c13bf38b84dffe7257e6b807d3c45dea66",
+          "verbatim_quote": "apply Sequential Neural Posterior Estimation (SNPE) to stochastic differential equations",
+          "start_char": 105,
+          "end_char": 193,
+          "raw_start_char": 105,
+          "raw_end_char": 193,
+          "raw_offset_valid": true,
+          "resolved_offset_valid": true,
+          "offset_resolution_status": "unchanged"
+        }
+      }
+    ],
+    "sentence_annotations": [
+      {
+        "model": 0,
+        "phenomenon": 0,
+        "method": 1,
+        "capability": 0,
+        "assumption": 0,
+        "limitation": 0
+      },
+      {
+        "model": 1,
+        "phenomenon": 0,
+        "method": 1,
+        "capability": 0,
+        "assumption": 0,
+        "limitation": 0
+      },
+      {
+        "model": 0,
+        "phenomenon": 0,
+        "method": 0,
+        "capability": 1,
+        "assumption": 0,
+        "limitation": 0
+      }
+    ]
+  },
+  {
+    "source_id": "arxiv_2301_02002",
+    "version_id": "v1",
+    "version_hash": "30e6cfddd1a80039d4258d0b7d88ab0009a9a068a367b1c1565b7199c794c5ec",
+    "split": "development",
+    "source_type": "paper",
+    "arxiv_base_id": "2301.02002",
+    "repository_id": 0,
+    "root_parent_repo_id": 0,
+    "target_fields": {
+      "title_text": "Switching State-Space Models for Electroencephalogram Multi-Channel Dynamics",
+      "abstract_text": "We introduce a switching state-space model to decompose multivariate EEG signals into oscillatory modes. The model identifies neural sleep stage transitions from frequency band power series.",
+      "readme_text": ""
+    },
+    "target_field_hashes": {
+      "title_text": "73cb9d3c6763d8f06939c6f65de4a16fdcbb1240c68ffd9e6c553e4bd888b446",
+      "abstract_text": "85c624f61065c7a2a1ca8e5f3d6ac4f8f93833cac9169ad3443ba1eeb5f81317"
+    },
+    "entities": [
+      {
+        "local_id": "mod_01",
+        "entity_type": "model",
+        "name": "Switching State-Space Model",
+        "category": "state_space",
+        "synonyms": [
+          "SSM"
+        ],
+        "evidence": {
+          "target_field_name": "abstract_text",
+          "target_field_hash": "85c624f61065c7a2a1ca8e5f3d6ac4f8f93833cac9169ad3443ba1eeb5f81317",
+          "verbatim_quote": "switching state-space model",
+          "start_char": 15,
+          "end_char": 42,
+          "raw_start_char": 15,
+          "raw_end_char": 42,
+          "raw_offset_valid": true,
+          "resolved_offset_valid": true,
+          "offset_resolution_status": "unchanged"
+        }
+      },
+      {
+        "local_id": "cap_01",
+        "entity_type": "capability",
+        "name": "Identify Sleep Transitions",
+        "operation": "detect",
+        "synonyms": [
+          "state identification"
+        ],
+        "evidence": {
+          "target_field_name": "abstract_text",
+          "target_field_hash": "85c624f61065c7a2a1ca8e5f3d6ac4f8f93833cac9169ad3443ba1eeb5f81317",
+          "verbatim_quote": "identifies neural sleep stage transitions from frequency band power series",
+          "start_char": 115,
+          "end_char": 189,
+          "raw_start_char": 115,
+          "raw_end_char": 189,
+          "raw_offset_valid": true,
+          "resolved_offset_valid": true,
+          "offset_resolution_status": "unchanged"
+        }
+      }
+    ],
+    "relations": [
+      {
+        "relation_id": "rel_01",
+        "src_local_id": "cap_01",
+        "dst_local_id": "mod_01",
+        "relation_type": "PROVIDED_BY",
+        "evidence": {
+          "target_field_name": "abstract_text",
+          "target_field_hash": "85c624f61065c7a2a1ca8e5f3d6ac4f8f93833cac9169ad3443ba1eeb5f81317",
+          "verbatim_quote": "The model identifies neural sleep stage transitions from frequency band power series",
+          "start_char": 105,
+          "end_char": 189,
+          "raw_start_char": 105,
+          "raw_end_char": 189,
+          "raw_offset_valid": true,
+          "resolved_offset_valid": true,
+          "offset_resolution_status": "unchanged"
+        }
+      }
+    ],
+    "sentence_annotations": [
+      {
+        "model": 1,
+        "phenomenon": 0,
+        "method": 0,
+        "capability": 0,
+        "assumption": 0,
+        "limitation": 0
+      },
+      {
+        "model": 0,
+        "phenomenon": 0,
+        "method": 0,
+        "capability": 1,
+        "assumption": 0,
+        "limitation": 0
+      }
+    ]
+  },
+  {
+    "source_id": "arxiv_2301_02003",
+    "version_id": "v1",
+    "version_hash": "1f262dc41198936f20f350b3229e5b4d8ea4a316d3f4fbfc7d196c835b1ba721",
+    "split": "development",
+    "source_type": "paper",
+    "arxiv_base_id": "2301.02003",
+    "repository_id": 0,
+    "root_parent_repo_id": 0,
+    "target_fields": {
+      "title_text": "Spatio-Temporal Graph Anomaly Detection in Seismic Wave Sensor Networks",
+      "abstract_text": "We develop a Graph Neural Network to detect anomalous seismic wave propagations across distributed sensor networks. The model flags precursor rupture events using spatial graph convolutions.",
+      "readme_text": ""
+    },
+    "target_field_hashes": {
+      "title_text": "034037f9824f612b6733beb0dbbaac672d210bff3d84973189b7f3533700a2fe",
+      "abstract_text": "850be7fcbd31180b8965104b8f9848a1e7b3d2ba9d262e6e0cb92d98c3320c47"
+    },
+    "entities": [
+      {
+        "local_id": "mod_01",
+        "entity_type": "model",
+        "name": "Graph Neural Network",
+        "category": "deep_learning",
+        "synonyms": [
+          "GNN"
+        ],
+        "evidence": {
+          "target_field_name": "abstract_text",
+          "target_field_hash": "850be7fcbd31180b8965104b8f9848a1e7b3d2ba9d262e6e0cb92d98c3320c47",
+          "verbatim_quote": "Graph Neural Network",
+          "start_char": 13,
+          "end_char": 33,
+          "raw_start_char": 13,
+          "raw_end_char": 33,
+          "raw_offset_valid": true,
+          "resolved_offset_valid": true,
+          "offset_resolution_status": "unchanged"
+        }
+      },
+      {
+        "local_id": "cap_01",
+        "entity_type": "capability",
+        "name": "Detect Seismic Anomalies",
+        "operation": "detect",
+        "synonyms": [
+          "anomaly detection"
+        ],
+        "evidence": {
+          "target_field_name": "abstract_text",
+          "target_field_hash": "850be7fcbd31180b8965104b8f9848a1e7b3d2ba9d262e6e0cb92d98c3320c47",
+          "verbatim_quote": "detect anomalous seismic wave propagations across distributed sensor networks",
+          "start_char": 37,
+          "end_char": 114,
+          "raw_start_char": 37,
+          "raw_end_char": 114,
+          "raw_offset_valid": true,
+          "resolved_offset_valid": true,
+          "offset_resolution_status": "unchanged"
+        }
+      }
+    ],
+    "relations": [
+      {
+        "relation_id": "rel_01",
+        "src_local_id": "cap_01",
+        "dst_local_id": "mod_01",
+        "relation_type": "PROVIDED_BY",
+        "evidence": {
+          "target_field_name": "abstract_text",
+          "target_field_hash": "850be7fcbd31180b8965104b8f9848a1e7b3d2ba9d262e6e0cb92d98c3320c47",
+          "verbatim_quote": "develop a Graph Neural Network to detect anomalous seismic wave propagations",
+          "start_char": 3,
+          "end_char": 79,
+          "raw_start_char": 3,
+          "raw_end_char": 79,
+          "raw_offset_valid": true,
+          "resolved_offset_valid": true,
+          "offset_resolution_status": "unchanged"
+        }
+      }
+    ],
+    "sentence_annotations": [
+      {
+        "model": 1,
+        "phenomenon": 0,
+        "method": 0,
+        "capability": 1,
+        "assumption": 0,
+        "limitation": 0
+      },
+      {
+        "model": 0,
+        "phenomenon": 0,
+        "method": 0,
+        "capability": 0,
+        "assumption": 0,
+        "limitation": 0
+      }
+    ]
+  },
+  {
+    "source_id": "github_10101",
+    "version_id": "commit_a1b2",
+    "version_hash": "f95dee6e8f90034c4b9308eb890b799b36cc1a7fb671f184e8821a9289871c9d",
+    "split": "development",
+    "source_type": "oss",
+    "arxiv_base_id": "",
+    "repository_id": 10101,
+    "root_parent_repo_id": 10101,
+    "target_fields": {
+      "title_text": "gym-trading-env: Fast Reinforcement Learning Trading Environment",
+      "abstract_text": "",
+      "readme_text": "# gym-trading-env\n\nA fast OpenAI Gym environment for reinforcement learning simulation in trading. This framework allows users to train reinforcement learning policies on historical OHLCV data. It supports realistic transaction fees and slippage models. Limitation: Assumes zero market impact from executed orders."
+    },
+    "target_field_hashes": {
+      "title_text": "3201b2321dccfb940e2ff7410bb5ab9814f4179e469dd1d62f8f2cef70d3c90d",
+      "readme_text": "52b3b497c6cd025b1a48b16e78ed00a30e368b9c1ed85f436c816a739ec62ed3"
+    },
+    "entities": [
+      {
+        "local_id": "soft_01",
+        "entity_type": "software",
+        "name": "Gym Trading Environment",
+        "category": "simulation_environment",
+        "synonyms": [
+          "gym-trading-env"
+        ],
+        "evidence": {
+          "target_field_name": "readme_text",
+          "target_field_hash": "52b3b497c6cd025b1a48b16e78ed00a30e368b9c1ed85f436c816a739ec62ed3",
+          "verbatim_quote": "OpenAI Gym environment for reinforcement learning simulation in trading",
+          "start_char": 26,
+          "end_char": 97,
+          "raw_start_char": 26,
+          "raw_end_char": 97,
+          "raw_offset_valid": true,
+          "resolved_offset_valid": true,
+          "offset_resolution_status": "unchanged"
+        }
+      },
+      {
+        "local_id": "cap_01",
+        "entity_type": "capability",
+        "name": "Train RL Policies",
+        "operation": "optimize",
+        "synonyms": [
+          "train trading agent"
+        ],
+        "evidence": {
+          "target_field_name": "readme_text",
+          "target_field_hash": "52b3b497c6cd025b1a48b16e78ed00a30e368b9c1ed85f436c816a739ec62ed3",
+          "verbatim_quote": "train reinforcement learning policies on historical OHLCV data",
+          "start_char": 130,
+          "end_char": 192,
+          "raw_start_char": 130,
+          "raw_end_char": 192,
+          "raw_offset_valid": true,
+          "resolved_offset_valid": true,
+          "offset_resolution_status": "unchanged"
+        }
+      },
+      {
+        "local_id": "lim_01",
+        "entity_type": "limitation",
+        "statement": "Assumes zero market impact from executed orders.",
+        "synonyms": [],
+        "evidence": {
+          "target_field_name": "readme_text",
+          "target_field_hash": "52b3b497c6cd025b1a48b16e78ed00a30e368b9c1ed85f436c816a739ec62ed3",
+          "verbatim_quote": "Assumes zero market impact from executed orders",
+          "start_char": 266,
+          "end_char": 313,
+          "raw_start_char": 266,
+          "raw_end_char": 313,
+          "raw_offset_valid": true,
+          "resolved_offset_valid": true,
+          "offset_resolution_status": "unchanged"
+        }
+      }
+    ],
+    "relations": [
+      {
+        "relation_id": "rel_01",
+        "src_local_id": "cap_01",
+        "dst_local_id": "soft_01",
+        "relation_type": "PROVIDED_BY",
+        "evidence": {
+          "target_field_name": "readme_text",
+          "target_field_hash": "52b3b497c6cd025b1a48b16e78ed00a30e368b9c1ed85f436c816a739ec62ed3",
+          "verbatim_quote": "This framework allows users to train reinforcement learning policies",
+          "start_char": 99,
+          "end_char": 167,
+          "raw_start_char": 99,
+          "raw_end_char": 167,
+          "raw_offset_valid": true,
+          "resolved_offset_valid": true,
+          "offset_resolution_status": "unchanged"
+        }
+      }
+    ],
+    "sentence_annotations": [
+      {
+        "model": 1,
+        "phenomenon": 0,
+        "method": 0,
+        "capability": 0,
+        "assumption": 0,
+        "limitation": 0
+      },
+      {
+        "model": 0,
+        "phenomenon": 0,
+        "method": 0,
+        "capability": 1,
+        "assumption": 0,
+        "limitation": 0
+      },
+      {
+        "model": 0,
+        "phenomenon": 0,
+        "method": 0,
+        "capability": 0,
+        "assumption": 0,
+        "limitation": 0
+      },
+      {
+        "model": 0,
+        "phenomenon": 0,
+        "method": 0,
+        "capability": 0,
+        "assumption": 0,
+        "limitation": 1
+      }
+    ]
+  },
+  {
+    "source_id": "github_10102",
+    "version_id": "commit_c3d4",
+    "version_hash": "36ba7a7dec25c938de1b6a58dc305a71fb495c48fb09dd2894ebd60c6b494bb3",
+    "split": "development",
+    "source_type": "oss",
+    "arxiv_base_id": "",
+    "repository_id": 10102,
+    "root_parent_repo_id": 10102,
+    "target_fields": {
+      "title_text": "ta-lib-python: Technical Analysis Library",
+      "abstract_text": "",
+      "readme_text": "# TA-Lib\n\nPython wrapper for TA-Lib technical indicators. Computes over 150 indicators including RSI, MACD, and Bollinger Bands from price series."
+    },
+    "target_field_hashes": {
+      "title_text": "1c10eab524f9c4ae62ecf8f1dc3b025ce0880a914e66dc5dd25c27ab3d06fced",
+      "readme_text": "226bb1de7c683e60682d8d22d1111f9e2c03e49515de3863dd52535da95db769"
+    },
+    "entities": [
+      {
+        "local_id": "cap_01",
+        "entity_type": "capability",
+        "name": "Compute Technical Indicators",
+        "operation": "transform",
+        "synonyms": [
+          "calculate RSI MACD"
+        ],
+        "evidence": {
+          "target_field_name": "readme_text",
+          "target_field_hash": "226bb1de7c683e60682d8d22d1111f9e2c03e49515de3863dd52535da95db769",
+          "verbatim_quote": "Computes over 150 indicators including RSI, MACD, and Bollinger Bands from price series",
+          "start_char": 58,
+          "end_char": 145,
+          "raw_start_char": 58,
+          "raw_end_char": 145,
+          "raw_offset_valid": true,
+          "resolved_offset_valid": true,
+          "offset_resolution_status": "unchanged"
+        }
+      }
+    ],
+    "relations": [],
+    "sentence_annotations": [
+      {
+        "model": 0,
+        "phenomenon": 0,
+        "method": 0,
+        "capability": 0,
+        "assumption": 0,
+        "limitation": 0
+      },
+      {
+        "model": 0,
+        "phenomenon": 0,
+        "method": 0,
+        "capability": 1,
+        "assumption": 0,
+        "limitation": 0
+      }
+    ]
+  },
+  {
+    "source_id": "github_10103",
+    "version_id": "commit_e5f6",
+    "version_hash": "c8c86ad94c9d9f07096f4df5242b29909fcbf6ac35c4d246262216795ccca306",
+    "split": "development",
+    "source_type": "oss",
+    "arxiv_base_id": "",
+    "repository_id": 10103,
+    "root_parent_repo_id": 10103,
+    "target_fields": {
+      "title_text": "zipline-reloaded: Algorithmic Trading Simulator",
+      "abstract_text": "",
+      "readme_text": "# Zipline Reloaded\n\nAn event-driven backtesting system for trading algorithms. Simulates order execution against bar data with custom risk models."
+    },
+    "target_field_hashes": {
+      "title_text": "ab1f4d39d675906c4017a4342f32d98ed6713d11064bad4cf4bbd340a8d70ab5",
+      "readme_text": "943d3021776962d9fd9e1dfb7681e15d80995ffd55037b9aec840083e308e372"
+    },
+    "entities": [
+      {
+        "local_id": "soft_01",
+        "entity_type": "software",
+        "name": "Event-Driven Backtesting Simulator",
+        "category": "backtesting_framework",
+        "synonyms": [
+          "backtesting system"
+        ],
+        "evidence": {
+          "target_field_name": "readme_text",
+          "target_field_hash": "943d3021776962d9fd9e1dfb7681e15d80995ffd55037b9aec840083e308e372",
+          "verbatim_quote": "event-driven backtesting system",
+          "start_char": 23,
+          "end_char": 54,
+          "raw_start_char": 23,
+          "raw_end_char": 54,
+          "raw_offset_valid": true,
+          "resolved_offset_valid": true,
+          "offset_resolution_status": "unchanged"
+        }
+      },
+      {
+        "local_id": "cap_01",
+        "entity_type": "capability",
+        "name": "Simulate Order Execution",
+        "operation": "generate",
+        "synonyms": [
+          "simulate trades"
+        ],
+        "evidence": {
+          "target_field_name": "readme_text",
+          "target_field_hash": "943d3021776962d9fd9e1dfb7681e15d80995ffd55037b9aec840083e308e372",
+          "verbatim_quote": "Simulates order execution against bar data with custom risk models",
+          "start_char": 79,
+          "end_char": 145,
+          "raw_start_char": 79,
+          "raw_end_char": 145,
+          "raw_offset_valid": true,
+          "resolved_offset_valid": true,
+          "offset_resolution_status": "unchanged"
+        }
+      }
+    ],
+    "relations": [
+      {
+        "relation_id": "rel_01",
+        "src_local_id": "cap_01",
+        "dst_local_id": "soft_01",
+        "relation_type": "PROVIDED_BY",
+        "evidence": {
+          "target_field_name": "readme_text",
+          "target_field_hash": "943d3021776962d9fd9e1dfb7681e15d80995ffd55037b9aec840083e308e372",
+          "verbatim_quote": "backtesting system for trading algorithms. Simulates order execution against bar data",
+          "start_char": 36,
+          "end_char": 121,
+          "raw_start_char": 36,
+          "raw_end_char": 121,
+          "raw_offset_valid": true,
+          "resolved_offset_valid": true,
+          "offset_resolution_status": "unchanged"
+        }
+      }
+    ],
+    "sentence_annotations": [
+      {
+        "model": 1,
+        "phenomenon": 0,
+        "method": 0,
+        "capability": 0,
+        "assumption": 0,
+        "limitation": 0
+      },
+      {
+        "model": 0,
+        "phenomenon": 0,
+        "method": 0,
+        "capability": 1,
+        "assumption": 0,
+        "limitation": 0
+      }
+    ]
+  },
+  {
+    "source_id": "arxiv_2302_01001",
+    "version_id": "v1",
+    "version_hash": "124006618f3b2d6689073855dd6794ac6d19102aefc7543a59df45892abfd8a3",
+    "split": "holdout_pilot",
+    "source_type": "paper",
+    "arxiv_base_id": "2302.01001",
+    "repository_id": 0,
+    "root_parent_repo_id": 0,
+    "target_fields": {
+      "title_text": "Regime-Switching Volatility Estimation across Global Currency Pairs",
+      "abstract_text": "We implement Markov-switching GARCH to capture asymmetric currency volatility regimes. The method infers latent transition probabilities between calm and distressed states.",
+      "readme_text": ""
+    },
+    "target_field_hashes": {
+      "title_text": "d58508cb1a39eb9d236644375b215de0b6f78cb430b331b92360b3c3d565f53f",
+      "abstract_text": "821d7a20b6e623eda685397d559857607f958e3d2feef8f638352cb076fd9828"
+    },
+    "entities": [
+      {
+        "local_id": "mod_01",
+        "entity_type": "model",
+        "name": "Markov-Switching GARCH",
+        "category": "stochastic_process",
+        "synonyms": [
+          "Markov-switching GARCH",
+          "MS-GARCH"
+        ],
+        "evidence": {
+          "target_field_name": "abstract_text",
+          "verbatim_quote": "Markov-switching GARCH",
+          "start_char": 13,
+          "end_char": 35,
+          "target_field_hash": "821d7a20b6e623eda685397d559857607f958e3d2feef8f638352cb076fd9828"
+        }
+      },
+      {
+        "local_id": "phe_01",
+        "entity_type": "phenomenon",
+        "name": "Asymmetric Currency Volatility Regimes",
+        "synonyms": [
+          "asymmetric currency volatility regimes"
+        ],
+        "evidence": {
+          "target_field_name": "abstract_text",
+          "verbatim_quote": "asymmetric currency volatility regimes",
+          "start_char": 47,
+          "end_char": 85,
+          "target_field_hash": "821d7a20b6e623eda685397d559857607f958e3d2feef8f638352cb076fd9828"
+        }
+      },
+      {
+        "local_id": "cap_01",
+        "entity_type": "capability",
+        "name": "Infer Transition Probabilities",
+        "operation": "infer",
+        "synonyms": [
+          "infer state transition probabilities",
+          "estimate transition probabilities",
+          "infers latent transition probabilities"
+        ],
+        "evidence": {
+          "target_field_name": "abstract_text",
+          "verbatim_quote": "infers latent transition probabilities between calm and distressed states",
+          "start_char": 98,
+          "end_char": 171,
+          "target_field_hash": "821d7a20b6e623eda685397d559857607f958e3d2feef8f638352cb076fd9828"
+        }
+      }
+    ],
+    "relations": [
+      {
+        "relation_id": "rel_01",
+        "src_local_id": "mod_01",
+        "dst_local_id": "phe_01",
+        "relation_type": "EXPLAINS",
+        "evidence": {
+          "target_field_name": "abstract_text",
+          "verbatim_quote": "Markov-switching GARCH to capture asymmetric currency volatility regimes",
+          "start_char": 13,
+          "end_char": 85,
+          "target_field_hash": "821d7a20b6e623eda685397d559857607f958e3d2feef8f638352cb076fd9828"
+        }
+      },
+      {
+        "relation_id": "rel_02",
+        "src_local_id": "cap_01",
+        "dst_local_id": "mod_01",
+        "relation_type": "PROVIDED_BY",
+        "evidence": {
+          "target_field_name": "abstract_text",
+          "verbatim_quote": "The method infers latent transition probabilities between calm and distressed states",
+          "start_char": 87,
+          "end_char": 171,
+          "target_field_hash": "821d7a20b6e623eda685397d559857607f958e3d2feef8f638352cb076fd9828"
+        }
+      }
+    ],
+    "sentence_annotations": [
+      {
+        "model": 0,
+        "phenomenon": 0,
+        "method": 0,
+        "capability": 1,
+        "assumption": 0,
+        "limitation": 0
+      }
+    ]
+  },
+  {
+    "source_id": "arxiv_2302_01002",
+    "version_id": "v1",
+    "version_hash": "09701c007722d17b62d564faa13694e8a863c3a7f1d77540b915a34201e5cd98",
+    "split": "holdout_pilot",
+    "source_type": "paper",
+    "arxiv_base_id": "2302.01002",
+    "repository_id": 0,
+    "root_parent_repo_id": 0,
+    "target_fields": {
+      "title_text": "Cross-Asset Spillover and Tail Risk Network in Cryptocurrency Derivatives",
+      "abstract_text": "We construct directed spillover networks to quantify tail risk contagion across cryptocurrency futures markets. The model predicts systemic liquidation cascades.",
+      "readme_text": ""
+    },
+    "target_field_hashes": {
+      "title_text": "a35c99790d751992dba3ae26d68a8b44a90cfefd6c52002d38c022bb19809e3c",
+      "abstract_text": "9b4a8629d69b78ed2068cca96bcf43b8ea1973d00b6519c7721ecf62f385ddbc"
+    },
+    "entities": [
+      {
+        "local_id": "mod_01",
+        "entity_type": "model",
+        "name": "Directed Spillover Network",
+        "category": "graph_network",
+        "synonyms": [
+          "directed spillover networks",
+          "spillover network"
+        ],
+        "evidence": {
+          "target_field_name": "abstract_text",
+          "verbatim_quote": "directed spillover networks",
+          "start_char": 13,
+          "end_char": 40,
+          "target_field_hash": "9b4a8629d69b78ed2068cca96bcf43b8ea1973d00b6519c7721ecf62f385ddbc"
+        }
+      },
+      {
+        "local_id": "phe_01",
+        "entity_type": "phenomenon",
+        "name": "Tail Risk Contagion",
+        "synonyms": [
+          "tail risk contagion"
+        ],
+        "evidence": {
+          "target_field_name": "abstract_text",
+          "verbatim_quote": "tail risk contagion",
+          "start_char": 53,
+          "end_char": 72,
+          "target_field_hash": "9b4a8629d69b78ed2068cca96bcf43b8ea1973d00b6519c7721ecf62f385ddbc"
+        }
+      },
+      {
+        "local_id": "cap_01",
+        "entity_type": "capability",
+        "name": "Predict Liquidation Cascades",
+        "operation": "predict",
+        "synonyms": [
+          "predict liquidation cascades",
+          "forecast liquidation cascades",
+          "predicts systemic liquidation cascades"
+        ],
+        "evidence": {
+          "target_field_name": "abstract_text",
+          "verbatim_quote": "predicts systemic liquidation cascades",
+          "start_char": 122,
+          "end_char": 160,
+          "target_field_hash": "9b4a8629d69b78ed2068cca96bcf43b8ea1973d00b6519c7721ecf62f385ddbc"
+        }
+      }
+    ],
+    "relations": [
+      {
+        "relation_id": "rel_01",
+        "src_local_id": "mod_01",
+        "dst_local_id": "phe_01",
+        "relation_type": "EXPLAINS",
+        "evidence": {
+          "target_field_name": "abstract_text",
+          "verbatim_quote": "directed spillover networks to quantify tail risk contagion",
+          "start_char": 13,
+          "end_char": 72,
+          "target_field_hash": "9b4a8629d69b78ed2068cca96bcf43b8ea1973d00b6519c7721ecf62f385ddbc"
+        }
+      },
+      {
+        "relation_id": "rel_02",
+        "src_local_id": "cap_01",
+        "dst_local_id": "mod_01",
+        "relation_type": "PROVIDED_BY",
+        "evidence": {
+          "target_field_name": "abstract_text",
+          "verbatim_quote": "The model predicts systemic liquidation cascades",
+          "start_char": 112,
+          "end_char": 160,
+          "target_field_hash": "9b4a8629d69b78ed2068cca96bcf43b8ea1973d00b6519c7721ecf62f385ddbc"
+        }
+      }
+    ],
+    "sentence_annotations": [
+      {
+        "model": 0,
+        "phenomenon": 0,
+        "method": 0,
+        "capability": 1,
+        "assumption": 0,
+        "limitation": 0
+      }
+    ]
+  },
+  {
+    "source_id": "arxiv_2302_01003",
+    "version_id": "v1",
+    "version_hash": "7918aea3971d7861974adb37945e5c0e5ec17627554f338d3ea49676ee4e3ab2",
+    "split": "holdout_pilot",
+    "source_type": "paper",
+    "arxiv_base_id": "2302.01003",
+    "repository_id": 0,
+    "root_parent_repo_id": 0,
+    "target_fields": {
+      "title_text": "Microstructure Alpha Discovery via Recurrent Graph Neural Networks",
+      "abstract_text": "We propose recurrent graph convolutions to extract predictive alpha signals from multi-exchange order books.",
+      "readme_text": ""
+    },
+    "target_field_hashes": {
+      "title_text": "02f6e101194218b1cd4fc57c71f63e9dae182f71b97bfad5551532a7c4ecdc25",
+      "abstract_text": "e1dbc1ccf295fd6e9c4d9a37ade346b5bf399603b8e3be8b76625996b79d4927"
+    },
+    "entities": [
+      {
+        "local_id": "mod_01",
+        "entity_type": "model",
+        "name": "Recurrent Graph Convolutions",
+        "category": "deep_learning",
+        "synonyms": [
+          "recurrent graph convolutions",
+          "recurrent GNN"
+        ],
+        "evidence": {
+          "target_field_name": "abstract_text",
+          "verbatim_quote": "recurrent graph convolutions",
+          "start_char": 11,
+          "end_char": 39,
+          "target_field_hash": "e1dbc1ccf295fd6e9c4d9a37ade346b5bf399603b8e3be8b76625996b79d4927"
+        }
+      },
+      {
+        "local_id": "cap_01",
+        "entity_type": "capability",
+        "name": "Extract Alpha Signals",
+        "operation": "generate",
+        "synonyms": [
+          "extract alpha signals",
+          "discover alpha signals",
+          "extract predictive alpha signals"
+        ],
+        "evidence": {
+          "target_field_name": "abstract_text",
+          "verbatim_quote": "extract predictive alpha signals from multi-exchange order books",
+          "start_char": 43,
+          "end_char": 107,
+          "target_field_hash": "e1dbc1ccf295fd6e9c4d9a37ade346b5bf399603b8e3be8b76625996b79d4927"
+        }
+      }
+    ],
+    "relations": [
+      {
+        "relation_id": "rel_01",
+        "src_local_id": "cap_01",
+        "dst_local_id": "mod_01",
+        "relation_type": "PROVIDED_BY",
+        "evidence": {
+          "target_field_name": "abstract_text",
+          "verbatim_quote": "recurrent graph convolutions to extract predictive alpha signals from multi-exchange order books",
+          "start_char": 11,
+          "end_char": 107,
+          "target_field_hash": "e1dbc1ccf295fd6e9c4d9a37ade346b5bf399603b8e3be8b76625996b79d4927"
+        }
+      }
+    ],
+    "sentence_annotations": [
+      {
+        "model": 0,
+        "phenomenon": 0,
+        "method": 0,
+        "capability": 1,
+        "assumption": 0,
+        "limitation": 0
+      }
+    ]
+  },
+  {
+    "source_id": "arxiv_2302_01004",
+    "version_id": "v1",
+    "version_hash": "94d98cc790c3d68b224442ff47f9ff506bb45a29f2085b51aff333668bfe65c4",
+    "split": "holdout_pilot",
+    "source_type": "paper",
+    "arxiv_base_id": "2302.01004",
+    "repository_id": 0,
+    "root_parent_repo_id": 0,
+    "target_fields": {
+      "title_text": "Statistical Arbitrage and Liquidity Dynamics under Asymmetric Latency",
+      "abstract_text": "We analyze statistical arbitrage performance using Ornstein-Uhlenbeck pair trading models under asymmetric network latency.",
+      "readme_text": ""
+    },
+    "target_field_hashes": {
+      "title_text": "005fc0c0ce12430a2f84a424babd3f7ba7661345bf9469596d1de09a325ce41a",
+      "abstract_text": "4c8f25be11c65f5952502db04babb7052459ecbb995158c6a1bc9900258b4ec3"
+    },
+    "entities": [
+      {
+        "local_id": "mod_01",
+        "entity_type": "model",
+        "name": "Ornstein-Uhlenbeck Pair Trading Model",
+        "category": "stochastic_process",
+        "synonyms": [
+          "Ornstein-Uhlenbeck pair trading models",
+          "OU pair trading"
+        ],
+        "evidence": {
+          "target_field_name": "abstract_text",
+          "verbatim_quote": "Ornstein-Uhlenbeck pair trading models",
+          "start_char": 51,
+          "end_char": 89,
+          "target_field_hash": "4c8f25be11c65f5952502db04babb7052459ecbb995158c6a1bc9900258b4ec3"
+        }
+      },
+      {
+        "local_id": "phe_01",
+        "entity_type": "phenomenon",
+        "name": "Statistical Arbitrage",
+        "synonyms": [
+          "statistical arbitrage performance",
+          "stat arb"
+        ],
+        "evidence": {
+          "target_field_name": "abstract_text",
+          "verbatim_quote": "statistical arbitrage performance",
+          "start_char": 11,
+          "end_char": 44,
+          "target_field_hash": "4c8f25be11c65f5952502db04babb7052459ecbb995158c6a1bc9900258b4ec3"
+        }
+      },
+      {
+        "local_id": "lim_01",
+        "entity_type": "limitation",
+        "statement": "Asymmetric network latency affects pair trading performance.",
+        "synonyms": [
+          "asymmetric network latency"
+        ],
+        "evidence": {
+          "target_field_name": "abstract_text",
+          "verbatim_quote": "asymmetric network latency",
+          "start_char": 96,
+          "end_char": 122,
+          "target_field_hash": "4c8f25be11c65f5952502db04babb7052459ecbb995158c6a1bc9900258b4ec3"
+        }
+      }
+    ],
+    "relations": [
+      {
+        "relation_id": "rel_01",
+        "src_local_id": "mod_01",
+        "dst_local_id": "lim_01",
+        "relation_type": "CONSTRAINED_BY",
+        "evidence": {
+          "target_field_name": "abstract_text",
+          "verbatim_quote": "Ornstein-Uhlenbeck pair trading models under asymmetric network latency",
+          "start_char": 51,
+          "end_char": 122,
+          "target_field_hash": "4c8f25be11c65f5952502db04babb7052459ecbb995158c6a1bc9900258b4ec3"
+        }
+      },
+      {
+        "relation_id": "rel_02",
+        "src_local_id": "mod_01",
+        "dst_local_id": "phe_01",
+        "relation_type": "EXPLAINS",
+        "evidence": {
+          "target_field_name": "abstract_text",
+          "verbatim_quote": "statistical arbitrage performance using Ornstein-Uhlenbeck pair trading models",
+          "start_char": 11,
+          "end_char": 89,
+          "target_field_hash": "4c8f25be11c65f5952502db04babb7052459ecbb995158c6a1bc9900258b4ec3"
+        }
+      }
+    ],
+    "sentence_annotations": [
+      {
+        "model": 0,
+        "phenomenon": 0,
+        "method": 0,
+        "capability": 1,
+        "assumption": 0,
+        "limitation": 0
+      }
+    ]
+  },
+  {
+    "source_id": "arxiv_2302_02001",
+    "version_id": "v1",
+    "version_hash": "e9be07d4a723335e3ca59ea8f0c0a2150036b4bd690d1f69054d9873637ac73c",
+    "split": "holdout_pilot",
+    "source_type": "paper",
+    "arxiv_base_id": "2302.02001",
+    "repository_id": 0,
+    "root_parent_repo_id": 0,
+    "target_fields": {
+      "title_text": "Spin Glass Free Energy Landscapes and Mean Field Approximation",
+      "abstract_text": "We calculate the Sherrington-Kirkpatrick spin glass free energy using replica symmetry breaking. The method identifies metastable ground state configurations.",
+      "readme_text": ""
+    },
+    "target_field_hashes": {
+      "title_text": "dbda140cf94aeddf65340a9301abba0be332238d27deae3ab2578ab28f56a635",
+      "abstract_text": "ba408d076b647ed2d78436a92a25e397d6a8934d0b013bddcbc077613e7c4c5f"
+    },
+    "entities": [
+      {
+        "local_id": "mod_01",
+        "entity_type": "model",
+        "name": "Sherrington-Kirkpatrick Spin Glass",
+        "category": "statistical_physics",
+        "synonyms": [
+          "Sherrington-Kirkpatrick spin glass",
+          "SK model"
+        ],
+        "evidence": {
+          "target_field_name": "abstract_text",
+          "verbatim_quote": "Sherrington-Kirkpatrick spin glass",
+          "start_char": 17,
+          "end_char": 51,
+          "target_field_hash": "ba408d076b647ed2d78436a92a25e397d6a8934d0b013bddcbc077613e7c4c5f"
+        }
+      },
+      {
+        "local_id": "met_01",
+        "entity_type": "method",
+        "name": "Replica Symmetry Breaking",
+        "category": "parameter_inference",
+        "synonyms": [
+          "replica symmetry breaking",
+          "RSB"
+        ],
+        "evidence": {
+          "target_field_name": "abstract_text",
+          "verbatim_quote": "replica symmetry breaking",
+          "start_char": 70,
+          "end_char": 95,
+          "target_field_hash": "ba408d076b647ed2d78436a92a25e397d6a8934d0b013bddcbc077613e7c4c5f"
+        }
+      },
+      {
+        "local_id": "cap_01",
+        "entity_type": "capability",
+        "name": "Identify Ground States",
+        "operation": "detect",
+        "synonyms": [
+          "identify ground states",
+          "identify metastable configurations",
+          "identifies metastable ground state configurations"
+        ],
+        "evidence": {
+          "target_field_name": "abstract_text",
+          "verbatim_quote": "identifies metastable ground state configurations",
+          "start_char": 108,
+          "end_char": 157,
+          "target_field_hash": "ba408d076b647ed2d78436a92a25e397d6a8934d0b013bddcbc077613e7c4c5f"
+        }
+      }
+    ],
+    "relations": [
+      {
+        "relation_id": "rel_01",
+        "src_local_id": "met_01",
+        "dst_local_id": "mod_01",
+        "relation_type": "APPLIES_TO",
+        "evidence": {
+          "target_field_name": "abstract_text",
+          "verbatim_quote": "calculate the Sherrington-Kirkpatrick spin glass free energy using replica symmetry breaking",
+          "start_char": 3,
+          "end_char": 95,
+          "target_field_hash": "ba408d076b647ed2d78436a92a25e397d6a8934d0b013bddcbc077613e7c4c5f"
+        }
+      },
+      {
+        "relation_id": "rel_02",
+        "src_local_id": "cap_01",
+        "dst_local_id": "met_01",
+        "relation_type": "PROVIDED_BY",
+        "evidence": {
+          "target_field_name": "abstract_text",
+          "verbatim_quote": "The method identifies metastable ground state configurations",
+          "start_char": 97,
+          "end_char": 157,
+          "target_field_hash": "ba408d076b647ed2d78436a92a25e397d6a8934d0b013bddcbc077613e7c4c5f"
+        }
+      }
+    ],
+    "sentence_annotations": [
+      {
+        "model": 0,
+        "phenomenon": 0,
+        "method": 0,
+        "capability": 1,
+        "assumption": 0,
+        "limitation": 0
+      }
+    ]
+  },
+  {
+    "source_id": "arxiv_2302_02002",
+    "version_id": "v1",
+    "version_hash": "76666f443caa3c59ffb83f2b64c45d51502201330da5c6c20275159b2100535b",
+    "split": "holdout_pilot",
+    "source_type": "paper",
+    "arxiv_base_id": "2302.02002",
+    "repository_id": 0,
+    "root_parent_repo_id": 0,
+    "target_fields": {
+      "title_text": "Lyapunov Exponent Estimation for High-Dimensional Chaotic Attractors",
+      "abstract_text": "We formulate an algorithm to estimate the maximal Lyapunov exponent from scalar time series observations of turbulent fluid flows.",
+      "readme_text": ""
+    },
+    "target_field_hashes": {
+      "title_text": "818cd94c329cd1f4c13b31105e260b18d551f44f1228e4c276bc18db10414ec2",
+      "abstract_text": "92d2d98d958430da5258cc0b66764064eb8551d54cd70c950a3fc3d5bf9dd1e5"
+    },
+    "entities": [
+      {
+        "local_id": "met_01",
+        "entity_type": "method",
+        "name": "Lyapunov Exponent Estimation Algorithm",
+        "category": "parameter_inference",
+        "synonyms": [
+          "algorithm to estimate the maximal Lyapunov exponent",
+          "Lyapunov exponent estimation"
+        ],
+        "evidence": {
+          "target_field_name": "abstract_text",
+          "verbatim_quote": "algorithm to estimate the maximal Lyapunov exponent",
+          "start_char": 16,
+          "end_char": 67,
+          "target_field_hash": "92d2d98d958430da5258cc0b66764064eb8551d54cd70c950a3fc3d5bf9dd1e5"
+        }
+      },
+      {
+        "local_id": "cap_01",
+        "entity_type": "capability",
+        "name": "Estimate Maximal Lyapunov Exponent",
+        "operation": "estimate",
+        "synonyms": [
+          "estimate Lyapunov exponent",
+          "estimate maximal Lyapunov exponent"
+        ],
+        "evidence": {
+          "target_field_name": "abstract_text",
+          "verbatim_quote": "estimate the maximal Lyapunov exponent from scalar time series observations",
+          "start_char": 29,
+          "end_char": 104,
+          "target_field_hash": "92d2d98d958430da5258cc0b66764064eb8551d54cd70c950a3fc3d5bf9dd1e5"
+        }
+      }
+    ],
+    "relations": [
+      {
+        "relation_id": "rel_01",
+        "src_local_id": "cap_01",
+        "dst_local_id": "met_01",
+        "relation_type": "PROVIDED_BY",
+        "evidence": {
+          "target_field_name": "abstract_text",
+          "verbatim_quote": "algorithm to estimate the maximal Lyapunov exponent from scalar time series observations",
+          "start_char": 16,
+          "end_char": 104,
+          "target_field_hash": "92d2d98d958430da5258cc0b66764064eb8551d54cd70c950a3fc3d5bf9dd1e5"
+        }
+      }
+    ],
+    "sentence_annotations": [
+      {
+        "model": 0,
+        "phenomenon": 0,
+        "method": 0,
+        "capability": 1,
+        "assumption": 0,
+        "limitation": 0
+      }
+    ]
+  },
+  {
+    "source_id": "arxiv_2302_02003",
+    "version_id": "v1",
+    "version_hash": "6ff50432a2dbefede6143cf0477e33717f823f501e722607c5b17e13ca79595a",
+    "split": "holdout_pilot",
+    "source_type": "paper",
+    "arxiv_base_id": "2302.02003",
+    "repository_id": 0,
+    "root_parent_repo_id": 0,
+    "target_fields": {
+      "title_text": "Invariant Causal Prediction in Non-Stationary Dynamical Systems",
+      "abstract_text": "We develop an invariant causal discovery procedure to identify direct causal parents across non-stationary physical environments.",
+      "readme_text": ""
+    },
+    "target_field_hashes": {
+      "title_text": "ee0fd8e6405c81686cc561183e16f988f8130961e01233b7505de2c60691f0f8",
+      "abstract_text": "56bd93a27369318adac413b9aa6c971b173544fa0bc847f29c0128321f95f9a6"
+    },
+    "entities": [
+      {
+        "local_id": "met_01",
+        "entity_type": "method",
+        "name": "Invariant Causal Discovery",
+        "category": "hypothesis_testing",
+        "synonyms": [
+          "invariant causal discovery procedure",
+          "ICP"
+        ],
+        "evidence": {
+          "target_field_name": "abstract_text",
+          "verbatim_quote": "invariant causal discovery procedure",
+          "start_char": 14,
+          "end_char": 50,
+          "target_field_hash": "56bd93a27369318adac413b9aa6c971b173544fa0bc847f29c0128321f95f9a6"
+        }
+      },
+      {
+        "local_id": "cap_01",
+        "entity_type": "capability",
+        "name": "Identify Direct Causal Parents",
+        "operation": "infer",
+        "synonyms": [
+          "identify causal parents",
+          "discover causal parents",
+          "identify direct causal parents"
+        ],
+        "evidence": {
+          "target_field_name": "abstract_text",
+          "verbatim_quote": "identify direct causal parents across non-stationary physical environments",
+          "start_char": 54,
+          "end_char": 128,
+          "target_field_hash": "56bd93a27369318adac413b9aa6c971b173544fa0bc847f29c0128321f95f9a6"
+        }
+      }
+    ],
+    "relations": [
+      {
+        "relation_id": "rel_01",
+        "src_local_id": "cap_01",
+        "dst_local_id": "met_01",
+        "relation_type": "PROVIDED_BY",
+        "evidence": {
+          "target_field_name": "abstract_text",
+          "verbatim_quote": "invariant causal discovery procedure to identify direct causal parents across non-stationary physical environments",
+          "start_char": 14,
+          "end_char": 128,
+          "target_field_hash": "56bd93a27369318adac413b9aa6c971b173544fa0bc847f29c0128321f95f9a6"
+        }
+      }
+    ],
+    "sentence_annotations": [
+      {
+        "model": 0,
+        "phenomenon": 0,
+        "method": 0,
+        "capability": 1,
+        "assumption": 0,
+        "limitation": 0
+      }
+    ]
+  },
+  {
+    "source_id": "arxiv_2302_02004",
+    "version_id": "v1",
+    "version_hash": "e6b9c177ff56cac77b1bd9de9496a99d6c3d76f4f42b63c330334ac05af6c249",
+    "split": "holdout_pilot",
+    "source_type": "paper",
+    "arxiv_base_id": "2302.02004",
+    "repository_id": 0,
+    "root_parent_repo_id": 0,
+    "target_fields": {
+      "title_text": "Epidemic Transmission Dynamics on Complex Stochastic Contact Networks",
+      "abstract_text": "We model stochastic SIR epidemic propagation over dynamic social graphs to predict pathogen outbreak peak timing.",
+      "readme_text": ""
+    },
+    "target_field_hashes": {
+      "title_text": "62bf743325cbe20254477e816971e53acc3046bf6f661c5b683d31b1565d2496",
+      "abstract_text": "3804b249ccacf7255dd8524c874380097c6018b53fae324f36d3d95f8992c994"
+    },
+    "entities": [
+      {
+        "local_id": "mod_01",
+        "entity_type": "model",
+        "name": "Stochastic SIR Model",
+        "category": "stochastic_process",
+        "synonyms": [
+          "stochastic SIR epidemic propagation",
+          "SIR model"
+        ],
+        "evidence": {
+          "target_field_name": "abstract_text",
+          "verbatim_quote": "stochastic SIR epidemic propagation over dynamic social graphs",
+          "start_char": 9,
+          "end_char": 71,
+          "target_field_hash": "3804b249ccacf7255dd8524c874380097c6018b53fae324f36d3d95f8992c994"
+        }
+      },
+      {
+        "local_id": "cap_01",
+        "entity_type": "capability",
+        "name": "Predict Outbreak Peak Timing",
+        "operation": "predict",
+        "synonyms": [
+          "predict peak timing",
+          "forecast outbreak peak",
+          "predict pathogen outbreak peak timing"
+        ],
+        "evidence": {
+          "target_field_name": "abstract_text",
+          "verbatim_quote": "predict pathogen outbreak peak timing",
+          "start_char": 75,
+          "end_char": 112,
+          "target_field_hash": "3804b249ccacf7255dd8524c874380097c6018b53fae324f36d3d95f8992c994"
+        }
+      }
+    ],
+    "relations": [
+      {
+        "relation_id": "rel_01",
+        "src_local_id": "cap_01",
+        "dst_local_id": "mod_01",
+        "relation_type": "PROVIDED_BY",
+        "evidence": {
+          "target_field_name": "abstract_text",
+          "verbatim_quote": "stochastic SIR epidemic propagation over dynamic social graphs to predict pathogen outbreak peak timing",
+          "start_char": 9,
+          "end_char": 112,
+          "target_field_hash": "3804b249ccacf7255dd8524c874380097c6018b53fae324f36d3d95f8992c994"
+        }
+      }
+    ],
+    "sentence_annotations": [
+      {
+        "model": 0,
+        "phenomenon": 0,
+        "method": 0,
+        "capability": 1,
+        "assumption": 0,
+        "limitation": 0
+      }
+    ]
+  },
+  {
+    "source_id": "github_20201",
+    "version_id": "v1",
+    "version_hash": "2867817ce9380a782d1292a2b8e70a0068c1e7e0867506476efa09caf88038f6",
+    "split": "holdout_pilot",
+    "source_type": "oss",
+    "arxiv_base_id": "",
+    "repository_id": 20201,
+    "root_parent_repo_id": 20201,
+    "target_fields": {
+      "title_text": "financial-rl: Market Simulator with Order Book Level 2",
+      "abstract_text": "",
+      "readme_text": "# financial-rl\n\nA reinforcement learning environment simulating Level 2 limit order books. Generates synthetic quote streams and tracks inventory risk."
+    },
+    "target_field_hashes": {
+      "title_text": "44ff9a6c81ead506cf12eeb0d583b6a2f074cc3369694e16e28f915d7e7b4f9d",
+      "readme_text": "2f92a1735f7d8df143e86ab94397c7a1a26c2442d4bbbf0aa0102a33a0b2c945"
+    },
+    "entities": [
+      {
+        "local_id": "mod_01",
+        "entity_type": "model",
+        "name": "RL Limit Order Book Environment",
+        "category": "agent_based",
+        "synonyms": [
+          "reinforcement learning environment simulating Level 2 limit order books",
+          "financial-rl"
+        ],
+        "evidence": {
+          "target_field_name": "readme_text",
+          "verbatim_quote": "reinforcement learning environment simulating Level 2 limit order books",
+          "start_char": 18,
+          "end_char": 89,
+          "target_field_hash": "2f92a1735f7d8df143e86ab94397c7a1a26c2442d4bbbf0aa0102a33a0b2c945"
+        }
+      },
+      {
+        "local_id": "cap_01",
+        "entity_type": "capability",
+        "name": "Generate Synthetic Quote Streams",
+        "operation": "generate",
+        "synonyms": [
+          "generate quote streams",
+          "simulate quote streams",
+          "Generates synthetic quote streams"
+        ],
+        "evidence": {
+          "target_field_name": "readme_text",
+          "verbatim_quote": "Generates synthetic quote streams and tracks inventory risk",
+          "start_char": 91,
+          "end_char": 150,
+          "target_field_hash": "2f92a1735f7d8df143e86ab94397c7a1a26c2442d4bbbf0aa0102a33a0b2c945"
+        }
+      }
+    ],
+    "relations": [
+      {
+        "relation_id": "rel_01",
+        "src_local_id": "cap_01",
+        "dst_local_id": "mod_01",
+        "relation_type": "PROVIDED_BY",
+        "evidence": {
+          "target_field_name": "readme_text",
+          "verbatim_quote": "reinforcement learning environment simulating Level 2 limit order books. Generates synthetic quote streams",
+          "start_char": 18,
+          "end_char": 124,
+          "target_field_hash": "2f92a1735f7d8df143e86ab94397c7a1a26c2442d4bbbf0aa0102a33a0b2c945"
+        }
+      }
+    ],
+    "sentence_annotations": [
+      {
+        "model": 0,
+        "phenomenon": 0,
+        "method": 0,
+        "capability": 1,
+        "assumption": 0,
+        "limitation": 0
+      }
+    ]
+  },
+  {
+    "source_id": "github_20202",
+    "version_id": "v1",
+    "version_hash": "227173462af0f57dc67d720a71ab250536a2d81a6554a8781323ea6b0315c039",
+    "split": "holdout_pilot",
+    "source_type": "oss",
+    "arxiv_base_id": "",
+    "repository_id": 20202,
+    "root_parent_repo_id": 20202,
+    "target_fields": {
+      "title_text": "backtrader: Event-Driven Backtesting Engine",
+      "abstract_text": "",
+      "readme_text": "# Backtrader\n\nA feature-rich Python framework for backtesting and trading. Executes multi-timeframe strategy indicators on tick and daily bars."
+    },
+    "target_field_hashes": {
+      "title_text": "bb7b5055c5e32eaf147a315077ae0287562a64a8d1dd55990f73f4bc6d73402b",
+      "readme_text": "27713a6f3253936e520d4e8f664ac53e9f9ade6894f0186ffba1f50c20bc5c07"
+    },
+    "entities": [
+      {
+        "local_id": "mod_01",
+        "entity_type": "model",
+        "name": "Backtrader Backtesting Framework",
+        "category": "other",
+        "synonyms": [
+          "Python framework for backtesting and trading",
+          "Backtrader"
+        ],
+        "evidence": {
+          "target_field_name": "readme_text",
+          "verbatim_quote": "Python framework for backtesting and trading",
+          "start_char": 29,
+          "end_char": 73,
+          "target_field_hash": "27713a6f3253936e520d4e8f664ac53e9f9ade6894f0186ffba1f50c20bc5c07"
+        }
+      },
+      {
+        "local_id": "cap_01",
+        "entity_type": "capability",
+        "name": "Execute Multi-Timeframe Strategy Indicators",
+        "operation": "transform",
+        "synonyms": [
+          "execute strategy indicators",
+          "run multi-timeframe indicators",
+          "Executes multi-timeframe strategy indicators"
+        ],
+        "evidence": {
+          "target_field_name": "readme_text",
+          "verbatim_quote": "Executes multi-timeframe strategy indicators on tick and daily bars",
+          "start_char": 75,
+          "end_char": 142,
+          "target_field_hash": "27713a6f3253936e520d4e8f664ac53e9f9ade6894f0186ffba1f50c20bc5c07"
+        }
+      }
+    ],
+    "relations": [
+      {
+        "relation_id": "rel_01",
+        "src_local_id": "cap_01",
+        "dst_local_id": "mod_01",
+        "relation_type": "PROVIDED_BY",
+        "evidence": {
+          "target_field_name": "readme_text",
+          "verbatim_quote": "Python framework for backtesting and trading. Executes multi-timeframe strategy indicators",
+          "start_char": 29,
+          "end_char": 119,
+          "target_field_hash": "27713a6f3253936e520d4e8f664ac53e9f9ade6894f0186ffba1f50c20bc5c07"
+        }
+      }
+    ],
+    "sentence_annotations": [
+      {
+        "model": 0,
+        "phenomenon": 0,
+        "method": 0,
+        "capability": 1,
+        "assumption": 0,
+        "limitation": 0
+      }
+    ]
+  },
+  {
+    "source_id": "github_20203",
+    "version_id": "v1",
+    "version_hash": "f7906b5895c83aa42f75327637e658a21855768277569a04db55fdc80559460a",
+    "split": "holdout_pilot",
+    "source_type": "oss",
+    "arxiv_base_id": "",
+    "repository_id": 20203,
+    "root_parent_repo_id": 20203,
+    "target_fields": {
+      "title_text": "hft-limit-order-book: High Frequency Limit Order Book Engine",
+      "abstract_text": "",
+      "readme_text": "# HFT Limit Order Book\n\nHigh-performance C++ matching engine with Python bindings. Matches limit orders with sub-microsecond latency."
+    },
+    "target_field_hashes": {
+      "title_text": "865dba564dd40f662a4ee120a334771674e6834e96e9b2c00c0f34df2862aaef",
+      "readme_text": "19b21a44f0cc66a7a52b8c246bff634c450c1f902f5a3ab1633e6f30d922d46e"
+    },
+    "entities": [
+      {
+        "local_id": "mod_01",
+        "entity_type": "model",
+        "name": "Matching Engine",
+        "category": "other",
+        "synonyms": [
+          "C++ matching engine with Python bindings",
+          "HFT matching engine"
+        ],
+        "evidence": {
+          "target_field_name": "readme_text",
+          "verbatim_quote": "matching engine with Python bindings",
+          "start_char": 45,
+          "end_char": 81,
+          "target_field_hash": "19b21a44f0cc66a7a52b8c246bff634c450c1f902f5a3ab1633e6f30d922d46e"
+        }
+      },
+      {
+        "local_id": "cap_01",
+        "entity_type": "capability",
+        "name": "Match Limit Orders",
+        "operation": "optimize",
+        "synonyms": [
+          "match limit orders",
+          "execute limit orders",
+          "Matches limit orders"
+        ],
+        "evidence": {
+          "target_field_name": "readme_text",
+          "verbatim_quote": "Matches limit orders with sub-microsecond latency",
+          "start_char": 83,
+          "end_char": 132,
+          "target_field_hash": "19b21a44f0cc66a7a52b8c246bff634c450c1f902f5a3ab1633e6f30d922d46e"
+        }
+      }
+    ],
+    "relations": [
+      {
+        "relation_id": "rel_01",
+        "src_local_id": "cap_01",
+        "dst_local_id": "mod_01",
+        "relation_type": "PROVIDED_BY",
+        "evidence": {
+          "target_field_name": "readme_text",
+          "verbatim_quote": "matching engine with Python bindings. Matches limit orders with sub-microsecond latency",
+          "start_char": 45,
+          "end_char": 132,
+          "target_field_hash": "19b21a44f0cc66a7a52b8c246bff634c450c1f902f5a3ab1633e6f30d922d46e"
+        }
+      }
+    ],
+    "sentence_annotations": [
+      {
+        "model": 0,
+        "phenomenon": 0,
+        "method": 0,
+        "capability": 1,
+        "assumption": 0,
+        "limitation": 0
+      }
+    ]
+  },
+  {
+    "source_id": "github_20204",
+    "version_id": "v1",
+    "version_hash": "354541b049d3eeb495c5af151a45ab9cf731bf04fcd0f7dd4dc07c4e5009d45e",
+    "split": "holdout_pilot",
+    "source_type": "oss",
+    "arxiv_base_id": "",
+    "repository_id": 20204,
+    "root_parent_repo_id": 20204,
+    "target_fields": {
+      "title_text": "PyPortfolioOpt: Financial Portfolio Optimization",
+      "abstract_text": "",
+      "readme_text": "# PyPortfolioOpt\n\nImplements classical Efficient Frontier and Black-Litterman portfolio allocation methods from historical return cov matrices."
+    },
+    "target_field_hashes": {
+      "title_text": "ded15c30f24c8fb7b74e4ff71e6b434451074a15b0fc4e2ffe10eeb1ab128436",
+      "readme_text": "e738ececca71aed5f7f8e55a3fd6de7d5463eca38cb166b8e6e56942bfe61e7a"
+    },
+    "entities": [
+      {
+        "local_id": "met_01",
+        "entity_type": "method",
+        "name": "Efficient Frontier and Black-Litterman",
+        "category": "optimization",
+        "synonyms": [
+          "Efficient Frontier and Black-Litterman portfolio allocation methods",
+          "Black-Litterman"
+        ],
+        "evidence": {
+          "target_field_name": "readme_text",
+          "verbatim_quote": "Efficient Frontier and Black-Litterman portfolio allocation methods",
+          "start_char": 39,
+          "end_char": 106,
+          "target_field_hash": "e738ececca71aed5f7f8e55a3fd6de7d5463eca38cb166b8e6e56942bfe61e7a"
+        }
+      },
+      {
+        "local_id": "cap_01",
+        "entity_type": "capability",
+        "name": "Allocate Portfolio Weights",
+        "operation": "optimize",
+        "synonyms": [
+          "portfolio allocation",
+          "optimize portfolio weights",
+          "portfolio allocation methods"
+        ],
+        "evidence": {
+          "target_field_name": "readme_text",
+          "verbatim_quote": "portfolio allocation methods from historical return cov matrices",
+          "start_char": 78,
+          "end_char": 142,
+          "target_field_hash": "e738ececca71aed5f7f8e55a3fd6de7d5463eca38cb166b8e6e56942bfe61e7a"
+        }
+      }
+    ],
+    "relations": [
+      {
+        "relation_id": "rel_01",
+        "src_local_id": "cap_01",
+        "dst_local_id": "met_01",
+        "relation_type": "PROVIDED_BY",
+        "evidence": {
+          "target_field_name": "readme_text",
+          "verbatim_quote": "Efficient Frontier and Black-Litterman portfolio allocation methods from historical return cov matrices",
+          "start_char": 39,
+          "end_char": 142,
+          "target_field_hash": "e738ececca71aed5f7f8e55a3fd6de7d5463eca38cb166b8e6e56942bfe61e7a"
+        }
+      }
+    ],
+    "sentence_annotations": [
+      {
+        "model": 0,
+        "phenomenon": 0,
+        "method": 0,
+        "capability": 1,
+        "assumption": 0,
+        "limitation": 0
+      }
+    ]
+  },
+  {
+    "source_id": "github_30301",
+    "version_id": "v1",
+    "version_hash": "44cec8df423f827cc520e4cea21a62288a14ef0cdd3d23b5cf7baa2493781c29",
+    "split": "challenge",
+    "source_type": "oss",
+    "arxiv_base_id": "",
+    "repository_id": 30301,
+    "root_parent_repo_id": 30301,
+    "target_fields": {
+      "title_text": "minimal-tool: Minimal tool",
+      "abstract_text": "",
+      "readme_text": ""
+    },
+    "target_field_hashes": {
+      "title_text": "44cec8df423f827cc520e4cea21a62288a14ef0cdd3d23b5cf7baa2493781c29"
+    },
+    "entities": [],
+    "relations": [],
+    "sentence_annotations": []
+  },
+  {
+    "source_id": "arxiv_2303_03001",
+    "version_id": "v1",
+    "version_hash": "6dfde1dd500aead2a3c5f11fe5e9c50b2aba32394e4933a0432fea88a2cd9e9c",
+    "split": "challenge",
+    "source_type": "paper",
+    "arxiv_base_id": "2303.03001",
+    "repository_id": 0,
+    "root_parent_repo_id": 0,
+    "target_fields": {
+      "title_text": "Empirical Failure of Deep Reinforcement Learning in Extreme Volatility Regimes",
+      "abstract_text": "We demonstrate that standard deep reinforcement learning policies fail to achieve positive Sharpe ratio in extreme volatility regimes.",
+      "readme_text": ""
+    },
+    "target_field_hashes": {
+      "title_text": "5ca36a907cbfc8a81d8e1058530e549d072303f0a64921aa0927def58b7e81d7",
+      "abstract_text": "b7520499b86c1e1e272d6718e161c6e4a2933efbb6b83c843d989140441db9d1"
+    },
+    "entities": [
+      {
+        "local_id": "lim_01",
+        "entity_type": "limitation",
+        "statement": "Deep reinforcement learning policies fail in extreme volatility.",
+        "evidence": {
+          "target_field_name": "abstract_text",
+          "target_field_hash": "b7520499b86c1e1e272d6718e161c6e4a2933efbb6b83c843d989140441db9d1",
+          "verbatim_quote": "deep reinforcement learning policies fail to achieve positive Sharpe ratio in extreme volatility regimes",
+          "start_char": 29,
+          "end_char": 133,
+          "raw_start_char": 29,
+          "raw_end_char": 133,
+          "raw_offset_valid": true,
+          "resolved_offset_valid": true,
+          "offset_resolution_status": "unchanged"
+        }
+      }
+    ],
+    "relations": [],
+    "sentence_annotations": [
+      {
+        "model": 0,
+        "phenomenon": 0,
+        "method": 0,
+        "capability": 0,
+        "assumption": 0,
+        "limitation": 1
+      }
+    ]
+  },
+  {
+    "source_id": "arxiv_2303_03002",
+    "version_id": "v1",
+    "version_hash": "a765d32fa9b44fa97dde4d261dfb3031d50817079f4fdd44a3948adf252018a4",
+    "split": "challenge",
+    "source_type": "paper",
+    "arxiv_base_id": "2303.03002",
+    "repository_id": 0,
+    "root_parent_repo_id": 0,
+    "target_fields": {
+      "title_text": "Non-Convergence of Neural Likelihood-Free Calibration in High Dimensions",
+      "abstract_text": "Our empirical experiments reveal that neural posterior estimation fails to converge when parameter dimensionality exceeds twenty.",
+      "readme_text": ""
+    },
+    "target_field_hashes": {
+      "title_text": "496206bc3866efe7e2075bdd0bd82d0614c811ceeafabc0ed48ca10637d70a34",
+      "abstract_text": "58c7be1f9cc1f1c9a6d6902bc416c73970ec55cdaf2da8e0bec1c0a70fb98b08"
+    },
+    "entities": [
+      {
+        "local_id": "lim_01",
+        "entity_type": "limitation",
+        "statement": "Neural posterior estimation fails to converge above 20 dimensions.",
+        "evidence": {
+          "target_field_name": "abstract_text",
+          "target_field_hash": "58c7be1f9cc1f1c9a6d6902bc416c73970ec55cdaf2da8e0bec1c0a70fb98b08",
+          "verbatim_quote": "neural posterior estimation fails to converge when parameter dimensionality exceeds twenty",
+          "start_char": 38,
+          "end_char": 128,
+          "raw_start_char": 38,
+          "raw_end_char": 128,
+          "raw_offset_valid": true,
+          "resolved_offset_valid": true,
+          "offset_resolution_status": "unchanged"
+        }
+      }
+    ],
+    "relations": [],
+    "sentence_annotations": [
+      {
+        "model": 0,
+        "phenomenon": 0,
+        "method": 0,
+        "capability": 0,
+        "assumption": 0,
+        "limitation": 1
+      }
+    ]
+  },
+  {
+    "source_id": "arxiv_2303_03003",
+    "version_id": "v1",
+    "version_hash": "bd04f06c0f1c7d57b1d4e39db47bd63b466d77aa76b3ecb81e0698bc16fb23fb",
+    "split": "challenge",
+    "source_type": "paper",
+    "arxiv_base_id": "2303.03003",
+    "repository_id": 0,
+    "root_parent_repo_id": 0,
+    "target_fields": {
+      "title_text": "Suggestive Evidence of Lead-Lag Dynamics in Decentralized Lending Markets",
+      "abstract_text": "Our exploratory observations might suggest tentative lead-lag correlations, although statistical significance remains inconclusive.",
+      "readme_text": ""
+    },
+    "target_field_hashes": {
+      "title_text": "fcbabc7228302ac7d7536f60ffbef8e03227994ee7e964e309fc8fba7a5bf13c",
+      "abstract_text": "aeb71c32b02a2b6a09fcf2799e869ad49b98dac4a3066964f6067f3afb8b44e8"
+    },
+    "entities": [
+      {
+        "local_id": "asm_01",
+        "entity_type": "assumption",
+        "statement": "Statistical significance remains inconclusive.",
+        "evidence": {
+          "target_field_name": "abstract_text",
+          "target_field_hash": "aeb71c32b02a2b6a09fcf2799e869ad49b98dac4a3066964f6067f3afb8b44e8",
+          "verbatim_quote": "statistical significance remains inconclusive",
+          "start_char": 85,
+          "end_char": 130,
+          "raw_start_char": 85,
+          "raw_end_char": 130,
+          "raw_offset_valid": true,
+          "resolved_offset_valid": true,
+          "offset_resolution_status": "unchanged"
+        }
+      }
+    ],
+    "relations": [],
+    "sentence_annotations": [
+      {
+        "model": 0,
+        "phenomenon": 0,
+        "method": 0,
+        "capability": 0,
+        "assumption": 0,
+        "limitation": 1
+      }
+    ]
+  },
+  {
+    "source_id": "arxiv_2303_03004",
+    "version_id": "v1",
+    "version_hash": "0c05fc30ae9ecc160c7fb31f6c98303add0c5a9caa7a001ab50c9f29412373ec",
+    "split": "challenge",
+    "source_type": "paper",
+    "arxiv_base_id": "2303.03004",
+    "repository_id": 0,
+    "root_parent_repo_id": 0,
+    "target_fields": {
+      "title_text": "Tentative Causal Relationships in Macroeconomic Inflation Shocks",
+      "abstract_text": "Preliminary findings indicate possible causal pathways, but findings are strictly preliminary and unconfirmed across subsamples.",
+      "readme_text": ""
+    },
+    "target_field_hashes": {
+      "title_text": "0b12cf30e80a23aadf62679c31561ffe391ed3382d6f1891e00d78474014483e",
+      "abstract_text": "e45be2711dd0390d1f4038f1d5ad4eb64cbc9d4272de87d60c47932b261ab615"
+    },
+    "entities": [
+      {
+        "local_id": "lim_01",
+        "entity_type": "limitation",
+        "statement": "Findings are preliminary and unconfirmed across subsamples.",
+        "evidence": {
+          "target_field_name": "abstract_text",
+          "target_field_hash": "e45be2711dd0390d1f4038f1d5ad4eb64cbc9d4272de87d60c47932b261ab615",
+          "verbatim_quote": "findings are strictly preliminary and unconfirmed across subsamples",
+          "start_char": 60,
+          "end_char": 127,
+          "raw_start_char": 60,
+          "raw_end_char": 127,
+          "raw_offset_valid": true,
+          "resolved_offset_valid": true,
+          "offset_resolution_status": "unchanged"
+        }
+      }
+    ],
+    "relations": [],
+    "sentence_annotations": [
+      {
+        "model": 0,
+        "phenomenon": 0,
+        "method": 0,
+        "capability": 0,
+        "assumption": 0,
+        "limitation": 1
+      }
+    ]
+  },
+  {
+    "source_id": "arxiv_2303_03005",
+    "version_id": "v1",
+    "version_hash": "7d978a499d4b98fc47de47e0da3eaa3e6fcb7303a9df9c707af02b3519199112",
+    "split": "challenge",
+    "source_type": "paper",
+    "arxiv_base_id": "2303.03005",
+    "repository_id": 0,
+    "root_parent_repo_id": 0,
+    "target_fields": {
+      "title_text": "Universal Symmetries in Idealized Market Game Theory",
+      "abstract_text": "We prove mathematical gauge symmetry in idealized infinite-agent economic exchanges without specifying empirical data inputs.",
+      "readme_text": ""
+    },
+    "target_field_hashes": {
+      "title_text": "0f6875ff13686ed39500e188a95a3651f35bed757b661f33b8178a443a7770ab",
+      "abstract_text": "3b64b91f9c283c0b1a10ded27b0016c14baa1b0a344e5b2607ce9e8c4c935bba"
+    },
+    "entities": [
+      {
+        "local_id": "mod_01",
+        "entity_type": "model",
+        "name": "Gauge Symmetry Game Theory",
+        "category": "other",
+        "evidence": {
+          "target_field_name": "abstract_text",
+          "target_field_hash": "3b64b91f9c283c0b1a10ded27b0016c14baa1b0a344e5b2607ce9e8c4c935bba",
+          "verbatim_quote": "idealized infinite-agent economic exchanges",
+          "start_char": 40,
+          "end_char": 83,
+          "raw_start_char": 40,
+          "raw_end_char": 83,
+          "raw_offset_valid": true,
+          "resolved_offset_valid": true,
+          "offset_resolution_status": "unchanged"
+        }
+      }
+    ],
+    "relations": [],
+    "sentence_annotations": [
+      {
+        "model": 0,
+        "phenomenon": 0,
+        "method": 0,
+        "capability": 0,
+        "assumption": 0,
+        "limitation": 1
+      }
+    ]
+  },
+  {
+    "source_id": "arxiv_2303_03006",
+    "version_id": "v1",
+    "version_hash": "58e4b2dbb7e22c8e4f50445bc16d7f0e14178b72103aa1c08cc2b84fff12bd0c",
+    "split": "challenge",
+    "source_type": "paper",
+    "arxiv_base_id": "2303.03006",
+    "repository_id": 0,
+    "root_parent_repo_id": 0,
+    "target_fields": {
+      "title_text": "Non-Equilibrium Thermodynamic Formulations of Price Dynamics",
+      "abstract_text": "We formulate market dynamics as an open dissipative non-equilibrium thermodynamic system with entropy production.",
+      "readme_text": ""
+    },
+    "target_field_hashes": {
+      "title_text": "5f0c59190530b9c949efa192f197eb8afa1828f63dd5f379e61d0d045e7c31bd",
+      "abstract_text": "6aef716239730a86ef135e528ce4b1c7626b26c95f4349f3655a22cf049fd090"
+    },
+    "entities": [
+      {
+        "local_id": "mod_01",
+        "entity_type": "model",
+        "name": "Non-Equilibrium Thermodynamic Model",
+        "category": "statistical_physics",
+        "evidence": {
+          "target_field_name": "abstract_text",
+          "target_field_hash": "6aef716239730a86ef135e528ce4b1c7626b26c95f4349f3655a22cf049fd090",
+          "verbatim_quote": "open dissipative non-equilibrium thermodynamic system",
+          "start_char": 35,
+          "end_char": 88,
+          "raw_start_char": 35,
+          "raw_end_char": 88,
+          "raw_offset_valid": true,
+          "resolved_offset_valid": true,
+          "offset_resolution_status": "unchanged"
+        }
+      }
+    ],
+    "relations": [],
+    "sentence_annotations": [
+      {
+        "model": 0,
+        "phenomenon": 0,
+        "method": 0,
+        "capability": 0,
+        "assumption": 0,
+        "limitation": 1
+      }
+    ]
+  },
+  {
+    "source_id": "arxiv_2303_03007",
+    "version_id": "v1",
+    "version_hash": "036cbe7bc9d504488c79d85daffa8b403e69fa2f3f9756071e466998cb491504",
+    "split": "challenge",
+    "source_type": "paper",
+    "arxiv_base_id": "2303.03007",
+    "repository_id": 0,
+    "root_parent_repo_id": 0,
+    "target_fields": {
+      "title_text": "Breakthrough Universal Market Predictor Guaranteeing Zero Drawdown",
+      "abstract_text": "Despite the ambitious title, our heuristic is strictly limited to one synthetic coin-toss sequence under zero transaction cost.",
+      "readme_text": ""
+    },
+    "target_field_hashes": {
+      "title_text": "5af5a6c2119d571ca878b1b543226ff48763ba6d21e47eda7073f52a52dde4b4",
+      "abstract_text": "964c778002fb898e1bc2a7dca4aad00193916634152376be2f7b19c7704ffef6"
+    },
+    "entities": [
+      {
+        "local_id": "lim_01",
+        "entity_type": "limitation",
+        "statement": "Heuristic is strictly limited to one synthetic coin-toss sequence under zero cost.",
+        "evidence": {
+          "target_field_name": "abstract_text",
+          "target_field_hash": "964c778002fb898e1bc2a7dca4aad00193916634152376be2f7b19c7704ffef6",
+          "verbatim_quote": "heuristic is strictly limited to one synthetic coin-toss sequence under zero transaction cost",
+          "start_char": 33,
+          "end_char": 126,
+          "raw_start_char": 33,
+          "raw_end_char": 126,
+          "raw_offset_valid": true,
+          "resolved_offset_valid": true,
+          "offset_resolution_status": "unchanged"
+        }
+      }
+    ],
+    "relations": [],
+    "sentence_annotations": [
+      {
+        "model": 0,
+        "phenomenon": 0,
+        "method": 0,
+        "capability": 0,
+        "assumption": 0,
+        "limitation": 1
+      }
+    ]
+  }
+]

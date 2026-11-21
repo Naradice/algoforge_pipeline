@@ -1,0 +1,669 @@
+"""Build and Pre-Freeze the H2-D3 16-Case Specification Conformance Benchmark.
+
+Adheres strictly to RP-HDE-H2-D3-PLAN-v0.3 and final review execution conditions:
+1. Incorporates `NOT_APPLICABLE` in identifiability for deterministic non-parametric features.
+2. Restricts `PROXY_IDENTIFIED` to cases where proxy estimation target and identification conditions are explicit.
+3. Explicit Data Contract Bar Timestamp Convention:
+   - Bar timestamp t represents bar start time [t, t + 5m).
+   - Bar close C_t becomes available at t + 5m.
+   - Signal computed at t + 5m can only be executed at next bar open O_{t+1} (t + 5m) or later.
+   - Executing at O_t using C_t is a 5-minute lookahead leak.
+4. Records all 7 dimensions per case:
+   data_feasibility, semantic_fidelity, estimation_spec, identifiability, temporal_validity, gate_decision, reason.
+"""
+
+import json
+import hashlib
+from pathlib import Path
+
+BASE_DIR = Path("c:/Users/ksato/workspace/finance/research_pipeline")
+FIXTURES_DIR = BASE_DIR / "tests" / "fixtures" / "gold_standard"
+FIXTURES_DIR.mkdir(parents=True, exist_ok=True)
+
+CONFORMANCE_PATH = FIXTURES_DIR / "h2_d3_conformance_cases.json"
+MANIFEST_PATH = FIXTURES_DIR / "h2_d3_audit_manifest.json"
+
+
+def sha256_bytes(b: bytes) -> str:
+    return hashlib.sha256(b).hexdigest()
+
+
+conformance_cases = [
+    # -------------------------------------------------------------------------
+    # 01. M5直接計算・正常 (1/2): Garman-Klass Volatility + Donchian
+    # -------------------------------------------------------------------------
+    {
+        "case_id": "conf_01_m5_gk_direct",
+        "category": "direct_m5_sound",
+        "candidate": {
+            "hypothesis_id": "h_conf_01",
+            "title": "Garman-Klass Volatility Range Breakout",
+            "target_phenomenon": "Intraday volatility expansion in USDJPY",
+            "analogical_source": "Garman & Klass (1980) Extreme Value Volatility Estimator",
+            "claim": "Scaling breakout threshold by 20-period Garman-Klass volatility filters false breakouts during low-liquidity regimes.",
+            "proposed_mechanism": "Computes intraday variance using M5 OHLC bar extremes sigma_GK^2 = 0.5*(ln(H/L))^2 - (2*ln(2)-1)*(ln(C/O))^2.",
+            "grounding_rationale": "Garman-Klass estimator is up to 8x more efficient than close-to-close variance under Gaussian diffusion.",
+            "testable_falsification_condition": "Strategy Sharpe fails to achieve 1.0 or drawdown exceeds 5% in out-of-sample test.",
+            "backtest_spec": {
+                "target_asset": "USDJPY",
+                "timeframe": "M5",
+                "entry_condition": "Enter long when close C_t breaks above 20-bar rolling Donchian high and sigma_GK > 1.5 * rolling_mean(sigma_GK, 20).",
+                "exit_condition": "Exit when close falls below 10-bar Donchian low or trailing stop of 25 pips is breached.",
+                "feature_engineering": "Garman-Klass volatility sigma_GK and 20-period Donchian channel computed from historical M5 OHLC bars.",
+                "risk_management": "Fixed risk of 1% equity per trade.",
+                "benchmark_baseline": "Standard 20-bar Donchian channel without volatility filter.",
+                "falsification_metric": "Sharpe < 1.0."
+            }
+        },
+        "gold_judgments": {
+            "data_feasibility": "SUPPORTED",
+            "semantic_fidelity": "EXACT",
+            "estimation_spec": "NOT_REQUIRED",
+            "identifiability": "NOT_APPLICABLE",
+            "temporal_validity": "VALID",
+            "gate_decision": "PASS",
+            "reason": "Direct closed-form computation from M5 OHLCV bars. Exact observation match. No parametric estimation required."
+        },
+        "proxy_spec": None
+    },
+    # -------------------------------------------------------------------------
+    # 02. M5直接計算・正常 (2/2): M5 ATR Dynamic Trailing Stop
+    # -------------------------------------------------------------------------
+    {
+        "case_id": "conf_02_m5_atr_direct",
+        "category": "direct_m5_sound",
+        "candidate": {
+            "hypothesis_id": "h_conf_02",
+            "title": "Adaptive ATR Trend Following",
+            "target_phenomenon": "Trend persistence across market sessions",
+            "analogical_source": "Wilder (1978) Average True Range",
+            "claim": "Dynamic ATR trailing stops improve risk-adjusted returns by adapting stop distance to prevailing bar volatility.",
+            "proposed_mechanism": "Calculates 14-period ATR from M5 true ranges max(H-L, abs(H-C_prev), abs(L-C_prev)) to adjust stop distances.",
+            "grounding_rationale": "Adapting stop distances prevents premature stop-outs during volatility spikes.",
+            "testable_falsification_condition": "Net profit factor fails to exceed 1.25 on test partition.",
+            "backtest_spec": {
+                "target_asset": "USDJPY",
+                "timeframe": "M5",
+                "entry_condition": "Enter long when 12-period EMA crosses above 26-period EMA.",
+                "exit_condition": "Exit when price falls below entry_price - 2.0 * ATR_14.",
+                "feature_engineering": "14-period ATR and 12/26 EMA computed directly from M5 OHLC bars.",
+                "risk_management": "Position sizing scaled inversely to ATR_14.",
+                "benchmark_baseline": "Fixed 20-pip trailing stop baseline.",
+                "falsification_metric": "Profit factor < 1.25."
+            }
+        },
+        "gold_judgments": {
+            "data_feasibility": "SUPPORTED",
+            "semantic_fidelity": "EXACT",
+            "estimation_spec": "NOT_REQUIRED",
+            "identifiability": "NOT_APPLICABLE",
+            "temporal_validity": "VALID",
+            "gate_decision": "PASS",
+            "reason": "Direct closed-form technical indicator from M5 OHLC. No parameter estimation required. Exact match."
+        },
+        "proxy_spec": None
+    },
+    # -------------------------------------------------------------------------
+    # 03. プロキシの正常使用 (1/2): Hawkes Return Exceedance Proxy (5要件完備)
+    # -------------------------------------------------------------------------
+    {
+        "case_id": "conf_03_hawkes_proxy_sound",
+        "category": "valid_proxy_usage",
+        "candidate": {
+            "hypothesis_id": "h_conf_03",
+            "title": "Hawkes Volatility Jump Clustering Risk Engine",
+            "target_phenomenon": "Endogenous temporal clustering of extreme return jumps",
+            "analogical_source": "Univariate Hawkes Point Process (Hawkes, 1971)",
+            "claim": "Modeling extreme M5 return exceedances as a self-exciting point process captures volatility jump clustering and predicts tail-risk episodes.",
+            "proposed_mechanism": "Constructs binary jump timestamps tau_i when abs(return_t) > 2.5 * rolling_std_288; estimates intensity lambda(t) = mu + sum alpha*exp(-beta*(t - tau_i)) via MLE.",
+            "grounding_rationale": "Extreme price changes exhibit self-exciting temporal clustering analogous to seismic aftershocks.",
+            "testable_falsification_condition": "Tail-risk hedging fails to reduce maximum drawdown by at least 15% vs static buy-and-hold carry.",
+            "backtest_spec": {
+                "target_asset": "USDJPY",
+                "timeframe": "M5",
+                "entry_condition": "Reduce position size to zero whenever branching ratio alpha/beta exceeds 0.80 computed over rolling 500-event estimation window.",
+                "exit_condition": "Restore normal position size when intensity lambda(t) decays below baseline intensity mu * 1.2 for 12 consecutive M5 bars.",
+                "feature_engineering": "Jump arrival sequence tau_i from abs(return_t) > 2.5 * rolling_std_288; MLE calibration of (mu, alpha, beta) under stationarity constraint alpha < beta.",
+                "risk_management": "Binary exposure switching: 0% risk exposure during high excitation regimes.",
+                "benchmark_baseline": "Static USDJPY carry trade baseline.",
+                "falsification_metric": "Drawdown reduction < 15%."
+            }
+        },
+        "gold_judgments": {
+            "data_feasibility": "SUPPORTED",
+            "semantic_fidelity": "PROXY",
+            "estimation_spec": "COMPLETE",
+            "identifiability": "PROXY_IDENTIFIED",
+            "temporal_validity": "VALID",
+            "gate_decision": "PASS",
+            "reason": "M5 return exceedances form a computable point process proxy. Univariate exponential kernel with stationarity constraint alpha < beta, positive background rate mu > 0, and non-degenerate arrival intervals provide parametric identifiability for proxy jump clustering parameters (strictly separated from order flow dynamics)."
+        },
+        "proxy_spec": {
+            "original_target": "Microstructure order arrival and cancellation event stream in limit order book.",
+            "proxy_target": "Discrete timestamps of M5 bar returns exceeding 2.5 rolling standard deviations.",
+            "transformed_hypothesis": "Extreme price volatility jumps exhibit temporal self-exciting clustering, useful for de-risking tail events.",
+            "permitted_interpretations": "Identification of price jump clustering dynamics and macro volatility contagion on M5 resolution.",
+            "prohibited_interpretations": "Cannot be interpreted as direct measurement of order book queue dynamics, bid-ask cancellation cascades, or trader arrival intensities."
+        }
+    },
+    # -------------------------------------------------------------------------
+    # 04. プロキシの正常使用 (2/2): Kyle's Lambda Volume Regression Proxy (5要件完備)
+    # -------------------------------------------------------------------------
+    {
+        "case_id": "conf_04_kyles_proxy_sound",
+        "category": "valid_proxy_usage",
+        "candidate": {
+            "hypothesis_id": "h_conf_04",
+            "title": "Kyle's Lambda Intraday Price Impact Proxy",
+            "target_phenomenon": "Variation in price concessions per unit traded volume",
+            "analogical_source": "Kyle (1985) Continuous Auctions and Informed Trader Model",
+            "claim": "Estimating price impact coefficient lambda via rolling bar-level return-volume regression identifies illiquidity regimes and reduces execution slippage.",
+            "proposed_mechanism": "Regresses abs(return_t) on sqrt(volume_t) over trailing 72-bar window to estimate empirical illiquidity slope lambda_bar.",
+            "grounding_rationale": "Amihud (2002) and Hasbrouck (2009) establish that bar-level price change per volume proxies theoretical Kyle's lambda.",
+            "testable_falsification_condition": "Execution slippage reduction fails to achieve 10% vs fixed TWAP baseline.",
+            "backtest_spec": {
+                "target_asset": "USDJPY",
+                "timeframe": "M5",
+                "entry_condition": "Pause execution rebalancing when estimated lambda_bar exceeds 90th historical percentile.",
+                "exit_condition": "Resume execution when lambda_bar falls below median historical level.",
+                "feature_engineering": "Rolling 72-bar OLS regression of abs(return_t) on sqrt(volume_t); in-sample rolling window updated every bar.",
+                "risk_management": "Dynamic volume participation rate ceiling capped at 5% during high lambda_bar periods.",
+                "benchmark_baseline": "Standard linear TWAP schedule.",
+                "falsification_metric": "Slippage savings < 10%."
+            }
+        },
+        "gold_judgments": {
+            "data_feasibility": "SUPPORTED",
+            "semantic_fidelity": "PROXY",
+            "estimation_spec": "COMPLETE",
+            "identifiability": "PROXY_IDENTIFIED",
+            "temporal_validity": "VALID",
+            "gate_decision": "PASS",
+            "reason": "Bar-level price-volume regression proxy is computable from M5 OHLCV. Closed-form OLS estimation under positive volume variance Var(sqrt(V)) > 0 identifies the empirical bar illiquidity slope (strictly prohibited from being interpreted as tick-level Kyle's lambda)."
+        },
+        "proxy_spec": {
+            "original_target": "Theoretical Kyle's lambda measuring instantaneous price impact of informed trade flow in continuous auction.",
+            "proxy_target": "Rolling 72-bar regression slope of absolute return on square-root volume from M5 bars.",
+            "transformed_hypothesis": "Bar-level illiquidity fluctuations indicate transient price concession risk, allowing adaptive execution pacing.",
+            "permitted_interpretations": "Measurement of low-frequency price responsiveness to volume surges across M5 intervals.",
+            "prohibited_interpretations": "Cannot be interpreted as tick-level Kyle's lambda or structural parameter of adverse selection in order book queues."
+        }
+    },
+    # -------------------------------------------------------------------------
+    # 05. データ契約違反 (1/2): L2 Order Book Imbalance (直交性確認: UNSUPPORTED x EXACT)
+    # -------------------------------------------------------------------------
+    {
+        "case_id": "conf_05_l2_orderbook_block",
+        "category": "data_contract_violation",
+        "candidate": {
+            "hypothesis_id": "h_conf_05",
+            "title": "Level-2 Order Book Imbalance Alpha",
+            "target_phenomenon": "Short-term order flow pressure in USDJPY",
+            "analogical_source": "Cartea & Jaimungal (2014) Algorithmic and High-Frequency Trading",
+            "claim": "Normalized volume imbalance between best 5 bid and ask queues predicts directional price movement over the next 15 seconds.",
+            "proposed_mechanism": "Calculates Imbalance = (V_bid - V_ask) / (V_bid + V_ask) across 5 limit order book depth levels.",
+            "grounding_rationale": "Order book imbalance reflects imminent market order arrival imbalance causing quote adjustments.",
+            "testable_falsification_condition": "Directional prediction accuracy fails to achieve 55% out of sample.",
+            "backtest_spec": {
+                "target_asset": "USDJPY",
+                "timeframe": "M5",
+                "entry_condition": "Enter long when L2 order book imbalance exceeds +0.40; enter short when imbalance drops below -0.40.",
+                "exit_condition": "Exit when imbalance reverses sign or after 3 M5 bars.",
+                "feature_engineering": "Aggregated limit order book queue volume across Level-2 depth levels 1 through 5.",
+                "risk_management": "Stop-loss 10 pips.",
+                "benchmark_baseline": "Random entry baseline.",
+                "falsification_metric": "Prediction accuracy < 55%."
+            }
+        },
+        "gold_judgments": {
+            "data_feasibility": "UNSUPPORTED",
+            "semantic_fidelity": "EXACT",
+            "estimation_spec": "NOT_REQUIRED",
+            "identifiability": "NOT_APPLICABLE",
+            "temporal_validity": "VALID",
+            "gate_decision": "BLOCK",
+            "reason": "Order book queue imbalance is mathematically exact from L2 depth, but physically unsupported under USDJPY M5 OHLCV contract."
+        },
+        "proxy_spec": None
+    },
+    # -------------------------------------------------------------------------
+    # 06. データ契約違反 (2/2): Microsecond Tick Events (直交性確認: UNSUPPORTED x EXACT)
+    # -------------------------------------------------------------------------
+    {
+        "case_id": "conf_06_tick_events_block",
+        "category": "data_contract_violation",
+        "candidate": {
+            "hypothesis_id": "h_conf_06",
+            "title": "Tick-Level Trade Arrival Intensity",
+            "target_phenomenon": "High-frequency trade clustering",
+            "analogical_source": "Engle & Russell (1998) Autoregressive Conditional Duration",
+            "claim": "Inter-trade duration between individual matched orders forecasts instantaneous volatility bursts.",
+            "proposed_mechanism": "Models microsecond time elapsed between consecutive trade execution print records.",
+            "grounding_rationale": "Clustered trade arrivals indicate arrival of informed traders.",
+            "testable_falsification_condition": "ACD volatility forecast error exceeds GARCH(1,1) baseline by 10%.",
+            "backtest_spec": {
+                "target_asset": "USDJPY",
+                "timeframe": "M5",
+                "entry_condition": "Widen market maker spread when trade duration falls below 10 milliseconds.",
+                "exit_condition": "Revert spread when duration normalizes.",
+                "feature_engineering": "Microsecond timestamped trade execution log feeds with trade IDs and sizes.",
+                "risk_management": "Max inventory limit 500k.",
+                "benchmark_baseline": "GARCH(1,1) baseline.",
+                "falsification_metric": "Forecast MSE > GARCH MSE."
+            }
+        },
+        "gold_judgments": {
+            "data_feasibility": "UNSUPPORTED",
+            "semantic_fidelity": "EXACT",
+            "estimation_spec": "NOT_REQUIRED",
+            "identifiability": "NOT_APPLICABLE",
+            "temporal_validity": "VALID",
+            "gate_decision": "BLOCK",
+            "reason": "Trade duration is mathematically exact from tick trade execution prints, but physically unsupported under USDJPY M5 OHLCV contract."
+        },
+        "proxy_spec": None
+    },
+    # -------------------------------------------------------------------------
+    # 07. データソース未確定 (1/1): Unknown Order Flow Source
+    # -------------------------------------------------------------------------
+    {
+        "case_id": "conf_07_unknown_source_review",
+        "category": "unknown_data_source",
+        "candidate": {
+            "hypothesis_id": "h_conf_07",
+            "title": "Order Flow Pressure Arbitrage",
+            "target_phenomenon": "Order flow imbalance momentum",
+            "analogical_source": "Order Flow Analytics",
+            "claim": "Tracking net institutional buying pressure reveals hidden liquidity imbalances.",
+            "proposed_mechanism": "Constructs cumulative buying pressure metric from appropriate market order flow feeds.",
+            "grounding_rationale": "Institutional order flow leads retail quote adjustments.",
+            "testable_falsification_condition": "Sharpe ratio fails to exceed 1.2.",
+            "backtest_spec": {
+                "target_asset": "USDJPY",
+                "timeframe": "M5",
+                "entry_condition": "Enter long when institutional buying pressure metric exceeds threshold of 1000 contracts.",
+                "exit_condition": "Exit when pressure turns negative.",
+                "feature_engineering": "Acquire appropriate order flow feeds and calculate net directional buying volume across venues.",
+                "risk_management": "Fixed stop-loss of 20 pips.",
+                "benchmark_baseline": "Moving average crossover.",
+                "falsification_metric": "Sharpe < 1.2."
+            }
+        },
+        "gold_judgments": {
+            "data_feasibility": "UNKNOWN",
+            "semantic_fidelity": "UNKNOWN",
+            "estimation_spec": "INCOMPLETE",
+            "identifiability": "UNKNOWN",
+            "temporal_validity": "LOOKBACK_UNDEFINED",
+            "gate_decision": "REVIEW",
+            "reason": "Demands 'appropriate order flow feeds' without defining specific data source, permission, or derivation method under M5 contract."
+        },
+        "proxy_spec": None
+    },
+    # -------------------------------------------------------------------------
+    # 08. 正常な教師ラベル (1/1): Supervised Learning Target Y_t = r_{t+1} (誤遮断防止)
+    # -------------------------------------------------------------------------
+    {
+        "case_id": "conf_08_supervised_label_sound",
+        "category": "legitimate_supervised_target",
+        "candidate": {
+            "hypothesis_id": "h_conf_08",
+            "title": "Ridge Regression for One-Step Forward Return Prediction",
+            "target_phenomenon": "Short-term momentum persistence",
+            "analogical_source": "Linear Supervised Learning (Hoerl & Kennard, 1970)",
+            "claim": "L2-regularized linear model trained on 20 lagged M5 return features predicts directional sign of the forward return r_{t+1}.",
+            "proposed_mechanism": "Trains Ridge regression where input feature vector X_t = [r_{t-19}, ..., r_t] and supervisory target label Y_t = return_{t+1}.",
+            "grounding_rationale": "Regularizing feature coefficients mitigates multicollinearity across lagged returns.",
+            "testable_falsification_condition": "Out-of-sample directional accuracy fails to exceed 52.0% with p < 0.05.",
+            "backtest_spec": {
+                "target_asset": "USDJPY",
+                "timeframe": "M5",
+                "entry_condition": "Enter long at close of bar t if model prediction f(X_t) > 0.0002; enter short if f(X_t) < -0.0002. Orders execute at open of bar t+1.",
+                "exit_condition": "Exit trade at close of bar t+1 (holding duration exactly 1 M5 bar).",
+                "feature_engineering": "Explanatory features X_t = [return_{t-19}, ..., return_t] computed from historical M5 close prices. Supervisory target label Y_t = return_{t+1} used strictly during training.",
+                "risk_management": "Fixed risk per trade 1%.",
+                "benchmark_baseline": "Naive random walk direction.",
+                "falsification_metric": "Directional accuracy < 52.0%."
+            }
+        },
+        "gold_judgments": {
+            "data_feasibility": "SUPPORTED",
+            "semantic_fidelity": "EXACT",
+            "estimation_spec": "COMPLETE",
+            "identifiability": "IDENTIFIED",
+            "temporal_validity": "VALID",
+            "gate_decision": "PASS",
+            "reason": "Forward return r_{t+1} is strictly a supervisory target label Y_t. Explanatory feature vector X_t contains only past returns available at decision time t. Execution at open of bar t+1 is valid."
+        },
+        "proxy_spec": None
+    },
+    # -------------------------------------------------------------------------
+    # 09. 将来値を特徴量に混入 (1/1): Lookahead Feature Leak X_t contains C_{t+1}
+    # -------------------------------------------------------------------------
+    {
+        "case_id": "conf_09_feature_leak_block",
+        "category": "lookahead_feature_leak",
+        "candidate": {
+            "hypothesis_id": "h_conf_09",
+            "title": "Forward-Centered Smoothing Momentum",
+            "target_phenomenon": "Trend inflection points",
+            "analogical_source": "Two-Sided Moving Average Filter",
+            "claim": "Centered smoothing filters eliminate noise and yield superior trend entry timing.",
+            "proposed_mechanism": "Filters M5 close series using a centered window moving average MA_t = (C_{t-1} + C_t + C_{t+1}) / 3 to calculate trend slopes.",
+            "grounding_rationale": "Two-sided filters remove phase shift compared to causal one-sided filters.",
+            "testable_falsification_condition": "Sharpe ratio fails to exceed 2.0.",
+            "backtest_spec": {
+                "target_asset": "USDJPY",
+                "timeframe": "M5",
+                "entry_condition": "Enter long when centered smoothed series (C_{t-1} + C_t + C_{t+1})/3 crosses above 20-period causal EMA at bar t.",
+                "exit_condition": "Exit when centered series crosses below causal EMA.",
+                "feature_engineering": "Centered moving average calculated using close prices C_{t-1}, C_t, and forward bar close C_{t+1}.",
+                "risk_management": "Stop-loss 15 pips.",
+                "benchmark_baseline": "Causal EMA crossover.",
+                "falsification_metric": "Sharpe < 2.0."
+            }
+        },
+        "gold_judgments": {
+            "data_feasibility": "SUPPORTED",
+            "semantic_fidelity": "INVALID",
+            "estimation_spec": "NOT_REQUIRED",
+            "identifiability": "NOT_APPLICABLE",
+            "temporal_validity": "LOOKAHEAD_LEAK",
+            "gate_decision": "BLOCK",
+            "reason": "Explanatory feature input at decision time t incorporates forward close C_{t+1}, violating temporal availability available_at(X) <= decision_time."
+        },
+        "proxy_spec": None
+    },
+    # -------------------------------------------------------------------------
+    # 10. バー確定後の正常約定 (1/1): Signal at Close C_t -> Executed at Next Open O_{t+1}
+    # -------------------------------------------------------------------------
+    {
+        "case_id": "conf_10_bar_close_next_open",
+        "category": "temporal_execution_sound",
+        "candidate": {
+            "hypothesis_id": "h_conf_10",
+            "title": "M5 Bollinger Band Reversion with Next-Bar Execution",
+            "target_phenomenon": "Mean-reversion from statistical price extremes",
+            "analogical_source": "Bollinger Bands (Bollinger, 2001)",
+            "claim": "Entering mean-reversion trades on the bar immediately following a confirmed Bollinger 2-sigma breach generates positive excess returns.",
+            "proposed_mechanism": "Evaluates band breach at bar close C_t (timestamp t+5m); sends market order executed at open of next bar O_{t+1} (timestamp t+5m).",
+            "grounding_rationale": "Ensures bar is completely closed before committing capital, eliminating intrabar false signals.",
+            "testable_falsification_condition": "Net return after 0.5 pip spread fails to exceed 0.",
+            "backtest_spec": {
+                "target_asset": "USDJPY",
+                "timeframe": "M5",
+                "entry_condition": "When M5 bar close C_t falls below lower 2-sigma Bollinger band, generate buy signal at bar close. Execute long order at opening price O_{t+1} of following bar.",
+                "exit_condition": "Exit at opening price of bar following close above 20-period SMA.",
+                "feature_engineering": "20-period moving average and standard deviation computed strictly on confirmed completed M5 close prices.",
+                "risk_management": "Max loss 20 pips.",
+                "benchmark_baseline": "Static Bollinger baseline.",
+                "falsification_metric": "Net return <= 0."
+            }
+        },
+        "gold_judgments": {
+            "data_feasibility": "SUPPORTED",
+            "semantic_fidelity": "EXACT",
+            "estimation_spec": "NOT_REQUIRED",
+            "identifiability": "NOT_APPLICABLE",
+            "temporal_validity": "VALID",
+            "gate_decision": "PASS",
+            "reason": "Signal evaluated at bar completion t+5m using confirmed C_t; executed at next bar opening price O_{t+1}. Strict temporal ordering satisfied."
+        },
+        "proxy_spec": None
+    },
+    # -------------------------------------------------------------------------
+    # 11. 同一バーの不正約定 (1/1): Same-Bar Cheat (C_t checked -> executed at O_t)
+    # -------------------------------------------------------------------------
+    {
+        "case_id": "conf_11_same_bar_cheat_block",
+        "category": "same_bar_execution_cheat",
+        "candidate": {
+            "hypothesis_id": "h_conf_11",
+            "title": "Intrabar Reversal Capture via Close Confirmation",
+            "target_phenomenon": "Candlestick shadow momentum",
+            "analogical_source": "Bar Shape Analysis",
+            "claim": "Trading bars where the close C_t strongly exceeds the open O_t captures momentum.",
+            "proposed_mechanism": "Evaluates bar close C_t at the end of interval t; enters position at opening price O_t of the same bar t.",
+            "grounding_rationale": "Captures the entire body of the confirmed bullish candle.",
+            "testable_falsification_condition": "Profit factor fails to exceed 3.0.",
+            "backtest_spec": {
+                "target_asset": "USDJPY",
+                "timeframe": "M5",
+                "entry_condition": "If M5 bar close C_t exceeds open O_t by more than 10 pips, record long trade executed at opening price O_t of bar t.",
+                "exit_condition": "Exit at close C_t of the same bar.",
+                "feature_engineering": "Intrabar body size C_t - O_t.",
+                "risk_management": "Zero risk assumed.",
+                "benchmark_baseline": "Buy and hold.",
+                "falsification_metric": "Profit factor < 3.0."
+            }
+        },
+        "gold_judgments": {
+            "data_feasibility": "SUPPORTED",
+            "semantic_fidelity": "INVALID",
+            "estimation_spec": "NOT_REQUIRED",
+            "identifiability": "NOT_APPLICABLE",
+            "temporal_validity": "LOOKAHEAD_LEAK",
+            "gate_decision": "BLOCK",
+            "reason": "Signal requires completed close C_t (available at t+5m) but claims order execution at opening price O_t (timestamp t), creating an impossible 5-minute retroactive execution."
+        },
+        "proxy_spec": None
+    },
+    # -------------------------------------------------------------------------
+    # 12. 未確定日足終値の先読み (1/1): Daily Close Referenced Intraday
+    # -------------------------------------------------------------------------
+    {
+        "case_id": "conf_12_daily_close_intraday",
+        "category": "premature_daily_close_leak",
+        "candidate": {
+            "hypothesis_id": "h_conf_12",
+            "title": "Daily Trend Alignment for Intraday M5 Scalping",
+            "target_phenomenon": "Higher-timeframe trend alignment",
+            "analogical_source": "Multi-Timeframe Technical Analysis (Elder, 1993)",
+            "claim": "Trading M5 pullbacks in the direction of the current day's close increases trade win rate.",
+            "proposed_mechanism": "Compares current M5 spot price to today's daily close price C_day to confirm higher-timeframe trend direction.",
+            "grounding_rationale": "Trading with the daily trend ensures positive drift.",
+            "testable_falsification_condition": "Win rate fails to achieve 60%.",
+            "backtest_spec": {
+                "target_asset": "USDJPY",
+                "timeframe": "M5",
+                "entry_condition": "Enter long at 14:00 UTC if M5 price is below today's daily close C_day and 5-period RSI < 30.",
+                "exit_condition": "Exit after 1 hour or on 15 pip stop.",
+                "feature_engineering": "Today's daily bar close C_day and 5-period M5 RSI.",
+                "risk_management": "Stop-loss 15 pips.",
+                "benchmark_baseline": "RSI entry without daily close filter.",
+                "falsification_metric": "Win rate < 60%."
+            }
+        },
+        "gold_judgments": {
+            "data_feasibility": "SUPPORTED",
+            "semantic_fidelity": "INVALID",
+            "estimation_spec": "NOT_REQUIRED",
+            "identifiability": "NOT_APPLICABLE",
+            "temporal_validity": "LOOKAHEAD_LEAK",
+            "gate_decision": "BLOCK",
+            "reason": "References today's daily close C_day at 14:00 UTC, several hours before the daily bar closes at 21:00/22:00 UTC. Severe lookahead bias."
+        },
+        "proxy_spec": None
+    },
+    # -------------------------------------------------------------------------
+    # 13. モデル推定・識別未確定 (1/2): Jump Diffusion Hamilton Filter Unidentified
+    # -------------------------------------------------------------------------
+    {
+        "case_id": "conf_13_jump_ident_review",
+        "category": "unverified_model_identifiability",
+        "candidate": {
+            "hypothesis_id": "h_conf_13",
+            "title": "Regime-Switching Jump Intensity Hedging",
+            "target_phenomenon": "Currency jump risk across hidden macroeconomic regimes",
+            "analogical_source": "Hamilton (1989) Markov Switching & Merton (1976) Jump Diffusion",
+            "claim": "Inferring latent regime state S_t via Hamilton filter dynamically isolates jump intensity from Gaussian diffusion.",
+            "proposed_mechanism": "Applies a 2-state regime-switching jump diffusion model to M5 log-returns.",
+            "grounding_rationale": "Regime shifts alter the Poisson arrival intensity of currency jumps.",
+            "testable_falsification_condition": "Hedging performance fails to reduce portfolio variance by 10%.",
+            "backtest_spec": {
+                "target_asset": "USDJPY",
+                "timeframe": "M5",
+                "entry_condition": "De-risk carry portfolio when filtered probability P(S_t = crisis | F_t) > 0.70.",
+                "exit_condition": "Re-enter carry portfolio when P(S_t = tranquil | F_t) > 0.80.",
+                "feature_engineering": "Estimate regime-switching jump diffusion model on M5 log-returns using Hamilton filter.",
+                "risk_management": "Dynamic deleveraging.",
+                "benchmark_baseline": "Unhedged carry baseline.",
+                "falsification_metric": "Variance reduction < 10%."
+            }
+        },
+        "gold_judgments": {
+            "data_feasibility": "SUPPORTED",
+            "semantic_fidelity": "UNKNOWN",
+            "estimation_spec": "INCOMPLETE",
+            "identifiability": "UNKNOWN",
+            "temporal_validity": "VALID",
+            "gate_decision": "REVIEW",
+            "reason": "Hamilton filter algorithm is named, but estimation lookback window, parameter updating schedule, state separability conditions, and jump parameter identification constraints are omitted."
+        },
+        "proxy_spec": None
+    },
+    # -------------------------------------------------------------------------
+    # 14. モデル推定・識別未確定 (2/2): Hawkes MLE Stationarity Unverified
+    # -------------------------------------------------------------------------
+    {
+        "case_id": "conf_14_hawkes_mle_review",
+        "category": "unverified_model_identifiability",
+        "candidate": {
+            "hypothesis_id": "h_conf_14",
+            "title": "Hawkes Intensity Estimation without Stationarity Guard",
+            "target_phenomenon": "Volatility burst persistence",
+            "analogical_source": "Hawkes (1971)",
+            "claim": "Calibrating self-exciting point process to bar exceedances forecasts volatility cluster decay.",
+            "proposed_mechanism": "Calibrates Hawkes process parameters (mu, alpha, beta) to M5 extreme return timestamps using numerical maximum likelihood.",
+            "grounding_rationale": "Hawkes intensity models the decay of volatility shocks.",
+            "testable_falsification_condition": "Decay prediction MSE exceeds exponential decay baseline by 15%.",
+            "backtest_spec": {
+                "target_asset": "USDJPY",
+                "timeframe": "M5",
+                "entry_condition": "Enter short volatility when intensity lambda exceeds 5.0.",
+                "exit_condition": "Exit when intensity falls below 1.0.",
+                "feature_engineering": "MLE estimation of Hawkes parameters (mu, alpha, beta) on exceedance events.",
+                "risk_management": "Stop-loss 25 pips.",
+                "benchmark_baseline": "Exponential decay baseline.",
+                "falsification_metric": "MSE > baseline MSE."
+            }
+        },
+        "gold_judgments": {
+            "data_feasibility": "SUPPORTED",
+            "semantic_fidelity": "UNKNOWN",
+            "estimation_spec": "INCOMPLETE",
+            "identifiability": "UNKNOWN",
+            "temporal_validity": "VALID",
+            "gate_decision": "REVIEW",
+            "reason": "MLE calibration is named, but estimation window length, optimization constraints, and stability/stationarity condition (alpha < beta) are unverified."
+        },
+        "proxy_spec": None
+    },
+    # -------------------------------------------------------------------------
+    # 15. プロキシの意味的すり替え (1/1): Proxy Fraud (Price Jump Claimed as Order Flow)
+    # -------------------------------------------------------------------------
+    {
+        "case_id": "conf_15_proxy_fraud_block",
+        "category": "proxy_semantic_fraud",
+        "candidate": {
+            "hypothesis_id": "h_conf_15",
+            "title": "Direct Limit Order Book Liquidity Cascade Identification",
+            "target_phenomenon": "Endogenous limit order cancellation cascades in dealer book",
+            "analogical_source": "Multivariate Hawkes Process of Order Flow (Bacry et al., 2015)",
+            "claim": "We directly model the mutual feedback loop between limit order cancellations and aggressive market orders in the USDJPY interbank order book, proving endogenous liquidity fragility.",
+            "proposed_mechanism": "Applies multivariate Hawkes process to identify limit order queue depletion events directly from M5 bar extremes.",
+            "grounding_rationale": "Bacry et al. (2015) show market orders trigger cancellation cascades leading to liquidity holes.",
+            "testable_falsification_condition": "Cancellation prediction accuracy fails to achieve 60%.",
+            "backtest_spec": {
+                "target_asset": "USDJPY",
+                "timeframe": "M5",
+                "entry_condition": "Enter directional trade when estimated order cancellation intensity exceeds execution intensity by 2.0x.",
+                "exit_condition": "Exit when cancellation cascade subsides.",
+                "feature_engineering": "Calculate price change exceedances abs(return_t) > 2.0*sigma and treat these as true order book cancellation events to measure order queue depletion.",
+                "risk_management": "Stop-loss 15 pips.",
+                "benchmark_baseline": "Random entry.",
+                "falsification_metric": "Accuracy < 60%."
+            }
+        },
+        "gold_judgments": {
+            "data_feasibility": "SUPPORTED",
+            "semantic_fidelity": "INVALID",
+            "estimation_spec": "COMPLETE",
+            "identifiability": "UNKNOWN",
+            "temporal_validity": "VALID",
+            "gate_decision": "BLOCK",
+            "reason": "Computes M5 price return exceedances but falsely claims to have directly measured and proven order book limit cancellation cascades and queue depletion. Severe semantic substitution fraud."
+        },
+        "proxy_spec": None
+    },
+    # -------------------------------------------------------------------------
+    # 16. `UNKNOWN x INVALID` 競合 (1/1): Priority Rule Verification (BLOCK > REVIEW)
+    # -------------------------------------------------------------------------
+    {
+        "case_id": "conf_16_conflict_block",
+        "category": "conflict_priority_verification",
+        "candidate": {
+            "hypothesis_id": "h_conf_16",
+            "title": "Future Sentiment Index Correlation",
+            "target_phenomenon": "Macro sentiment shifts",
+            "analogical_source": "News Sentiment Modeling",
+            "claim": "Aligning intraday positions with daily institutional news sentiment index improves momentum capture.",
+            "proposed_mechanism": "Correlates M5 prices with institutional news sentiment feed using future session sentiment index.",
+            "grounding_rationale": "News sentiment drives multi-hour institutional flows.",
+            "testable_falsification_condition": "Sharpe ratio fails to exceed 1.5.",
+            "backtest_spec": {
+                "target_asset": "USDJPY",
+                "timeframe": "M5",
+                "entry_condition": "Enter long if institutional sentiment feed score from tomorrow's Asian session is positive.",
+                "exit_condition": "Exit at end of US session.",
+                "feature_engineering": "Acquire appropriate institutional sentiment feed from news sources and index tomorrow's sentiment score.",
+                "risk_management": "Max loss 30 pips.",
+                "benchmark_baseline": "Unfiltered momentum.",
+                "falsification_metric": "Sharpe < 1.5."
+            }
+        },
+        "gold_judgments": {
+            "data_feasibility": "UNKNOWN",
+            "semantic_fidelity": "INVALID",
+            "estimation_spec": "INCOMPLETE",
+            "identifiability": "UNKNOWN",
+            "temporal_validity": "LOOKAHEAD_LEAK",
+            "gate_decision": "BLOCK",
+            "reason": "Data source is undetermined (UNKNOWN), but feature explicitly references tomorrow's sentiment score (LOOKAHEAD_LEAK / INVALID). Strict priority rule BLOCK > REVIEW applies."
+        },
+        "proxy_spec": None
+    }
+]
+
+# Write Conformance JSON
+with open(CONFORMANCE_PATH, "w", encoding="utf-8") as f:
+    json.dump(conformance_cases, f, indent=2, ensure_ascii=False)
+
+conf_sha = sha256_bytes(CONFORMANCE_PATH.read_bytes())
+print(f"H2-D3 Conformance Benchmark created: {len(conformance_cases)} cases.")
+print(f"File: {CONFORMANCE_PATH}")
+print(f"SHA256: {conf_sha}")
+
+# Write Manifest
+manifest = {
+    "experiment_id": "RP-HDE-H2-D3",
+    "protocol_version": "v0.3",
+    "created_at": "2026-11-18T11:45:00Z",
+    "data_contract": {
+        "asset": "USDJPY",
+        "timeframe": "M5",
+        "fields": ["Open", "High", "Low", "Close", "Volume"],
+        "external_feeds": "NONE",
+        "timestamp_convention": "Bar timestamp t represents interval start [t, t+5m). Close C_t is confirmed at t+5m. Execution of signal evaluated at C_t is only valid at t+5m (open of bar t+1) or later."
+    },
+    "conformance_fixture_path": str(CONFORMANCE_PATH),
+    "conformance_cases_count": len(conformance_cases),
+    "conformance_sha256": conf_sha,
+    "frozen_before_implementation": True,
+    "conformance_test_executed": False
+}
+
+with open(MANIFEST_PATH, "w", encoding="utf-8") as f:
+    json.dump(manifest, f, indent=2)
+
+print(f"Manifest written to: {MANIFEST_PATH}")

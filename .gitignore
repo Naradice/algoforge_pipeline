@@ -1,0 +1,23 @@
+# Secrets & Environment
+.env
+.env.*
+*.key
+*.pem
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+.pytest_cache/
+venv*/
+.venv/
+
+# Large Data, DBs & Checkpoints
+*.parquet
+*.csv
+*.db
+*.sqlite
+*.sqlite3
+data/checkpoints/
+data/experiments/
+*.log

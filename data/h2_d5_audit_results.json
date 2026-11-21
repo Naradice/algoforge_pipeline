@@ -1,0 +1,2628 @@
+{
+  "experiment_id": "RP-HDE-H2-D5",
+  "total_audited": 18,
+  "total_mismatch": 11,
+  "mismatch_rate": 0.6111,
+  "condition_statistics": {
+    "D0": {
+      "n_calls": 6,
+      "r_grounded_disposition": 0.2777,
+      "r_executable_resolution": 0.2777,
+      "r_strategy_executable": 0.0,
+      "r_structural_fidelity": 1.0,
+      "r_target_fidelity": 0.5,
+      "trivialization_rate": 0.0,
+      "total_hallucinated_fixations": 0,
+      "total_infeasible_declarations": 0,
+      "auto_pass_rate": 0.5,
+      "audit_pass_rate": 0.0
+    },
+    "D1": {
+      "n_calls": 6,
+      "r_grounded_disposition": 0.3333,
+      "r_executable_resolution": 0.3333,
+      "r_strategy_executable": 0.3333,
+      "r_structural_fidelity": 1.0,
+      "r_target_fidelity": 0.3333,
+      "trivialization_rate": 0.0,
+      "total_hallucinated_fixations": 0,
+      "total_infeasible_declarations": 0,
+      "auto_pass_rate": 1.0,
+      "audit_pass_rate": 0.3333
+    },
+    "D2": {
+      "n_calls": 6,
+      "r_grounded_disposition": 0.3703,
+      "r_executable_resolution": 0.3703,
+      "r_strategy_executable": 0.0,
+      "r_structural_fidelity": 1.0,
+      "r_target_fidelity": 0.5,
+      "trivialization_rate": 0.0,
+      "total_hallucinated_fixations": 0,
+      "total_infeasible_declarations": 0,
+      "auto_pass_rate": 0.6667,
+      "audit_pass_rate": 0.0
+    }
+  },
+  "concept_statistics_and_paired_differences": {
+    "hawkes_process": {
+      "D0": {
+        "n_seeds": 3,
+        "r_grounded_disposition": 0.2222,
+        "r_executable_resolution": 0.2222,
+        "r_strategy_executable": 0.0,
+        "r_structural_fidelity": 1.0,
+        "r_target_fidelity": 0.0,
+        "is_trivialized": 0.0,
+        "auto_pass_rate": 0.3333,
+        "audit_pass_rate": 0.0
+      },
+      "D1": {
+        "n_seeds": 3,
+        "r_grounded_disposition": 0.4445,
+        "r_executable_resolution": 0.4445,
+        "r_strategy_executable": 0.6667,
+        "r_structural_fidelity": 1.0,
+        "r_target_fidelity": 0.0,
+        "is_trivialized": 0.0,
+        "auto_pass_rate": 1.0,
+        "audit_pass_rate": 0.6667
+      },
+      "D2": {
+        "n_seeds": 3,
+        "r_grounded_disposition": 0.2963,
+        "r_executable_resolution": 0.2963,
+        "r_strategy_executable": 0.0,
+        "r_structural_fidelity": 1.0,
+        "r_target_fidelity": 0.0,
+        "is_trivialized": 0.0,
+        "auto_pass_rate": 0.6667,
+        "audit_pass_rate": 0.0
+      },
+      "diff_d1_minus_d0": {
+        "r_grounded_disposition": 0.2223,
+        "r_executable_resolution": 0.2223,
+        "r_strategy_executable": 0.6667,
+        "r_structural_fidelity": 0.0,
+        "r_target_fidelity": 0.0,
+        "is_trivialized": 0.0
+      },
+      "diff_d2_minus_d1": {
+        "r_grounded_disposition": -0.1482,
+        "r_executable_resolution": -0.1482,
+        "r_strategy_executable": -0.6667,
+        "r_structural_fidelity": 0.0,
+        "r_target_fidelity": 0.0,
+        "is_trivialized": 0.0
+      },
+      "diff_d2_minus_d0": {
+        "r_grounded_disposition": 0.0741,
+        "r_executable_resolution": 0.0741,
+        "r_strategy_executable": 0.0,
+        "r_structural_fidelity": 0.0,
+        "r_target_fidelity": 0.0,
+        "is_trivialized": 0.0
+      }
+    },
+    "jump_diffusion": {
+      "D0": {
+        "n_seeds": 3,
+        "r_grounded_disposition": 0.3333,
+        "r_executable_resolution": 0.3333,
+        "r_strategy_executable": 0.0,
+        "r_structural_fidelity": 1.0,
+        "r_target_fidelity": 1.0,
+        "is_trivialized": 0.0,
+        "auto_pass_rate": 0.6667,
+        "audit_pass_rate": 0.0
+      },
+      "D1": {
+        "n_seeds": 3,
+        "r_grounded_disposition": 0.2222,
+        "r_executable_resolution": 0.2222,
+        "r_strategy_executable": 0.0,
+        "r_structural_fidelity": 1.0,
+        "r_target_fidelity": 0.6667,
+        "is_trivialized": 0.0,
+        "auto_pass_rate": 1.0,
+        "audit_pass_rate": 0.0
+      },
+      "D2": {
+        "n_seeds": 3,
+        "r_grounded_disposition": 0.4444,
+        "r_executable_resolution": 0.4444,
+        "r_strategy_executable": 0.0,
+        "r_structural_fidelity": 1.0,
+        "r_target_fidelity": 1.0,
+        "is_trivialized": 0.0,
+        "auto_pass_rate": 0.6667,
+        "audit_pass_rate": 0.0
+      },
+      "diff_d1_minus_d0": {
+        "r_grounded_disposition": -0.1111,
+        "r_executable_resolution": -0.1111,
+        "r_strategy_executable": 0.0,
+        "r_structural_fidelity": 0.0,
+        "r_target_fidelity": -0.3333,
+        "is_trivialized": 0.0
+      },
+      "diff_d2_minus_d1": {
+        "r_grounded_disposition": 0.2222,
+        "r_executable_resolution": 0.2222,
+        "r_strategy_executable": 0.0,
+        "r_structural_fidelity": 0.0,
+        "r_target_fidelity": 0.3333,
+        "is_trivialized": 0.0
+      },
+      "diff_d2_minus_d0": {
+        "r_grounded_disposition": 0.1111,
+        "r_executable_resolution": 0.1111,
+        "r_strategy_executable": 0.0,
+        "r_structural_fidelity": 0.0,
+        "r_target_fidelity": 0.0,
+        "is_trivialized": 0.0
+      }
+    }
+  },
+  "audit_records": [
+    {
+      "call_id": "h2_d5_hawkes_process_d0_s42",
+      "concept_id": "hawkes_process",
+      "condition_id": "D0",
+      "seed": 42,
+      "param_audit": {
+        "total_gold_parameters": 9,
+        "grounded_count": 2,
+        "executable_count": 2,
+        "infeasible_declared_count": 0,
+        "infeasible_valid_count": 0,
+        "hallucinated_count": 0,
+        "r_grounded_disposition": 0.2222,
+        "r_executable_resolution": 0.2222,
+        "r_valid_infeasibility": "N/A",
+        "r_strategy_executable": false,
+        "param_details": [
+          {
+            "param_id": "hawkes_baseline_mu",
+            "layer": "layer1_model_parameters",
+            "symbol": "mu",
+            "is_mentioned": true,
+            "disposition": "IN_SAMPLE_ESTIMATED",
+            "is_valid": true,
+            "is_executable": true,
+            "note": "Concrete estimation protocol provided (objective, window, search space)."
+          },
+          {
+            "param_id": "hawkes_excitation_alpha",
+            "layer": "layer1_model_parameters",
+            "symbol": "alpha",
+            "is_mentioned": false,
+            "disposition": "UNRESOLVED_OMISSION",
+            "is_valid": false,
+            "is_executable": false,
+            "note": "Essential parameter alpha (hawkes_excitation_alpha) was omitted from specification."
+          },
+          {
+            "param_id": "hawkes_decay_beta",
+            "layer": "layer1_model_parameters",
+            "symbol": "beta",
+            "is_mentioned": false,
+            "disposition": "UNRESOLVED_OMISSION",
+            "is_valid": false,
+            "is_executable": false,
+            "note": "Essential parameter beta (hawkes_decay_beta) was omitted from specification."
+          },
+          {
+            "param_id": "hawkes_branching_ratio_threshold",
+            "layer": "layer2_decision_thresholds",
+            "symbol": "(alpha/beta)*",
+            "is_mentioned": false,
+            "disposition": "UNRESOLVED_OMISSION",
+            "is_valid": false,
+            "is_executable": false,
+            "note": "Essential parameter (alpha/beta)* (hawkes_branching_ratio_threshold) was omitted from specification."
+          },
+          {
+            "param_id": "hawkes_intensity_threshold",
+            "layer": "layer2_decision_thresholds",
+            "symbol": "lambda*",
+            "is_mentioned": true,
+            "disposition": "IN_SAMPLE_ESTIMATED",
+            "is_valid": true,
+            "is_executable": true,
+            "note": "Concrete estimation protocol provided (objective, window, search space)."
+          },
+          {
+            "param_id": "hawkes_risk_sizing_scale",
+            "layer": "layer3_risk_constraints",
+            "symbol": "w_risk",
+            "is_mentioned": false,
+            "disposition": "UNRESOLVED_OMISSION",
+            "is_valid": false,
+            "is_executable": false,
+            "note": "Essential parameter w_risk (hawkes_risk_sizing_scale) was omitted from specification."
+          },
+          {
+            "param_id": "hawkes_max_drawdown_stop",
+            "layer": "layer3_risk_constraints",
+            "symbol": "max_dd_stop",
+            "is_mentioned": false,
+            "disposition": "UNRESOLVED_OMISSION",
+            "is_valid": false,
+            "is_executable": false,
+            "note": "Essential parameter max_dd_stop (hawkes_max_drawdown_stop) was omitted from specification."
+          },
+          {
+            "param_id": "hawkes_execution_timing_rule",
+            "layer": "layer4_execution_constraints",
+            "symbol": "t_exec",
+            "is_mentioned": false,
+            "disposition": "UNRESOLVED_OMISSION",
+            "is_valid": false,
+            "is_executable": false,
+            "note": "Essential parameter t_exec (hawkes_execution_timing_rule) was omitted from specification."
+          },
+          {
+            "param_id": "hawkes_max_holding_horizon",
+            "layer": "layer4_execution_constraints",
+            "symbol": "k_horizon",
+            "is_mentioned": false,
+            "disposition": "UNRESOLVED_OMISSION",
+            "is_valid": false,
+            "is_executable": false,
+            "note": "Essential parameter k_horizon (hawkes_max_holding_horizon) was omitted from specification."
+          }
+        ]
+      },
+      "fidelity_audit": {
+        "r_structural_fidelity": true,
+        "r_target_fidelity": false,
+        "is_trivialized": false,
+        "fidelity_classification": "VALID_PROXY_TRANSFORMATION"
+      },
+      "auto_evaluation": {
+        "gate_decision": "PASS",
+        "dual_gate_pass": false,
+        "5axis_errors": {
+          "concept_id": "hawkes_process",
+          "condition_id": "unknown",
+          "hypothesis_id": "h2_d5_hawkes_process_d0_s42",
+          "e_role": false,
+          "e_math": false,
+          "e_data": false,
+          "e_leap": false,
+          "e_inop": true,
+          "feasibility_status": "SUPPORTED",
+          "error_evidence": {
+            "E_inop": "Offending pattern: 'falls below the threshold'. Violation: Execution decision relies on an unbound threshold without numerical value or parameter estimation formula."
+          },
+          "is_operable": false,
+          "evaluator_notes": "[E_inop: Offending pattern: 'falls below the threshold'. Violation: Execution decision relies on an unbound threshold without numerical value or parameter estimation formula.]"
+        }
+      },
+      "audit_pass": false,
+      "is_mismatch": false
+    },
+    {
+      "call_id": "h2_d5_hawkes_process_d0_s43",
+      "concept_id": "hawkes_process",
+      "condition_id": "D0",
+      "seed": 43,
+      "param_audit": {
+        "total_gold_parameters": 9,
+        "grounded_count": 2,
+        "executable_count": 2,
+        "infeasible_declared_count": 0,
+        "infeasible_valid_count": 0,
+        "hallucinated_count": 0,
+        "r_grounded_disposition": 0.2222,
+        "r_executable_resolution": 0.2222,
+        "r_valid_infeasibility": "N/A",
+        "r_strategy_executable": false,
+        "param_details": [
+          {
+            "param_id": "hawkes_baseline_mu",
+            "layer": "layer1_model_parameters",
+            "symbol": "mu",
+            "is_mentioned": true,
+            "disposition": "IN_SAMPLE_ESTIMATED",
+            "is_valid": true,
+            "is_executable": true,
+            "note": "Concrete estimation protocol provided (objective, window, search space)."
+          },
+          {
+            "param_id": "hawkes_excitation_alpha",
+            "layer": "layer1_model_parameters",
+            "symbol": "alpha",
+            "is_mentioned": false,
+            "disposition": "UNRESOLVED_OMISSION",
+            "is_valid": false,
+            "is_executable": false,
+            "note": "Essential parameter alpha (hawkes_excitation_alpha) was omitted from specification."
+          },
+          {
+            "param_id": "hawkes_decay_beta",
+            "layer": "layer1_model_parameters",
+            "symbol": "beta",
+            "is_mentioned": false,
+            "disposition": "UNRESOLVED_OMISSION",
+            "is_valid": false,
+            "is_executable": false,
+            "note": "Essential parameter beta (hawkes_decay_beta) was omitted from specification."
+          },
+          {
+            "param_id": "hawkes_branching_ratio_threshold",
+            "layer": "layer2_decision_thresholds",
+            "symbol": "(alpha/beta)*",
+            "is_mentioned": false,
+            "disposition": "UNRESOLVED_OMISSION",
+            "is_valid": false,
+            "is_executable": false,
+            "note": "Essential parameter (alpha/beta)* (hawkes_branching_ratio_threshold) was omitted from specification."
+          },
+          {
+            "param_id": "hawkes_intensity_threshold",
+            "layer": "layer2_decision_thresholds",
+            "symbol": "lambda*",
+            "is_mentioned": true,
+            "disposition": "IN_SAMPLE_ESTIMATED",
+            "is_valid": true,
+            "is_executable": true,
+            "note": "Concrete estimation protocol provided (objective, window, search space)."
+          },
+          {
+            "param_id": "hawkes_risk_sizing_scale",
+            "layer": "layer3_risk_constraints",
+            "symbol": "w_risk",
+            "is_mentioned": false,
+            "disposition": "UNRESOLVED_OMISSION",
+            "is_valid": false,
+            "is_executable": false,
+            "note": "Essential parameter w_risk (hawkes_risk_sizing_scale) was omitted from specification."
+          },
+          {
+            "param_id": "hawkes_max_drawdown_stop",
+            "layer": "layer3_risk_constraints",
+            "symbol": "max_dd_stop",
+            "is_mentioned": false,
+            "disposition": "UNRESOLVED_OMISSION",
+            "is_valid": false,
+            "is_executable": false,
+            "note": "Essential parameter max_dd_stop (hawkes_max_drawdown_stop) was omitted from specification."
+          },
+          {
+            "param_id": "hawkes_execution_timing_rule",
+            "layer": "layer4_execution_constraints",
+            "symbol": "t_exec",
+            "is_mentioned": false,
+            "disposition": "UNRESOLVED_OMISSION",
+            "is_valid": false,
+            "is_executable": false,
+            "note": "Essential parameter t_exec (hawkes_execution_timing_rule) was omitted from specification."
+          },
+          {
+            "param_id": "hawkes_max_holding_horizon",
+            "layer": "layer4_execution_constraints",
+            "symbol": "k_horizon",
+            "is_mentioned": false,
+            "disposition": "UNRESOLVED_OMISSION",
+            "is_valid": false,
+            "is_executable": false,
+            "note": "Essential parameter k_horizon (hawkes_max_holding_horizon) was omitted from specification."
+          }
+        ]
+      },
+      "fidelity_audit": {
+        "r_structural_fidelity": true,
+        "r_target_fidelity": false,
+        "is_trivialized": false,
+        "fidelity_classification": "VALID_PROXY_TRANSFORMATION"
+      },
+      "auto_evaluation": {
+        "gate_decision": "PASS",
+        "dual_gate_pass": false,
+        "5axis_errors": {
+          "concept_id": "hawkes_process",
+          "condition_id": "unknown",
+          "hypothesis_id": "h2_d5_hawkes_process_d0_s43",
+          "e_role": false,
+          "e_math": true,
+          "e_data": false,
+          "e_leap": false,
+          "e_inop": true,
+          "feasibility_status": "SUPPORTED",
+          "error_evidence": {
+            "E_math": "Offending text: 'high likelihood of upward price movement'. Violation: Hawkes point process conditional arrival intensity lambda(t) conflated with directional price drift/reversal.",
+            "E_inop": "Offending pattern: 'high likelihood of upward price movement'. Violation: Execution decision relies on an unbound threshold without numerical value or parameter estimation formula."
+          },
+          "is_operable": false,
+          "evaluator_notes": "[E_math: Offending text: 'high likelihood of upward price movement'. Violation: Hawkes point process conditional arrival intensity lambda(t) conflated with directional price drift/reversal.] | [E_inop: Offending pattern: 'high likelihood of upward price movement'. Violation: Execution decision relies on an unbound threshold without numerical value or parameter estimation formula.]"
+        }
+      },
+      "audit_pass": false,
+      "is_mismatch": false
+    },
+    {
+      "call_id": "h2_d5_hawkes_process_d0_s44",
+      "concept_id": "hawkes_process",
+      "condition_id": "D0",
+      "seed": 44,
+      "param_audit": {
+        "total_gold_parameters": 9,
+        "grounded_count": 2,
+        "executable_count": 2,
+        "infeasible_declared_count": 0,
+        "infeasible_valid_count": 0,
+        "hallucinated_count": 0,
+        "r_grounded_disposition": 0.2222,
+        "r_executable_resolution": 0.2222,
+        "r_valid_infeasibility": "N/A",
+        "r_strategy_executable": false,
+        "param_details": [
+          {
+            "param_id": "hawkes_baseline_mu",
+            "layer": "layer1_model_parameters",
+            "symbol": "mu",
+            "is_mentioned": true,
+            "disposition": "EMPIRICAL_FIXED",
+            "is_valid": true,
+            "is_executable": true,
+            "note": "Empirical value supported by literature / domain rationale."
+          },
+          {
+            "param_id": "hawkes_excitation_alpha",
+            "layer": "layer1_model_parameters",
+            "symbol": "alpha",
+            "is_mentioned": false,
+            "disposition": "UNRESOLVED_OMISSION",
+            "is_valid": false,
+            "is_executable": false,
+            "note": "Essential parameter alpha (hawkes_excitation_alpha) was omitted from specification."
+          },
+          {
+            "param_id": "hawkes_decay_beta",
+            "layer": "layer1_model_parameters",
+            "symbol": "beta",
+            "is_mentioned": false,
+            "disposition": "UNRESOLVED_OMISSION",
+            "is_valid": false,
+            "is_executable": false,
+            "note": "Essential parameter beta (hawkes_decay_beta) was omitted from specification."
+          },
+          {
+            "param_id": "hawkes_branching_ratio_threshold",
+            "layer": "layer2_decision_thresholds",
+            "symbol": "(alpha/beta)*",
+            "is_mentioned": false,
+            "disposition": "UNRESOLVED_OMISSION",
+            "is_valid": false,
+            "is_executable": false,
+            "note": "Essential parameter (alpha/beta)* (hawkes_branching_ratio_threshold) was omitted from specification."
+          },
+          {
+            "param_id": "hawkes_intensity_threshold",
+            "layer": "layer2_decision_thresholds",
+            "symbol": "lambda*",
+            "is_mentioned": true,
+            "disposition": "EMPIRICAL_FIXED",
+            "is_valid": true,
+            "is_executable": true,
+            "note": "Empirical value supported by literature / domain rationale."
+          },
+          {
+            "param_id": "hawkes_risk_sizing_scale",
+            "layer": "layer3_risk_constraints",
+            "symbol": "w_risk",
+            "is_mentioned": false,
+            "disposition": "UNRESOLVED_OMISSION",
+            "is_valid": false,
+            "is_executable": false,
+            "note": "Essential parameter w_risk (hawkes_risk_sizing_scale) was omitted from specification."
+          },
+          {
+            "param_id": "hawkes_max_drawdown_stop",
+            "layer": "layer3_risk_constraints",
+            "symbol": "max_dd_stop",
+            "is_mentioned": false,
+            "disposition": "UNRESOLVED_OMISSION",
+            "is_valid": false,
+            "is_executable": false,
+            "note": "Essential parameter max_dd_stop (hawkes_max_drawdown_stop) was omitted from specification."
+          },
+          {
+            "param_id": "hawkes_execution_timing_rule",
+            "layer": "layer4_execution_constraints",
+            "symbol": "t_exec",
+            "is_mentioned": false,
+            "disposition": "UNRESOLVED_OMISSION",
+            "is_valid": false,
+            "is_executable": false,
+            "note": "Essential parameter t_exec (hawkes_execution_timing_rule) was omitted from specification."
+          },
+          {
+            "param_id": "hawkes_max_holding_horizon",
+            "layer": "layer4_execution_constraints",
+            "symbol": "k_horizon",
+            "is_mentioned": false,
+            "disposition": "UNRESOLVED_OMISSION",
+            "is_valid": false,
+            "is_executable": false,
+            "note": "Essential parameter k_horizon (hawkes_max_holding_horizon) was omitted from specification."
+          }
+        ]
+      },
+      "fidelity_audit": {
+        "r_structural_fidelity": true,
+        "r_target_fidelity": false,
+        "is_trivialized": false,
+        "fidelity_classification": "VALID_PROXY_TRANSFORMATION"
+      },
+      "auto_evaluation": {
+        "gate_decision": "PASS",
+        "dual_gate_pass": true,
+        "5axis_errors": {
+          "concept_id": "hawkes_process",
+          "condition_id": "unknown",
+          "hypothesis_id": "h2_d5_hawkes_process_d0_s44",
+          "e_role": false,
+          "e_math": false,
+          "e_data": false,
+          "e_leap": false,
+          "e_inop": false,
+          "feasibility_status": "SUPPORTED",
+          "error_evidence": {},
+          "is_operable": true,
+          "evaluator_notes": "Clean: No objective error violations detected. Data Feasibility: SUPPORTED."
+        }
+      },
+      "audit_pass": false,
+      "is_mismatch": true
+    },
+    {
+      "call_id": "h2_d5_hawkes_process_d1_s42",
+      "concept_id": "hawkes_process",
+      "condition_id": "D1",
+      "seed": 42,
+      "param_audit": {
+        "total_gold_parameters": 9,
+        "grounded_count": 5,
+        "executable_count": 5,
+        "infeasible_declared_count": 0,
+        "infeasible_valid_count": 0,
+        "hallucinated_count": 0,
+        "r_grounded_disposition": 0.5556,
+        "r_executable_resolution": 0.5556,
+        "r_valid_infeasibility": "N/A",
+        "r_strategy_executable": true,
+        "param_details": [
+          {
+            "param_id": "hawkes_baseline_mu",
+            "layer": "layer1_model_parameters",
+            "symbol": "mu",
+            "is_mentioned": true,
+            "disposition": "EMPIRICAL_FIXED",
+            "is_valid": true,
+            "is_executable": true,
+            "note": "Empirical value supported by literature / domain rationale."
+          },
+          {
+            "param_id": "hawkes_excitation_alpha",
+            "layer": "layer1_model_parameters",
+            "symbol": "alpha",
+            "is_mentioned": true,
+            "disposition": "EMPIRICAL_FIXED",
+            "is_valid": true,
+            "is_executable": true,
+            "note": "Empirical value supported by literature / domain rationale."
+          },
+          {
+            "param_id": "hawkes_decay_beta",
+            "layer": "layer1_model_parameters",
+            "symbol": "beta",
+            "is_mentioned": true,
+            "disposition": "EMPIRICAL_FIXED",
+            "is_valid": true,
+            "is_executable": true,
+            "note": "Empirical value supported by literature / domain rationale."
+          },
+          {
+            "param_id": "hawkes_branching_ratio_threshold",
+            "layer": "layer2_decision_thresholds",
+            "symbol": "(alpha/beta)*",
+            "is_mentioned": true,
+            "disposition": "EMPIRICAL_FIXED",
+            "is_valid": true,
+            "is_executable": true,
+            "note": "Empirical value supported by literature / domain rationale."
+          },
+          {
+            "param_id": "hawkes_intensity_threshold",
+            "layer": "layer2_decision_thresholds",
+            "symbol": "lambda*",
+            "is_mentioned": true,
+            "disposition": "EMPIRICAL_FIXED",
+            "is_valid": true,
+            "is_executable": true,
+            "note": "Empirical value supported by literature / domain rationale."
+          },
+          {
+            "param_id": "hawkes_risk_sizing_scale",
+            "layer": "layer3_risk_constraints",
+            "symbol": "w_risk",
+            "is_mentioned": false,
+            "disposition": "UNRESOLVED_OMISSION",
+            "is_valid": false,
+            "is_executable": false,
+            "note": "Essential parameter w_risk (hawkes_risk_sizing_scale) was omitted from specification."
+          },
+          {
+            "param_id": "hawkes_max_drawdown_stop",
+            "layer": "layer3_risk_constraints",
+            "symbol": "max_dd_stop",
+            "is_mentioned": false,
+            "disposition": "UNRESOLVED_OMISSION",
+            "is_valid": false,
+            "is_executable": false,
+            "note": "Essential parameter max_dd_stop (hawkes_max_drawdown_stop) was omitted from specification."
+          },
+          {
+            "param_id": "hawkes_execution_timing_rule",
+            "layer": "layer4_execution_constraints",
+            "symbol": "t_exec",
+            "is_mentioned": false,
+            "disposition": "UNRESOLVED_OMISSION",
+            "is_valid": false,
+            "is_executable": false,
+            "note": "Essential parameter t_exec (hawkes_execution_timing_rule) was omitted from specification."
+          },
+          {
+            "param_id": "hawkes_max_holding_horizon",
+            "layer": "layer4_execution_constraints",
+            "symbol": "k_horizon",
+            "is_mentioned": false,
+            "disposition": "UNRESOLVED_OMISSION",
+            "is_valid": false,
+            "is_executable": false,
+            "note": "Essential parameter k_horizon (hawkes_max_holding_horizon) was omitted from specification."
+          }
+        ]
+      },
+      "fidelity_audit": {
+        "r_structural_fidelity": true,
+        "r_target_fidelity": false,
+        "is_trivialized": false,
+        "fidelity_classification": "VALID_PROXY_TRANSFORMATION"
+      },
+      "auto_evaluation": {
+        "gate_decision": "PASS",
+        "dual_gate_pass": true,
+        "5axis_errors": {
+          "concept_id": "hawkes_process",
+          "condition_id": "unknown",
+          "hypothesis_id": "h2_d5_hawkes_process_d1_s42",
+          "e_role": false,
+          "e_math": false,
+          "e_data": false,
+          "e_leap": false,
+          "e_inop": false,
+          "feasibility_status": "SUPPORTED",
+          "error_evidence": {},
+          "is_operable": true,
+          "evaluator_notes": "Clean: No objective error violations detected. Data Feasibility: SUPPORTED."
+        }
+      },
+      "audit_pass": true,
+      "is_mismatch": false
+    },
+    {
+      "call_id": "h2_d5_hawkes_process_d1_s43",
+      "concept_id": "hawkes_process",
+      "condition_id": "D1",
+      "seed": 43,
+      "param_audit": {
+        "total_gold_parameters": 9,
+        "grounded_count": 5,
+        "executable_count": 5,
+        "infeasible_declared_count": 0,
+        "infeasible_valid_count": 0,
+        "hallucinated_count": 0,
+        "r_grounded_disposition": 0.5556,
+        "r_executable_resolution": 0.5556,
+        "r_valid_infeasibility": "N/A",
+        "r_strategy_executable": true,
+        "param_details": [
+          {
+            "param_id": "hawkes_baseline_mu",
+            "layer": "layer1_model_parameters",
+            "symbol": "mu",
+            "is_mentioned": true,
+            "disposition": "EMPIRICAL_FIXED",
+            "is_valid": true,
+            "is_executable": true,
+            "note": "Empirical value supported by literature / domain rationale."
+          },
+          {
+            "param_id": "hawkes_excitation_alpha",
+            "layer": "layer1_model_parameters",
+            "symbol": "alpha",
+            "is_mentioned": true,
+            "disposition": "EMPIRICAL_FIXED",
+            "is_valid": true,
+            "is_executable": true,
+            "note": "Empirical value supported by literature / domain rationale."
+          },
+          {
+            "param_id": "hawkes_decay_beta",
+            "layer": "layer1_model_parameters",
+            "symbol": "beta",
+            "is_mentioned": true,
+            "disposition": "EMPIRICAL_FIXED",
+            "is_valid": true,
+            "is_executable": true,
+            "note": "Empirical value supported by literature / domain rationale."
+          },
+          {
+            "param_id": "hawkes_branching_ratio_threshold",
+            "layer": "layer2_decision_thresholds",
+            "symbol": "(alpha/beta)*",
+            "is_mentioned": true,
+            "disposition": "EMPIRICAL_FIXED",
+            "is_valid": true,
+            "is_executable": true,
+            "note": "Empirical value supported by literature / domain rationale."
+          },
+          {
+            "param_id": "hawkes_intensity_threshold",
+            "layer": "layer2_decision_thresholds",
+            "symbol": "lambda*",
+            "is_mentioned": true,
+            "disposition": "EMPIRICAL_FIXED",
+            "is_valid": true,
+            "is_executable": true,
+            "note": "Empirical value supported by literature / domain rationale."
+          },
+          {
+            "param_id": "hawkes_risk_sizing_scale",
+            "layer": "layer3_risk_constraints",
+            "symbol": "w_risk",
+            "is_mentioned": false,
+            "disposition": "UNRESOLVED_OMISSION",
+            "is_valid": false,
+            "is_executable": false,
+            "note": "Essential parameter w_risk (hawkes_risk_sizing_scale) was omitted from specification."
+          },
+          {
+            "param_id": "hawkes_max_drawdown_stop",
+            "layer": "layer3_risk_constraints",
+            "symbol": "max_dd_stop",
+            "is_mentioned": false,
+            "disposition": "UNRESOLVED_OMISSION",
+            "is_valid": false,
+            "is_executable": false,
+            "note": "Essential parameter max_dd_stop (hawkes_max_drawdown_stop) was omitted from specification."
+          },
+          {
+            "param_id": "hawkes_execution_timing_rule",
+            "layer": "layer4_execution_constraints",
+            "symbol": "t_exec",
+            "is_mentioned": false,
+            "disposition": "UNRESOLVED_OMISSION",
+            "is_valid": false,
+            "is_executable": false,
+            "note": "Essential parameter t_exec (hawkes_execution_timing_rule) was omitted from specification."
+          },
+          {
+            "param_id": "hawkes_max_holding_horizon",
+            "layer": "layer4_execution_constraints",
+            "symbol": "k_horizon",
+            "is_mentioned": false,
+            "disposition": "UNRESOLVED_OMISSION",
+            "is_valid": false,
+            "is_executable": false,
+            "note": "Essential parameter k_horizon (hawkes_max_holding_horizon) was omitted from specification."
+          }
+        ]
+      },
+      "fidelity_audit": {
+        "r_structural_fidelity": true,
+        "r_target_fidelity": false,
+        "is_trivialized": false,
+        "fidelity_classification": "VALID_PROXY_TRANSFORMATION"
+      },
+      "auto_evaluation": {
+        "gate_decision": "PASS",
+        "dual_gate_pass": true,
+        "5axis_errors": {
+          "concept_id": "hawkes_process",
+          "condition_id": "unknown",
+          "hypothesis_id": "h2_d5_hawkes_process_d1_s43",
+          "e_role": false,
+          "e_math": false,
+          "e_data": false,
+          "e_leap": false,
+          "e_inop": false,
+          "feasibility_status": "SUPPORTED",
+          "error_evidence": {},
+          "is_operable": true,
+          "evaluator_notes": "Clean: No objective error violations detected. Data Feasibility: SUPPORTED."
+        }
+      },
+      "audit_pass": true,
+      "is_mismatch": false
+    },
+    {
+      "call_id": "h2_d5_hawkes_process_d1_s44",
+      "concept_id": "hawkes_process",
+      "condition_id": "D1",
+      "seed": 44,
+      "param_audit": {
+        "total_gold_parameters": 9,
+        "grounded_count": 2,
+        "executable_count": 2,
+        "infeasible_declared_count": 0,
+        "infeasible_valid_count": 0,
+        "hallucinated_count": 0,
+        "r_grounded_disposition": 0.2222,
+        "r_executable_resolution": 0.2222,
+        "r_valid_infeasibility": "N/A",
+        "r_strategy_executable": false,
+        "param_details": [
+          {
+            "param_id": "hawkes_baseline_mu",
+            "layer": "layer1_model_parameters",
+            "symbol": "mu",
+            "is_mentioned": true,
+            "disposition": "EMPIRICAL_FIXED",
+            "is_valid": true,
+            "is_executable": true,
+            "note": "Empirical value supported by literature / domain rationale."
+          },
+          {
+            "param_id": "hawkes_excitation_alpha",
+            "layer": "layer1_model_parameters",
+            "symbol": "alpha",
+            "is_mentioned": false,
+            "disposition": "UNRESOLVED_OMISSION",
+            "is_valid": false,
+            "is_executable": false,
+            "note": "Essential parameter alpha (hawkes_excitation_alpha) was omitted from specification."
+          },
+          {
+            "param_id": "hawkes_decay_beta",
+            "layer": "layer1_model_parameters",
+            "symbol": "beta",
+            "is_mentioned": false,
+            "disposition": "UNRESOLVED_OMISSION",
+            "is_valid": false,
+            "is_executable": false,
+            "note": "Essential parameter beta (hawkes_decay_beta) was omitted from specification."
+          },
+          {
+            "param_id": "hawkes_branching_ratio_threshold",
+            "layer": "layer2_decision_thresholds",
+            "symbol": "(alpha/beta)*",
+            "is_mentioned": false,
+            "disposition": "UNRESOLVED_OMISSION",
+            "is_valid": false,
+            "is_executable": false,
+            "note": "Essential parameter (alpha/beta)* (hawkes_branching_ratio_threshold) was omitted from specification."
+          },
+          {
+            "param_id": "hawkes_intensity_threshold",
+            "layer": "layer2_decision_thresholds",
+            "symbol": "lambda*",
+            "is_mentioned": true,
+            "disposition": "EMPIRICAL_FIXED",
+            "is_valid": true,
+            "is_executable": true,
+            "note": "Empirical value supported by literature / domain rationale."
+          },
+          {
+            "param_id": "hawkes_risk_sizing_scale",
+            "layer": "layer3_risk_constraints",
+            "symbol": "w_risk",
+            "is_mentioned": false,
+            "disposition": "UNRESOLVED_OMISSION",
+            "is_valid": false,
+            "is_executable": false,
+            "note": "Essential parameter w_risk (hawkes_risk_sizing_scale) was omitted from specification."
+          },
+          {
+            "param_id": "hawkes_max_drawdown_stop",
+            "layer": "layer3_risk_constraints",
+            "symbol": "max_dd_stop",
+            "is_mentioned": false,
+            "disposition": "UNRESOLVED_OMISSION",
+            "is_valid": false,
+            "is_executable": false,
+            "note": "Essential parameter max_dd_stop (hawkes_max_drawdown_stop) was omitted from specification."
+          },
+          {
+            "param_id": "hawkes_execution_timing_rule",
+            "layer": "layer4_execution_constraints",
+            "symbol": "t_exec",
+            "is_mentioned": false,
+            "disposition": "UNRESOLVED_OMISSION",
+            "is_valid": false,
+            "is_executable": false,
+            "note": "Essential parameter t_exec (hawkes_execution_timing_rule) was omitted from specification."
+          },
+          {
+            "param_id": "hawkes_max_holding_horizon",
+            "layer": "layer4_execution_constraints",
+            "symbol": "k_horizon",
+            "is_mentioned": false,
+            "disposition": "UNRESOLVED_OMISSION",
+            "is_valid": false,
+            "is_executable": false,
+            "note": "Essential parameter k_horizon (hawkes_max_holding_horizon) was omitted from specification."
+          }
+        ]
+      },
+      "fidelity_audit": {
+        "r_structural_fidelity": true,
+        "r_target_fidelity": false,
+        "is_trivialized": false,
+        "fidelity_classification": "VALID_PROXY_TRANSFORMATION"
+      },
+      "auto_evaluation": {
+        "gate_decision": "PASS",
+        "dual_gate_pass": true,
+        "5axis_errors": {
+          "concept_id": "hawkes_process",
+          "condition_id": "unknown",
+          "hypothesis_id": "h2_d5_hawkes_process_d1_s44",
+          "e_role": false,
+          "e_math": false,
+          "e_data": false,
+          "e_leap": false,
+          "e_inop": false,
+          "feasibility_status": "SUPPORTED",
+          "error_evidence": {},
+          "is_operable": true,
+          "evaluator_notes": "Clean: No objective error violations detected. Data Feasibility: SUPPORTED."
+        }
+      },
+      "audit_pass": false,
+      "is_mismatch": true
+    },
+    {
+      "call_id": "h2_d5_hawkes_process_d2_s42",
+      "concept_id": "hawkes_process",
+      "condition_id": "D2",
+      "seed": 42,
+      "param_audit": {
+        "total_gold_parameters": 9,
+        "grounded_count": 2,
+        "executable_count": 2,
+        "infeasible_declared_count": 0,
+        "infeasible_valid_count": 0,
+        "hallucinated_count": 0,
+        "r_grounded_disposition": 0.2222,
+        "r_executable_resolution": 0.2222,
+        "r_valid_infeasibility": "N/A",
+        "r_strategy_executable": false,
+        "param_details": [
+          {
+            "param_id": "hawkes_baseline_mu",
+            "layer": "layer1_model_parameters",
+            "symbol": "mu",
+            "is_mentioned": true,
+            "disposition": "IN_SAMPLE_ESTIMATED",
+            "is_valid": true,
+            "is_executable": true,
+            "note": "Concrete estimation protocol provided (objective, window, search space)."
+          },
+          {
+            "param_id": "hawkes_excitation_alpha",
+            "layer": "layer1_model_parameters",
+            "symbol": "alpha",
+            "is_mentioned": false,
+            "disposition": "UNRESOLVED_OMISSION",
+            "is_valid": false,
+            "is_executable": false,
+            "note": "Essential parameter alpha (hawkes_excitation_alpha) was omitted from specification."
+          },
+          {
+            "param_id": "hawkes_decay_beta",
+            "layer": "layer1_model_parameters",
+            "symbol": "beta",
+            "is_mentioned": false,
+            "disposition": "UNRESOLVED_OMISSION",
+            "is_valid": false,
+            "is_executable": false,
+            "note": "Essential parameter beta (hawkes_decay_beta) was omitted from specification."
+          },
+          {
+            "param_id": "hawkes_branching_ratio_threshold",
+            "layer": "layer2_decision_thresholds",
+            "symbol": "(alpha/beta)*",
+            "is_mentioned": false,
+            "disposition": "UNRESOLVED_OMISSION",
+            "is_valid": false,
+            "is_executable": false,
+            "note": "Essential parameter (alpha/beta)* (hawkes_branching_ratio_threshold) was omitted from specification."
+          },
+          {
+            "param_id": "hawkes_intensity_threshold",
+            "layer": "layer2_decision_thresholds",
+            "symbol": "lambda*",
+            "is_mentioned": true,
+            "disposition": "IN_SAMPLE_ESTIMATED",
+            "is_valid": true,
+            "is_executable": true,
+            "note": "Concrete estimation protocol provided (objective, window, search space)."
+          },
+          {
+            "param_id": "hawkes_risk_sizing_scale",
+            "layer": "layer3_risk_constraints",
+            "symbol": "w_risk",
+            "is_mentioned": false,
+            "disposition": "UNRESOLVED_OMISSION",
+            "is_valid": false,
+            "is_executable": false,
+            "note": "Essential parameter w_risk (hawkes_risk_sizing_scale) was omitted from specification."
+          },
+          {
+            "param_id": "hawkes_max_drawdown_stop",
+            "layer": "layer3_risk_constraints",
+            "symbol": "max_dd_stop",
+            "is_mentioned": false,
+            "disposition": "UNRESOLVED_OMISSION",
+            "is_valid": false,
+            "is_executable": false,
+            "note": "Essential parameter max_dd_stop (hawkes_max_drawdown_stop) was omitted from specification."
+          },
+          {
+            "param_id": "hawkes_execution_timing_rule",
+            "layer": "layer4_execution_constraints",
+            "symbol": "t_exec",
+            "is_mentioned": false,
+            "disposition": "UNRESOLVED_OMISSION",
+            "is_valid": false,
+            "is_executable": false,
+            "note": "Essential parameter t_exec (hawkes_execution_timing_rule) was omitted from specification."
+          },
+          {
+            "param_id": "hawkes_max_holding_horizon",
+            "layer": "layer4_execution_constraints",
+            "symbol": "k_horizon",
+            "is_mentioned": false,
+            "disposition": "UNRESOLVED_OMISSION",
+            "is_valid": false,
+            "is_executable": false,
+            "note": "Essential parameter k_horizon (hawkes_max_holding_horizon) was omitted from specification."
+          }
+        ]
+      },
+      "fidelity_audit": {
+        "r_structural_fidelity": true,
+        "r_target_fidelity": false,
+        "is_trivialized": false,
+        "fidelity_classification": "VALID_PROXY_TRANSFORMATION"
+      },
+      "auto_evaluation": {
+        "gate_decision": "PASS",
+        "dual_gate_pass": false,
+        "5axis_errors": {
+          "concept_id": "hawkes_process",
+          "condition_id": "unknown",
+          "hypothesis_id": "h2_d5_hawkes_process_d2_s42",
+          "e_role": false,
+          "e_math": false,
+          "e_data": false,
+          "e_leap": false,
+          "e_inop": true,
+          "feasibility_status": "SUPPORTED",
+          "error_evidence": {
+            "E_inop": "Offending pattern: 'exceeds a predefined threshold(?! \\(e\\.g\\., \\d)'. Violation: Execution decision relies on an unbound threshold without numerical value or parameter estimation formula."
+          },
+          "is_operable": false,
+          "evaluator_notes": "[E_inop: Offending pattern: 'exceeds a predefined threshold(?! \\(e\\.g\\., \\d)'. Violation: Execution decision relies on an unbound threshold without numerical value or parameter estimation formula.]"
+        }
+      },
+      "audit_pass": false,
+      "is_mismatch": false
+    },
+    {
+      "call_id": "h2_d5_hawkes_process_d2_s43",
+      "concept_id": "hawkes_process",
+      "condition_id": "D2",
+      "seed": 43,
+      "param_audit": {
+        "total_gold_parameters": 9,
+        "grounded_count": 4,
+        "executable_count": 4,
+        "infeasible_declared_count": 0,
+        "infeasible_valid_count": 0,
+        "hallucinated_count": 0,
+        "r_grounded_disposition": 0.4444,
+        "r_executable_resolution": 0.4444,
+        "r_valid_infeasibility": "N/A",
+        "r_strategy_executable": false,
+        "param_details": [
+          {
+            "param_id": "hawkes_baseline_mu",
+            "layer": "layer1_model_parameters",
+            "symbol": "mu",
+            "is_mentioned": true,
+            "disposition": "EMPIRICAL_FIXED",
+            "is_valid": true,
+            "is_executable": true,
+            "note": "Empirical value supported by literature / domain rationale."
+          },
+          {
+            "param_id": "hawkes_excitation_alpha",
+            "layer": "layer1_model_parameters",
+            "symbol": "alpha",
+            "is_mentioned": true,
+            "disposition": "EMPIRICAL_FIXED",
+            "is_valid": true,
+            "is_executable": true,
+            "note": "Empirical value supported by literature / domain rationale."
+          },
+          {
+            "param_id": "hawkes_decay_beta",
+            "layer": "layer1_model_parameters",
+            "symbol": "beta",
+            "is_mentioned": true,
+            "disposition": "EMPIRICAL_FIXED",
+            "is_valid": true,
+            "is_executable": true,
+            "note": "Empirical value supported by literature / domain rationale."
+          },
+          {
+            "param_id": "hawkes_branching_ratio_threshold",
+            "layer": "layer2_decision_thresholds",
+            "symbol": "(alpha/beta)*",
+            "is_mentioned": false,
+            "disposition": "UNRESOLVED_OMISSION",
+            "is_valid": false,
+            "is_executable": false,
+            "note": "Essential parameter (alpha/beta)* (hawkes_branching_ratio_threshold) was omitted from specification."
+          },
+          {
+            "param_id": "hawkes_intensity_threshold",
+            "layer": "layer2_decision_thresholds",
+            "symbol": "lambda*",
+            "is_mentioned": true,
+            "disposition": "EMPIRICAL_FIXED",
+            "is_valid": true,
+            "is_executable": true,
+            "note": "Empirical value supported by literature / domain rationale."
+          },
+          {
+            "param_id": "hawkes_risk_sizing_scale",
+            "layer": "layer3_risk_constraints",
+            "symbol": "w_risk",
+            "is_mentioned": false,
+            "disposition": "UNRESOLVED_OMISSION",
+            "is_valid": false,
+            "is_executable": false,
+            "note": "Essential parameter w_risk (hawkes_risk_sizing_scale) was omitted from specification."
+          },
+          {
+            "param_id": "hawkes_max_drawdown_stop",
+            "layer": "layer3_risk_constraints",
+            "symbol": "max_dd_stop",
+            "is_mentioned": false,
+            "disposition": "UNRESOLVED_OMISSION",
+            "is_valid": false,
+            "is_executable": false,
+            "note": "Essential parameter max_dd_stop (hawkes_max_drawdown_stop) was omitted from specification."
+          },
+          {
+            "param_id": "hawkes_execution_timing_rule",
+            "layer": "layer4_execution_constraints",
+            "symbol": "t_exec",
+            "is_mentioned": false,
+            "disposition": "UNRESOLVED_OMISSION",
+            "is_valid": false,
+            "is_executable": false,
+            "note": "Essential parameter t_exec (hawkes_execution_timing_rule) was omitted from specification."
+          },
+          {
+            "param_id": "hawkes_max_holding_horizon",
+            "layer": "layer4_execution_constraints",
+            "symbol": "k_horizon",
+            "is_mentioned": false,
+            "disposition": "UNRESOLVED_OMISSION",
+            "is_valid": false,
+            "is_executable": false,
+            "note": "Essential parameter k_horizon (hawkes_max_holding_horizon) was omitted from specification."
+          }
+        ]
+      },
+      "fidelity_audit": {
+        "r_structural_fidelity": true,
+        "r_target_fidelity": false,
+        "is_trivialized": false,
+        "fidelity_classification": "VALID_PROXY_TRANSFORMATION"
+      },
+      "auto_evaluation": {
+        "gate_decision": "PASS",
+        "dual_gate_pass": true,
+        "5axis_errors": {
+          "concept_id": "hawkes_process",
+          "condition_id": "unknown",
+          "hypothesis_id": "h2_d5_hawkes_process_d2_s43",
+          "e_role": false,
+          "e_math": false,
+          "e_data": false,
+          "e_leap": false,
+          "e_inop": false,
+          "feasibility_status": "SUPPORTED",
+          "error_evidence": {},
+          "is_operable": true,
+          "evaluator_notes": "Clean: No objective error violations detected. Data Feasibility: SUPPORTED."
+        }
+      },
+      "audit_pass": false,
+      "is_mismatch": true
+    },
+    {
+      "call_id": "h2_d5_hawkes_process_d2_s44",
+      "concept_id": "hawkes_process",
+      "condition_id": "D2",
+      "seed": 44,
+      "param_audit": {
+        "total_gold_parameters": 9,
+        "grounded_count": 2,
+        "executable_count": 2,
+        "infeasible_declared_count": 0,
+        "infeasible_valid_count": 0,
+        "hallucinated_count": 0,
+        "r_grounded_disposition": 0.2222,
+        "r_executable_resolution": 0.2222,
+        "r_valid_infeasibility": "N/A",
+        "r_strategy_executable": false,
+        "param_details": [
+          {
+            "param_id": "hawkes_baseline_mu",
+            "layer": "layer1_model_parameters",
+            "symbol": "mu",
+            "is_mentioned": true,
+            "disposition": "EMPIRICAL_FIXED",
+            "is_valid": true,
+            "is_executable": true,
+            "note": "Empirical value supported by literature / domain rationale."
+          },
+          {
+            "param_id": "hawkes_excitation_alpha",
+            "layer": "layer1_model_parameters",
+            "symbol": "alpha",
+            "is_mentioned": false,
+            "disposition": "UNRESOLVED_OMISSION",
+            "is_valid": false,
+            "is_executable": false,
+            "note": "Essential parameter alpha (hawkes_excitation_alpha) was omitted from specification."
+          },
+          {
+            "param_id": "hawkes_decay_beta",
+            "layer": "layer1_model_parameters",
+            "symbol": "beta",
+            "is_mentioned": false,
+            "disposition": "UNRESOLVED_OMISSION",
+            "is_valid": false,
+            "is_executable": false,
+            "note": "Essential parameter beta (hawkes_decay_beta) was omitted from specification."
+          },
+          {
+            "param_id": "hawkes_branching_ratio_threshold",
+            "layer": "layer2_decision_thresholds",
+            "symbol": "(alpha/beta)*",
+            "is_mentioned": false,
+            "disposition": "UNRESOLVED_OMISSION",
+            "is_valid": false,
+            "is_executable": false,
+            "note": "Essential parameter (alpha/beta)* (hawkes_branching_ratio_threshold) was omitted from specification."
+          },
+          {
+            "param_id": "hawkes_intensity_threshold",
+            "layer": "layer2_decision_thresholds",
+            "symbol": "lambda*",
+            "is_mentioned": true,
+            "disposition": "EMPIRICAL_FIXED",
+            "is_valid": true,
+            "is_executable": true,
+            "note": "Empirical value supported by literature / domain rationale."
+          },
+          {
+            "param_id": "hawkes_risk_sizing_scale",
+            "layer": "layer3_risk_constraints",
+            "symbol": "w_risk",
+            "is_mentioned": false,
+            "disposition": "UNRESOLVED_OMISSION",
+            "is_valid": false,
+            "is_executable": false,
+            "note": "Essential parameter w_risk (hawkes_risk_sizing_scale) was omitted from specification."
+          },
+          {
+            "param_id": "hawkes_max_drawdown_stop",
+            "layer": "layer3_risk_constraints",
+            "symbol": "max_dd_stop",
+            "is_mentioned": false,
+            "disposition": "UNRESOLVED_OMISSION",
+            "is_valid": false,
+            "is_executable": false,
+            "note": "Essential parameter max_dd_stop (hawkes_max_drawdown_stop) was omitted from specification."
+          },
+          {
+            "param_id": "hawkes_execution_timing_rule",
+            "layer": "layer4_execution_constraints",
+            "symbol": "t_exec",
+            "is_mentioned": false,
+            "disposition": "UNRESOLVED_OMISSION",
+            "is_valid": false,
+            "is_executable": false,
+            "note": "Essential parameter t_exec (hawkes_execution_timing_rule) was omitted from specification."
+          },
+          {
+            "param_id": "hawkes_max_holding_horizon",
+            "layer": "layer4_execution_constraints",
+            "symbol": "k_horizon",
+            "is_mentioned": false,
+            "disposition": "UNRESOLVED_OMISSION",
+            "is_valid": false,
+            "is_executable": false,
+            "note": "Essential parameter k_horizon (hawkes_max_holding_horizon) was omitted from specification."
+          }
+        ]
+      },
+      "fidelity_audit": {
+        "r_structural_fidelity": true,
+        "r_target_fidelity": false,
+        "is_trivialized": false,
+        "fidelity_classification": "VALID_PROXY_TRANSFORMATION"
+      },
+      "auto_evaluation": {
+        "gate_decision": "PASS",
+        "dual_gate_pass": true,
+        "5axis_errors": {
+          "concept_id": "hawkes_process",
+          "condition_id": "unknown",
+          "hypothesis_id": "h2_d5_hawkes_process_d2_s44",
+          "e_role": false,
+          "e_math": false,
+          "e_data": false,
+          "e_leap": false,
+          "e_inop": false,
+          "feasibility_status": "SUPPORTED",
+          "error_evidence": {},
+          "is_operable": true,
+          "evaluator_notes": "Clean: No objective error violations detected. Data Feasibility: SUPPORTED."
+        }
+      },
+      "audit_pass": false,
+      "is_mismatch": true
+    },
+    {
+      "call_id": "h2_d5_jump_diffusion_d0_s42",
+      "concept_id": "jump_diffusion",
+      "condition_id": "D0",
+      "seed": 42,
+      "param_audit": {
+        "total_gold_parameters": 9,
+        "grounded_count": 3,
+        "executable_count": 3,
+        "infeasible_declared_count": 0,
+        "infeasible_valid_count": 0,
+        "hallucinated_count": 0,
+        "r_grounded_disposition": 0.3333,
+        "r_executable_resolution": 0.3333,
+        "r_valid_infeasibility": "N/A",
+        "r_strategy_executable": false,
+        "param_details": [
+          {
+            "param_id": "jump_bipower_threshold_theta",
+            "layer": "layer1_model_parameters",
+            "symbol": "theta_bv",
+            "is_mentioned": true,
+            "disposition": "IN_SAMPLE_ESTIMATED",
+            "is_valid": true,
+            "is_executable": true,
+            "note": "Concrete estimation protocol provided (objective, window, search space)."
+          },
+          {
+            "param_id": "jump_hamilton_transition_probs",
+            "layer": "layer1_model_parameters",
+            "symbol": "p_00, p_11",
+            "is_mentioned": false,
+            "disposition": "UNRESOLVED_OMISSION",
+            "is_valid": false,
+            "is_executable": false,
+            "note": "Essential parameter p_00, p_11 (jump_hamilton_transition_probs) was omitted from specification."
+          },
+          {
+            "param_id": "jump_regime_variance_ratio",
+            "layer": "layer1_model_parameters",
+            "symbol": "sigma_crisis / sigma_tranquil",
+            "is_mentioned": false,
+            "disposition": "UNRESOLVED_OMISSION",
+            "is_valid": false,
+            "is_executable": false,
+            "note": "Essential parameter sigma_crisis / sigma_tranquil (jump_regime_variance_ratio) was omitted from specification."
+          },
+          {
+            "param_id": "jump_regime_posterior_threshold",
+            "layer": "layer2_decision_thresholds",
+            "symbol": "p(s_t = crisis)*",
+            "is_mentioned": true,
+            "disposition": "IN_SAMPLE_ESTIMATED",
+            "is_valid": true,
+            "is_executable": true,
+            "note": "Concrete estimation protocol provided (objective, window, search space)."
+          },
+          {
+            "param_id": "jump_component_size_threshold",
+            "layer": "layer2_decision_thresholds",
+            "symbol": "j_t*",
+            "is_mentioned": true,
+            "disposition": "IN_SAMPLE_ESTIMATED",
+            "is_valid": true,
+            "is_executable": true,
+            "note": "Concrete estimation protocol provided (objective, window, search space)."
+          },
+          {
+            "param_id": "jump_regime_lot_multiplier",
+            "layer": "layer3_risk_constraints",
+            "symbol": "lot_crisis",
+            "is_mentioned": false,
+            "disposition": "UNRESOLVED_OMISSION",
+            "is_valid": false,
+            "is_executable": false,
+            "note": "Essential parameter lot_crisis (jump_regime_lot_multiplier) was omitted from specification."
+          },
+          {
+            "param_id": "jump_trailing_stop_threshold",
+            "layer": "layer3_risk_constraints",
+            "symbol": "trailing_stop_bps",
+            "is_mentioned": false,
+            "disposition": "UNRESOLVED_OMISSION",
+            "is_valid": false,
+            "is_executable": false,
+            "note": "Essential parameter trailing_stop_bps (jump_trailing_stop_threshold) was omitted from specification."
+          },
+          {
+            "param_id": "jump_execution_timing_rule",
+            "layer": "layer4_execution_constraints",
+            "symbol": "t_exec",
+            "is_mentioned": false,
+            "disposition": "UNRESOLVED_OMISSION",
+            "is_valid": false,
+            "is_executable": false,
+            "note": "Essential parameter t_exec (jump_execution_timing_rule) was omitted from specification."
+          },
+          {
+            "param_id": "jump_regime_rebalance_interval",
+            "layer": "layer4_execution_constraints",
+            "symbol": "k_rebalance",
+            "is_mentioned": false,
+            "disposition": "UNRESOLVED_OMISSION",
+            "is_valid": false,
+            "is_executable": false,
+            "note": "Essential parameter k_rebalance (jump_regime_rebalance_interval) was omitted from specification."
+          }
+        ]
+      },
+      "fidelity_audit": {
+        "r_structural_fidelity": true,
+        "r_target_fidelity": true,
+        "is_trivialized": false,
+        "fidelity_classification": "DIRECT_REPRODUCTION"
+      },
+      "auto_evaluation": {
+        "gate_decision": "PASS",
+        "dual_gate_pass": false,
+        "5axis_errors": {
+          "concept_id": "jump_diffusion",
+          "condition_id": "unknown",
+          "hypothesis_id": "h2_d5_jump_diffusion_d0_s42",
+          "e_role": false,
+          "e_math": false,
+          "e_data": false,
+          "e_leap": false,
+          "e_inop": true,
+          "feasibility_status": "SUPPORTED",
+          "error_evidence": {
+            "E_inop": "Offending pattern: 'falls below a certain threshold'. Violation: Execution decision relies on an unbound threshold without numerical value or parameter estimation formula."
+          },
+          "is_operable": false,
+          "evaluator_notes": "[E_inop: Offending pattern: 'falls below a certain threshold'. Violation: Execution decision relies on an unbound threshold without numerical value or parameter estimation formula.]"
+        }
+      },
+      "audit_pass": false,
+      "is_mismatch": false
+    },
+    {
+      "call_id": "h2_d5_jump_diffusion_d0_s43",
+      "concept_id": "jump_diffusion",
+      "condition_id": "D0",
+      "seed": 43,
+      "param_audit": {
+        "total_gold_parameters": 9,
+        "grounded_count": 3,
+        "executable_count": 3,
+        "infeasible_declared_count": 0,
+        "infeasible_valid_count": 0,
+        "hallucinated_count": 0,
+        "r_grounded_disposition": 0.3333,
+        "r_executable_resolution": 0.3333,
+        "r_valid_infeasibility": "N/A",
+        "r_strategy_executable": false,
+        "param_details": [
+          {
+            "param_id": "jump_bipower_threshold_theta",
+            "layer": "layer1_model_parameters",
+            "symbol": "theta_bv",
+            "is_mentioned": true,
+            "disposition": "IN_SAMPLE_ESTIMATED",
+            "is_valid": true,
+            "is_executable": true,
+            "note": "Concrete estimation protocol provided (objective, window, search space)."
+          },
+          {
+            "param_id": "jump_hamilton_transition_probs",
+            "layer": "layer1_model_parameters",
+            "symbol": "p_00, p_11",
+            "is_mentioned": false,
+            "disposition": "UNRESOLVED_OMISSION",
+            "is_valid": false,
+            "is_executable": false,
+            "note": "Essential parameter p_00, p_11 (jump_hamilton_transition_probs) was omitted from specification."
+          },
+          {
+            "param_id": "jump_regime_variance_ratio",
+            "layer": "layer1_model_parameters",
+            "symbol": "sigma_crisis / sigma_tranquil",
+            "is_mentioned": false,
+            "disposition": "UNRESOLVED_OMISSION",
+            "is_valid": false,
+            "is_executable": false,
+            "note": "Essential parameter sigma_crisis / sigma_tranquil (jump_regime_variance_ratio) was omitted from specification."
+          },
+          {
+            "param_id": "jump_regime_posterior_threshold",
+            "layer": "layer2_decision_thresholds",
+            "symbol": "p(s_t = crisis)*",
+            "is_mentioned": true,
+            "disposition": "IN_SAMPLE_ESTIMATED",
+            "is_valid": true,
+            "is_executable": true,
+            "note": "Concrete estimation protocol provided (objective, window, search space)."
+          },
+          {
+            "param_id": "jump_component_size_threshold",
+            "layer": "layer2_decision_thresholds",
+            "symbol": "j_t*",
+            "is_mentioned": true,
+            "disposition": "IN_SAMPLE_ESTIMATED",
+            "is_valid": true,
+            "is_executable": true,
+            "note": "Concrete estimation protocol provided (objective, window, search space)."
+          },
+          {
+            "param_id": "jump_regime_lot_multiplier",
+            "layer": "layer3_risk_constraints",
+            "symbol": "lot_crisis",
+            "is_mentioned": false,
+            "disposition": "UNRESOLVED_OMISSION",
+            "is_valid": false,
+            "is_executable": false,
+            "note": "Essential parameter lot_crisis (jump_regime_lot_multiplier) was omitted from specification."
+          },
+          {
+            "param_id": "jump_trailing_stop_threshold",
+            "layer": "layer3_risk_constraints",
+            "symbol": "trailing_stop_bps",
+            "is_mentioned": false,
+            "disposition": "UNRESOLVED_OMISSION",
+            "is_valid": false,
+            "is_executable": false,
+            "note": "Essential parameter trailing_stop_bps (jump_trailing_stop_threshold) was omitted from specification."
+          },
+          {
+            "param_id": "jump_execution_timing_rule",
+            "layer": "layer4_execution_constraints",
+            "symbol": "t_exec",
+            "is_mentioned": false,
+            "disposition": "UNRESOLVED_OMISSION",
+            "is_valid": false,
+            "is_executable": false,
+            "note": "Essential parameter t_exec (jump_execution_timing_rule) was omitted from specification."
+          },
+          {
+            "param_id": "jump_regime_rebalance_interval",
+            "layer": "layer4_execution_constraints",
+            "symbol": "k_rebalance",
+            "is_mentioned": false,
+            "disposition": "UNRESOLVED_OMISSION",
+            "is_valid": false,
+            "is_executable": false,
+            "note": "Essential parameter k_rebalance (jump_regime_rebalance_interval) was omitted from specification."
+          }
+        ]
+      },
+      "fidelity_audit": {
+        "r_structural_fidelity": true,
+        "r_target_fidelity": true,
+        "is_trivialized": false,
+        "fidelity_classification": "DIRECT_REPRODUCTION"
+      },
+      "auto_evaluation": {
+        "gate_decision": "PASS",
+        "dual_gate_pass": true,
+        "5axis_errors": {
+          "concept_id": "jump_diffusion",
+          "condition_id": "unknown",
+          "hypothesis_id": "h2_d5_jump_diffusion_d0_s43",
+          "e_role": false,
+          "e_math": false,
+          "e_data": false,
+          "e_leap": false,
+          "e_inop": false,
+          "feasibility_status": "SUPPORTED",
+          "error_evidence": {},
+          "is_operable": true,
+          "evaluator_notes": "Clean: No objective error violations detected. Data Feasibility: SUPPORTED."
+        }
+      },
+      "audit_pass": false,
+      "is_mismatch": true
+    },
+    {
+      "call_id": "h2_d5_jump_diffusion_d0_s44",
+      "concept_id": "jump_diffusion",
+      "condition_id": "D0",
+      "seed": 44,
+      "param_audit": {
+        "total_gold_parameters": 9,
+        "grounded_count": 3,
+        "executable_count": 3,
+        "infeasible_declared_count": 0,
+        "infeasible_valid_count": 0,
+        "hallucinated_count": 0,
+        "r_grounded_disposition": 0.3333,
+        "r_executable_resolution": 0.3333,
+        "r_valid_infeasibility": "N/A",
+        "r_strategy_executable": false,
+        "param_details": [
+          {
+            "param_id": "jump_bipower_threshold_theta",
+            "layer": "layer1_model_parameters",
+            "symbol": "theta_bv",
+            "is_mentioned": true,
+            "disposition": "EMPIRICAL_FIXED",
+            "is_valid": true,
+            "is_executable": true,
+            "note": "Empirical value supported by literature / domain rationale."
+          },
+          {
+            "param_id": "jump_hamilton_transition_probs",
+            "layer": "layer1_model_parameters",
+            "symbol": "p_00, p_11",
+            "is_mentioned": false,
+            "disposition": "UNRESOLVED_OMISSION",
+            "is_valid": false,
+            "is_executable": false,
+            "note": "Essential parameter p_00, p_11 (jump_hamilton_transition_probs) was omitted from specification."
+          },
+          {
+            "param_id": "jump_regime_variance_ratio",
+            "layer": "layer1_model_parameters",
+            "symbol": "sigma_crisis / sigma_tranquil",
+            "is_mentioned": false,
+            "disposition": "UNRESOLVED_OMISSION",
+            "is_valid": false,
+            "is_executable": false,
+            "note": "Essential parameter sigma_crisis / sigma_tranquil (jump_regime_variance_ratio) was omitted from specification."
+          },
+          {
+            "param_id": "jump_regime_posterior_threshold",
+            "layer": "layer2_decision_thresholds",
+            "symbol": "p(s_t = crisis)*",
+            "is_mentioned": true,
+            "disposition": "EMPIRICAL_FIXED",
+            "is_valid": true,
+            "is_executable": true,
+            "note": "Empirical value supported by literature / domain rationale."
+          },
+          {
+            "param_id": "jump_component_size_threshold",
+            "layer": "layer2_decision_thresholds",
+            "symbol": "j_t*",
+            "is_mentioned": true,
+            "disposition": "EMPIRICAL_FIXED",
+            "is_valid": true,
+            "is_executable": true,
+            "note": "Empirical value supported by literature / domain rationale."
+          },
+          {
+            "param_id": "jump_regime_lot_multiplier",
+            "layer": "layer3_risk_constraints",
+            "symbol": "lot_crisis",
+            "is_mentioned": false,
+            "disposition": "UNRESOLVED_OMISSION",
+            "is_valid": false,
+            "is_executable": false,
+            "note": "Essential parameter lot_crisis (jump_regime_lot_multiplier) was omitted from specification."
+          },
+          {
+            "param_id": "jump_trailing_stop_threshold",
+            "layer": "layer3_risk_constraints",
+            "symbol": "trailing_stop_bps",
+            "is_mentioned": false,
+            "disposition": "UNRESOLVED_OMISSION",
+            "is_valid": false,
+            "is_executable": false,
+            "note": "Essential parameter trailing_stop_bps (jump_trailing_stop_threshold) was omitted from specification."
+          },
+          {
+            "param_id": "jump_execution_timing_rule",
+            "layer": "layer4_execution_constraints",
+            "symbol": "t_exec",
+            "is_mentioned": false,
+            "disposition": "UNRESOLVED_OMISSION",
+            "is_valid": false,
+            "is_executable": false,
+            "note": "Essential parameter t_exec (jump_execution_timing_rule) was omitted from specification."
+          },
+          {
+            "param_id": "jump_regime_rebalance_interval",
+            "layer": "layer4_execution_constraints",
+            "symbol": "k_rebalance",
+            "is_mentioned": false,
+            "disposition": "UNRESOLVED_OMISSION",
+            "is_valid": false,
+            "is_executable": false,
+            "note": "Essential parameter k_rebalance (jump_regime_rebalance_interval) was omitted from specification."
+          }
+        ]
+      },
+      "fidelity_audit": {
+        "r_structural_fidelity": true,
+        "r_target_fidelity": true,
+        "is_trivialized": false,
+        "fidelity_classification": "DIRECT_REPRODUCTION"
+      },
+      "auto_evaluation": {
+        "gate_decision": "PASS",
+        "dual_gate_pass": true,
+        "5axis_errors": {
+          "concept_id": "jump_diffusion",
+          "condition_id": "unknown",
+          "hypothesis_id": "h2_d5_jump_diffusion_d0_s44",
+          "e_role": false,
+          "e_math": false,
+          "e_data": false,
+          "e_leap": false,
+          "e_inop": false,
+          "feasibility_status": "SUPPORTED",
+          "error_evidence": {},
+          "is_operable": true,
+          "evaluator_notes": "Clean: No objective error violations detected. Data Feasibility: SUPPORTED."
+        }
+      },
+      "audit_pass": false,
+      "is_mismatch": true
+    },
+    {
+      "call_id": "h2_d5_jump_diffusion_d1_s42",
+      "concept_id": "jump_diffusion",
+      "condition_id": "D1",
+      "seed": 42,
+      "param_audit": {
+        "total_gold_parameters": 9,
+        "grounded_count": 3,
+        "executable_count": 3,
+        "infeasible_declared_count": 0,
+        "infeasible_valid_count": 0,
+        "hallucinated_count": 0,
+        "r_grounded_disposition": 0.3333,
+        "r_executable_resolution": 0.3333,
+        "r_valid_infeasibility": "N/A",
+        "r_strategy_executable": false,
+        "param_details": [
+          {
+            "param_id": "jump_bipower_threshold_theta",
+            "layer": "layer1_model_parameters",
+            "symbol": "theta_bv",
+            "is_mentioned": true,
+            "disposition": "EMPIRICAL_FIXED",
+            "is_valid": true,
+            "is_executable": true,
+            "note": "Empirical value supported by literature / domain rationale."
+          },
+          {
+            "param_id": "jump_hamilton_transition_probs",
+            "layer": "layer1_model_parameters",
+            "symbol": "p_00, p_11",
+            "is_mentioned": false,
+            "disposition": "UNRESOLVED_OMISSION",
+            "is_valid": false,
+            "is_executable": false,
+            "note": "Essential parameter p_00, p_11 (jump_hamilton_transition_probs) was omitted from specification."
+          },
+          {
+            "param_id": "jump_regime_variance_ratio",
+            "layer": "layer1_model_parameters",
+            "symbol": "sigma_crisis / sigma_tranquil",
+            "is_mentioned": false,
+            "disposition": "UNRESOLVED_OMISSION",
+            "is_valid": false,
+            "is_executable": false,
+            "note": "Essential parameter sigma_crisis / sigma_tranquil (jump_regime_variance_ratio) was omitted from specification."
+          },
+          {
+            "param_id": "jump_regime_posterior_threshold",
+            "layer": "layer2_decision_thresholds",
+            "symbol": "p(s_t = crisis)*",
+            "is_mentioned": true,
+            "disposition": "EMPIRICAL_FIXED",
+            "is_valid": true,
+            "is_executable": true,
+            "note": "Empirical value supported by literature / domain rationale."
+          },
+          {
+            "param_id": "jump_component_size_threshold",
+            "layer": "layer2_decision_thresholds",
+            "symbol": "j_t*",
+            "is_mentioned": true,
+            "disposition": "EMPIRICAL_FIXED",
+            "is_valid": true,
+            "is_executable": true,
+            "note": "Empirical value supported by literature / domain rationale."
+          },
+          {
+            "param_id": "jump_regime_lot_multiplier",
+            "layer": "layer3_risk_constraints",
+            "symbol": "lot_crisis",
+            "is_mentioned": false,
+            "disposition": "UNRESOLVED_OMISSION",
+            "is_valid": false,
+            "is_executable": false,
+            "note": "Essential parameter lot_crisis (jump_regime_lot_multiplier) was omitted from specification."
+          },
+          {
+            "param_id": "jump_trailing_stop_threshold",
+            "layer": "layer3_risk_constraints",
+            "symbol": "trailing_stop_bps",
+            "is_mentioned": false,
+            "disposition": "UNRESOLVED_OMISSION",
+            "is_valid": false,
+            "is_executable": false,
+            "note": "Essential parameter trailing_stop_bps (jump_trailing_stop_threshold) was omitted from specification."
+          },
+          {
+            "param_id": "jump_execution_timing_rule",
+            "layer": "layer4_execution_constraints",
+            "symbol": "t_exec",
+            "is_mentioned": false,
+            "disposition": "UNRESOLVED_OMISSION",
+            "is_valid": false,
+            "is_executable": false,
+            "note": "Essential parameter t_exec (jump_execution_timing_rule) was omitted from specification."
+          },
+          {
+            "param_id": "jump_regime_rebalance_interval",
+            "layer": "layer4_execution_constraints",
+            "symbol": "k_rebalance",
+            "is_mentioned": false,
+            "disposition": "UNRESOLVED_OMISSION",
+            "is_valid": false,
+            "is_executable": false,
+            "note": "Essential parameter k_rebalance (jump_regime_rebalance_interval) was omitted from specification."
+          }
+        ]
+      },
+      "fidelity_audit": {
+        "r_structural_fidelity": true,
+        "r_target_fidelity": true,
+        "is_trivialized": false,
+        "fidelity_classification": "DIRECT_REPRODUCTION"
+      },
+      "auto_evaluation": {
+        "gate_decision": "PASS",
+        "dual_gate_pass": true,
+        "5axis_errors": {
+          "concept_id": "jump_diffusion",
+          "condition_id": "unknown",
+          "hypothesis_id": "h2_d5_jump_diffusion_d1_s42",
+          "e_role": false,
+          "e_math": false,
+          "e_data": false,
+          "e_leap": false,
+          "e_inop": false,
+          "feasibility_status": "SUPPORTED",
+          "error_evidence": {},
+          "is_operable": true,
+          "evaluator_notes": "Clean: No objective error violations detected. Data Feasibility: SUPPORTED."
+        }
+      },
+      "audit_pass": false,
+      "is_mismatch": true
+    },
+    {
+      "call_id": "h2_d5_jump_diffusion_d1_s43",
+      "concept_id": "jump_diffusion",
+      "condition_id": "D1",
+      "seed": 43,
+      "param_audit": {
+        "total_gold_parameters": 9,
+        "grounded_count": 3,
+        "executable_count": 3,
+        "infeasible_declared_count": 0,
+        "infeasible_valid_count": 0,
+        "hallucinated_count": 0,
+        "r_grounded_disposition": 0.3333,
+        "r_executable_resolution": 0.3333,
+        "r_valid_infeasibility": "N/A",
+        "r_strategy_executable": false,
+        "param_details": [
+          {
+            "param_id": "jump_bipower_threshold_theta",
+            "layer": "layer1_model_parameters",
+            "symbol": "theta_bv",
+            "is_mentioned": true,
+            "disposition": "IN_SAMPLE_ESTIMATED",
+            "is_valid": true,
+            "is_executable": true,
+            "note": "Concrete estimation protocol provided (objective, window, search space)."
+          },
+          {
+            "param_id": "jump_hamilton_transition_probs",
+            "layer": "layer1_model_parameters",
+            "symbol": "p_00, p_11",
+            "is_mentioned": false,
+            "disposition": "UNRESOLVED_OMISSION",
+            "is_valid": false,
+            "is_executable": false,
+            "note": "Essential parameter p_00, p_11 (jump_hamilton_transition_probs) was omitted from specification."
+          },
+          {
+            "param_id": "jump_regime_variance_ratio",
+            "layer": "layer1_model_parameters",
+            "symbol": "sigma_crisis / sigma_tranquil",
+            "is_mentioned": false,
+            "disposition": "UNRESOLVED_OMISSION",
+            "is_valid": false,
+            "is_executable": false,
+            "note": "Essential parameter sigma_crisis / sigma_tranquil (jump_regime_variance_ratio) was omitted from specification."
+          },
+          {
+            "param_id": "jump_regime_posterior_threshold",
+            "layer": "layer2_decision_thresholds",
+            "symbol": "p(s_t = crisis)*",
+            "is_mentioned": true,
+            "disposition": "IN_SAMPLE_ESTIMATED",
+            "is_valid": true,
+            "is_executable": true,
+            "note": "Concrete estimation protocol provided (objective, window, search space)."
+          },
+          {
+            "param_id": "jump_component_size_threshold",
+            "layer": "layer2_decision_thresholds",
+            "symbol": "j_t*",
+            "is_mentioned": true,
+            "disposition": "IN_SAMPLE_ESTIMATED",
+            "is_valid": true,
+            "is_executable": true,
+            "note": "Concrete estimation protocol provided (objective, window, search space)."
+          },
+          {
+            "param_id": "jump_regime_lot_multiplier",
+            "layer": "layer3_risk_constraints",
+            "symbol": "lot_crisis",
+            "is_mentioned": false,
+            "disposition": "UNRESOLVED_OMISSION",
+            "is_valid": false,
+            "is_executable": false,
+            "note": "Essential parameter lot_crisis (jump_regime_lot_multiplier) was omitted from specification."
+          },
+          {
+            "param_id": "jump_trailing_stop_threshold",
+            "layer": "layer3_risk_constraints",
+            "symbol": "trailing_stop_bps",
+            "is_mentioned": false,
+            "disposition": "UNRESOLVED_OMISSION",
+            "is_valid": false,
+            "is_executable": false,
+            "note": "Essential parameter trailing_stop_bps (jump_trailing_stop_threshold) was omitted from specification."
+          },
+          {
+            "param_id": "jump_execution_timing_rule",
+            "layer": "layer4_execution_constraints",
+            "symbol": "t_exec",
+            "is_mentioned": false,
+            "disposition": "UNRESOLVED_OMISSION",
+            "is_valid": false,
+            "is_executable": false,
+            "note": "Essential parameter t_exec (jump_execution_timing_rule) was omitted from specification."
+          },
+          {
+            "param_id": "jump_regime_rebalance_interval",
+            "layer": "layer4_execution_constraints",
+            "symbol": "k_rebalance",
+            "is_mentioned": false,
+            "disposition": "UNRESOLVED_OMISSION",
+            "is_valid": false,
+            "is_executable": false,
+            "note": "Essential parameter k_rebalance (jump_regime_rebalance_interval) was omitted from specification."
+          }
+        ]
+      },
+      "fidelity_audit": {
+        "r_structural_fidelity": true,
+        "r_target_fidelity": false,
+        "is_trivialized": false,
+        "fidelity_classification": "VALID_PROXY_TRANSFORMATION"
+      },
+      "auto_evaluation": {
+        "gate_decision": "PASS",
+        "dual_gate_pass": true,
+        "5axis_errors": {
+          "concept_id": "jump_diffusion",
+          "condition_id": "unknown",
+          "hypothesis_id": "h2_d5_jump_diffusion_d1_s43",
+          "e_role": false,
+          "e_math": false,
+          "e_data": false,
+          "e_leap": false,
+          "e_inop": false,
+          "feasibility_status": "SUPPORTED",
+          "error_evidence": {},
+          "is_operable": true,
+          "evaluator_notes": "Clean: No objective error violations detected. Data Feasibility: SUPPORTED."
+        }
+      },
+      "audit_pass": false,
+      "is_mismatch": true
+    },
+    {
+      "call_id": "h2_d5_jump_diffusion_d1_s44",
+      "concept_id": "jump_diffusion",
+      "condition_id": "D1",
+      "seed": 44,
+      "param_audit": {
+        "total_gold_parameters": 9,
+        "grounded_count": 0,
+        "executable_count": 0,
+        "infeasible_declared_count": 0,
+        "infeasible_valid_count": 0,
+        "hallucinated_count": 0,
+        "r_grounded_disposition": 0.0,
+        "r_executable_resolution": 0.0,
+        "r_valid_infeasibility": "N/A",
+        "r_strategy_executable": false,
+        "param_details": [
+          {
+            "param_id": "jump_bipower_threshold_theta",
+            "layer": "layer1_model_parameters",
+            "symbol": "theta_bv",
+            "is_mentioned": true,
+            "disposition": "QUALITATIVE_UNRESOLVED",
+            "is_valid": false,
+            "is_executable": false,
+            "note": "Parameter mentioned qualitatively but left undetermined."
+          },
+          {
+            "param_id": "jump_hamilton_transition_probs",
+            "layer": "layer1_model_parameters",
+            "symbol": "p_00, p_11",
+            "is_mentioned": true,
+            "disposition": "QUALITATIVE_UNRESOLVED",
+            "is_valid": false,
+            "is_executable": false,
+            "note": "Parameter mentioned qualitatively but left undetermined."
+          },
+          {
+            "param_id": "jump_regime_variance_ratio",
+            "layer": "layer1_model_parameters",
+            "symbol": "sigma_crisis / sigma_tranquil",
+            "is_mentioned": false,
+            "disposition": "UNRESOLVED_OMISSION",
+            "is_valid": false,
+            "is_executable": false,
+            "note": "Essential parameter sigma_crisis / sigma_tranquil (jump_regime_variance_ratio) was omitted from specification."
+          },
+          {
+            "param_id": "jump_regime_posterior_threshold",
+            "layer": "layer2_decision_thresholds",
+            "symbol": "p(s_t = crisis)*",
+            "is_mentioned": true,
+            "disposition": "QUALITATIVE_UNRESOLVED",
+            "is_valid": false,
+            "is_executable": false,
+            "note": "Parameter mentioned qualitatively but left undetermined."
+          },
+          {
+            "param_id": "jump_component_size_threshold",
+            "layer": "layer2_decision_thresholds",
+            "symbol": "j_t*",
+            "is_mentioned": true,
+            "disposition": "QUALITATIVE_UNRESOLVED",
+            "is_valid": false,
+            "is_executable": false,
+            "note": "Parameter mentioned qualitatively but left undetermined."
+          },
+          {
+            "param_id": "jump_regime_lot_multiplier",
+            "layer": "layer3_risk_constraints",
+            "symbol": "lot_crisis",
+            "is_mentioned": false,
+            "disposition": "UNRESOLVED_OMISSION",
+            "is_valid": false,
+            "is_executable": false,
+            "note": "Essential parameter lot_crisis (jump_regime_lot_multiplier) was omitted from specification."
+          },
+          {
+            "param_id": "jump_trailing_stop_threshold",
+            "layer": "layer3_risk_constraints",
+            "symbol": "trailing_stop_bps",
+            "is_mentioned": false,
+            "disposition": "UNRESOLVED_OMISSION",
+            "is_valid": false,
+            "is_executable": false,
+            "note": "Essential parameter trailing_stop_bps (jump_trailing_stop_threshold) was omitted from specification."
+          },
+          {
+            "param_id": "jump_execution_timing_rule",
+            "layer": "layer4_execution_constraints",
+            "symbol": "t_exec",
+            "is_mentioned": false,
+            "disposition": "UNRESOLVED_OMISSION",
+            "is_valid": false,
+            "is_executable": false,
+            "note": "Essential parameter t_exec (jump_execution_timing_rule) was omitted from specification."
+          },
+          {
+            "param_id": "jump_regime_rebalance_interval",
+            "layer": "layer4_execution_constraints",
+            "symbol": "k_rebalance",
+            "is_mentioned": false,
+            "disposition": "UNRESOLVED_OMISSION",
+            "is_valid": false,
+            "is_executable": false,
+            "note": "Essential parameter k_rebalance (jump_regime_rebalance_interval) was omitted from specification."
+          }
+        ]
+      },
+      "fidelity_audit": {
+        "r_structural_fidelity": true,
+        "r_target_fidelity": true,
+        "is_trivialized": false,
+        "fidelity_classification": "DIRECT_REPRODUCTION"
+      },
+      "auto_evaluation": {
+        "gate_decision": "PASS",
+        "dual_gate_pass": true,
+        "5axis_errors": {
+          "concept_id": "jump_diffusion",
+          "condition_id": "unknown",
+          "hypothesis_id": "h2_d5_jump_diffusion_d1_s44",
+          "e_role": false,
+          "e_math": false,
+          "e_data": false,
+          "e_leap": false,
+          "e_inop": false,
+          "feasibility_status": "SUPPORTED",
+          "error_evidence": {},
+          "is_operable": true,
+          "evaluator_notes": "Clean: No objective error violations detected. Data Feasibility: SUPPORTED."
+        }
+      },
+      "audit_pass": false,
+      "is_mismatch": true
+    },
+    {
+      "call_id": "h2_d5_jump_diffusion_d2_s42",
+      "concept_id": "jump_diffusion",
+      "condition_id": "D2",
+      "seed": 42,
+      "param_audit": {
+        "total_gold_parameters": 9,
+        "grounded_count": 4,
+        "executable_count": 4,
+        "infeasible_declared_count": 0,
+        "infeasible_valid_count": 0,
+        "hallucinated_count": 0,
+        "r_grounded_disposition": 0.4444,
+        "r_executable_resolution": 0.4444,
+        "r_valid_infeasibility": "N/A",
+        "r_strategy_executable": false,
+        "param_details": [
+          {
+            "param_id": "jump_bipower_threshold_theta",
+            "layer": "layer1_model_parameters",
+            "symbol": "theta_bv",
+            "is_mentioned": true,
+            "disposition": "IN_SAMPLE_ESTIMATED",
+            "is_valid": true,
+            "is_executable": true,
+            "note": "Concrete estimation protocol provided (objective, window, search space)."
+          },
+          {
+            "param_id": "jump_hamilton_transition_probs",
+            "layer": "layer1_model_parameters",
+            "symbol": "p_00, p_11",
+            "is_mentioned": true,
+            "disposition": "IN_SAMPLE_ESTIMATED",
+            "is_valid": true,
+            "is_executable": true,
+            "note": "Concrete estimation protocol provided (objective, window, search space)."
+          },
+          {
+            "param_id": "jump_regime_variance_ratio",
+            "layer": "layer1_model_parameters",
+            "symbol": "sigma_crisis / sigma_tranquil",
+            "is_mentioned": false,
+            "disposition": "UNRESOLVED_OMISSION",
+            "is_valid": false,
+            "is_executable": false,
+            "note": "Essential parameter sigma_crisis / sigma_tranquil (jump_regime_variance_ratio) was omitted from specification."
+          },
+          {
+            "param_id": "jump_regime_posterior_threshold",
+            "layer": "layer2_decision_thresholds",
+            "symbol": "p(s_t = crisis)*",
+            "is_mentioned": true,
+            "disposition": "IN_SAMPLE_ESTIMATED",
+            "is_valid": true,
+            "is_executable": true,
+            "note": "Concrete estimation protocol provided (objective, window, search space)."
+          },
+          {
+            "param_id": "jump_component_size_threshold",
+            "layer": "layer2_decision_thresholds",
+            "symbol": "j_t*",
+            "is_mentioned": true,
+            "disposition": "IN_SAMPLE_ESTIMATED",
+            "is_valid": true,
+            "is_executable": true,
+            "note": "Concrete estimation protocol provided (objective, window, search space)."
+          },
+          {
+            "param_id": "jump_regime_lot_multiplier",
+            "layer": "layer3_risk_constraints",
+            "symbol": "lot_crisis",
+            "is_mentioned": false,
+            "disposition": "UNRESOLVED_OMISSION",
+            "is_valid": false,
+            "is_executable": false,
+            "note": "Essential parameter lot_crisis (jump_regime_lot_multiplier) was omitted from specification."
+          },
+          {
+            "param_id": "jump_trailing_stop_threshold",
+            "layer": "layer3_risk_constraints",
+            "symbol": "trailing_stop_bps",
+            "is_mentioned": false,
+            "disposition": "UNRESOLVED_OMISSION",
+            "is_valid": false,
+            "is_executable": false,
+            "note": "Essential parameter trailing_stop_bps (jump_trailing_stop_threshold) was omitted from specification."
+          },
+          {
+            "param_id": "jump_execution_timing_rule",
+            "layer": "layer4_execution_constraints",
+            "symbol": "t_exec",
+            "is_mentioned": false,
+            "disposition": "UNRESOLVED_OMISSION",
+            "is_valid": false,
+            "is_executable": false,
+            "note": "Essential parameter t_exec (jump_execution_timing_rule) was omitted from specification."
+          },
+          {
+            "param_id": "jump_regime_rebalance_interval",
+            "layer": "layer4_execution_constraints",
+            "symbol": "k_rebalance",
+            "is_mentioned": false,
+            "disposition": "UNRESOLVED_OMISSION",
+            "is_valid": false,
+            "is_executable": false,
+            "note": "Essential parameter k_rebalance (jump_regime_rebalance_interval) was omitted from specification."
+          }
+        ]
+      },
+      "fidelity_audit": {
+        "r_structural_fidelity": true,
+        "r_target_fidelity": true,
+        "is_trivialized": false,
+        "fidelity_classification": "DIRECT_REPRODUCTION"
+      },
+      "auto_evaluation": {
+        "gate_decision": "PASS",
+        "dual_gate_pass": false,
+        "5axis_errors": {
+          "concept_id": "jump_diffusion",
+          "condition_id": "unknown",
+          "hypothesis_id": "h2_d5_jump_diffusion_d2_s42",
+          "e_role": false,
+          "e_math": false,
+          "e_data": false,
+          "e_leap": false,
+          "e_inop": true,
+          "feasibility_status": "SUPPORTED",
+          "error_evidence": {
+            "E_inop": "Offending pattern: 'falls below the threshold'. Violation: Execution decision relies on an unbound threshold without numerical value or parameter estimation formula."
+          },
+          "is_operable": false,
+          "evaluator_notes": "[E_inop: Offending pattern: 'falls below the threshold'. Violation: Execution decision relies on an unbound threshold without numerical value or parameter estimation formula.]"
+        }
+      },
+      "audit_pass": false,
+      "is_mismatch": false
+    },
+    {
+      "call_id": "h2_d5_jump_diffusion_d2_s43",
+      "concept_id": "jump_diffusion",
+      "condition_id": "D2",
+      "seed": 43,
+      "param_audit": {
+        "total_gold_parameters": 9,
+        "grounded_count": 4,
+        "executable_count": 4,
+        "infeasible_declared_count": 0,
+        "infeasible_valid_count": 0,
+        "hallucinated_count": 0,
+        "r_grounded_disposition": 0.4444,
+        "r_executable_resolution": 0.4444,
+        "r_valid_infeasibility": "N/A",
+        "r_strategy_executable": false,
+        "param_details": [
+          {
+            "param_id": "jump_bipower_threshold_theta",
+            "layer": "layer1_model_parameters",
+            "symbol": "theta_bv",
+            "is_mentioned": true,
+            "disposition": "IN_SAMPLE_ESTIMATED",
+            "is_valid": true,
+            "is_executable": true,
+            "note": "Concrete estimation protocol provided (objective, window, search space)."
+          },
+          {
+            "param_id": "jump_hamilton_transition_probs",
+            "layer": "layer1_model_parameters",
+            "symbol": "p_00, p_11",
+            "is_mentioned": true,
+            "disposition": "IN_SAMPLE_ESTIMATED",
+            "is_valid": true,
+            "is_executable": true,
+            "note": "Concrete estimation protocol provided (objective, window, search space)."
+          },
+          {
+            "param_id": "jump_regime_variance_ratio",
+            "layer": "layer1_model_parameters",
+            "symbol": "sigma_crisis / sigma_tranquil",
+            "is_mentioned": false,
+            "disposition": "UNRESOLVED_OMISSION",
+            "is_valid": false,
+            "is_executable": false,
+            "note": "Essential parameter sigma_crisis / sigma_tranquil (jump_regime_variance_ratio) was omitted from specification."
+          },
+          {
+            "param_id": "jump_regime_posterior_threshold",
+            "layer": "layer2_decision_thresholds",
+            "symbol": "p(s_t = crisis)*",
+            "is_mentioned": true,
+            "disposition": "IN_SAMPLE_ESTIMATED",
+            "is_valid": true,
+            "is_executable": true,
+            "note": "Concrete estimation protocol provided (objective, window, search space)."
+          },
+          {
+            "param_id": "jump_component_size_threshold",
+            "layer": "layer2_decision_thresholds",
+            "symbol": "j_t*",
+            "is_mentioned": true,
+            "disposition": "IN_SAMPLE_ESTIMATED",
+            "is_valid": true,
+            "is_executable": true,
+            "note": "Concrete estimation protocol provided (objective, window, search space)."
+          },
+          {
+            "param_id": "jump_regime_lot_multiplier",
+            "layer": "layer3_risk_constraints",
+            "symbol": "lot_crisis",
+            "is_mentioned": false,
+            "disposition": "UNRESOLVED_OMISSION",
+            "is_valid": false,
+            "is_executable": false,
+            "note": "Essential parameter lot_crisis (jump_regime_lot_multiplier) was omitted from specification."
+          },
+          {
+            "param_id": "jump_trailing_stop_threshold",
+            "layer": "layer3_risk_constraints",
+            "symbol": "trailing_stop_bps",
+            "is_mentioned": false,
+            "disposition": "UNRESOLVED_OMISSION",
+            "is_valid": false,
+            "is_executable": false,
+            "note": "Essential parameter trailing_stop_bps (jump_trailing_stop_threshold) was omitted from specification."
+          },
+          {
+            "param_id": "jump_execution_timing_rule",
+            "layer": "layer4_execution_constraints",
+            "symbol": "t_exec",
+            "is_mentioned": false,
+            "disposition": "UNRESOLVED_OMISSION",
+            "is_valid": false,
+            "is_executable": false,
+            "note": "Essential parameter t_exec (jump_execution_timing_rule) was omitted from specification."
+          },
+          {
+            "param_id": "jump_regime_rebalance_interval",
+            "layer": "layer4_execution_constraints",
+            "symbol": "k_rebalance",
+            "is_mentioned": false,
+            "disposition": "UNRESOLVED_OMISSION",
+            "is_valid": false,
+            "is_executable": false,
+            "note": "Essential parameter k_rebalance (jump_regime_rebalance_interval) was omitted from specification."
+          }
+        ]
+      },
+      "fidelity_audit": {
+        "r_structural_fidelity": true,
+        "r_target_fidelity": true,
+        "is_trivialized": false,
+        "fidelity_classification": "DIRECT_REPRODUCTION"
+      },
+      "auto_evaluation": {
+        "gate_decision": "PASS",
+        "dual_gate_pass": true,
+        "5axis_errors": {
+          "concept_id": "jump_diffusion",
+          "condition_id": "unknown",
+          "hypothesis_id": "h2_d5_jump_diffusion_d2_s43",
+          "e_role": false,
+          "e_math": false,
+          "e_data": false,
+          "e_leap": false,
+          "e_inop": false,
+          "feasibility_status": "SUPPORTED",
+          "error_evidence": {},
+          "is_operable": true,
+          "evaluator_notes": "Clean: No objective error violations detected. Data Feasibility: SUPPORTED."
+        }
+      },
+      "audit_pass": false,
+      "is_mismatch": true
+    },
+    {
+      "call_id": "h2_d5_jump_diffusion_d2_s44",
+      "concept_id": "jump_diffusion",
+      "condition_id": "D2",
+      "seed": 44,
+      "param_audit": {
+        "total_gold_parameters": 9,
+        "grounded_count": 4,
+        "executable_count": 4,
+        "infeasible_declared_count": 0,
+        "infeasible_valid_count": 0,
+        "hallucinated_count": 0,
+        "r_grounded_disposition": 0.4444,
+        "r_executable_resolution": 0.4444,
+        "r_valid_infeasibility": "N/A",
+        "r_strategy_executable": false,
+        "param_details": [
+          {
+            "param_id": "jump_bipower_threshold_theta",
+            "layer": "layer1_model_parameters",
+            "symbol": "theta_bv",
+            "is_mentioned": true,
+            "disposition": "IN_SAMPLE_ESTIMATED",
+            "is_valid": true,
+            "is_executable": true,
+            "note": "Concrete estimation protocol provided (objective, window, search space)."
+          },
+          {
+            "param_id": "jump_hamilton_transition_probs",
+            "layer": "layer1_model_parameters",
+            "symbol": "p_00, p_11",
+            "is_mentioned": true,
+            "disposition": "IN_SAMPLE_ESTIMATED",
+            "is_valid": true,
+            "is_executable": true,
+            "note": "Concrete estimation protocol provided (objective, window, search space)."
+          },
+          {
+            "param_id": "jump_regime_variance_ratio",
+            "layer": "layer1_model_parameters",
+            "symbol": "sigma_crisis / sigma_tranquil",
+            "is_mentioned": false,
+            "disposition": "UNRESOLVED_OMISSION",
+            "is_valid": false,
+            "is_executable": false,
+            "note": "Essential parameter sigma_crisis / sigma_tranquil (jump_regime_variance_ratio) was omitted from specification."
+          },
+          {
+            "param_id": "jump_regime_posterior_threshold",
+            "layer": "layer2_decision_thresholds",
+            "symbol": "p(s_t = crisis)*",
+            "is_mentioned": true,
+            "disposition": "IN_SAMPLE_ESTIMATED",
+            "is_valid": true,
+            "is_executable": true,
+            "note": "Concrete estimation protocol provided (objective, window, search space)."
+          },
+          {
+            "param_id": "jump_component_size_threshold",
+            "layer": "layer2_decision_thresholds",
+            "symbol": "j_t*",
+            "is_mentioned": true,
+            "disposition": "IN_SAMPLE_ESTIMATED",
+            "is_valid": true,
+            "is_executable": true,
+            "note": "Concrete estimation protocol provided (objective, window, search space)."
+          },
+          {
+            "param_id": "jump_regime_lot_multiplier",
+            "layer": "layer3_risk_constraints",
+            "symbol": "lot_crisis",
+            "is_mentioned": false,
+            "disposition": "UNRESOLVED_OMISSION",
+            "is_valid": false,
+            "is_executable": false,
+            "note": "Essential parameter lot_crisis (jump_regime_lot_multiplier) was omitted from specification."
+          },
+          {
+            "param_id": "jump_trailing_stop_threshold",
+            "layer": "layer3_risk_constraints",
+            "symbol": "trailing_stop_bps",
+            "is_mentioned": false,
+            "disposition": "UNRESOLVED_OMISSION",
+            "is_valid": false,
+            "is_executable": false,
+            "note": "Essential parameter trailing_stop_bps (jump_trailing_stop_threshold) was omitted from specification."
+          },
+          {
+            "param_id": "jump_execution_timing_rule",
+            "layer": "layer4_execution_constraints",
+            "symbol": "t_exec",
+            "is_mentioned": false,
+            "disposition": "UNRESOLVED_OMISSION",
+            "is_valid": false,
+            "is_executable": false,
+            "note": "Essential parameter t_exec (jump_execution_timing_rule) was omitted from specification."
+          },
+          {
+            "param_id": "jump_regime_rebalance_interval",
+            "layer": "layer4_execution_constraints",
+            "symbol": "k_rebalance",
+            "is_mentioned": false,
+            "disposition": "UNRESOLVED_OMISSION",
+            "is_valid": false,
+            "is_executable": false,
+            "note": "Essential parameter k_rebalance (jump_regime_rebalance_interval) was omitted from specification."
+          }
+        ]
+      },
+      "fidelity_audit": {
+        "r_structural_fidelity": true,
+        "r_target_fidelity": true,
+        "is_trivialized": false,
+        "fidelity_classification": "DIRECT_REPRODUCTION"
+      },
+      "auto_evaluation": {
+        "gate_decision": "PASS",
+        "dual_gate_pass": true,
+        "5axis_errors": {
+          "concept_id": "jump_diffusion",
+          "condition_id": "unknown",
+          "hypothesis_id": "h2_d5_jump_diffusion_d2_s44",
+          "e_role": false,
+          "e_math": false,
+          "e_data": false,
+          "e_leap": false,
+          "e_inop": false,
+          "feasibility_status": "SUPPORTED",
+          "error_evidence": {},
+          "is_operable": true,
+          "evaluator_notes": "Clean: No objective error violations detected. Data Feasibility: SUPPORTED."
+        }
+      },
+      "audit_pass": false,
+      "is_mismatch": true
+    }
+  ]
+}

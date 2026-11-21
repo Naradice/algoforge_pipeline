@@ -1,0 +1,111 @@
+{
+  "execution_timestamp_utc": "2026-11-21T15:34:46.192776+00:00",
+  "frozen_config_sha256": "a61434766dd6891eaca8f09c09df2b2a4b259aeed018cf369d90b0794945ec70",
+  "snapshot_2025_sha256": "ad004a428e3dc1f1f37cd1f37cea8fdbefb9f51c4b9988a5beb87490cc4bedb5",
+  "trading_days_2025": 255,
+  "bars_2025": 73295,
+  "bad_bar_rate_2025": 0.0,
+  "algoforge_clean": true,
+  "api_spend_usd": 0.0,
+  "strategies_2025": {
+    "S0": {
+      "final_equity": 305278.09999960376,
+      "total_return_pct": -69.47219000003962,
+      "annualized_sharpe": -5.002352340233005,
+      "max_drawdown_pct": -70.39513068247422,
+      "trade_count": 1578,
+      "win_rate": 0.2877059569074778,
+      "post_fill_risk_exceeded_count": 1136
+    },
+    "S_full": {
+      "final_equity": 414644.89999967464,
+      "total_return_pct": -58.535510000032545,
+      "annualized_sharpe": -4.3826601341312115,
+      "max_drawdown_pct": -60.40633823403544,
+      "trade_count": 1284,
+      "win_rate": 0.29049844236760125,
+      "post_fill_risk_exceeded_count": 782
+    },
+    "S_full_minus_Hawkes": {
+      "final_equity": 375746.9999996548,
+      "total_return_pct": -62.425300000034525,
+      "annualized_sharpe": -4.69538897553135,
+      "max_drawdown_pct": -64.18951773310458,
+      "trade_count": 1372,
+      "win_rate": 0.2849854227405248,
+      "post_fill_risk_exceeded_count": 828
+    },
+    "S_full_minus_Jump": {
+      "final_equity": 390291.899999658,
+      "total_return_pct": -60.97081000003419,
+      "annualized_sharpe": -4.588248890908923,
+      "max_drawdown_pct": -62.15077106679545,
+      "trade_count": 1420,
+      "win_rate": 0.29577464788732394,
+      "post_fill_risk_exceeded_count": 835
+    },
+    "S_full_minus_Hamilton": {
+      "final_equity": 414629.5999996285,
+      "total_return_pct": -58.537040000037145,
+      "annualized_sharpe": -4.097554386569522,
+      "max_drawdown_pct": -60.833730462574664,
+      "trade_count": 1284,
+      "win_rate": 0.29049844236760125,
+      "post_fill_risk_exceeded_count": 967
+    }
+  },
+  "holm_bonferroni_2025": [
+    {
+      "id": "H_P3-1",
+      "description": "S_full vs S0",
+      "mean_diff": 0.0011668270882715403,
+      "se_hac": 0.00043667798584968445,
+      "t_stat": 2.672053838484983,
+      "p_val": 0.004013258403194968,
+      "status": "OK",
+      "rank": 1,
+      "holm_alpha": 0.0125,
+      "supported": true,
+      "decision": "REJECT_H0 (Supported)"
+    },
+    {
+      "id": "H_P3-2",
+      "description": "S_full vs S_full - Hawkes",
+      "mean_diff": 0.0003789798535597082,
+      "se_hac": 0.0002561728431944128,
+      "t_stat": 1.4793912142829893,
+      "p_val": 0.07013746563327945,
+      "status": "OK",
+      "rank": 2,
+      "holm_alpha": 0.016666666666666666,
+      "supported": false,
+      "decision": "FAIL_TO_REJECT (Not Supported)"
+    },
+    {
+      "id": "H_P3-3",
+      "description": "S_full vs S_full - Jump",
+      "mean_diff": 0.0002333135034424379,
+      "se_hac": 0.0002458061988840819,
+      "t_stat": 0.9491766460798845,
+      "p_val": 0.17171649880662943,
+      "status": "OK",
+      "rank": 3,
+      "holm_alpha": 0.025,
+      "supported": false,
+      "decision": "FAIL_TO_REJECT (Not Supported)"
+    },
+    {
+      "id": "H_P3-4",
+      "description": "S_full vs S_full - Hamilton",
+      "mean_diff": -1.0042235266833565e-05,
+      "se_hac": 0.0001536246551309042,
+      "t_stat": -0.06536864319256916,
+      "p_val": 0.5260340455738199,
+      "status": "OK",
+      "rank": 4,
+      "holm_alpha": 0.05,
+      "supported": false,
+      "decision": "FAIL_TO_REJECT (Not Supported)"
+    }
+  ]
+}

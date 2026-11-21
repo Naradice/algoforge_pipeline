@@ -1,0 +1,1199 @@
+[
+  {
+    "source_id": "arxiv_2303_01001",
+    "version_id": "v1",
+    "split": "holdout_expansion",
+    "source_type": "paper",
+    "title": "Stochastic Volatility Calibration via Deep Equilibrium Models",
+    "target_fields": {
+      "title_text": "Stochastic Volatility Calibration via Deep Equilibrium Models",
+      "abstract_text": "We formulate stochastic volatility calibration as a root-finding problem in deep equilibrium models. The proposed method enables gradient-based calibration of rough volatility surfaces with implicit layer depth."
+    },
+    "target_field_hashes": {
+      "title_text": "ec4b8b26dad7feea98ca295ccceba32cc8264182915fa7b4d632909410b9ac2b",
+      "abstract_text": "37e0d1bea69d4b60e0e183fc49f57412f5cfd9a0b4a1b48b0d9bb8e4d0911dc4"
+    },
+    "entities": [
+      {
+        "local_id": "mod_01",
+        "entity_type": "model",
+        "name": "Deep Equilibrium Model",
+        "statement": null,
+        "category": "deep_learning",
+        "synonyms": [
+          "deep equilibrium models",
+          "DEQ"
+        ],
+        "evidence": {
+          "target_field_name": "abstract_text",
+          "target_field_hash": "37e0d1bea69d4b60e0e183fc49f57412f5cfd9a0b4a1b48b0d9bb8e4d0911dc4",
+          "verbatim_quote": "deep equilibrium models",
+          "start_char": 76,
+          "end_char": 99,
+          "raw_start_char": 76,
+          "raw_end_char": 99,
+          "raw_offset_valid": true,
+          "resolved_offset_valid": true,
+          "offset_resolution_status": "unchanged"
+        }
+      },
+      {
+        "local_id": "met_01",
+        "entity_type": "method",
+        "name": "Implicit Layer Root-Finding Calibration",
+        "statement": null,
+        "category": "parameter_inference",
+        "synonyms": [
+          "stochastic volatility calibration",
+          "gradient-based calibration"
+        ],
+        "evidence": {
+          "target_field_name": "abstract_text",
+          "target_field_hash": "37e0d1bea69d4b60e0e183fc49f57412f5cfd9a0b4a1b48b0d9bb8e4d0911dc4",
+          "verbatim_quote": "gradient-based calibration of rough volatility surfaces",
+          "start_char": 129,
+          "end_char": 184,
+          "raw_start_char": 129,
+          "raw_end_char": 184,
+          "raw_offset_valid": true,
+          "resolved_offset_valid": true,
+          "offset_resolution_status": "unchanged"
+        }
+      },
+      {
+        "local_id": "cap_01",
+        "entity_type": "capability",
+        "name": "Calibrate Volatility Surfaces",
+        "statement": null,
+        "category": null,
+        "synonyms": [
+          "calibrate rough volatility surfaces",
+          "calibrate volatility surfaces"
+        ],
+        "evidence": {
+          "target_field_name": "abstract_text",
+          "target_field_hash": "37e0d1bea69d4b60e0e183fc49f57412f5cfd9a0b4a1b48b0d9bb8e4d0911dc4",
+          "verbatim_quote": "calibration of rough volatility surfaces with implicit layer depth",
+          "start_char": 144,
+          "end_char": 210,
+          "raw_start_char": 144,
+          "raw_end_char": 210,
+          "raw_offset_valid": true,
+          "resolved_offset_valid": true,
+          "offset_resolution_status": "unchanged"
+        }
+      }
+    ],
+    "relations": [
+      {
+        "relation_id": "rel_01",
+        "src_local_id": "met_01",
+        "dst_local_id": "mod_01",
+        "relation_type": "APPLIES_TO",
+        "evidence": {
+          "target_field_name": "abstract_text",
+          "target_field_hash": "37e0d1bea69d4b60e0e183fc49f57412f5cfd9a0b4a1b48b0d9bb8e4d0911dc4",
+          "verbatim_quote": "stochastic volatility calibration as a root-finding problem in deep equilibrium models",
+          "start_char": 13,
+          "end_char": 99,
+          "raw_start_char": 13,
+          "raw_end_char": 99,
+          "raw_offset_valid": true,
+          "resolved_offset_valid": true,
+          "offset_resolution_status": "unchanged"
+        }
+      },
+      {
+        "relation_id": "rel_02",
+        "src_local_id": "cap_01",
+        "dst_local_id": "met_01",
+        "relation_type": "PROVIDED_BY",
+        "evidence": {
+          "target_field_name": "abstract_text",
+          "target_field_hash": "37e0d1bea69d4b60e0e183fc49f57412f5cfd9a0b4a1b48b0d9bb8e4d0911dc4",
+          "verbatim_quote": "method enables gradient-based calibration of rough volatility surfaces",
+          "start_char": 114,
+          "end_char": 184,
+          "raw_start_char": 114,
+          "raw_end_char": 184,
+          "raw_offset_valid": true,
+          "resolved_offset_valid": true,
+          "offset_resolution_status": "unchanged"
+        }
+      }
+    ]
+  },
+  {
+    "source_id": "arxiv_2303_01002",
+    "version_id": "v1",
+    "split": "holdout_expansion",
+    "source_type": "paper",
+    "title": "Optimal Execution under Transient Price Impact and Linear Quadratic Controls",
+    "target_fields": {
+      "title_text": "Optimal Execution under Transient Price Impact and Linear Quadratic Controls",
+      "abstract_text": "We investigate optimal execution under transient price impact using an Almgren-Chriss framework with linear quadratic controls. The model computes optimal liquidation trajectories that balance market risk against execution slippage."
+    },
+    "target_field_hashes": {
+      "title_text": "424913212ac6a9c428f4aa0ae01d01ab8f3766845d64bd38ea5558faea9fe12d",
+      "abstract_text": "a45894675a0557fa23f0b5d2752d7e2cc74c507665d4ee6fbd90b0d5b0ef0fee"
+    },
+    "entities": [
+      {
+        "local_id": "mod_01",
+        "entity_type": "model",
+        "name": "Almgren-Chriss Transient Impact Model",
+        "statement": null,
+        "category": "stochastic_process",
+        "synonyms": [
+          "Almgren-Chriss framework",
+          "transient impact model"
+        ],
+        "evidence": {
+          "target_field_name": "abstract_text",
+          "target_field_hash": "a45894675a0557fa23f0b5d2752d7e2cc74c507665d4ee6fbd90b0d5b0ef0fee",
+          "verbatim_quote": "Almgren-Chriss framework with linear quadratic controls",
+          "start_char": 71,
+          "end_char": 126,
+          "raw_start_char": 71,
+          "raw_end_char": 126,
+          "raw_offset_valid": true,
+          "resolved_offset_valid": true,
+          "offset_resolution_status": "unchanged"
+        }
+      },
+      {
+        "local_id": "phe_01",
+        "entity_type": "phenomenon",
+        "name": "Transient Price Impact",
+        "statement": null,
+        "category": null,
+        "synonyms": [
+          "transient price impact"
+        ],
+        "evidence": {
+          "target_field_name": "abstract_text",
+          "target_field_hash": "a45894675a0557fa23f0b5d2752d7e2cc74c507665d4ee6fbd90b0d5b0ef0fee",
+          "verbatim_quote": "transient price impact",
+          "start_char": 39,
+          "end_char": 61,
+          "raw_start_char": 39,
+          "raw_end_char": 61,
+          "raw_offset_valid": true,
+          "resolved_offset_valid": true,
+          "offset_resolution_status": "unchanged"
+        }
+      },
+      {
+        "local_id": "cap_01",
+        "entity_type": "capability",
+        "name": "Compute Optimal Liquidation Trajectories",
+        "statement": null,
+        "category": null,
+        "synonyms": [
+          "optimal execution",
+          "computes optimal liquidation trajectories"
+        ],
+        "evidence": {
+          "target_field_name": "abstract_text",
+          "target_field_hash": "a45894675a0557fa23f0b5d2752d7e2cc74c507665d4ee6fbd90b0d5b0ef0fee",
+          "verbatim_quote": "computes optimal liquidation trajectories that balance market risk against execution slippage",
+          "start_char": 138,
+          "end_char": 231,
+          "raw_start_char": 138,
+          "raw_end_char": 231,
+          "raw_offset_valid": true,
+          "resolved_offset_valid": true,
+          "offset_resolution_status": "unchanged"
+        }
+      }
+    ],
+    "relations": [
+      {
+        "relation_id": "rel_01",
+        "src_local_id": "mod_01",
+        "dst_local_id": "phe_01",
+        "relation_type": "EXPLAINS",
+        "evidence": {
+          "target_field_name": "abstract_text",
+          "target_field_hash": "a45894675a0557fa23f0b5d2752d7e2cc74c507665d4ee6fbd90b0d5b0ef0fee",
+          "verbatim_quote": "optimal execution under transient price impact using an Almgren-Chriss framework",
+          "start_char": 15,
+          "end_char": 95,
+          "raw_start_char": 15,
+          "raw_end_char": 95,
+          "raw_offset_valid": true,
+          "resolved_offset_valid": true,
+          "offset_resolution_status": "unchanged"
+        }
+      },
+      {
+        "relation_id": "rel_02",
+        "src_local_id": "cap_01",
+        "dst_local_id": "mod_01",
+        "relation_type": "PROVIDED_BY",
+        "evidence": {
+          "target_field_name": "abstract_text",
+          "target_field_hash": "a45894675a0557fa23f0b5d2752d7e2cc74c507665d4ee6fbd90b0d5b0ef0fee",
+          "verbatim_quote": "The model computes optimal liquidation trajectories",
+          "start_char": 128,
+          "end_char": 179,
+          "raw_start_char": 128,
+          "raw_end_char": 179,
+          "raw_offset_valid": true,
+          "resolved_offset_valid": true,
+          "offset_resolution_status": "unchanged"
+        }
+      }
+    ]
+  },
+  {
+    "source_id": "arxiv_2303_01003",
+    "version_id": "v1",
+    "split": "holdout_expansion",
+    "source_type": "paper",
+    "title": "Graph Attention Networks for Cross-Border Financial Contagion",
+    "target_fields": {
+      "title_text": "Graph Attention Networks for Cross-Border Financial Contagion",
+      "abstract_text": "We introduce graph attention networks to capture cross-border financial contagion across global banking networks. The architecture forecasts systemic default cascades by attending to dense interbank exposures."
+    },
+    "target_field_hashes": {
+      "title_text": "82c008f453a97770a017b1dce89750f60656b3f37affb8fb40717fa17a4f1f42",
+      "abstract_text": "fa5c38da200acb4360a6c6e50f2dff7ff020c31499490bb82eec960f944922c5"
+    },
+    "entities": [
+      {
+        "local_id": "mod_01",
+        "entity_type": "model",
+        "name": "Graph Attention Network",
+        "statement": null,
+        "category": "deep_learning",
+        "synonyms": [
+          "graph attention networks",
+          "GAT"
+        ],
+        "evidence": {
+          "target_field_name": "abstract_text",
+          "target_field_hash": "fa5c38da200acb4360a6c6e50f2dff7ff020c31499490bb82eec960f944922c5",
+          "verbatim_quote": "graph attention networks",
+          "start_char": 13,
+          "end_char": 37,
+          "raw_start_char": 13,
+          "raw_end_char": 37,
+          "raw_offset_valid": true,
+          "resolved_offset_valid": true,
+          "offset_resolution_status": "unchanged"
+        }
+      },
+      {
+        "local_id": "phe_01",
+        "entity_type": "phenomenon",
+        "name": "Cross-Border Financial Contagion",
+        "statement": null,
+        "category": null,
+        "synonyms": [
+          "cross-border financial contagion",
+          "financial contagion"
+        ],
+        "evidence": {
+          "target_field_name": "abstract_text",
+          "target_field_hash": "fa5c38da200acb4360a6c6e50f2dff7ff020c31499490bb82eec960f944922c5",
+          "verbatim_quote": "cross-border financial contagion",
+          "start_char": 49,
+          "end_char": 81,
+          "raw_start_char": 49,
+          "raw_end_char": 81,
+          "raw_offset_valid": true,
+          "resolved_offset_valid": true,
+          "offset_resolution_status": "unchanged"
+        }
+      },
+      {
+        "local_id": "cap_01",
+        "entity_type": "capability",
+        "name": "Forecast Systemic Default Cascades",
+        "statement": null,
+        "category": null,
+        "synonyms": [
+          "forecast default cascades",
+          "forecasts systemic default cascades"
+        ],
+        "evidence": {
+          "target_field_name": "abstract_text",
+          "target_field_hash": "fa5c38da200acb4360a6c6e50f2dff7ff020c31499490bb82eec960f944922c5",
+          "verbatim_quote": "forecasts systemic default cascades by attending to dense interbank exposures",
+          "start_char": 131,
+          "end_char": 208,
+          "raw_start_char": 131,
+          "raw_end_char": 208,
+          "raw_offset_valid": true,
+          "resolved_offset_valid": true,
+          "offset_resolution_status": "unchanged"
+        }
+      }
+    ],
+    "relations": [
+      {
+        "relation_id": "rel_01",
+        "src_local_id": "mod_01",
+        "dst_local_id": "phe_01",
+        "relation_type": "EXPLAINS",
+        "evidence": {
+          "target_field_name": "abstract_text",
+          "target_field_hash": "fa5c38da200acb4360a6c6e50f2dff7ff020c31499490bb82eec960f944922c5",
+          "verbatim_quote": "graph attention networks to capture cross-border financial contagion",
+          "start_char": 13,
+          "end_char": 81,
+          "raw_start_char": 13,
+          "raw_end_char": 81,
+          "raw_offset_valid": true,
+          "resolved_offset_valid": true,
+          "offset_resolution_status": "unchanged"
+        }
+      },
+      {
+        "relation_id": "rel_02",
+        "src_local_id": "cap_01",
+        "dst_local_id": "mod_01",
+        "relation_type": "PROVIDED_BY",
+        "evidence": {
+          "target_field_name": "abstract_text",
+          "target_field_hash": "fa5c38da200acb4360a6c6e50f2dff7ff020c31499490bb82eec960f944922c5",
+          "verbatim_quote": "The architecture forecasts systemic default cascades",
+          "start_char": 114,
+          "end_char": 166,
+          "raw_start_char": 114,
+          "raw_end_char": 166,
+          "raw_offset_valid": true,
+          "resolved_offset_valid": true,
+          "offset_resolution_status": "unchanged"
+        }
+      }
+    ]
+  },
+  {
+    "source_id": "arxiv_2303_01004",
+    "version_id": "v1",
+    "split": "holdout_expansion",
+    "source_type": "paper",
+    "title": "Regime-Switching Jump Diffusion Models for Foreign Exchange Parities",
+    "target_fields": {
+      "title_text": "Regime-Switching Jump Diffusion Models for Foreign Exchange Parities",
+      "abstract_text": "We develop a regime-switching jump diffusion model to characterize currency rate jump dynamics during central bank interest rate announcements. The formulation infers latent jump intensities across crisis periods."
+    },
+    "target_field_hashes": {
+      "title_text": "bc09b3857e258c0177eeeab4bd9ddb3fb5b3f8ed2042df6d1b3217ff77d5a82f",
+      "abstract_text": "560bb8f84f1852b8074371e07699341c695586298be83677e6216844783bab6d"
+    },
+    "entities": [
+      {
+        "local_id": "mod_01",
+        "entity_type": "model",
+        "name": "Regime-Switching Jump Diffusion Model",
+        "statement": null,
+        "category": "stochastic_process",
+        "synonyms": [
+          "regime-switching jump diffusion model",
+          "jump diffusion"
+        ],
+        "evidence": {
+          "target_field_name": "abstract_text",
+          "target_field_hash": "560bb8f84f1852b8074371e07699341c695586298be83677e6216844783bab6d",
+          "verbatim_quote": "regime-switching jump diffusion model",
+          "start_char": 13,
+          "end_char": 50,
+          "raw_start_char": 13,
+          "raw_end_char": 50,
+          "raw_offset_valid": true,
+          "resolved_offset_valid": true,
+          "offset_resolution_status": "unchanged"
+        }
+      },
+      {
+        "local_id": "phe_01",
+        "entity_type": "phenomenon",
+        "name": "Currency Rate Jump Dynamics",
+        "statement": null,
+        "category": null,
+        "synonyms": [
+          "currency rate jump dynamics",
+          "jump dynamics"
+        ],
+        "evidence": {
+          "target_field_name": "abstract_text",
+          "target_field_hash": "560bb8f84f1852b8074371e07699341c695586298be83677e6216844783bab6d",
+          "verbatim_quote": "currency rate jump dynamics",
+          "start_char": 67,
+          "end_char": 94,
+          "raw_start_char": 67,
+          "raw_end_char": 94,
+          "raw_offset_valid": true,
+          "resolved_offset_valid": true,
+          "offset_resolution_status": "unchanged"
+        }
+      },
+      {
+        "local_id": "cap_01",
+        "entity_type": "capability",
+        "name": "Infer Latent Jump Intensities",
+        "statement": null,
+        "category": null,
+        "synonyms": [
+          "infer jump intensities",
+          "infers latent jump intensities"
+        ],
+        "evidence": {
+          "target_field_name": "abstract_text",
+          "target_field_hash": "560bb8f84f1852b8074371e07699341c695586298be83677e6216844783bab6d",
+          "verbatim_quote": "infers latent jump intensities across crisis periods",
+          "start_char": 160,
+          "end_char": 212,
+          "raw_start_char": 160,
+          "raw_end_char": 212,
+          "raw_offset_valid": true,
+          "resolved_offset_valid": true,
+          "offset_resolution_status": "unchanged"
+        }
+      }
+    ],
+    "relations": [
+      {
+        "relation_id": "rel_01",
+        "src_local_id": "mod_01",
+        "dst_local_id": "phe_01",
+        "relation_type": "EXPLAINS",
+        "evidence": {
+          "target_field_name": "abstract_text",
+          "target_field_hash": "560bb8f84f1852b8074371e07699341c695586298be83677e6216844783bab6d",
+          "verbatim_quote": "regime-switching jump diffusion model to characterize currency rate jump dynamics",
+          "start_char": 13,
+          "end_char": 94,
+          "raw_start_char": 13,
+          "raw_end_char": 94,
+          "raw_offset_valid": true,
+          "resolved_offset_valid": true,
+          "offset_resolution_status": "unchanged"
+        }
+      },
+      {
+        "relation_id": "rel_02",
+        "src_local_id": "cap_01",
+        "dst_local_id": "mod_01",
+        "relation_type": "PROVIDED_BY",
+        "evidence": {
+          "target_field_name": "abstract_text",
+          "target_field_hash": "560bb8f84f1852b8074371e07699341c695586298be83677e6216844783bab6d",
+          "verbatim_quote": "The formulation infers latent jump intensities across crisis periods",
+          "start_char": 144,
+          "end_char": 212,
+          "raw_start_char": 144,
+          "raw_end_char": 212,
+          "raw_offset_valid": true,
+          "resolved_offset_valid": true,
+          "offset_resolution_status": "unchanged"
+        }
+      }
+    ]
+  },
+  {
+    "source_id": "arxiv_2303_01005",
+    "version_id": "v1",
+    "split": "holdout_expansion",
+    "source_type": "paper",
+    "title": "Physics-Informed Neural Networks for High-Dimensional Hamilton-Jacobi-Bellman Equations",
+    "target_fields": {
+      "title_text": "Physics-Informed Neural Networks for High-Dimensional Hamilton-Jacobi-Bellman Equations",
+      "abstract_text": "We apply physics-informed neural networks to solve high-dimensional Hamilton-Jacobi-Bellman partial differential equations arising in multi-agent market equilibrium. The algorithm calculates equilibrium policy functions without spatial discretization."
+    },
+    "target_field_hashes": {
+      "title_text": "5bcc2ab7f2779701f37ea7bb6229cb89b1cdd2017662e43c23091e9a96d7ebf7",
+      "abstract_text": "dbdc258c957c83dacedc7faf18f295ba682985305e3a76a53d16f228728c1af1"
+    },
+    "entities": [
+      {
+        "local_id": "mod_01",
+        "entity_type": "model",
+        "name": "Hamilton-Jacobi-Bellman Equation",
+        "statement": null,
+        "category": "other",
+        "synonyms": [
+          "Hamilton-Jacobi-Bellman partial differential equations",
+          "HJB equation"
+        ],
+        "evidence": {
+          "target_field_name": "abstract_text",
+          "target_field_hash": "dbdc258c957c83dacedc7faf18f295ba682985305e3a76a53d16f228728c1af1",
+          "verbatim_quote": "Hamilton-Jacobi-Bellman partial differential equations",
+          "start_char": 68,
+          "end_char": 122,
+          "raw_start_char": 68,
+          "raw_end_char": 122,
+          "raw_offset_valid": true,
+          "resolved_offset_valid": true,
+          "offset_resolution_status": "unchanged"
+        }
+      },
+      {
+        "local_id": "met_01",
+        "entity_type": "method",
+        "name": "Physics-Informed Neural Networks",
+        "statement": null,
+        "category": "deep_learning",
+        "synonyms": [
+          "physics-informed neural networks",
+          "PINN"
+        ],
+        "evidence": {
+          "target_field_name": "abstract_text",
+          "target_field_hash": "dbdc258c957c83dacedc7faf18f295ba682985305e3a76a53d16f228728c1af1",
+          "verbatim_quote": "physics-informed neural networks",
+          "start_char": 9,
+          "end_char": 41,
+          "raw_start_char": 9,
+          "raw_end_char": 41,
+          "raw_offset_valid": true,
+          "resolved_offset_valid": true,
+          "offset_resolution_status": "unchanged"
+        }
+      },
+      {
+        "local_id": "cap_01",
+        "entity_type": "capability",
+        "name": "Calculate Equilibrium Policy Functions",
+        "statement": null,
+        "category": null,
+        "synonyms": [
+          "solve HJB equations",
+          "calculates equilibrium policy functions"
+        ],
+        "evidence": {
+          "target_field_name": "abstract_text",
+          "target_field_hash": "dbdc258c957c83dacedc7faf18f295ba682985305e3a76a53d16f228728c1af1",
+          "verbatim_quote": "calculates equilibrium policy functions without spatial discretization",
+          "start_char": 180,
+          "end_char": 250,
+          "raw_start_char": 180,
+          "raw_end_char": 250,
+          "raw_offset_valid": true,
+          "resolved_offset_valid": true,
+          "offset_resolution_status": "unchanged"
+        }
+      }
+    ],
+    "relations": [
+      {
+        "relation_id": "rel_01",
+        "src_local_id": "met_01",
+        "dst_local_id": "mod_01",
+        "relation_type": "APPLIES_TO",
+        "evidence": {
+          "target_field_name": "abstract_text",
+          "target_field_hash": "dbdc258c957c83dacedc7faf18f295ba682985305e3a76a53d16f228728c1af1",
+          "verbatim_quote": "physics-informed neural networks to solve high-dimensional Hamilton-Jacobi-Bellman partial differential equations",
+          "start_char": 9,
+          "end_char": 122,
+          "raw_start_char": 9,
+          "raw_end_char": 122,
+          "raw_offset_valid": true,
+          "resolved_offset_valid": true,
+          "offset_resolution_status": "unchanged"
+        }
+      },
+      {
+        "relation_id": "rel_02",
+        "src_local_id": "cap_01",
+        "dst_local_id": "met_01",
+        "relation_type": "PROVIDED_BY",
+        "evidence": {
+          "target_field_name": "abstract_text",
+          "target_field_hash": "dbdc258c957c83dacedc7faf18f295ba682985305e3a76a53d16f228728c1af1",
+          "verbatim_quote": "The algorithm calculates equilibrium policy functions without spatial discretization",
+          "start_char": 166,
+          "end_char": 250,
+          "raw_start_char": 166,
+          "raw_end_char": 250,
+          "raw_offset_valid": true,
+          "resolved_offset_valid": true,
+          "offset_resolution_status": "unchanged"
+        }
+      }
+    ]
+  },
+  {
+    "source_id": "arxiv_2303_01006",
+    "version_id": "v1",
+    "split": "holdout_expansion",
+    "source_type": "paper",
+    "title": "Invariant Risk Minimization for Non-Stationary Order Flow Prediction",
+    "target_fields": {
+      "title_text": "Invariant Risk Minimization for Non-Stationary Order Flow Prediction",
+      "abstract_text": "We evaluate invariant risk minimization for predicting non-stationary order flow across fragmented trading venues. Out-of-distribution regime shifts degrade out-of-sample predictability when latent market environments change rapidly."
+    },
+    "target_field_hashes": {
+      "title_text": "b362290b47b6723a6addd04da5e9587a098d1f5319dbe4f55ce2f9aaa43fca91",
+      "abstract_text": "389a80cae43e3713a07ddb234249bb5c73fff17d24a16991e5cf9aa910cba476"
+    },
+    "entities": [
+      {
+        "local_id": "met_01",
+        "entity_type": "method",
+        "name": "Invariant Risk Minimization",
+        "statement": null,
+        "category": "optimization",
+        "synonyms": [
+          "invariant risk minimization",
+          "IRM"
+        ],
+        "evidence": {
+          "target_field_name": "abstract_text",
+          "target_field_hash": "389a80cae43e3713a07ddb234249bb5c73fff17d24a16991e5cf9aa910cba476",
+          "verbatim_quote": "invariant risk minimization",
+          "start_char": 12,
+          "end_char": 39,
+          "raw_start_char": 12,
+          "raw_end_char": 39,
+          "raw_offset_valid": true,
+          "resolved_offset_valid": true,
+          "offset_resolution_status": "unchanged"
+        }
+      },
+      {
+        "local_id": "lim_01",
+        "entity_type": "limitation",
+        "name": null,
+        "statement": "Out-of-distribution regime shifts degrade out-of-sample predictability.",
+        "category": null,
+        "synonyms": [
+          "regime shifts degrade predictability"
+        ],
+        "evidence": {
+          "target_field_name": "abstract_text",
+          "target_field_hash": "389a80cae43e3713a07ddb234249bb5c73fff17d24a16991e5cf9aa910cba476",
+          "verbatim_quote": "Out-of-distribution regime shifts degrade out-of-sample predictability",
+          "start_char": 115,
+          "end_char": 185,
+          "raw_start_char": 115,
+          "raw_end_char": 185,
+          "raw_offset_valid": true,
+          "resolved_offset_valid": true,
+          "offset_resolution_status": "unchanged"
+        }
+      },
+      {
+        "local_id": "cap_01",
+        "entity_type": "capability",
+        "name": "Predict Non-Stationary Order Flow",
+        "statement": null,
+        "category": null,
+        "synonyms": [
+          "predicting non-stationary order flow",
+          "order flow prediction"
+        ],
+        "evidence": {
+          "target_field_name": "abstract_text",
+          "target_field_hash": "389a80cae43e3713a07ddb234249bb5c73fff17d24a16991e5cf9aa910cba476",
+          "verbatim_quote": "predicting non-stationary order flow across fragmented trading venues",
+          "start_char": 44,
+          "end_char": 113,
+          "raw_start_char": 44,
+          "raw_end_char": 113,
+          "raw_offset_valid": true,
+          "resolved_offset_valid": true,
+          "offset_resolution_status": "unchanged"
+        }
+      }
+    ],
+    "relations": [
+      {
+        "relation_id": "rel_01",
+        "src_local_id": "cap_01",
+        "dst_local_id": "met_01",
+        "relation_type": "PROVIDED_BY",
+        "evidence": {
+          "target_field_name": "abstract_text",
+          "target_field_hash": "389a80cae43e3713a07ddb234249bb5c73fff17d24a16991e5cf9aa910cba476",
+          "verbatim_quote": "invariant risk minimization for predicting non-stationary order flow",
+          "start_char": 12,
+          "end_char": 80,
+          "raw_start_char": 12,
+          "raw_end_char": 80,
+          "raw_offset_valid": true,
+          "resolved_offset_valid": true,
+          "offset_resolution_status": "unchanged"
+        }
+      },
+      {
+        "relation_id": "rel_02",
+        "src_local_id": "met_01",
+        "dst_local_id": "lim_01",
+        "relation_type": "CONSTRAINED_BY",
+        "evidence": {
+          "target_field_name": "abstract_text",
+          "target_field_hash": "389a80cae43e3713a07ddb234249bb5c73fff17d24a16991e5cf9aa910cba476",
+          "verbatim_quote": "invariant risk minimization for predicting non-stationary order flow across fragmented trading venues. Out-of-distribution regime shifts degrade out-of-sample predictability",
+          "start_char": 12,
+          "end_char": 185,
+          "raw_start_char": 12,
+          "raw_end_char": 185,
+          "raw_offset_valid": true,
+          "resolved_offset_valid": true,
+          "offset_resolution_status": "unchanged"
+        }
+      }
+    ]
+  },
+  {
+    "source_id": "arxiv_2303_01007",
+    "version_id": "v1",
+    "split": "holdout_expansion",
+    "source_type": "paper",
+    "title": "Multivariate Hawkes Point Processes for High-Frequency Flash Crashes",
+    "target_fields": {
+      "title_text": "Multivariate Hawkes Point Processes for High-Frequency Flash Crashes",
+      "abstract_text": "We apply multivariate Hawkes point processes to model high-frequency flash crash propagation in equity markets. The system detects endogenous cascade risks generated by mutual order cancellation feedback."
+    },
+    "target_field_hashes": {
+      "title_text": "296569cb374c32a2c229562a2eb558ad700016625e49eef6a1fc92dbee003616",
+      "abstract_text": "08cf16360cab6c28e42adbff6a45d9ff0ba26d09224cca969698267c148fbbe1"
+    },
+    "entities": [
+      {
+        "local_id": "mod_01",
+        "entity_type": "model",
+        "name": "Multivariate Hawkes Point Process",
+        "statement": null,
+        "category": "stochastic_process",
+        "synonyms": [
+          "multivariate Hawkes point processes",
+          "multivariate Hawkes"
+        ],
+        "evidence": {
+          "target_field_name": "abstract_text",
+          "target_field_hash": "08cf16360cab6c28e42adbff6a45d9ff0ba26d09224cca969698267c148fbbe1",
+          "verbatim_quote": "multivariate Hawkes point processes",
+          "start_char": 9,
+          "end_char": 44,
+          "raw_start_char": 9,
+          "raw_end_char": 44,
+          "raw_offset_valid": true,
+          "resolved_offset_valid": true,
+          "offset_resolution_status": "unchanged"
+        }
+      },
+      {
+        "local_id": "phe_01",
+        "entity_type": "phenomenon",
+        "name": "High-Frequency Flash Crash Propagation",
+        "statement": null,
+        "category": null,
+        "synonyms": [
+          "flash crash propagation",
+          "flash crash"
+        ],
+        "evidence": {
+          "target_field_name": "abstract_text",
+          "target_field_hash": "08cf16360cab6c28e42adbff6a45d9ff0ba26d09224cca969698267c148fbbe1",
+          "verbatim_quote": "high-frequency flash crash propagation",
+          "start_char": 54,
+          "end_char": 92,
+          "raw_start_char": 54,
+          "raw_end_char": 92,
+          "raw_offset_valid": true,
+          "resolved_offset_valid": true,
+          "offset_resolution_status": "unchanged"
+        }
+      },
+      {
+        "local_id": "cap_01",
+        "entity_type": "capability",
+        "name": "Detect Endogenous Cascade Risks",
+        "statement": null,
+        "category": null,
+        "synonyms": [
+          "detects cascade risks",
+          "detects endogenous cascade risks"
+        ],
+        "evidence": {
+          "target_field_name": "abstract_text",
+          "target_field_hash": "08cf16360cab6c28e42adbff6a45d9ff0ba26d09224cca969698267c148fbbe1",
+          "verbatim_quote": "detects endogenous cascade risks generated by mutual order cancellation feedback",
+          "start_char": 123,
+          "end_char": 203,
+          "raw_start_char": 123,
+          "raw_end_char": 203,
+          "raw_offset_valid": true,
+          "resolved_offset_valid": true,
+          "offset_resolution_status": "unchanged"
+        }
+      }
+    ],
+    "relations": [
+      {
+        "relation_id": "rel_01",
+        "src_local_id": "mod_01",
+        "dst_local_id": "phe_01",
+        "relation_type": "EXPLAINS",
+        "evidence": {
+          "target_field_name": "abstract_text",
+          "target_field_hash": "08cf16360cab6c28e42adbff6a45d9ff0ba26d09224cca969698267c148fbbe1",
+          "verbatim_quote": "multivariate Hawkes point processes to model high-frequency flash crash propagation",
+          "start_char": 9,
+          "end_char": 92,
+          "raw_start_char": 9,
+          "raw_end_char": 92,
+          "raw_offset_valid": true,
+          "resolved_offset_valid": true,
+          "offset_resolution_status": "unchanged"
+        }
+      },
+      {
+        "relation_id": "rel_02",
+        "src_local_id": "cap_01",
+        "dst_local_id": "mod_01",
+        "relation_type": "PROVIDED_BY",
+        "evidence": {
+          "target_field_name": "abstract_text",
+          "target_field_hash": "08cf16360cab6c28e42adbff6a45d9ff0ba26d09224cca969698267c148fbbe1",
+          "verbatim_quote": "The system detects endogenous cascade risks generated by mutual order cancellation feedback",
+          "start_char": 112,
+          "end_char": 203,
+          "raw_start_char": 112,
+          "raw_end_char": 203,
+          "raw_offset_valid": true,
+          "resolved_offset_valid": true,
+          "offset_resolution_status": "unchanged"
+        }
+      }
+    ]
+  },
+  {
+    "source_id": "github_30101",
+    "version_id": "v1",
+    "split": "holdout_expansion",
+    "source_type": "oss",
+    "title": "nautilus_trader: Production-grade algorithmic trading platform in Rust and Python",
+    "target_fields": {
+      "title_text": "nautilus_trader: Production-grade algorithmic trading platform in Rust and Python",
+      "readme_text": "NautilusTrader is a production-grade algorithmic trading platform written in Rust and Python. Executes low-latency event-driven strategies on tick-by-tick financial market data with native WebSocket exchange connectors."
+    },
+    "target_field_hashes": {
+      "title_text": "82ed48ae12df76a5c813f40559b43911d61cfcb33d1ef902c29cf1736ccff006",
+      "readme_text": "cf53ef366e735ded18ccfd4017a5022f999c37b56bc304cdadcd0e256eef1e71"
+    },
+    "entities": [
+      {
+        "local_id": "soft_01",
+        "entity_type": "software",
+        "name": "NautilusTrader Trading Platform",
+        "statement": null,
+        "category": "execution_platform",
+        "synonyms": [
+          "NautilusTrader",
+          "algorithmic trading platform"
+        ],
+        "evidence": {
+          "target_field_name": "readme_text",
+          "target_field_hash": "cf53ef366e735ded18ccfd4017a5022f999c37b56bc304cdadcd0e256eef1e71",
+          "verbatim_quote": "NautilusTrader is a production-grade algorithmic trading platform",
+          "start_char": 0,
+          "end_char": 65,
+          "raw_start_char": 0,
+          "raw_end_char": 65,
+          "raw_offset_valid": true,
+          "resolved_offset_valid": true,
+          "offset_resolution_status": "unchanged"
+        }
+      },
+      {
+        "local_id": "cap_01",
+        "entity_type": "capability",
+        "name": "Execute Low-Latency Event-Driven Strategies",
+        "statement": null,
+        "category": null,
+        "synonyms": [
+          "execute trading strategies",
+          "Executes low-latency event-driven strategies"
+        ],
+        "evidence": {
+          "target_field_name": "readme_text",
+          "target_field_hash": "cf53ef366e735ded18ccfd4017a5022f999c37b56bc304cdadcd0e256eef1e71",
+          "verbatim_quote": "Executes low-latency event-driven strategies on tick-by-tick financial market data",
+          "start_char": 94,
+          "end_char": 176,
+          "raw_start_char": 94,
+          "raw_end_char": 176,
+          "raw_offset_valid": true,
+          "resolved_offset_valid": true,
+          "offset_resolution_status": "unchanged"
+        }
+      }
+    ],
+    "relations": [
+      {
+        "relation_id": "rel_01",
+        "src_local_id": "cap_01",
+        "dst_local_id": "soft_01",
+        "relation_type": "PROVIDED_BY",
+        "evidence": {
+          "target_field_name": "readme_text",
+          "target_field_hash": "cf53ef366e735ded18ccfd4017a5022f999c37b56bc304cdadcd0e256eef1e71",
+          "verbatim_quote": "NautilusTrader is a production-grade algorithmic trading platform written in Rust and Python. Executes low-latency event-driven strategies",
+          "start_char": 0,
+          "end_char": 138,
+          "raw_start_char": 0,
+          "raw_end_char": 138,
+          "raw_offset_valid": true,
+          "resolved_offset_valid": true,
+          "offset_resolution_status": "unchanged"
+        }
+      }
+    ]
+  },
+  {
+    "source_id": "github_30102",
+    "version_id": "v1",
+    "split": "holdout_expansion",
+    "source_type": "oss",
+    "title": "arch: Autoregressive Conditional Heteroskedasticity and Volatility Modeling in Python",
+    "target_fields": {
+      "title_text": "arch: Autoregressive Conditional Heteroskedasticity and Volatility Modeling in Python",
+      "readme_text": "arch is a Python library for autoregressive conditional heteroskedasticity models. Implements GARCH parameter estimation and hypothesis testing routines for financial return series."
+    },
+    "target_field_hashes": {
+      "title_text": "c3d4c602889273f60a745b9389c5792988fd5c0f269fff81194c383a8a986178",
+      "readme_text": "dbee0055328dbb4bfeef7e9781df896a7ae773108f95e53afeedfe8f288a22ba"
+    },
+    "entities": [
+      {
+        "local_id": "soft_01",
+        "entity_type": "software",
+        "name": "ARCH Python Library",
+        "statement": null,
+        "category": "analytics_library",
+        "synonyms": [
+          "arch",
+          "arch library"
+        ],
+        "evidence": {
+          "target_field_name": "readme_text",
+          "target_field_hash": "dbee0055328dbb4bfeef7e9781df896a7ae773108f95e53afeedfe8f288a22ba",
+          "verbatim_quote": "arch is a Python library",
+          "start_char": 0,
+          "end_char": 24,
+          "raw_start_char": 0,
+          "raw_end_char": 24,
+          "raw_offset_valid": true,
+          "resolved_offset_valid": true,
+          "offset_resolution_status": "unchanged"
+        }
+      },
+      {
+        "local_id": "met_01",
+        "entity_type": "method",
+        "name": "GARCH Parameter Estimation",
+        "statement": null,
+        "category": "parameter_inference",
+        "synonyms": [
+          "GARCH parameter estimation",
+          "volatility estimation"
+        ],
+        "evidence": {
+          "target_field_name": "readme_text",
+          "target_field_hash": "dbee0055328dbb4bfeef7e9781df896a7ae773108f95e53afeedfe8f288a22ba",
+          "verbatim_quote": "GARCH parameter estimation and hypothesis testing routines",
+          "start_char": 94,
+          "end_char": 152,
+          "raw_start_char": 94,
+          "raw_end_char": 152,
+          "raw_offset_valid": true,
+          "resolved_offset_valid": true,
+          "offset_resolution_status": "unchanged"
+        }
+      },
+      {
+        "local_id": "cap_01",
+        "entity_type": "capability",
+        "name": "Estimate Volatility Models",
+        "statement": null,
+        "category": null,
+        "synonyms": [
+          "GARCH estimation",
+          "parameter estimation"
+        ],
+        "evidence": {
+          "target_field_name": "readme_text",
+          "target_field_hash": "dbee0055328dbb4bfeef7e9781df896a7ae773108f95e53afeedfe8f288a22ba",
+          "verbatim_quote": "GARCH parameter estimation and hypothesis testing routines for financial return series",
+          "start_char": 94,
+          "end_char": 180,
+          "raw_start_char": 94,
+          "raw_end_char": 180,
+          "raw_offset_valid": true,
+          "resolved_offset_valid": true,
+          "offset_resolution_status": "unchanged"
+        }
+      }
+    ],
+    "relations": [
+      {
+        "relation_id": "rel_01",
+        "src_local_id": "soft_01",
+        "dst_local_id": "met_01",
+        "relation_type": "IMPLEMENTS",
+        "evidence": {
+          "target_field_name": "readme_text",
+          "target_field_hash": "dbee0055328dbb4bfeef7e9781df896a7ae773108f95e53afeedfe8f288a22ba",
+          "verbatim_quote": "arch is a Python library for autoregressive conditional heteroskedasticity models. Implements GARCH parameter estimation",
+          "start_char": 0,
+          "end_char": 120,
+          "raw_start_char": 0,
+          "raw_end_char": 120,
+          "raw_offset_valid": true,
+          "resolved_offset_valid": true,
+          "offset_resolution_status": "unchanged"
+        }
+      },
+      {
+        "relation_id": "rel_02",
+        "src_local_id": "cap_01",
+        "dst_local_id": "soft_01",
+        "relation_type": "PROVIDED_BY",
+        "evidence": {
+          "target_field_name": "readme_text",
+          "target_field_hash": "dbee0055328dbb4bfeef7e9781df896a7ae773108f95e53afeedfe8f288a22ba",
+          "verbatim_quote": "arch is a Python library for autoregressive conditional heteroskedasticity models. Implements GARCH parameter estimation and hypothesis testing routines for financial return series",
+          "start_char": 0,
+          "end_char": 180,
+          "raw_start_char": 0,
+          "raw_end_char": 180,
+          "raw_offset_valid": true,
+          "resolved_offset_valid": true,
+          "offset_resolution_status": "unchanged"
+        }
+      }
+    ]
+  },
+  {
+    "source_id": "github_30103",
+    "version_id": "v1",
+    "split": "holdout_expansion",
+    "source_type": "oss",
+    "title": "cvxpy: Domain-specific language for convex optimization problems in Python",
+    "target_fields": {
+      "title_text": "cvxpy: Domain-specific language for convex optimization problems in Python",
+      "readme_text": "CVXPY is a domain-specific language for convex optimization embedded in Python. Solves constrained portfolio optimization and risk parity problems with disciplined convex programming."
+    },
+    "target_field_hashes": {
+      "title_text": "bd53597c7f9bdb1deb049756cbd17e04556c8f4118ebeb185342dfc40a3e2194",
+      "readme_text": "34cc860782ecadacc04ffb07b00b5b3ffa62f172f6b57bcf9b88a33fe5d23a29"
+    },
+    "entities": [
+      {
+        "local_id": "soft_01",
+        "entity_type": "software",
+        "name": "CVXPY Convex Optimization Language",
+        "statement": null,
+        "category": "analytics_library",
+        "synonyms": [
+          "CVXPY",
+          "convex optimization library"
+        ],
+        "evidence": {
+          "target_field_name": "readme_text",
+          "target_field_hash": "34cc860782ecadacc04ffb07b00b5b3ffa62f172f6b57bcf9b88a33fe5d23a29",
+          "verbatim_quote": "CVXPY is a domain-specific language for convex optimization embedded in Python",
+          "start_char": 0,
+          "end_char": 78,
+          "raw_start_char": 0,
+          "raw_end_char": 78,
+          "raw_offset_valid": true,
+          "resolved_offset_valid": true,
+          "offset_resolution_status": "unchanged"
+        }
+      },
+      {
+        "local_id": "met_01",
+        "entity_type": "method",
+        "name": "Disciplined Convex Programming",
+        "statement": null,
+        "category": "optimization",
+        "synonyms": [
+          "disciplined convex programming",
+          "DCP"
+        ],
+        "evidence": {
+          "target_field_name": "readme_text",
+          "target_field_hash": "34cc860782ecadacc04ffb07b00b5b3ffa62f172f6b57bcf9b88a33fe5d23a29",
+          "verbatim_quote": "disciplined convex programming",
+          "start_char": 152,
+          "end_char": 182,
+          "raw_start_char": 152,
+          "raw_end_char": 182,
+          "raw_offset_valid": true,
+          "resolved_offset_valid": true,
+          "offset_resolution_status": "unchanged"
+        }
+      },
+      {
+        "local_id": "cap_01",
+        "entity_type": "capability",
+        "name": "Solve Constrained Portfolio Optimization",
+        "statement": null,
+        "category": null,
+        "synonyms": [
+          "portfolio optimization",
+          "Solves constrained portfolio optimization"
+        ],
+        "evidence": {
+          "target_field_name": "readme_text",
+          "target_field_hash": "34cc860782ecadacc04ffb07b00b5b3ffa62f172f6b57bcf9b88a33fe5d23a29",
+          "verbatim_quote": "Solves constrained portfolio optimization and risk parity problems",
+          "start_char": 80,
+          "end_char": 146,
+          "raw_start_char": 80,
+          "raw_end_char": 146,
+          "raw_offset_valid": true,
+          "resolved_offset_valid": true,
+          "offset_resolution_status": "unchanged"
+        }
+      }
+    ],
+    "relations": [
+      {
+        "relation_id": "rel_01",
+        "src_local_id": "soft_01",
+        "dst_local_id": "met_01",
+        "relation_type": "IMPLEMENTS",
+        "evidence": {
+          "target_field_name": "readme_text",
+          "target_field_hash": "34cc860782ecadacc04ffb07b00b5b3ffa62f172f6b57bcf9b88a33fe5d23a29",
+          "verbatim_quote": "CVXPY is a domain-specific language for convex optimization embedded in Python. Solves constrained portfolio optimization and risk parity problems with disciplined convex programming",
+          "start_char": 0,
+          "end_char": 182,
+          "raw_start_char": 0,
+          "raw_end_char": 182,
+          "raw_offset_valid": true,
+          "resolved_offset_valid": true,
+          "offset_resolution_status": "unchanged"
+        }
+      },
+      {
+        "relation_id": "rel_02",
+        "src_local_id": "cap_01",
+        "dst_local_id": "soft_01",
+        "relation_type": "PROVIDED_BY",
+        "evidence": {
+          "target_field_name": "readme_text",
+          "target_field_hash": "34cc860782ecadacc04ffb07b00b5b3ffa62f172f6b57bcf9b88a33fe5d23a29",
+          "verbatim_quote": "CVXPY is a domain-specific language for convex optimization embedded in Python. Solves constrained portfolio optimization",
+          "start_char": 0,
+          "end_char": 121,
+          "raw_start_char": 0,
+          "raw_end_char": 121,
+          "raw_offset_valid": true,
+          "resolved_offset_valid": true,
+          "offset_resolution_status": "unchanged"
+        }
+      }
+    ]
+  }
+]

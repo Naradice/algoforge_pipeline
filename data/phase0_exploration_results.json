@@ -1,0 +1,834 @@
+{
+  "timestamp_utc": "2026-11-21T16:00:51.742813+00:00",
+  "total_candidates": 30,
+  "evaluated": 27,
+  "rejected_schema": 3,
+  "rejected_perf": 27,
+  "promoted": 0,
+  "total_elapsed_sec": 12.747707605361938,
+  "avg_sec_per_candidate": 0.47213731871710884,
+  "api_spend_usd": 0.0,
+  "top_5": [
+    {
+      "candidate_id": "cand_03_bb_breakout",
+      "family": "bb_breakout",
+      "params": {
+        "period": 30,
+        "std_mult": 2.5
+      },
+      "risk": {
+        "k_sl": 2.5,
+        "k_tp": 4.0,
+        "max_hold_bars": 72
+      },
+      "status": "REJECTED",
+      "reason": "REJECTED_NEGATIVE_SHARPE",
+      "summary": {
+        "final_equity": 858792.7249997911,
+        "total_return_pct": -14.120727500020891,
+        "annualized_sharpe": -1.40966089236991,
+        "max_drawdown_pct": -20.660545376569683,
+        "trade_count": 645,
+        "win_rate": 0.3751937984496124,
+        "post_fill_risk_exceeded_count": 377
+      },
+      "elapsed_sec": 0.41011714935302734
+    },
+    {
+      "candidate_id": "cand_25_ema_cross",
+      "family": "ema_cross",
+      "params": {
+        "fast": 12,
+        "slow": 64
+      },
+      "risk": {
+        "k_sl": 2.0,
+        "k_tp": 4.0,
+        "max_hold_bars": 48
+      },
+      "status": "REJECTED",
+      "reason": "REJECTED_NEGATIVE_SHARPE",
+      "summary": {
+        "final_equity": 806551.6999997757,
+        "total_return_pct": -19.344830000022426,
+        "annualized_sharpe": -1.6969862394772495,
+        "max_drawdown_pct": -30.39205307919928,
+        "trade_count": 700,
+        "win_rate": 0.3242857142857143,
+        "post_fill_risk_exceeded_count": 448
+      },
+      "elapsed_sec": 0.40447473526000977
+    },
+    {
+      "candidate_id": "cand_09_ema_cross",
+      "family": "ema_cross",
+      "params": {
+        "fast": 12,
+        "slow": 32
+      },
+      "risk": {
+        "k_sl": 1.5,
+        "k_tp": 4.0,
+        "max_hold_bars": 72
+      },
+      "status": "REJECTED",
+      "reason": "REJECTED_NEGATIVE_SHARPE",
+      "summary": {
+        "final_equity": 743714.9249996229,
+        "total_return_pct": -25.628507500037713,
+        "annualized_sharpe": -1.8521071295858749,
+        "max_drawdown_pct": -36.69902790807016,
+        "trade_count": 1004,
+        "win_rate": 0.2679282868525896,
+        "post_fill_risk_exceeded_count": 691
+      },
+      "elapsed_sec": 0.45283079147338867
+    },
+    {
+      "candidate_id": "cand_13_ema_cross",
+      "family": "ema_cross",
+      "params": {
+        "fast": 16,
+        "slow": 48
+      },
+      "risk": {
+        "k_sl": 2.5,
+        "k_tp": 4.0,
+        "max_hold_bars": 48
+      },
+      "status": "REJECTED",
+      "reason": "REJECTED_NEGATIVE_SHARPE",
+      "summary": {
+        "final_equity": 804322.9249998182,
+        "total_return_pct": -19.567707500018184,
+        "annualized_sharpe": -2.0475606315272548,
+        "max_drawdown_pct": -24.028960861222522,
+        "trade_count": 682,
+        "win_rate": 0.3548387096774194,
+        "post_fill_risk_exceeded_count": 383
+      },
+      "elapsed_sec": 0.40456080436706543
+    },
+    {
+      "candidate_id": "cand_19_bb_breakout",
+      "family": "bb_breakout",
+      "params": {
+        "period": 30,
+        "std_mult": 1.5
+      },
+      "risk": {
+        "k_sl": 2.5,
+        "k_tp": 4.0,
+        "max_hold_bars": 48
+      },
+      "status": "REJECTED",
+      "reason": "REJECTED_NEGATIVE_SHARPE",
+      "summary": {
+        "final_equity": 701010.6749996315,
+        "total_return_pct": -29.898932500036857,
+        "annualized_sharpe": -2.3753683138005157,
+        "max_drawdown_pct": -32.73769575781696,
+        "trade_count": 1376,
+        "win_rate": 0.3691860465116279,
+        "post_fill_risk_exceeded_count": 750
+      },
+      "elapsed_sec": 0.48389291763305664
+    }
+  ],
+  "all_records": [
+    {
+      "candidate_id": "cand_01_ema_cross",
+      "family": "ema_cross",
+      "params": {
+        "fast": 12,
+        "slow": 48
+      },
+      "risk": {
+        "k_sl": 1.5,
+        "k_tp": 4.0,
+        "max_hold_bars": 48
+      },
+      "status": "REJECTED",
+      "reason": "REJECTED_NEGATIVE_SHARPE",
+      "summary": {
+        "final_equity": 645068.4999996823,
+        "total_return_pct": -35.49315000003177,
+        "annualized_sharpe": -3.0241469762569335,
+        "max_drawdown_pct": -36.39171075887228,
+        "trade_count": 875,
+        "win_rate": 0.25942857142857145,
+        "post_fill_risk_exceeded_count": 570
+      },
+      "elapsed_sec": 0.37520813941955566
+    },
+    {
+      "candidate_id": "cand_02_rsi_reversion",
+      "family": "rsi_reversion",
+      "params": {
+        "period": 10,
+        "overbought": 70,
+        "oversold": 30
+      },
+      "risk": {
+        "k_sl": 2.5,
+        "k_tp": 2.5,
+        "max_hold_bars": 72
+      },
+      "status": "REJECTED",
+      "reason": "REJECTED_NEGATIVE_SHARPE",
+      "summary": {
+        "final_equity": 327771.749999669,
+        "total_return_pct": -67.2228250000331,
+        "annualized_sharpe": -8.169514266599561,
+        "max_drawdown_pct": -67.21683469338248,
+        "trade_count": 2010,
+        "win_rate": 0.48208955223880595,
+        "post_fill_risk_exceeded_count": 815
+      },
+      "elapsed_sec": 0.5398643016815186
+    },
+    {
+      "candidate_id": "cand_03_bb_breakout",
+      "family": "bb_breakout",
+      "params": {
+        "period": 30,
+        "std_mult": 2.5
+      },
+      "risk": {
+        "k_sl": 2.5,
+        "k_tp": 4.0,
+        "max_hold_bars": 72
+      },
+      "status": "REJECTED",
+      "reason": "REJECTED_NEGATIVE_SHARPE",
+      "summary": {
+        "final_equity": 858792.7249997911,
+        "total_return_pct": -14.120727500020891,
+        "annualized_sharpe": -1.40966089236991,
+        "max_drawdown_pct": -20.660545376569683,
+        "trade_count": 645,
+        "win_rate": 0.3751937984496124,
+        "post_fill_risk_exceeded_count": 377
+      },
+      "elapsed_sec": 0.41011714935302734
+    },
+    {
+      "candidate_id": "cand_04_donchian_breakout",
+      "family": "donchian_breakout",
+      "params": {
+        "period": 20
+      },
+      "risk": {
+        "k_sl": 2.0,
+        "k_tp": 2.5,
+        "max_hold_bars": 72
+      },
+      "status": "REJECTED",
+      "reason": "REJECTED_NEGATIVE_SHARPE",
+      "summary": {
+        "final_equity": 428994.07499949523,
+        "total_return_pct": -57.10059250005048,
+        "annualized_sharpe": -5.7293196384323695,
+        "max_drawdown_pct": -55.78162786790076,
+        "trade_count": 1970,
+        "win_rate": 0.4025380710659898,
+        "post_fill_risk_exceeded_count": 1199
+      },
+      "elapsed_sec": 0.5786409378051758
+    },
+    {
+      "candidate_id": "cand_05_ema_cross",
+      "family": "ema_cross",
+      "params": {
+        "fast": 16,
+        "slow": 64
+      },
+      "risk": {
+        "k_sl": 2.0,
+        "k_tp": 3.0,
+        "max_hold_bars": 24
+      },
+      "status": "REJECTED",
+      "reason": "REJECTED_NEGATIVE_SHARPE",
+      "summary": {
+        "final_equity": 749866.9499997845,
+        "total_return_pct": -25.013305000021557,
+        "annualized_sharpe": -2.6998249444264375,
+        "max_drawdown_pct": -28.9335999532494,
+        "trade_count": 662,
+        "win_rate": 0.3972809667673716,
+        "post_fill_risk_exceeded_count": 435
+      },
+      "elapsed_sec": 0.3930392265319824
+    },
+    {
+      "candidate_id": "cand_06_rsi_reversion",
+      "family": "rsi_reversion",
+      "params": {
+        "period": 14,
+        "overbought": 70,
+        "oversold": 25
+      },
+      "risk": {
+        "k_sl": 2.0,
+        "k_tp": 3.0,
+        "max_hold_bars": 72
+      },
+      "status": "REJECTED",
+      "reason": "REJECTED_NEGATIVE_SHARPE",
+      "summary": {
+        "final_equity": 461630.8999996716,
+        "total_return_pct": -53.83691000003283,
+        "annualized_sharpe": -5.023654772445216,
+        "max_drawdown_pct": -54.96993763736789,
+        "trade_count": 1387,
+        "win_rate": 0.4008651766402307,
+        "post_fill_risk_exceeded_count": 809
+      },
+      "elapsed_sec": 0.4642448425292969
+    },
+    {
+      "candidate_id": "cand_07_bb_breakout",
+      "family": "bb_breakout",
+      "params": {
+        "period": 30,
+        "std_mult": 1.5
+      },
+      "risk": {
+        "k_sl": 1.5,
+        "k_tp": 2.5,
+        "max_hold_bars": 48
+      },
+      "status": "REJECTED",
+      "reason": "REJECTED_NEGATIVE_SHARPE",
+      "summary": {
+        "final_equity": 374651.7999994137,
+        "total_return_pct": -62.53482000005863,
+        "annualized_sharpe": -5.236954627564526,
+        "max_drawdown_pct": -63.89850587847299,
+        "trade_count": 1977,
+        "win_rate": 0.33940313606474454,
+        "post_fill_risk_exceeded_count": 1310
+      },
+      "elapsed_sec": 0.5124375820159912
+    },
+    {
+      "candidate_id": "cand_08_donchian_breakout",
+      "family": "donchian_breakout",
+      "params": {
+        "period": 20
+      },
+      "risk": {
+        "k_sl": 2.5,
+        "k_tp": 4.0,
+        "max_hold_bars": 24
+      },
+      "status": "REJECTED",
+      "reason": "REJECTED_NEGATIVE_SHARPE",
+      "summary": {
+        "final_equity": 550582.474999634,
+        "total_return_pct": -44.9417525000366,
+        "annualized_sharpe": -4.205172090756502,
+        "max_drawdown_pct": -43.574682734596045,
+        "trade_count": 1654,
+        "win_rate": 0.39721886336154777,
+        "post_fill_risk_exceeded_count": 862
+      },
+      "elapsed_sec": 0.4552795886993408
+    },
+    {
+      "candidate_id": "cand_09_ema_cross",
+      "family": "ema_cross",
+      "params": {
+        "fast": 12,
+        "slow": 32
+      },
+      "risk": {
+        "k_sl": 1.5,
+        "k_tp": 4.0,
+        "max_hold_bars": 72
+      },
+      "status": "REJECTED",
+      "reason": "REJECTED_NEGATIVE_SHARPE",
+      "summary": {
+        "final_equity": 743714.9249996229,
+        "total_return_pct": -25.628507500037713,
+        "annualized_sharpe": -1.8521071295858749,
+        "max_drawdown_pct": -36.69902790807016,
+        "trade_count": 1004,
+        "win_rate": 0.2679282868525896,
+        "post_fill_risk_exceeded_count": 691
+      },
+      "elapsed_sec": 0.45283079147338867
+    },
+    {
+      "candidate_id": "cand_10_rsi_reversion",
+      "family": "rsi_reversion",
+      "params": {
+        "period": 21,
+        "overbought": 75,
+        "oversold": 30
+      },
+      "risk": {
+        "k_sl": 2.5,
+        "k_tp": 3.0,
+        "max_hold_bars": 72
+      },
+      "status": "REJECTED",
+      "reason": "REJECTED_NEGATIVE_SHARPE",
+      "summary": {
+        "final_equity": 710718.9499998185,
+        "total_return_pct": -28.928105000018157,
+        "annualized_sharpe": -3.8483759073515436,
+        "max_drawdown_pct": -30.425008753952582,
+        "trade_count": 759,
+        "win_rate": 0.43610013175230566,
+        "post_fill_risk_exceeded_count": 378
+      },
+      "elapsed_sec": 0.4144022464752197
+    },
+    {
+      "candidate_id": "cand_11_bb_breakout",
+      "family": "bb_breakout",
+      "params": {
+        "period": 20,
+        "std_mult": 1.5
+      },
+      "risk": {
+        "k_sl": 1.5,
+        "k_tp": 3.0,
+        "max_hold_bars": 48
+      },
+      "status": "REJECTED",
+      "reason": "REJECTED_NEGATIVE_SHARPE",
+      "summary": {
+        "final_equity": 479378.624999271,
+        "total_return_pct": -52.06213750007289,
+        "annualized_sharpe": -3.579515923663427,
+        "max_drawdown_pct": -51.373222492411166,
+        "trade_count": 2123,
+        "win_rate": 0.31229392369288744,
+        "post_fill_risk_exceeded_count": 1444
+      },
+      "elapsed_sec": 0.49647068977355957
+    },
+    {
+      "candidate_id": "cand_12_donchian_breakout",
+      "family": "donchian_breakout",
+      "params": {
+        "period": 36
+      },
+      "risk": {
+        "k_sl": 2.0,
+        "k_tp": 2.5,
+        "max_hold_bars": 72
+      },
+      "status": "REJECTED",
+      "reason": "REJECTED_NEGATIVE_SHARPE",
+      "summary": {
+        "final_equity": 529349.9499996036,
+        "total_return_pct": -47.06500500003964,
+        "annualized_sharpe": -4.933266032584759,
+        "max_drawdown_pct": -46.996333952252705,
+        "trade_count": 1500,
+        "win_rate": 0.4093333333333333,
+        "post_fill_risk_exceeded_count": 938
+      },
+      "elapsed_sec": 0.4168579578399658
+    },
+    {
+      "candidate_id": "cand_13_ema_cross",
+      "family": "ema_cross",
+      "params": {
+        "fast": 16,
+        "slow": 48
+      },
+      "risk": {
+        "k_sl": 2.5,
+        "k_tp": 4.0,
+        "max_hold_bars": 48
+      },
+      "status": "REJECTED",
+      "reason": "REJECTED_NEGATIVE_SHARPE",
+      "summary": {
+        "final_equity": 804322.9249998182,
+        "total_return_pct": -19.567707500018184,
+        "annualized_sharpe": -2.0475606315272548,
+        "max_drawdown_pct": -24.028960861222522,
+        "trade_count": 682,
+        "win_rate": 0.3548387096774194,
+        "post_fill_risk_exceeded_count": 383
+      },
+      "elapsed_sec": 0.40456080436706543
+    },
+    {
+      "candidate_id": "cand_14_rsi_reversion",
+      "family": "rsi_reversion",
+      "params": {
+        "period": 10,
+        "overbought": 70,
+        "oversold": 30
+      },
+      "risk": {
+        "k_sl": 1.5,
+        "k_tp": 4.0,
+        "max_hold_bars": 48
+      },
+      "status": "REJECTED",
+      "reason": "REJECTED_NEGATIVE_SHARPE",
+      "summary": {
+        "final_equity": 250262.9499994765,
+        "total_return_pct": -74.97370500005235,
+        "annualized_sharpe": -6.618474110966846,
+        "max_drawdown_pct": -75.25656869157964,
+        "trade_count": 2281,
+        "win_rate": 0.36299868478737396,
+        "post_fill_risk_exceeded_count": 1381
+      },
+      "elapsed_sec": 0.530907154083252
+    },
+    {
+      "candidate_id": "cand_15_bb_breakout",
+      "family": "bb_breakout",
+      "params": {
+        "period": 30,
+        "std_mult": 2.0
+      },
+      "risk": {
+        "k_sl": 1.5,
+        "k_tp": 3.0,
+        "max_hold_bars": 24
+      },
+      "status": "REJECTED",
+      "reason": "REJECTED_NEGATIVE_SHARPE",
+      "summary": {
+        "final_equity": 460013.6999995686,
+        "total_return_pct": -53.99863000004315,
+        "annualized_sharpe": -4.909875187068449,
+        "max_drawdown_pct": -54.57620832832101,
+        "trade_count": 1402,
+        "win_rate": 0.3159771754636234,
+        "post_fill_risk_exceeded_count": 947
+      },
+      "elapsed_sec": 0.4560844898223877
+    },
+    {
+      "candidate_id": "cand_16_donchian_breakout",
+      "family": "donchian_breakout",
+      "params": {
+        "period": 36
+      },
+      "risk": {
+        "k_sl": 1.5,
+        "k_tp": 2.5,
+        "max_hold_bars": 48
+      },
+      "status": "REJECTED",
+      "reason": "REJECTED_NEGATIVE_SHARPE",
+      "summary": {
+        "final_equity": 347890.17499953933,
+        "total_return_pct": -65.21098250004607,
+        "annualized_sharpe": -6.626425013041476,
+        "max_drawdown_pct": -65.75249128596525,
+        "trade_count": 1633,
+        "win_rate": 0.33006736068585424,
+        "post_fill_risk_exceeded_count": 1088
+      },
+      "elapsed_sec": 0.4670836925506592
+    },
+    {
+      "candidate_id": "cand_17_ema_cross",
+      "family": "ema_cross",
+      "params": {
+        "fast": 16,
+        "slow": 48
+      },
+      "risk": {
+        "k_sl": 2.5,
+        "k_tp": 3.0,
+        "max_hold_bars": 24
+      },
+      "status": "REJECTED",
+      "reason": "REJECTED_NEGATIVE_SHARPE",
+      "summary": {
+        "final_equity": 727134.3999998232,
+        "total_return_pct": -27.28656000001768,
+        "annualized_sharpe": -3.428644493353874,
+        "max_drawdown_pct": -27.79480227512799,
+        "trade_count": 722,
+        "win_rate": 0.4155124653739612,
+        "post_fill_risk_exceeded_count": 394
+      },
+      "elapsed_sec": 0.3985021114349365
+    },
+    {
+      "candidate_id": "cand_18_rsi_reversion",
+      "family": "rsi_reversion",
+      "params": {
+        "period": 21,
+        "overbought": 75,
+        "oversold": 25
+      },
+      "risk": {
+        "k_sl": 2.5,
+        "k_tp": 2.5,
+        "max_hold_bars": 24
+      },
+      "status": "REJECTED",
+      "reason": "REJECTED_NEGATIVE_SHARPE",
+      "summary": {
+        "final_equity": 734326.6249998673,
+        "total_return_pct": -26.567337500013267,
+        "annualized_sharpe": -4.260294930509359,
+        "max_drawdown_pct": -28.497393744264677,
+        "trade_count": 566,
+        "win_rate": 0.44346289752650175,
+        "post_fill_risk_exceeded_count": 288
+      },
+      "elapsed_sec": 0.39354419708251953
+    },
+    {
+      "candidate_id": "cand_19_bb_breakout",
+      "family": "bb_breakout",
+      "params": {
+        "period": 30,
+        "std_mult": 1.5
+      },
+      "risk": {
+        "k_sl": 2.5,
+        "k_tp": 4.0,
+        "max_hold_bars": 48
+      },
+      "status": "REJECTED",
+      "reason": "REJECTED_NEGATIVE_SHARPE",
+      "summary": {
+        "final_equity": 701010.6749996315,
+        "total_return_pct": -29.898932500036857,
+        "annualized_sharpe": -2.3753683138005157,
+        "max_drawdown_pct": -32.73769575781696,
+        "trade_count": 1376,
+        "win_rate": 0.3691860465116279,
+        "post_fill_risk_exceeded_count": 750
+      },
+      "elapsed_sec": 0.48389291763305664
+    },
+    {
+      "candidate_id": "cand_20_donchian_breakout",
+      "family": "donchian_breakout",
+      "params": {
+        "period": 12
+      },
+      "risk": {
+        "k_sl": 1.5,
+        "k_tp": 4.0,
+        "max_hold_bars": 48
+      },
+      "status": "REJECTED",
+      "reason": "REJECTED_NEGATIVE_SHARPE",
+      "summary": {
+        "final_equity": 258139.39999947266,
+        "total_return_pct": -74.18606000005273,
+        "annualized_sharpe": -6.706116287101354,
+        "max_drawdown_pct": -74.13684228623792,
+        "trade_count": 2210,
+        "win_rate": 0.26199095022624436,
+        "post_fill_risk_exceeded_count": 1369
+      },
+      "elapsed_sec": 0.5244584083557129
+    },
+    {
+      "candidate_id": "cand_21_ema_cross",
+      "family": "ema_cross",
+      "params": {
+        "fast": 8,
+        "slow": 64
+      },
+      "risk": {
+        "k_sl": 2.5,
+        "k_tp": 2.5,
+        "max_hold_bars": 72
+      },
+      "status": "REJECTED",
+      "reason": "REJECTED_NEGATIVE_SHARPE",
+      "summary": {
+        "final_equity": 683352.9999998133,
+        "total_return_pct": -31.664700000018676,
+        "annualized_sharpe": -4.17122807835324,
+        "max_drawdown_pct": -31.409022072136985,
+        "trade_count": 793,
+        "win_rate": 0.3871374527112232,
+        "post_fill_risk_exceeded_count": 408
+      },
+      "elapsed_sec": 0.4043710231781006
+    },
+    {
+      "candidate_id": "cand_22_rsi_reversion",
+      "family": "rsi_reversion",
+      "params": {
+        "period": 14,
+        "overbought": 75,
+        "oversold": 25
+      },
+      "risk": {
+        "k_sl": 2.5,
+        "k_tp": 4.0,
+        "max_hold_bars": 48
+      },
+      "status": "REJECTED",
+      "reason": "REJECTED_NEGATIVE_SHARPE",
+      "summary": {
+        "final_equity": 505455.8499997659,
+        "total_return_pct": -49.45441500002341,
+        "annualized_sharpe": -5.7126262972460715,
+        "max_drawdown_pct": -50.53583707794693,
+        "trade_count": 1080,
+        "win_rate": 0.4074074074074074,
+        "post_fill_risk_exceeded_count": 489
+      },
+      "elapsed_sec": 0.455005407333374
+    },
+    {
+      "candidate_id": "cand_23_bb_breakout",
+      "family": "bb_breakout",
+      "params": {
+        "period": 30,
+        "std_mult": 2.0
+      },
+      "risk": {
+        "k_sl": 2.5,
+        "k_tp": 3.0,
+        "max_hold_bars": 48
+      },
+      "status": "REJECTED",
+      "reason": "REJECTED_NEGATIVE_SHARPE",
+      "summary": {
+        "final_equity": 700752.524999686,
+        "total_return_pct": -29.92474750003139,
+        "annualized_sharpe": -2.984280073268228,
+        "max_drawdown_pct": -32.39457857214968,
+        "trade_count": 1171,
+        "win_rate": 0.4286934244235696,
+        "post_fill_risk_exceeded_count": 631
+      },
+      "elapsed_sec": 0.45168519020080566
+    },
+    {
+      "candidate_id": "cand_24_donchian_breakout",
+      "family": "donchian_breakout",
+      "params": {
+        "period": 12
+      },
+      "risk": {
+        "k_sl": 1.5,
+        "k_tp": 2.5,
+        "max_hold_bars": 24
+      },
+      "status": "REJECTED",
+      "reason": "REJECTED_NEGATIVE_SHARPE",
+      "summary": {
+        "final_equity": 154247.92499943107,
+        "total_return_pct": -84.57520750005689,
+        "annualized_sharpe": -9.544932240840794,
+        "max_drawdown_pct": -84.32247397563167,
+        "trade_count": 2783,
+        "win_rate": 0.33201581027667987,
+        "post_fill_risk_exceeded_count": 1558
+      },
+      "elapsed_sec": 0.5695700645446777
+    },
+    {
+      "candidate_id": "cand_25_ema_cross",
+      "family": "ema_cross",
+      "params": {
+        "fast": 12,
+        "slow": 64
+      },
+      "risk": {
+        "k_sl": 2.0,
+        "k_tp": 4.0,
+        "max_hold_bars": 48
+      },
+      "status": "REJECTED",
+      "reason": "REJECTED_NEGATIVE_SHARPE",
+      "summary": {
+        "final_equity": 806551.6999997757,
+        "total_return_pct": -19.344830000022426,
+        "annualized_sharpe": -1.6969862394772495,
+        "max_drawdown_pct": -30.39205307919928,
+        "trade_count": 700,
+        "win_rate": 0.3242857142857143,
+        "post_fill_risk_exceeded_count": 448
+      },
+      "elapsed_sec": 0.40447473526000977
+    },
+    {
+      "candidate_id": "cand_26_rsi_reversion",
+      "family": "rsi_reversion",
+      "params": {
+        "period": 14,
+        "overbought": 75,
+        "oversold": 30
+      },
+      "risk": {
+        "k_sl": 2.0,
+        "k_tp": 2.5,
+        "max_hold_bars": 72
+      },
+      "status": "REJECTED",
+      "reason": "REJECTED_NEGATIVE_SHARPE",
+      "summary": {
+        "final_equity": 424395.24999967596,
+        "total_return_pct": -57.560475000032405,
+        "annualized_sharpe": -6.622289291610047,
+        "max_drawdown_pct": -60.523028654550046,
+        "trade_count": 1461,
+        "win_rate": 0.42299794661190965,
+        "post_fill_risk_exceeded_count": 812
+      },
+      "elapsed_sec": 0.4791538715362549
+    },
+    {
+      "candidate_id": "cand_27_bb_breakout",
+      "family": "bb_breakout",
+      "params": {
+        "period": 30,
+        "std_mult": 1.5
+      },
+      "risk": {
+        "k_sl": 2.0,
+        "k_tp": 2.5,
+        "max_hold_bars": 48
+      },
+      "status": "REJECTED",
+      "reason": "REJECTED_NEGATIVE_SHARPE",
+      "summary": {
+        "final_equity": 531723.224999503,
+        "total_return_pct": -46.8276775000497,
+        "annualized_sharpe": -4.1198807235710655,
+        "max_drawdown_pct": -48.94512998121683,
+        "trade_count": 1749,
+        "win_rate": 0.41337907375643224,
+        "post_fill_risk_exceeded_count": 1113
+      },
+      "elapsed_sec": 0.5055174827575684
+    },
+    {
+      "candidate_id": "cand_28_invalid_ema",
+      "status": "REJECTED",
+      "reason": "REJECTED_INVALID_SCHEMA: ema fast >= slow",
+      "elapsed_sec": 1.7404556274414062e-05
+    },
+    {
+      "candidate_id": "cand_29_invalid_sl",
+      "status": "REJECTED",
+      "reason": "REJECTED_INVALID_SCHEMA: non-positive risk params",
+      "elapsed_sec": 1.0013580322265625e-05
+    },
+    {
+      "candidate_id": "cand_30_unknown_fam",
+      "status": "REJECTED",
+      "reason": "REJECTED_INVALID_SCHEMA: unsupported family unknown_magic",
+      "elapsed_sec": 3.814697265625e-06
+    }
+  ]
+}

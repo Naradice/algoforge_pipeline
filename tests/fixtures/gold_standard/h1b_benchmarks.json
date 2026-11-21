@@ -1,0 +1,387 @@
+{
+  "description": "H1b Benchmark Datasets derived strictly from Development Set (10 documents) to preserve data discipline.",
+  "h1b_er_benchmark": {
+    "description": "Entity Resolution benchmark with explicit separation between SAME_AS (identity/alias), VARIANT_OF (specialization/derivation), and DISTINCT (hard negative).",
+    "same_as_pairs": [
+      {
+        "pair_id": "er_same_01",
+        "entity_type": "software",
+        "mention_a": {
+          "source_id": "github_10101",
+          "mention_text": "Gym Trading Environment"
+        },
+        "mention_b": {
+          "source_id": "synthetic_dev_variant",
+          "mention_text": "Gym Financial Trading Environment"
+        },
+        "relation": "SAME_AS",
+        "explanation": "Exact identical software tool referenced with trivial modifier variation."
+      },
+      {
+        "pair_id": "er_same_02",
+        "entity_type": "model",
+        "mention_a": {
+          "source_id": "arxiv_2301_01002",
+          "mention_text": "Hawkes Process"
+        },
+        "mention_b": {
+          "source_id": "synthetic_dev_variant",
+          "mention_text": "Hawkes Self-Exciting Process"
+        },
+        "relation": "SAME_AS",
+        "explanation": "Exact synonym for the Hawkes point process model."
+      }
+    ],
+    "variant_of_pairs": [
+      {
+        "pair_id": "er_var_01",
+        "entity_type": "method",
+        "mention_a": {
+          "source_id": "arxiv_2301_02001",
+          "mention_text": "Sequential Neural Posterior Estimation"
+        },
+        "mention_b": {
+          "source_id": "arxiv_2301_01004",
+          "mention_text": "Neural Posterior Estimation"
+        },
+        "relation": "VARIANT_OF",
+        "explanation": "SNPE is a multi-round sequential algorithmic extension/specialization of base amortized NPE."
+      },
+      {
+        "pair_id": "er_var_02",
+        "entity_type": "model",
+        "mention_a": {
+          "source_id": "synthetic_dev_variant",
+          "mention_text": "Multivariate Hawkes Process"
+        },
+        "mention_b": {
+          "source_id": "arxiv_2301_01002",
+          "mention_text": "Hawkes Process"
+        },
+        "relation": "VARIANT_OF",
+        "explanation": "Multivariate Hawkes process is a cross-dimensional coupled extension of univariate Hawkes process."
+      }
+    ],
+    "distinct_hard_negatives": [
+      {
+        "pair_id": "er_dist_01",
+        "entity_type": "method",
+        "mention_a": {
+          "source_id": "arxiv_2301_01002",
+          "mention_text": "Maximum Likelihood Estimation"
+        },
+        "mention_b": {
+          "source_id": "arxiv_2301_01004",
+          "mention_text": "Neural Posterior Estimation"
+        },
+        "relation": "DISTINCT",
+        "explanation": "Both are parameter inference methods, but MLE is point estimation via likelihood maximization whereas NPE is amortized Bayesian posterior estimation via deep neural density estimators."
+      },
+      {
+        "pair_id": "er_dist_02",
+        "entity_type": "model",
+        "mention_a": {
+          "source_id": "arxiv_2301_01001",
+          "mention_text": "Minority Game"
+        },
+        "mention_b": {
+          "source_id": "arxiv_2301_01004",
+          "mention_text": "Agent-Based Market Model"
+        },
+        "relation": "DISTINCT",
+        "explanation": "Minority Game is a discrete binary choice inductive game, whereas Agent-Based Market Model in 2301_01004 features continuous wealth and order placement mechanics."
+      },
+      {
+        "pair_id": "er_dist_03",
+        "entity_type": "phenomenon",
+        "mention_a": {
+          "source_id": "arxiv_2301_01001",
+          "mention_text": "Volatility Clustering"
+        },
+        "mention_b": {
+          "source_id": "arxiv_2301_01002",
+          "mention_text": "Order Flow Imbalance"
+        },
+        "relation": "DISTINCT",
+        "explanation": "Volatility Clustering is second-moment auto-correlation of returns, while Order Flow Imbalance is buy/sell volume asymmetry in limit order books."
+      },
+      {
+        "pair_id": "er_dist_04",
+        "entity_type": "software",
+        "mention_a": {
+          "source_id": "github_10101",
+          "mention_text": "Gym Trading Environment"
+        },
+        "mention_b": {
+          "source_id": "github_10103",
+          "mention_text": "Event-Driven Backtesting Simulator"
+        },
+        "relation": "DISTINCT",
+        "explanation": "Gym Trading Environment is a step-based reinforcement learning MDP interface, whereas Event-Driven Backtesting Simulator is a tick-by-tick order execution engine."
+      },
+      {
+        "pair_id": "er_dist_05",
+        "entity_type": "capability",
+        "mention_a": {
+          "source_id": "arxiv_2301_01001",
+          "mention_text": "Simulate Return Series"
+        },
+        "mention_b": {
+          "source_id": "github_10103",
+          "mention_text": "Simulate Order Execution"
+        },
+        "relation": "DISTINCT",
+        "explanation": "Simulate Return Series generates synthetic asset price paths, while Simulate Order Execution models order matching, slippage, and queue fills."
+      }
+    ]
+  },
+  "h1b_re_benchmark": {
+    "description": "Relation Extraction benchmark on Development Set containing all 11 positive relations and 11 negative co-occurring pairs.",
+    "positive_relations": [
+      {
+        "relation_id": "re_pos_01",
+        "source_id": "arxiv_2301_01001",
+        "src_local_id": "mod_01",
+        "src_name": "Minority Game",
+        "src_type": "model",
+        "dst_local_id": "phe_01",
+        "dst_name": "Volatility Clustering",
+        "dst_type": "phenomenon",
+        "expected_relation": "EXPLAINS",
+        "evidence_quote": "Minority Game to reproduce fat-tailed return distributions and volatility clustering"
+      },
+      {
+        "relation_id": "re_pos_02",
+        "source_id": "arxiv_2301_01001",
+        "src_local_id": "cap_01",
+        "src_name": "Simulate Return Series",
+        "src_type": "capability",
+        "dst_local_id": "mod_01",
+        "dst_name": "Minority Game",
+        "dst_type": "model",
+        "expected_relation": "PROVIDED_BY",
+        "evidence_quote": "Simulate Return Series using Minority Game"
+      },
+      {
+        "relation_id": "re_pos_03",
+        "source_id": "arxiv_2301_01002",
+        "src_local_id": "met_01",
+        "src_name": "Maximum Likelihood Estimation",
+        "src_type": "method",
+        "dst_local_id": "mod_01",
+        "dst_name": "Hawkes Process",
+        "dst_type": "model",
+        "expected_relation": "APPLIES_TO",
+        "evidence_quote": "Maximum likelihood estimation of multivariate Hawkes processes"
+      },
+      {
+        "relation_id": "re_pos_04",
+        "source_id": "arxiv_2301_01002",
+        "src_local_id": "cap_01",
+        "src_name": "Predict Price Movements",
+        "src_type": "capability",
+        "dst_local_id": "mod_01",
+        "dst_name": "Hawkes Process",
+        "dst_type": "model",
+        "expected_relation": "PROVIDED_BY",
+        "evidence_quote": "Predict Price Movements using Hawkes processes"
+      },
+      {
+        "relation_id": "re_pos_05",
+        "source_id": "arxiv_2301_01003",
+        "src_local_id": "cap_01",
+        "src_name": "Infer Latent Volatility States",
+        "src_type": "capability",
+        "dst_local_id": "mod_01",
+        "dst_name": "Transformer-XL",
+        "dst_type": "model",
+        "expected_relation": "PROVIDED_BY",
+        "evidence_quote": "Transformer-XL architecture to infer latent volatility states"
+      },
+      {
+        "relation_id": "re_pos_06",
+        "source_id": "arxiv_2301_01004",
+        "src_local_id": "met_01",
+        "src_name": "Neural Posterior Estimation",
+        "src_type": "method",
+        "dst_local_id": "mod_01",
+        "dst_name": "Agent-Based Market Model",
+        "dst_type": "model",
+        "expected_relation": "APPLIES_TO",
+        "evidence_quote": "Neural posterior estimation applied to agent-based market models"
+      },
+      {
+        "relation_id": "re_pos_07",
+        "source_id": "arxiv_2301_02001",
+        "src_local_id": "met_01",
+        "src_name": "Sequential Neural Posterior Estimation",
+        "src_type": "method",
+        "dst_local_id": "mod_01",
+        "dst_name": "Stochastic Differential Equations",
+        "dst_type": "model",
+        "expected_relation": "APPLIES_TO",
+        "evidence_quote": "Sequential neural posterior estimation for parameter inference in stochastic differential equations"
+      },
+      {
+        "relation_id": "re_pos_08",
+        "source_id": "arxiv_2301_02002",
+        "src_local_id": "cap_01",
+        "src_name": "Identify Sleep Transitions",
+        "src_type": "capability",
+        "dst_local_id": "mod_01",
+        "dst_name": "Switching State-Space Model",
+        "dst_type": "model",
+        "expected_relation": "PROVIDED_BY",
+        "evidence_quote": "Switching state-space models to identify sleep stage transitions"
+      },
+      {
+        "relation_id": "re_pos_09",
+        "source_id": "arxiv_2301_02003",
+        "src_local_id": "cap_01",
+        "src_name": "Detect Seismic Anomalies",
+        "src_type": "capability",
+        "dst_local_id": "mod_01",
+        "dst_name": "Graph Neural Network",
+        "dst_type": "model",
+        "expected_relation": "PROVIDED_BY",
+        "evidence_quote": "Graph neural networks for seismic anomaly detection"
+      },
+      {
+        "relation_id": "re_pos_10",
+        "source_id": "github_10101",
+        "src_local_id": "cap_01",
+        "src_name": "Train RL Policies",
+        "src_type": "capability",
+        "dst_local_id": "soft_01",
+        "dst_name": "Gym Trading Environment",
+        "dst_type": "software",
+        "expected_relation": "PROVIDED_BY",
+        "evidence_quote": "Gym trading environments to train reinforcement learning policies"
+      },
+      {
+        "relation_id": "re_pos_11",
+        "source_id": "github_10103",
+        "src_local_id": "cap_01",
+        "src_name": "Simulate Order Execution",
+        "src_type": "capability",
+        "dst_local_id": "soft_01",
+        "dst_name": "Event-Driven Backtesting Simulator",
+        "dst_type": "software",
+        "expected_relation": "PROVIDED_BY",
+        "evidence_quote": "Event-driven backtesting simulator simulating realistic order execution"
+      }
+    ],
+    "negative_relations": [
+      {
+        "relation_id": "re_neg_01",
+        "source_id": "arxiv_2301_01001",
+        "src_name": "Volatility Clustering",
+        "src_type": "phenomenon",
+        "dst_name": "Simulate Return Series",
+        "dst_type": "capability",
+        "expected_relation": "NONE",
+        "explanation": "No direct operational or explanatory relation from phenomenon to capability."
+      },
+      {
+        "relation_id": "re_neg_02",
+        "source_id": "arxiv_2301_01001",
+        "src_name": "Volatility Clustering",
+        "src_type": "phenomenon",
+        "dst_name": "Minority Game",
+        "dst_type": "model",
+        "expected_relation": "NONE",
+        "explanation": "Reverse direction: Minority Game explains Volatility Clustering, but Volatility Clustering does not explain Minority Game."
+      },
+      {
+        "relation_id": "re_neg_03",
+        "source_id": "arxiv_2301_01002",
+        "src_name": "Maximum Likelihood Estimation",
+        "src_type": "method",
+        "dst_name": "Order Flow Imbalance",
+        "dst_type": "phenomenon",
+        "expected_relation": "NONE",
+        "explanation": "MLE applies to Hawkes process, not directly explaining the market phenomenon."
+      },
+      {
+        "relation_id": "re_neg_04",
+        "source_id": "arxiv_2301_01002",
+        "src_name": "Maximum Likelihood Estimation",
+        "src_type": "method",
+        "dst_name": "Predict Price Movements",
+        "dst_type": "capability",
+        "expected_relation": "NONE",
+        "explanation": "Estimation algorithm does not provide prediction capability directly; the model does."
+      },
+      {
+        "relation_id": "re_neg_05",
+        "source_id": "arxiv_2301_01003",
+        "src_name": "Computational latency during real-time inference.",
+        "src_type": "limitation",
+        "dst_name": "Transformer-XL",
+        "dst_type": "model",
+        "expected_relation": "NONE",
+        "explanation": "Reverse direction: Model is constrained by limitation, not limitation constrained by model."
+      },
+      {
+        "relation_id": "re_neg_06",
+        "source_id": "arxiv_2301_01004",
+        "src_name": "Neural Posterior Estimation",
+        "src_type": "method",
+        "dst_name": "Amortized Parameter Calibration",
+        "dst_type": "capability",
+        "expected_relation": "NONE",
+        "explanation": "No PROVIDED_BY relation from capability to method in this text context."
+      },
+      {
+        "relation_id": "re_neg_07",
+        "source_id": "github_10101",
+        "src_name": "Assumes zero market impact from executed orders.",
+        "src_type": "limitation",
+        "dst_name": "Gym Trading Environment",
+        "dst_type": "software",
+        "expected_relation": "NONE",
+        "explanation": "Reverse direction of CONSTRAINED_BY."
+      },
+      {
+        "relation_id": "re_neg_08",
+        "source_id": "github_10101",
+        "src_name": "Train RL Policies",
+        "src_type": "capability",
+        "dst_name": "Assumes zero market impact from executed orders.",
+        "dst_type": "limitation",
+        "expected_relation": "NONE",
+        "explanation": "Limitation applies to environment simulation, not capability directly."
+      },
+      {
+        "relation_id": "re_neg_09",
+        "source_id": "arxiv_2301_02001",
+        "src_name": "Estimate Posterior Distributions",
+        "src_type": "capability",
+        "dst_name": "Sequential Neural Posterior Estimation",
+        "dst_type": "method",
+        "expected_relation": "NONE",
+        "explanation": "Capability is provided by SDE model under SNPE inference, not direct relation in this text."
+      },
+      {
+        "relation_id": "re_neg_10",
+        "source_id": "arxiv_2301_01001",
+        "src_name": "Market participants have bounded rationality and finite memory capacity.",
+        "src_type": "assumption",
+        "dst_name": "Volatility Clustering",
+        "dst_type": "phenomenon",
+        "expected_relation": "NONE",
+        "explanation": "Assumption pertains to agent model, not the market phenomenon."
+      },
+      {
+        "relation_id": "re_neg_11",
+        "source_id": "arxiv_2301_01002",
+        "src_name": "Order Flow Imbalance",
+        "src_type": "phenomenon",
+        "dst_name": "Predict Price Movements",
+        "dst_type": "capability",
+        "expected_relation": "NONE",
+        "explanation": "Phenomenon cannot be source of capability relation."
+      }
+    ]
+  }
+}

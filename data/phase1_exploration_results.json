@@ -1,0 +1,153 @@
+{
+  "timestamp_utc": "2026-11-21T16:07:42.964254+00:00",
+  "total_elapsed_sec": 50.40119528770447,
+  "api_spend_usd": 0.0,
+  "random_search": {
+    "evals": 120,
+    "unique": 120,
+    "dup_rate": 0.0,
+    "cache_hits": 0,
+    "saved_sec": 0.0,
+    "profitable": 26,
+    "best_metrics": {
+      "final_equity": 1038240.3249999934,
+      "total_return_pct": 3.8240324999993414,
+      "annualized_sharpe": 2.7015857114848276,
+      "max_drawdown_pct": -1.8874875319592657,
+      "trade_count": 18,
+      "win_rate": 0.6111111111111112,
+      "post_fill_risk_exceeded_count": 12
+    },
+    "top_strategy": {
+      "long": {
+        "op": "AND",
+        "clauses": [
+          {
+            "type": "bb_break_upper",
+            "period": 30,
+            "std_mult": 2.5
+          },
+          {
+            "type": "ema_cross",
+            "fast": 8,
+            "slow": 32,
+            "dir": 1
+          }
+        ]
+      },
+      "short": {
+        "op": "AND",
+        "clauses": [
+          {
+            "type": "ema_cross",
+            "fast": 8,
+            "slow": 64,
+            "dir": -1
+          },
+          {
+            "type": "ema_cross",
+            "fast": 16,
+            "slow": 32,
+            "dir": -1
+          }
+        ]
+      },
+      "htf_filter": {
+        "h1_align": false,
+        "h4_align": true
+      },
+      "hours_utc": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "risk": {
+        "k_sl": 2.0,
+        "k_tp": 2.5,
+        "max_hold_bars": 48
+      }
+    }
+  },
+  "evolutionary_search": {
+    "evals": 120,
+    "unique": 93,
+    "dup_rate": 0.22499999999999998,
+    "cache_hits": 67,
+    "saved_sec": 18.425923347473145,
+    "profitable": 59,
+    "best_metrics": {
+      "final_equity": 1135720.3499999293,
+      "total_return_pct": 13.572034999992933,
+      "annualized_sharpe": 2.9236090862494097,
+      "max_drawdown_pct": -3.5661235174804187,
+      "trade_count": 238,
+      "win_rate": 0.5042016806722689,
+      "post_fill_risk_exceeded_count": 118
+    },
+    "top_strategy": {
+      "long": {
+        "op": "AND",
+        "clauses": [
+          {
+            "type": "ema_cross",
+            "fast": 12,
+            "slow": 32,
+            "dir": 1
+          },
+          {
+            "type": "donchian_break_high",
+            "period": 36
+          }
+        ]
+      },
+      "short": {
+        "op": "AND",
+        "clauses": [
+          {
+            "type": "donchian_break_low",
+            "period": 12
+          },
+          {
+            "type": "bb_break_lower",
+            "period": 20,
+            "std_mult": 2.0
+          }
+        ]
+      },
+      "htf_filter": {
+        "h1_align": true,
+        "h4_align": false
+      },
+      "hours_utc": [],
+      "risk": {
+        "k_sl": 2.5,
+        "k_tp": 3.0,
+        "max_hold_bars": 72
+      }
+    }
+  },
+  "diagnostic_40d": {
+    "Random_Top1": {
+      "final_equity": 1014669.2499999995,
+      "total_return_pct": 1.4669249999999634,
+      "annualized_sharpe": 2.628486893826468,
+      "max_drawdown_pct": -0.9937998500762768,
+      "trade_count": 7,
+      "win_rate": 0.7142857142857143,
+      "post_fill_risk_exceeded_count": 5
+    },
+    "Evo_Top1": {
+      "final_equity": 1037080.2249999797,
+      "total_return_pct": 3.708022499997976,
+      "annualized_sharpe": 1.7927887391882478,
+      "max_drawdown_pct": -3.541212087670705,
+      "trade_count": 87,
+      "win_rate": 0.4942528735632184,
+      "post_fill_risk_exceeded_count": 49
+    }
+  }
+}

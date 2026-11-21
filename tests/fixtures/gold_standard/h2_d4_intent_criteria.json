@@ -1,0 +1,26 @@
+{
+  "almgren_chriss": {
+    "original_intent_definition": "Formulates optimal liquidation trajectory x_k of pre-existing parent inventory under market risk vs transient impact trade-off.",
+    "valid_transformation_definition": "Transforms liquidation to an adaptive pacing or execution variance minimization proxy using M5 historical volatility and linear volume regression, specifying initial X_0, finite horizon T, and terminal condition x_T = 0.",
+    "infeasible_recognition_definition": "Explicitly notes that order book depth and instant execution fills are required for true transient impact calibration, and states the limitations under M5 OHLCV.",
+    "invalid_substitution_definition": "Repurposes liquidation trajectory as a speculative directional buy/sell entry signal, or conflates remaining inventory x(t) with price S(t)."
+  },
+  "hawkes_process": {
+    "original_intent_definition": "Models endogenous feedback and clustering in order flows (order arrivals and cancellations) in the limit order book.",
+    "valid_transformation_definition": "Explicitly formulates an M5 return exceedance proxy for price jump clustering, complete with the 5 proxy requirements (original target, proxy target, transformed hypothesis, permitted interpretations, prohibited interpretations).",
+    "infeasible_recognition_definition": "Explicitly states that tick-level order book events cannot be directly observed on M5 bars and that order flow Hawkes cannot be directly estimated natively.",
+    "invalid_substitution_definition": "Claims M5 price changes measure true order book cancellations, or treats arrival intensity lambda as directional price return."
+  },
+  "irm": {
+    "original_intent_definition": "Learns invariant feature representations across multiple market environments to mitigate out-of-distribution regime shifts.",
+    "valid_transformation_definition": "Defines M5 OHLCV native features partitioned into explicit session environments (Asian, European, US) with verifiable training objectives and bar-direction signed volume.",
+    "infeasible_recognition_definition": "Explicitly notes that L2/L3 order book queue depth and microsecond trade signs are unavailable on M5 bars alone.",
+    "invalid_substitution_definition": "Demands raw L3 order book imbalance, claims IRM eliminates all market risk, or uses IRM as an order execution routing scheduler."
+  },
+  "jump_diffusion": {
+    "original_intent_definition": "Disentangles diffusive Brownian volatility from discrete Poisson jump intensities across macroeconomic regimes.",
+    "valid_transformation_definition": "Calculates computable threshold bipower variation on M5 returns to infer regime states with complete estimation and variance separability specifications.",
+    "infeasible_recognition_definition": "Explicitly states that microsecond jump timestamps and external central bank news feeds are unavailable under M5 OHLCV.",
+    "invalid_substitution_definition": "Treats Poisson jumps as deterministic upward surges, uses unconfirmed daily close intraday, or repurposes model as multi-venue limit order placement engine."
+  }
+}

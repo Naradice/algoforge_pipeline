@@ -1,0 +1,156 @@
+{
+  "hawkes_process": {
+    "concept_name": "Multivariate Hawkes Point Process",
+    "parameters": [
+      {
+        "param_id": "hawkes_baseline_mu",
+        "symbol": "mu",
+        "layer": "layer1_model",
+        "necessity": "MODEL_REQUIRED",
+        "description": "Baseline background arrival rate",
+        "theoretical_rule": "mu > 0 strictly positive background rate under univariate exponential kernel"
+      },
+      {
+        "param_id": "hawkes_excitation_alpha",
+        "symbol": "alpha",
+        "layer": "layer1_model",
+        "necessity": "MODEL_REQUIRED",
+        "description": "Excitation magnitude / jump reflexivity",
+        "theoretical_rule": "alpha >= 0 under univariate exponential kernel"
+      },
+      {
+        "param_id": "hawkes_decay_beta",
+        "symbol": "beta",
+        "layer": "layer1_model",
+        "necessity": "MODEL_REQUIRED",
+        "description": "Exponential memory decay rate",
+        "theoretical_rule": "beta > 0 and alpha < beta (subcritical stationarity condition for univariate exponential kernel)"
+      },
+      {
+        "param_id": "hawkes_intensity_threshold",
+        "symbol": "lambda*",
+        "layer": "layer2_decision",
+        "necessity": "STRATEGY_REQUIRED",
+        "description": "Arrival intensity spike cutoff triggering trade action",
+        "theoretical_rule": "Requires empirical calibration or in-sample estimation; cannot be assumed arbitrarily"
+      },
+      {
+        "param_id": "hawkes_execution_timing_rule",
+        "symbol": "t_exec",
+        "layer": "layer4_execution",
+        "necessity": "STRATEGY_REQUIRED",
+        "description": "Temporal execution ordering",
+        "theoretical_rule": "Signal evaluated on confirmed bar close C_t; executed at next open O_{t+1} (idealized backtest assumption)"
+      },
+      {
+        "param_id": "hawkes_max_drawdown_stop",
+        "symbol": "max_dd",
+        "layer": "layer3_risk",
+        "necessity": "STRATEGY_REQUIRED",
+        "description": "Risk stop loss / maximum adverse excursion threshold",
+        "theoretical_rule": "Must be defined quantitatively in pips or basis points"
+      },
+      {
+        "param_id": "hawkes_branching_ratio_threshold",
+        "symbol": "(alpha/beta)*",
+        "layer": "layer2_decision",
+        "necessity": "CONDITIONAL",
+        "description": "Critical cascade risk cutoff",
+        "theoretical_rule": "Required only if branching ratio is used as active trade trigger. If strategy relies purely on lambda*, alpha/beta is model diagnostic only."
+      },
+      {
+        "param_id": "hawkes_risk_sizing_scale",
+        "symbol": "w_risk",
+        "layer": "layer3_risk",
+        "necessity": "CONDITIONAL",
+        "description": "Volatility/intensity inversely scaled lot sizing",
+        "theoretical_rule": "Required only if dynamic position sizing is chosen; optional if fixed lot sizing is used."
+      },
+      {
+        "param_id": "hawkes_max_holding_horizon",
+        "symbol": "K_horizon",
+        "layer": "layer4_execution",
+        "necessity": "OPTIONAL",
+        "description": "Finite holding horizon / time stop exit in M5 bars",
+        "theoretical_rule": "Optional if another valid exit rule (e.g. intensity drops below baseline) is fully defined."
+      }
+    ]
+  },
+  "jump_diffusion": {
+    "concept_name": "Regime-Switching Jump Diffusion Model",
+    "parameters": [
+      {
+        "param_id": "jump_bipower_threshold_theta",
+        "symbol": "theta_BV",
+        "layer": "layer1_model",
+        "necessity": "MODEL_REQUIRED",
+        "description": "Truncation threshold multiplier separating jump variance from diffusive variance",
+        "theoretical_rule": "theta_BV > 0 over fixed rolling observation window (e.g. 288 M5 bars)"
+      },
+      {
+        "param_id": "jump_hamilton_transition_probs",
+        "symbol": "p_00, p_11",
+        "layer": "layer1_model",
+        "necessity": "MODEL_REQUIRED",
+        "description": "Hamilton Markov regime transition probabilities",
+        "theoretical_rule": "0 < p_00, p_11 < 1.0; state estimation must use filtered probability P(S_t | F_t) strictly, not smoothed probability P(S_t | F_T)"
+      },
+      {
+        "param_id": "jump_regime_variance_ratio",
+        "symbol": "sigma_ratio",
+        "layer": "layer1_model",
+        "necessity": "MODEL_REQUIRED",
+        "description": "Variance separability scale between crisis and tranquil regimes",
+        "theoretical_rule": "sigma_crisis > sigma_tranquil > 0"
+      },
+      {
+        "param_id": "jump_execution_timing_rule",
+        "symbol": "t_exec",
+        "layer": "layer4_execution",
+        "necessity": "STRATEGY_REQUIRED",
+        "description": "Temporal execution ordering",
+        "theoretical_rule": "Signal evaluated on confirmed bar close C_t; executed at next open O_{t+1} (idealized backtest assumption)"
+      },
+      {
+        "param_id": "jump_trailing_stop_threshold",
+        "symbol": "stop_bps",
+        "layer": "layer3_risk",
+        "necessity": "STRATEGY_REQUIRED",
+        "description": "Dynamic volatility-scaled stop loss rule",
+        "theoretical_rule": "Quantitative threshold in bps or ATR multiples"
+      },
+      {
+        "param_id": "jump_regime_posterior_threshold",
+        "symbol": "P(crisis)*",
+        "layer": "layer2_decision",
+        "necessity": "CONDITIONAL",
+        "description": "Filtered posterior regime probability cutoff triggering defensive action",
+        "theoretical_rule": "Required if regime switching is the primary trade trigger. Must strictly use filtered probability P(S_t | F_t)."
+      },
+      {
+        "param_id": "jump_component_size_threshold",
+        "symbol": "J_t*",
+        "layer": "layer2_decision",
+        "necessity": "CONDITIONAL",
+        "description": "Realized jump component cutoff J_t = max(0, RV_t - BV_t)",
+        "theoretical_rule": "Required if jump magnitude is used directly as trade trigger."
+      },
+      {
+        "param_id": "jump_regime_lot_multiplier",
+        "symbol": "lot_crisis",
+        "layer": "layer3_risk",
+        "necessity": "CONDITIONAL",
+        "description": "Capital allocation fraction during crisis regime",
+        "theoretical_rule": "Required only if regime-conditioned allocation sizing is adopted."
+      },
+      {
+        "param_id": "jump_regime_rebalance_interval",
+        "symbol": "K_rebal",
+        "layer": "layer4_execution",
+        "necessity": "OPTIONAL",
+        "description": "Regime filtering parameter update frequency",
+        "theoretical_rule": "Optional if updated per completed bar."
+      }
+    ]
+  }
+}

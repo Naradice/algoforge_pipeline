@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom"
+      xmlns:arxiv="http://arxiv.org/schemas/atom">
+  <title type="html">arXiv Query: search_query=all:market simulation</title>
+  <id>http://arxiv.org/api/C0wV1ZtNqB</id>
+  <updated>2026-11-15T00:00:00Z</updated>
+  <opensearch:totalResults xmlns:opensearch="http://a9.com/-/spec/opensearch/1.1/">3</opensearch:totalResults>
+  <opensearch:startIndex xmlns:opensearch="http://a9.com/-/spec/opensearch/1.1/">0</opensearch:startIndex>
+  <opensearch:itemsPerPage xmlns:opensearch="http://a9.com/-/spec/opensearch/1.1/">10</opensearch:itemsPerPage>
+
+  <!-- Entry 1: Modern format with v3 resolved -->
+  <entry>
+    <id>http://arxiv.org/abs/2301.12345v3</id>
+    <updated>2023-03-01T12:00:00Z</updated>
+    <published>2023-01-20T10:00:00Z</published>
+    <title>Agent-Based Market Simulation with Adaptive Learning Agents</title>
+    <summary>  This paper presents an agent-based simulation of foreign exchange markets.
+We investigate emergent price dynamics and volatility clustering under varying
+agent cognitive constraints.  </summary>
+    <author>
+      <name>Alice Smith</name>
+    </author>
+    <author>
+      <name>Bob Jones</name>
+    </author>
+    <arxiv:primary_category term="q-fin.TR" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="q-fin.TR" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="cs.MA" scheme="http://arxiv.org/schemas/atom"/>
+    <link href="http://arxiv.org/abs/2301.12345v3" rel="alternate" type="text/html"/>
+    <link title="pdf" href="http://arxiv.org/pdf/2301.12345v3" rel="related" type="application/pdf"/>
+  </entry>
+
+  <!-- Entry 2: Modern format with v1 resolved -->
+  <entry>
+    <id>http://arxiv.org/abs/2301.99999v1</id>
+    <updated>2023-01-25T15:30:00Z</updated>
+    <published>2023-01-25T15:30:00Z</published>
+    <title>Simulation-Based Inference for Order Flow Dynamics</title>
+    <summary>We introduce neural posterior estimation for estimating structural parameters
+in high-frequency limit order books.</summary>
+    <author>
+      <name>Charlie Brown</name>
+    </author>
+    <arxiv:primary_category term="stat.ML" scheme="http://arxiv.org/schemas/atom"/>
+    <link href="http://arxiv.org/abs/2301.99999v1" rel="alternate" type="text/html"/>
+    <link title="pdf" href="http://arxiv.org/pdf/2301.99999v1" rel="related" type="application/pdf"/>
+  </entry>
+
+  <!-- Entry 3: Legacy format (math/0309099v2) -->
+  <entry>
+    <id>http://arxiv.org/abs/math/0309099v2</id>
+    <updated>2003-10-10T08:00:00Z</updated>
+    <published>2003-09-08T09:00:00Z</published>
+    <title>On Geometric Properties of Financial Time Series</title>
+    <summary>An early mathematical study of scaling laws and multiscaling in asset returns.</summary>
+    <author>
+      <name>David Hilbert</name>
+    </author>
+    <arxiv:primary_category term="math.PR" scheme="http://arxiv.org/schemas/atom"/>
+    <link href="http://arxiv.org/abs/math/0309099v2" rel="alternate" type="text/html"/>
+    <link title="pdf" href="http://arxiv.org/pdf/math/0309099v2" rel="related" type="application/pdf"/>
+  </entry>
+</feed>

@@ -1,0 +1,63 @@
+{
+  "timestamp_utc": "2026-11-21T17:02:50.387952+00:00",
+  "elapsed_sec": 1.7869586944580078,
+  "api_spend_usd": 0.0,
+  "models": {
+    "gemini_antigravity": {
+      "submitted": 10,
+      "valid_json": 10,
+      "unique": 10,
+      "cache_hits": 10,
+      "eligible": 9,
+      "top1_explore": {
+        "final_equity": 1095961.8499999417,
+        "total_return_pct": 9.596184999994172,
+        "annualized_sharpe": 1.6940485136925338,
+        "max_drawdown_pct": -5.633146685890684,
+        "trade_count": 205,
+        "win_rate": 0.44390243902439025,
+        "post_fill_risk_exceeded_count": 133,
+        "sharpe_p1": 1.169026949550369,
+        "sharpe_p2": 2.1743329742927444,
+        "min_cv_sharpe": 1.169026949550369
+      },
+      "top1_diag40d": {
+        "final_equity": 957428.1999999594,
+        "total_return_pct": -4.257180000004057,
+        "annualized_sharpe": -1.842592708473045,
+        "max_drawdown_pct": -5.82714999084721,
+        "trade_count": 106,
+        "win_rate": 0.3867924528301887,
+        "post_fill_risk_exceeded_count": 77
+      }
+    },
+    "claude_code": {
+      "submitted": 10,
+      "valid_json": 10,
+      "unique": 10,
+      "cache_hits": 0,
+      "eligible": 10,
+      "top1_explore": {
+        "final_equity": 920267.0249999224,
+        "total_return_pct": -7.973297500007758,
+        "annualized_sharpe": -1.399920470438165,
+        "max_drawdown_pct": -9.690343706405745,
+        "trade_count": 182,
+        "win_rate": 0.3131868131868132,
+        "post_fill_risk_exceeded_count": 145,
+        "sharpe_p1": -1.381243481316182,
+        "sharpe_p2": -1.40313917385504,
+        "min_cv_sharpe": -1.40313917385504
+      },
+      "top1_diag40d": {
+        "final_equity": 959246.8999999649,
+        "total_return_pct": -4.075310000003518,
+        "annualized_sharpe": -1.2859776604438822,
+        "max_drawdown_pct": -7.485026760072057,
+        "trade_count": 91,
+        "win_rate": 0.31868131868131866,
+        "post_fill_risk_exceeded_count": 78
+      }
+    }
+  }
+}

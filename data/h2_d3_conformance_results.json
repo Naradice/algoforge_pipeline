@@ -1,0 +1,497 @@
+{
+  "experiment_id": "RP-HDE-H2-D3-CONFORMANCE",
+  "timestamp": "2026-11-18T12:06:12.052426+00:00",
+  "fixture_sha256": "1a8eeb340c104a444554f7256748673681832f52c6166db38eabb3de8c324129",
+  "gate_code_sha256": "9adf0eb127879b2b01676fc0d7b860619831636b757ee01266c5f4752bb3b891",
+  "total_specs": 16,
+  "exact_matches": 16,
+  "exact_match_ratio": 1.0,
+  "verdict": "PASS (合格)",
+  "confusion_matrices": {
+    "gate_decision": {
+      "PASS": {
+        "PASS": 6,
+        "BLOCK": 0,
+        "REVIEW": 0
+      },
+      "BLOCK": {
+        "PASS": 0,
+        "BLOCK": 7,
+        "REVIEW": 0
+      },
+      "REVIEW": {
+        "PASS": 0,
+        "BLOCK": 0,
+        "REVIEW": 3
+      }
+    },
+    "data_feasibility": {
+      "SUPPORTED": {
+        "SUPPORTED": 12,
+        "UNSUPPORTED": 0,
+        "UNKNOWN": 0
+      },
+      "UNSUPPORTED": {
+        "SUPPORTED": 0,
+        "UNSUPPORTED": 2,
+        "UNKNOWN": 0
+      },
+      "UNKNOWN": {
+        "SUPPORTED": 0,
+        "UNSUPPORTED": 0,
+        "UNKNOWN": 2
+      }
+    },
+    "semantic_fidelity": {
+      "EXACT": {
+        "EXACT": 6,
+        "PROXY": 0,
+        "INVALID": 0,
+        "UNKNOWN": 0
+      },
+      "PROXY": {
+        "EXACT": 0,
+        "PROXY": 2,
+        "INVALID": 0,
+        "UNKNOWN": 0
+      },
+      "INVALID": {
+        "EXACT": 0,
+        "PROXY": 0,
+        "INVALID": 5,
+        "UNKNOWN": 0
+      },
+      "UNKNOWN": {
+        "EXACT": 0,
+        "PROXY": 0,
+        "INVALID": 0,
+        "UNKNOWN": 3
+      }
+    },
+    "temporal_validity": {
+      "VALID": {
+        "VALID": 11,
+        "LOOKAHEAD_LEAK": 0,
+        "LOOKBACK_UNDEFINED": 0
+      },
+      "LOOKAHEAD_LEAK": {
+        "VALID": 0,
+        "LOOKAHEAD_LEAK": 4,
+        "LOOKBACK_UNDEFINED": 0
+      },
+      "LOOKBACK_UNDEFINED": {
+        "VALID": 0,
+        "LOOKAHEAD_LEAK": 0,
+        "LOOKBACK_UNDEFINED": 1
+      }
+    }
+  },
+  "case_evaluations": [
+    {
+      "case_id": "conf_01_m5_gk_direct",
+      "category": "direct_m5_sound",
+      "gold": {
+        "data_feasibility": "SUPPORTED",
+        "semantic_fidelity": "EXACT",
+        "estimation_spec": "NOT_REQUIRED",
+        "identifiability": "NOT_APPLICABLE",
+        "temporal_validity": "VALID",
+        "gate_decision": "PASS",
+        "reason": "Direct closed-form computation from M5 OHLCV bars. Exact observation match. No parametric estimation required."
+      },
+      "pred": {
+        "data_feasibility": "SUPPORTED",
+        "semantic_fidelity": "EXACT",
+        "estimation_spec": "NOT_REQUIRED",
+        "identifiability": "NOT_APPLICABLE",
+        "temporal_validity": "VALID",
+        "gate_decision": "PASS",
+        "reason": "Directly computable from M5 OHLCV bars. Exact observation match. Strict temporal ordering satisfied."
+      },
+      "exact_match": true,
+      "evidence": {}
+    },
+    {
+      "case_id": "conf_02_m5_atr_direct",
+      "category": "direct_m5_sound",
+      "gold": {
+        "data_feasibility": "SUPPORTED",
+        "semantic_fidelity": "EXACT",
+        "estimation_spec": "NOT_REQUIRED",
+        "identifiability": "NOT_APPLICABLE",
+        "temporal_validity": "VALID",
+        "gate_decision": "PASS",
+        "reason": "Direct closed-form technical indicator from M5 OHLC. No parameter estimation required. Exact match."
+      },
+      "pred": {
+        "data_feasibility": "SUPPORTED",
+        "semantic_fidelity": "EXACT",
+        "estimation_spec": "NOT_REQUIRED",
+        "identifiability": "NOT_APPLICABLE",
+        "temporal_validity": "VALID",
+        "gate_decision": "PASS",
+        "reason": "Directly computable from M5 OHLCV bars. Exact observation match. Strict temporal ordering satisfied."
+      },
+      "exact_match": true,
+      "evidence": {}
+    },
+    {
+      "case_id": "conf_03_hawkes_proxy_sound",
+      "category": "valid_proxy_usage",
+      "gold": {
+        "data_feasibility": "SUPPORTED",
+        "semantic_fidelity": "PROXY",
+        "estimation_spec": "COMPLETE",
+        "identifiability": "PROXY_IDENTIFIED",
+        "temporal_validity": "VALID",
+        "gate_decision": "PASS",
+        "reason": "M5 return exceedances form a computable point process proxy. Univariate exponential kernel with stationarity constraint alpha < beta, positive background rate mu > 0, and non-degenerate arrival intervals provide parametric identifiability for proxy jump clustering parameters (strictly separated from order flow dynamics)."
+      },
+      "pred": {
+        "data_feasibility": "SUPPORTED",
+        "semantic_fidelity": "PROXY",
+        "estimation_spec": "COMPLETE",
+        "identifiability": "PROXY_IDENTIFIED",
+        "temporal_validity": "VALID",
+        "gate_decision": "PASS",
+        "reason": "Valid M5 proxy with complete 5-point specification and verified proxy parameter identification."
+      },
+      "exact_match": true,
+      "evidence": {}
+    },
+    {
+      "case_id": "conf_04_kyles_proxy_sound",
+      "category": "valid_proxy_usage",
+      "gold": {
+        "data_feasibility": "SUPPORTED",
+        "semantic_fidelity": "PROXY",
+        "estimation_spec": "COMPLETE",
+        "identifiability": "PROXY_IDENTIFIED",
+        "temporal_validity": "VALID",
+        "gate_decision": "PASS",
+        "reason": "Bar-level price-volume regression proxy is computable from M5 OHLCV. Closed-form OLS estimation under positive volume variance Var(sqrt(V)) > 0 identifies the empirical bar illiquidity slope (strictly prohibited from being interpreted as tick-level Kyle's lambda)."
+      },
+      "pred": {
+        "data_feasibility": "SUPPORTED",
+        "semantic_fidelity": "PROXY",
+        "estimation_spec": "COMPLETE",
+        "identifiability": "PROXY_IDENTIFIED",
+        "temporal_validity": "VALID",
+        "gate_decision": "PASS",
+        "reason": "Valid M5 proxy with complete 5-point specification and verified proxy parameter identification."
+      },
+      "exact_match": true,
+      "evidence": {}
+    },
+    {
+      "case_id": "conf_05_l2_orderbook_block",
+      "category": "data_contract_violation",
+      "gold": {
+        "data_feasibility": "UNSUPPORTED",
+        "semantic_fidelity": "EXACT",
+        "estimation_spec": "NOT_REQUIRED",
+        "identifiability": "NOT_APPLICABLE",
+        "temporal_validity": "VALID",
+        "gate_decision": "BLOCK",
+        "reason": "Order book queue imbalance is mathematically exact from L2 depth, but physically unsupported under USDJPY M5 OHLCV contract."
+      },
+      "pred": {
+        "data_feasibility": "UNSUPPORTED",
+        "semantic_fidelity": "EXACT",
+        "estimation_spec": "NOT_REQUIRED",
+        "identifiability": "NOT_APPLICABLE",
+        "temporal_validity": "VALID",
+        "gate_decision": "BLOCK",
+        "reason": "Data contract violation: required features unavailable under USDJPY M5 OHLCV contract."
+      },
+      "exact_match": true,
+      "evidence": {
+        "data_feasibility": "Demands physical microstructure data 'level-2 depth' unavailable under M5 OHLCV contract."
+      }
+    },
+    {
+      "case_id": "conf_06_tick_events_block",
+      "category": "data_contract_violation",
+      "gold": {
+        "data_feasibility": "UNSUPPORTED",
+        "semantic_fidelity": "EXACT",
+        "estimation_spec": "NOT_REQUIRED",
+        "identifiability": "NOT_APPLICABLE",
+        "temporal_validity": "VALID",
+        "gate_decision": "BLOCK",
+        "reason": "Trade duration is mathematically exact from tick trade execution prints, but physically unsupported under USDJPY M5 OHLCV contract."
+      },
+      "pred": {
+        "data_feasibility": "UNSUPPORTED",
+        "semantic_fidelity": "EXACT",
+        "estimation_spec": "NOT_REQUIRED",
+        "identifiability": "NOT_APPLICABLE",
+        "temporal_validity": "VALID",
+        "gate_decision": "BLOCK",
+        "reason": "Data contract violation: required features unavailable under USDJPY M5 OHLCV contract."
+      },
+      "exact_match": true,
+      "evidence": {
+        "data_feasibility": "Demands physical microstructure data 'microsecond timestamped trade execution log' unavailable under M5 OHLCV contract."
+      }
+    },
+    {
+      "case_id": "conf_07_unknown_source_review",
+      "category": "unknown_data_source",
+      "gold": {
+        "data_feasibility": "UNKNOWN",
+        "semantic_fidelity": "UNKNOWN",
+        "estimation_spec": "INCOMPLETE",
+        "identifiability": "UNKNOWN",
+        "temporal_validity": "LOOKBACK_UNDEFINED",
+        "gate_decision": "REVIEW",
+        "reason": "Demands 'appropriate order flow feeds' without defining specific data source, permission, or derivation method under M5 contract."
+      },
+      "pred": {
+        "data_feasibility": "UNKNOWN",
+        "semantic_fidelity": "UNKNOWN",
+        "estimation_spec": "INCOMPLETE",
+        "identifiability": "UNKNOWN",
+        "temporal_validity": "LOOKBACK_UNDEFINED",
+        "gate_decision": "REVIEW",
+        "reason": "Data source or acquisition procedure is undetermined under M5 contract. Model identification conditions or state separability assumptions are unverified. Estimation window, optimization parameters, or update timeline is incomplete."
+      },
+      "exact_match": true,
+      "evidence": {
+        "temporal_leak": "Observation availability timeline is undetermined due to undefined external feed.",
+        "data_feasibility": "Demands external feed 'appropriate order flow feeds' without defined data source or derivation method."
+      }
+    },
+    {
+      "case_id": "conf_08_supervised_label_sound",
+      "category": "legitimate_supervised_target",
+      "gold": {
+        "data_feasibility": "SUPPORTED",
+        "semantic_fidelity": "EXACT",
+        "estimation_spec": "COMPLETE",
+        "identifiability": "IDENTIFIED",
+        "temporal_validity": "VALID",
+        "gate_decision": "PASS",
+        "reason": "Forward return r_{t+1} is strictly a supervisory target label Y_t. Explanatory feature vector X_t contains only past returns available at decision time t. Execution at open of bar t+1 is valid."
+      },
+      "pred": {
+        "data_feasibility": "SUPPORTED",
+        "semantic_fidelity": "EXACT",
+        "estimation_spec": "COMPLETE",
+        "identifiability": "IDENTIFIED",
+        "temporal_validity": "VALID",
+        "gate_decision": "PASS",
+        "reason": "Directly computable from M5 OHLCV bars. Exact observation match. Strict temporal ordering satisfied."
+      },
+      "exact_match": true,
+      "evidence": {}
+    },
+    {
+      "case_id": "conf_09_feature_leak_block",
+      "category": "lookahead_feature_leak",
+      "gold": {
+        "data_feasibility": "SUPPORTED",
+        "semantic_fidelity": "INVALID",
+        "estimation_spec": "NOT_REQUIRED",
+        "identifiability": "NOT_APPLICABLE",
+        "temporal_validity": "LOOKAHEAD_LEAK",
+        "gate_decision": "BLOCK",
+        "reason": "Explanatory feature input at decision time t incorporates forward close C_{t+1}, violating temporal availability available_at(X) <= decision_time."
+      },
+      "pred": {
+        "data_feasibility": "SUPPORTED",
+        "semantic_fidelity": "INVALID",
+        "estimation_spec": "NOT_REQUIRED",
+        "identifiability": "NOT_APPLICABLE",
+        "temporal_validity": "LOOKAHEAD_LEAK",
+        "gate_decision": "BLOCK",
+        "reason": "Temporal lookahead leak: decision depends on future unconfirmed data."
+      },
+      "exact_match": true,
+      "evidence": {
+        "temporal_leak": "Explanatory feature input X_t incorporates future bar close C_{t+1} or tomorrow's data.",
+        "semantic_fidelity": "Temporal lookahead leak invalidates causal relationship."
+      }
+    },
+    {
+      "case_id": "conf_10_bar_close_next_open",
+      "category": "temporal_execution_sound",
+      "gold": {
+        "data_feasibility": "SUPPORTED",
+        "semantic_fidelity": "EXACT",
+        "estimation_spec": "NOT_REQUIRED",
+        "identifiability": "NOT_APPLICABLE",
+        "temporal_validity": "VALID",
+        "gate_decision": "PASS",
+        "reason": "Signal evaluated at bar completion t+5m using confirmed C_t; executed at next bar opening price O_{t+1}. Strict temporal ordering satisfied."
+      },
+      "pred": {
+        "data_feasibility": "SUPPORTED",
+        "semantic_fidelity": "EXACT",
+        "estimation_spec": "NOT_REQUIRED",
+        "identifiability": "NOT_APPLICABLE",
+        "temporal_validity": "VALID",
+        "gate_decision": "PASS",
+        "reason": "Directly computable from M5 OHLCV bars. Exact observation match. Strict temporal ordering satisfied."
+      },
+      "exact_match": true,
+      "evidence": {}
+    },
+    {
+      "case_id": "conf_11_same_bar_cheat_block",
+      "category": "same_bar_execution_cheat",
+      "gold": {
+        "data_feasibility": "SUPPORTED",
+        "semantic_fidelity": "INVALID",
+        "estimation_spec": "NOT_REQUIRED",
+        "identifiability": "NOT_APPLICABLE",
+        "temporal_validity": "LOOKAHEAD_LEAK",
+        "gate_decision": "BLOCK",
+        "reason": "Signal requires completed close C_t (available at t+5m) but claims order execution at opening price O_t (timestamp t), creating an impossible 5-minute retroactive execution."
+      },
+      "pred": {
+        "data_feasibility": "SUPPORTED",
+        "semantic_fidelity": "INVALID",
+        "estimation_spec": "NOT_REQUIRED",
+        "identifiability": "NOT_APPLICABLE",
+        "temporal_validity": "LOOKAHEAD_LEAK",
+        "gate_decision": "BLOCK",
+        "reason": "Temporal lookahead leak: decision depends on future unconfirmed data."
+      },
+      "exact_match": true,
+      "evidence": {
+        "temporal_leak": "Signal evaluates bar close C_t (t+5m) but claims retroactive execution at same-bar open O_t (timestamp t).",
+        "semantic_fidelity": "Temporal lookahead leak invalidates causal relationship."
+      }
+    },
+    {
+      "case_id": "conf_12_daily_close_intraday",
+      "category": "premature_daily_close_leak",
+      "gold": {
+        "data_feasibility": "SUPPORTED",
+        "semantic_fidelity": "INVALID",
+        "estimation_spec": "NOT_REQUIRED",
+        "identifiability": "NOT_APPLICABLE",
+        "temporal_validity": "LOOKAHEAD_LEAK",
+        "gate_decision": "BLOCK",
+        "reason": "References today's daily close C_day at 14:00 UTC, several hours before the daily bar closes at 21:00/22:00 UTC. Severe lookahead bias."
+      },
+      "pred": {
+        "data_feasibility": "SUPPORTED",
+        "semantic_fidelity": "INVALID",
+        "estimation_spec": "NOT_REQUIRED",
+        "identifiability": "NOT_APPLICABLE",
+        "temporal_validity": "LOOKAHEAD_LEAK",
+        "gate_decision": "BLOCK",
+        "reason": "Temporal lookahead leak: decision depends on future unconfirmed data."
+      },
+      "exact_match": true,
+      "evidence": {
+        "temporal_leak": "References today's unconfirmed daily close C_day during intraday M5 trading.",
+        "semantic_fidelity": "Temporal lookahead leak invalidates causal relationship."
+      }
+    },
+    {
+      "case_id": "conf_13_jump_ident_review",
+      "category": "unverified_model_identifiability",
+      "gold": {
+        "data_feasibility": "SUPPORTED",
+        "semantic_fidelity": "UNKNOWN",
+        "estimation_spec": "INCOMPLETE",
+        "identifiability": "UNKNOWN",
+        "temporal_validity": "VALID",
+        "gate_decision": "REVIEW",
+        "reason": "Hamilton filter algorithm is named, but estimation lookback window, parameter updating schedule, state separability conditions, and jump parameter identification constraints are omitted."
+      },
+      "pred": {
+        "data_feasibility": "SUPPORTED",
+        "semantic_fidelity": "UNKNOWN",
+        "estimation_spec": "INCOMPLETE",
+        "identifiability": "UNKNOWN",
+        "temporal_validity": "VALID",
+        "gate_decision": "REVIEW",
+        "reason": "Model identification conditions or state separability assumptions are unverified. Estimation window, optimization parameters, or update timeline is incomplete."
+      },
+      "exact_match": true,
+      "evidence": {}
+    },
+    {
+      "case_id": "conf_14_hawkes_mle_review",
+      "category": "unverified_model_identifiability",
+      "gold": {
+        "data_feasibility": "SUPPORTED",
+        "semantic_fidelity": "UNKNOWN",
+        "estimation_spec": "INCOMPLETE",
+        "identifiability": "UNKNOWN",
+        "temporal_validity": "VALID",
+        "gate_decision": "REVIEW",
+        "reason": "MLE calibration is named, but estimation window length, optimization constraints, and stability/stationarity condition (alpha < beta) are unverified."
+      },
+      "pred": {
+        "data_feasibility": "SUPPORTED",
+        "semantic_fidelity": "UNKNOWN",
+        "estimation_spec": "INCOMPLETE",
+        "identifiability": "UNKNOWN",
+        "temporal_validity": "VALID",
+        "gate_decision": "REVIEW",
+        "reason": "Model identification conditions or state separability assumptions are unverified. Estimation window, optimization parameters, or update timeline is incomplete."
+      },
+      "exact_match": true,
+      "evidence": {}
+    },
+    {
+      "case_id": "conf_15_proxy_fraud_block",
+      "category": "proxy_semantic_fraud",
+      "gold": {
+        "data_feasibility": "SUPPORTED",
+        "semantic_fidelity": "INVALID",
+        "estimation_spec": "COMPLETE",
+        "identifiability": "UNKNOWN",
+        "temporal_validity": "VALID",
+        "gate_decision": "BLOCK",
+        "reason": "Computes M5 price return exceedances but falsely claims to have directly measured and proven order book limit cancellation cascades and queue depletion. Severe semantic substitution fraud."
+      },
+      "pred": {
+        "data_feasibility": "SUPPORTED",
+        "semantic_fidelity": "INVALID",
+        "estimation_spec": "COMPLETE",
+        "identifiability": "UNKNOWN",
+        "temporal_validity": "VALID",
+        "gate_decision": "BLOCK",
+        "reason": "Semantic substitution fraud: proxy falsely equated with original microstructure target."
+      },
+      "exact_match": true,
+      "evidence": {
+        "semantic_fidelity": "Computes M5 price return exceedances but falsely equates them with true order book queue cancellation events."
+      }
+    },
+    {
+      "case_id": "conf_16_conflict_block",
+      "category": "conflict_priority_verification",
+      "gold": {
+        "data_feasibility": "UNKNOWN",
+        "semantic_fidelity": "INVALID",
+        "estimation_spec": "INCOMPLETE",
+        "identifiability": "UNKNOWN",
+        "temporal_validity": "LOOKAHEAD_LEAK",
+        "gate_decision": "BLOCK",
+        "reason": "Data source is undetermined (UNKNOWN), but feature explicitly references tomorrow's sentiment score (LOOKAHEAD_LEAK / INVALID). Strict priority rule BLOCK > REVIEW applies."
+      },
+      "pred": {
+        "data_feasibility": "UNKNOWN",
+        "semantic_fidelity": "INVALID",
+        "estimation_spec": "INCOMPLETE",
+        "identifiability": "UNKNOWN",
+        "temporal_validity": "LOOKAHEAD_LEAK",
+        "gate_decision": "BLOCK",
+        "reason": "Temporal lookahead leak: decision depends on future unconfirmed data."
+      },
+      "exact_match": true,
+      "evidence": {
+        "temporal_leak": "Explanatory feature input X_t incorporates future bar close C_{t+1} or tomorrow's data.",
+        "data_feasibility": "Demands external feed 'appropriate institutional sentiment feed' without defined data source or derivation method.",
+        "semantic_fidelity": "Temporal lookahead leak invalidates causal relationship."
+      }
+    }
+  ]
+}

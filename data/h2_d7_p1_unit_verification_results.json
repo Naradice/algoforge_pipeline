@@ -1,0 +1,197 @@
+{
+  "metadata": {
+    "task": "H2-D7-P1 Unit Verification Protocol",
+    "version": "v0.3-APPROVED",
+    "timestamp": "2026-11-20T10:45:37Z",
+    "total_elapsed_seconds": 355.0739679336548,
+    "cost_usd": 0.0
+  },
+  "group_abc_unit_tests": {
+    "status": "PASS",
+    "return_code": 0,
+    "test_file": "c:\\Users\\ksato\\workspace\\finance\\research_pipeline\\tests\\unit\\test_h2_d7_p1_modules.py",
+    "stdout": "============================= test session starts =============================\nplatform win32 -- Python 3.13.17, pytest-9.0.2, pluggy-1.6.0 -- C:\\Users\\ksato\\workspace\\finance\\venv313\\Scripts\\python.exe\ncachedir: .pytest_cache\nrootdir: c:\\Users\\ksato\\workspace\\finance\\research_pipeline\nconfigfile: pyproject.toml\ncollecting ... collected 14 items\n\n..\\research_pipeline\\tests\\unit\\test_h2_d7_p1_modules.py::TestGroupAFormulationsAndBoundaries::test_a1_hawkes_log_likelihood_exact PASSED [  7%]\n..\\research_pipeline\\tests\\unit\\test_h2_d7_p1_modules.py::TestGroupAFormulationsAndBoundaries::test_a2_bipower_variation_constant_pi_2 PASSED [ 14%]\n..\\research_pipeline\\tests\\unit\\test_h2_d7_p1_modules.py::TestGroupAFormulationsAndBoundaries::test_a3_local_jump_zero_variance_fail_closed PASSED [ 21%]\n..\\research_pipeline\\tests\\unit\\test_h2_d7_p1_modules.py::TestGroupAFormulationsAndBoundaries::test_a4_hamilton_forward_filter_exact PASSED [ 28%]\n..\\research_pipeline\\tests\\unit\\test_h2_d7_p1_modules.py::TestGroupAFormulationsAndBoundaries::test_a5_hamilton_m_step_pairwise_joint PASSED [ 35%]\n..\\research_pipeline\\tests\\unit\\test_h2_d7_p1_modules.py::TestGroupBCausalityAndPrefixInvariance::test_b1_hawkes_prefix_invariance_1000_bars PASSED [ 42%]\n..\\research_pipeline\\tests\\unit\\test_h2_d7_p1_modules.py::TestGroupBCausalityAndPrefixInvariance::test_b2_jump_hamilton_prefix_invariance PASSED [ 50%]\n..\\research_pipeline\\tests\\unit\\test_h2_d7_p1_modules.py::TestGroupBCausalityAndPrefixInvariance::test_b3_hawkes_directional_rule_fidelity PASSED [ 57%]\n..\\research_pipeline\\tests\\unit\\test_h2_d7_p1_modules.py::TestGroupCNumericalStabilityAndFallback::test_c1_hamilton_probabilities_normalized_and_finite PASSED [ 64%]\n..\\research_pipeline\\tests\\unit\\test_h2_d7_p1_modules.py::TestGroupCNumericalStabilityAndFallback::test_c2_hamilton_label_sorting PASSED [ 71%]\n..\\research_pipeline\\tests\\unit\\test_h2_d7_p1_modules.py::TestGroupCNumericalStabilityAndFallback::test_c3_hamilton_transition_clipping PASSED [ 78%]\n..\\research_pipeline\\tests\\unit\\test_h2_d7_p1_modules.py::TestGroupCNumericalStabilityAndFallback::test_c4_hamilton_likelihood_decrease_abort PASSED [ 85%]\n..\\research_pipeline\\tests\\unit\\test_h2_d7_p1_modules.py::TestGroupCNumericalStabilityAndFallback::test_c5_missing_bars_scaling_and_exclusion PASSED [ 92%]\n..\\research_pipeline\\tests\\unit\\test_h2_d7_p1_modules.py::TestGroupCNumericalStabilityAndFallback::test_c6_hamilton_fallback_hierarchy PASSED [100%]\n\n============================== warnings summary ===============================\n..\\venv313\\Lib\\site-packages\\_pytest\\config\\__init__.py:1428\n  C:\\Users\\ksato\\workspace\\finance\\venv313\\Lib\\site-packages\\_pytest\\config\\__init__.py:1428: PytestConfigWarning: Unknown config option: asyncio_mode\n  \n    self._warn_or_fail_if_strict(f\"Unknown config option: {key}\\n\")\n\n-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html\n======================= 14 passed, 1 warning in 28.28s ========================\n"
+  },
+  "group_d_statistical_characterization": {
+    "D1_hawkes_gradient": {
+      "max_relative_error": 0.00040005934535870455,
+      "median_relative_error": 9.667585328864758e-05,
+      "details": [
+        {
+          "params": [
+            0.01,
+            0.8,
+            0.3
+          ],
+          "max_rel_error": 9.667585328864758e-05,
+          "analytical_grad": [
+            -157.33514223151693,
+            -2.0300343782594132,
+            -1.290760764236288
+          ],
+          "numerical_grad": [
+            -157.35035421127654,
+            -2.030045184339602,
+            -1.2907642635075005
+          ]
+        },
+        {
+          "params": [
+            0.005,
+            0.7,
+            0.2
+          ],
+          "max_rel_error": 0.00040005934535870455,
+          "analytical_grad": [
+            151.07387679296954,
+            -0.4140141386008804,
+            0.34717738755954947
+          ],
+          "numerical_grad": [
+            151.01346244603903,
+            -0.41402073235250086,
+            0.34716826036139375
+          ]
+        },
+        {
+          "params": [
+            0.02,
+            0.9,
+            0.4
+          ],
+          "max_rel_error": 1.2659652884173394e-05,
+          "analytical_grad": [
+            -309.24604949748095,
+            -4.557881850068643,
+            -2.3961931497902693
+          ],
+          "numerical_grad": [
+            -309.249964494686,
+            -4.5578968651338005,
+            -2.396194339901732
+          ]
+        }
+      ],
+      "status": "PASS"
+    },
+    "D2_hawkes_parameter_recovery": {
+      "500": {
+        "mean_error": 0.06876154923376962,
+        "std_error": 0.0539295579480121,
+        "min_error": 0.024114416896235284,
+        "max_error": 0.16041733317070023,
+        "mean_events": 7.0,
+        "mean_hessian_condition": 2720.412980387151
+      },
+      "5000": {
+        "mean_error": 0.07447528661279715,
+        "std_error": 0.06325191701858429,
+        "min_error": 0.018753711280739896,
+        "max_error": 0.1710870772932286,
+        "mean_events": 64.8,
+        "mean_hessian_condition": 4582.322547540846
+      },
+      "50000": {
+        "mean_error": 0.030604574689396268,
+        "std_error": 0.020086531677214088,
+        "min_error": 0.012291359559146682,
+        "max_error": 0.061670342388694524,
+        "mean_events": 685.8,
+        "mean_hessian_condition": 4116.016952055812
+      }
+    },
+    "D3_bv_relative_bias": {
+      "mean_relative_bias": -0.00022577825309762933,
+      "standard_error": 0.005522557442462743,
+      "num_paths": 100
+    },
+    "D4_jump_false_positive_rate": {
+      "empirical_fpr": 0.000846091861402095,
+      "theoretical_asymptotic_fpr": 0.0004652581580710802,
+      "total_evaluations": 99280,
+      "false_positive_count": 84
+    },
+    "D5_jump_detection_power": {
+      "3.0sigma": {
+        "power_positive": 0.38,
+        "power_negative": 0.3,
+        "power_average": 0.33999999999999997
+      },
+      "5.0sigma": {
+        "power_positive": 0.91,
+        "power_negative": 0.93,
+        "power_average": 0.92
+      },
+      "8.0sigma": {
+        "power_positive": 1.0,
+        "power_negative": 1.0,
+        "power_average": 1.0
+      }
+    },
+    "D6_post_jump_bv_distortion": {
+      "k_1": {
+        "mean_relative_bias": 0.11274713981824004,
+        "std_relative_bias": 0.21726462205730296
+      },
+      "k_2": {
+        "mean_relative_bias": 0.22899701657354035,
+        "std_relative_bias": 0.2451842600612712
+      },
+      "k_5": {
+        "mean_relative_bias": 0.2249001707701842,
+        "std_relative_bias": 0.25475397759332646
+      },
+      "k_10": {
+        "mean_relative_bias": 0.22418215339259187,
+        "std_relative_bias": 0.27028653117383644
+      }
+    },
+    "D7_hamilton_identifiability": {
+      "60": {
+        "mean_mu_error": 0.37232514543115985,
+        "mean_p_error": 0.13199798138727706,
+        "mean_filtered_accuracy": 0.95,
+        "mean_smoothed_accuracy": 0.96,
+        "mean_recall_0": 0.9264933018124507,
+        "mean_recall_1": 0.9948717948717949,
+        "starvation_frequency": 0.0
+      },
+      "250": {
+        "mean_mu_error": 0.10930599975546329,
+        "mean_p_error": 0.04854634941035333,
+        "mean_filtered_accuracy": 0.944,
+        "mean_smoothed_accuracy": 0.9568,
+        "mean_recall_0": 0.9594298900403405,
+        "mean_recall_1": 0.9522798700078658,
+        "starvation_frequency": 0.0
+      },
+      "1000": {
+        "mean_mu_error": 0.040302703205288046,
+        "mean_p_error": 0.029094552656838486,
+        "mean_filtered_accuracy": 0.9507999999999999,
+        "mean_smoothed_accuracy": 0.9676,
+        "mean_recall_0": 0.9816867400862883,
+        "mean_recall_1": 0.9409537028147659,
+        "starvation_frequency": 0.0
+      }
+    }
+  },
+  "group_e_performance_benchmarks": {
+    "E1_hamilton_latency_ms": {
+      "mean": 2105.8665260009,
+      "p95": 2293.4920300205704,
+      "p99": 2401.045154079329,
+      "max": 2443.234400008805,
+      "target_ms": 100.0,
+      "target_met": false
+    },
+    "E2_hawkes_single_step_latency": {
+      "mean_us": 0.9999898611567914,
+      "p99_us": 1.300009898841381,
+      "mean_ms": 0.0009999898611567914,
+      "p99_ms": 0.001300009898841381,
+      "target_ms": 1.0,
+      "target_met": true
+    }
+  }
+}

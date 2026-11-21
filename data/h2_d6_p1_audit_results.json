@@ -1,0 +1,1850 @@
+{
+  "metadata": {
+    "experiment": "H2-D6 P1: 2x2 Factorial Disentanglement",
+    "protocol_version": "v0.7",
+    "total_blocks": 6,
+    "total_series": 24,
+    "total_api_calls": 42
+  },
+  "condition_aggregates": {
+    "A0": {
+      "M": 23,
+      "D": 19,
+      "S": 6,
+      "V": 0,
+      "total_params": 36,
+      "tokens": {
+        "in": 6032,
+        "out": 2155,
+        "total": 8187
+      },
+      "cost_usd": 0.0021977999999999998
+    },
+    "A1": {
+      "M": 35,
+      "D": 31,
+      "S": 12,
+      "V": 0,
+      "total_params": 36,
+      "tokens": {
+        "in": 7246,
+        "out": 2433,
+        "total": 9679
+      },
+      "cost_usd": 0.0025467
+    },
+    "B0": {
+      "M": 18,
+      "D": 13,
+      "S": 5,
+      "V": 0,
+      "total_params": 36,
+      "tokens": {
+        "in": 5796,
+        "out": 2186,
+        "total": 7982
+      },
+      "cost_usd": 0.0021809999999999998
+    },
+    "B1": {
+      "M": 33,
+      "D": 31,
+      "S": 9,
+      "V": 0,
+      "total_params": 36,
+      "tokens": {
+        "in": 7065,
+        "out": 2420,
+        "total": 9485
+      },
+      "cost_usd": 0.00251175
+    }
+  },
+  "concept_aggregates": {
+    "hawkes_process": {
+      "A0": {
+        "M": 13,
+        "D": 12,
+        "S": 6,
+        "V": 0,
+        "total_params": 18
+      },
+      "A1": {
+        "M": 17,
+        "D": 15,
+        "S": 5,
+        "V": 0,
+        "total_params": 18
+      },
+      "B0": {
+        "M": 9,
+        "D": 6,
+        "S": 1,
+        "V": 0,
+        "total_params": 18
+      },
+      "B1": {
+        "M": 15,
+        "D": 15,
+        "S": 4,
+        "V": 0,
+        "total_params": 18
+      }
+    },
+    "jump_diffusion": {
+      "A0": {
+        "M": 10,
+        "D": 7,
+        "S": 0,
+        "V": 0,
+        "total_params": 18
+      },
+      "A1": {
+        "M": 18,
+        "D": 16,
+        "S": 7,
+        "V": 0,
+        "total_params": 18
+      },
+      "B0": {
+        "M": 9,
+        "D": 7,
+        "S": 4,
+        "V": 0,
+        "total_params": 18
+      },
+      "B1": {
+        "M": 18,
+        "D": 16,
+        "S": 5,
+        "V": 0,
+        "total_params": 18
+      }
+    }
+  },
+  "block_aggregates": {
+    "h2_d6_p1_hawkes_process_s42": {
+      "A0": {
+        "M": 4,
+        "D": 3,
+        "S": 2,
+        "V": 0
+      },
+      "A1": {
+        "M": 6,
+        "D": 4,
+        "S": 1,
+        "V": 0
+      },
+      "B0": {
+        "M": 3,
+        "D": 2,
+        "S": 1,
+        "V": 0
+      },
+      "B1": {
+        "M": 5,
+        "D": 5,
+        "S": 2,
+        "V": 0
+      }
+    },
+    "h2_d6_p1_hawkes_process_s43": {
+      "A0": {
+        "M": 6,
+        "D": 6,
+        "S": 1,
+        "V": 0
+      },
+      "A1": {
+        "M": 6,
+        "D": 6,
+        "S": 1,
+        "V": 0
+      },
+      "B0": {
+        "M": 3,
+        "D": 2,
+        "S": 0,
+        "V": 0
+      },
+      "B1": {
+        "M": 5,
+        "D": 5,
+        "S": 1,
+        "V": 0
+      }
+    },
+    "h2_d6_p1_hawkes_process_s44": {
+      "A0": {
+        "M": 3,
+        "D": 3,
+        "S": 3,
+        "V": 0
+      },
+      "A1": {
+        "M": 5,
+        "D": 5,
+        "S": 3,
+        "V": 0
+      },
+      "B0": {
+        "M": 3,
+        "D": 2,
+        "S": 0,
+        "V": 0
+      },
+      "B1": {
+        "M": 5,
+        "D": 5,
+        "S": 1,
+        "V": 0
+      }
+    },
+    "h2_d6_p1_jump_diffusion_s42": {
+      "A0": {
+        "M": 4,
+        "D": 2,
+        "S": 0,
+        "V": 0
+      },
+      "A1": {
+        "M": 6,
+        "D": 5,
+        "S": 3,
+        "V": 0
+      },
+      "B0": {
+        "M": 3,
+        "D": 2,
+        "S": 1,
+        "V": 0
+      },
+      "B1": {
+        "M": 6,
+        "D": 5,
+        "S": 1,
+        "V": 0
+      }
+    },
+    "h2_d6_p1_jump_diffusion_s43": {
+      "A0": {
+        "M": 3,
+        "D": 2,
+        "S": 0,
+        "V": 0
+      },
+      "A1": {
+        "M": 6,
+        "D": 5,
+        "S": 1,
+        "V": 0
+      },
+      "B0": {
+        "M": 3,
+        "D": 3,
+        "S": 2,
+        "V": 0
+      },
+      "B1": {
+        "M": 6,
+        "D": 6,
+        "S": 2,
+        "V": 0
+      }
+    },
+    "h2_d6_p1_jump_diffusion_s44": {
+      "A0": {
+        "M": 3,
+        "D": 3,
+        "S": 0,
+        "V": 0
+      },
+      "A1": {
+        "M": 6,
+        "D": 6,
+        "S": 3,
+        "V": 0
+      },
+      "B0": {
+        "M": 3,
+        "D": 2,
+        "S": 1,
+        "V": 0
+      },
+      "B1": {
+        "M": 6,
+        "D": 5,
+        "S": 2,
+        "V": 0
+      }
+    }
+  },
+  "category_aggregates": {
+    "model_estimation": {
+      "A0": {
+        "M": 5,
+        "D": 3,
+        "S": 0,
+        "V": 0,
+        "total": 18
+      },
+      "A1": {
+        "M": 17,
+        "D": 16,
+        "S": 2,
+        "V": 0,
+        "total": 18
+      },
+      "B0": {
+        "M": 0,
+        "D": 0,
+        "S": 0,
+        "V": 0,
+        "total": 18
+      },
+      "B1": {
+        "M": 15,
+        "D": 15,
+        "S": 1,
+        "V": 0,
+        "total": 18
+      }
+    },
+    "decision_threshold": {
+      "A0": {
+        "M": 6,
+        "D": 6,
+        "S": 2,
+        "V": 0,
+        "total": 6
+      },
+      "A1": {
+        "M": 6,
+        "D": 5,
+        "S": 2,
+        "V": 0,
+        "total": 6
+      },
+      "B0": {
+        "M": 6,
+        "D": 6,
+        "S": 0,
+        "V": 0,
+        "total": 6
+      },
+      "B1": {
+        "M": 6,
+        "D": 6,
+        "S": 0,
+        "V": 0,
+        "total": 6
+      }
+    },
+    "execution_timing": {
+      "A0": {
+        "M": 6,
+        "D": 4,
+        "S": 3,
+        "V": 0,
+        "total": 6
+      },
+      "A1": {
+        "M": 6,
+        "D": 4,
+        "S": 4,
+        "V": 0,
+        "total": 6
+      },
+      "B0": {
+        "M": 6,
+        "D": 1,
+        "S": 1,
+        "V": 0,
+        "total": 6
+      },
+      "B1": {
+        "M": 6,
+        "D": 4,
+        "S": 4,
+        "V": 0,
+        "total": 6
+      }
+    },
+    "risk_stop": {
+      "A0": {
+        "M": 6,
+        "D": 6,
+        "S": 1,
+        "V": 0,
+        "total": 6
+      },
+      "A1": {
+        "M": 6,
+        "D": 6,
+        "S": 4,
+        "V": 0,
+        "total": 6
+      },
+      "B0": {
+        "M": 6,
+        "D": 6,
+        "S": 4,
+        "V": 0,
+        "total": 6
+      },
+      "B1": {
+        "M": 6,
+        "D": 6,
+        "S": 4,
+        "V": 0,
+        "total": 6
+      }
+    }
+  },
+  "factorial_effects": {
+    "y_spec": {
+      "A0": 0.16666666666666666,
+      "A1": 0.3333333333333333,
+      "B0": 0.1388888888888889,
+      "B1": 0.25
+    },
+    "y_mention": {
+      "A0": 0.6388888888888888,
+      "A1": 0.9722222222222222,
+      "B0": 0.5,
+      "B1": 0.9166666666666666
+    },
+    "y_disp": {
+      "A0": 0.5277777777777778,
+      "A1": 0.8611111111111112,
+      "B0": 0.3611111111111111,
+      "B1": 0.8611111111111112
+    },
+    "delta_checklist_single": 0.166667,
+    "delta_checklist_two": 0.111111,
+    "delta_interaction": -0.055556,
+    "delta_twostage_generic": -0.027778,
+    "delta_twostage_checklist": -0.083333,
+    "delta_twostage_overall": -0.055556,
+    "delta_checklist_overall": 0.138889
+  },
+  "series_summary": [
+    {
+      "series_id": "h2_d6_p1_hawkes_process_s42_A0",
+      "block_id": "h2_d6_p1_hawkes_process_s42",
+      "concept_id": "hawkes_process",
+      "seed": 42,
+      "condition": "A0",
+      "M": 4,
+      "D": 3,
+      "S": 2,
+      "V": 0,
+      "grounded": false,
+      "in_tokens": 986,
+      "out_tokens": 349,
+      "cost_usd": 0.000357,
+      "parameter_ratings": {
+        "mu": {
+          "M": 1,
+          "D": 0,
+          "S": 0,
+          "V": 0,
+          "rationale": "Mentioned in exit as baseline mu, but no window or estimation formula"
+        },
+        "alpha": {
+          "M": 0,
+          "D": 0,
+          "S": 0,
+          "V": 0,
+          "rationale": "Not mentioned in candidate text"
+        },
+        "beta": {
+          "M": 0,
+          "D": 0,
+          "S": 0,
+          "V": 0,
+          "rationale": "Not mentioned in candidate text"
+        },
+        "lambda_star": {
+          "M": 1,
+          "D": 1,
+          "S": 1,
+          "V": 0,
+          "rationale": "75th percentile of historical lambda over past 100 bars"
+        },
+        "t_exec": {
+          "M": 1,
+          "D": 1,
+          "S": 1,
+          "V": 0,
+          "rationale": "Execute long position at O_{t+1}"
+        },
+        "max_dd": {
+          "M": 1,
+          "D": 1,
+          "S": 0,
+          "V": 0,
+          "rationale": "Fixed stop-loss at 30 pips below entry, no dynamic ATR formula"
+        }
+      }
+    },
+    {
+      "series_id": "h2_d6_p1_hawkes_process_s42_A1",
+      "block_id": "h2_d6_p1_hawkes_process_s42",
+      "concept_id": "hawkes_process",
+      "seed": 42,
+      "condition": "A1",
+      "M": 6,
+      "D": 4,
+      "S": 1,
+      "V": 0,
+      "grounded": false,
+      "in_tokens": 1155,
+      "out_tokens": 426,
+      "cost_usd": 0.000429,
+      "parameter_ratings": {
+        "mu": {
+          "M": 1,
+          "D": 0,
+          "S": 0,
+          "V": 0,
+          "rationale": "Mentioned in exit as baseline mu, no window"
+        },
+        "alpha": {
+          "M": 1,
+          "D": 1,
+          "S": 0,
+          "V": 0,
+          "rationale": "MLE on historical event data with bounds [0.1, 1.0], but window and likelihood formula missing"
+        },
+        "beta": {
+          "M": 1,
+          "D": 1,
+          "S": 0,
+          "V": 0,
+          "rationale": "Method of moments with bounds [0.01, 0.1], window missing"
+        },
+        "lambda_star": {
+          "M": 1,
+          "D": 0,
+          "S": 0,
+          "V": 0,
+          "rationale": "Threshold derived from estimated intensity, percentile window dropped in patch"
+        },
+        "t_exec": {
+          "M": 1,
+          "D": 1,
+          "S": 1,
+          "V": 0,
+          "rationale": "Execution at next available bar after condition met (O_{t+1})"
+        },
+        "max_dd": {
+          "M": 1,
+          "D": 1,
+          "S": 0,
+          "V": 0,
+          "rationale": "Max drawdown stop at 2% / stop-loss 30 pips, fixed constant"
+        }
+      }
+    },
+    {
+      "series_id": "h2_d6_p1_hawkes_process_s42_B0",
+      "block_id": "h2_d6_p1_hawkes_process_s42",
+      "concept_id": "hawkes_process",
+      "seed": 42,
+      "condition": "B0",
+      "M": 3,
+      "D": 2,
+      "S": 1,
+      "V": 0,
+      "grounded": false,
+      "in_tokens": 977,
+      "out_tokens": 402,
+      "cost_usd": 0.000388,
+      "parameter_ratings": {
+        "mu": {
+          "M": 0,
+          "D": 0,
+          "S": 0,
+          "V": 0,
+          "rationale": "Not mentioned"
+        },
+        "alpha": {
+          "M": 0,
+          "D": 0,
+          "S": 0,
+          "V": 0,
+          "rationale": "Not mentioned"
+        },
+        "beta": {
+          "M": 0,
+          "D": 0,
+          "S": 0,
+          "V": 0,
+          "rationale": "Not mentioned"
+        },
+        "lambda_star": {
+          "M": 1,
+          "D": 1,
+          "S": 0,
+          "V": 0,
+          "rationale": "Predefined threshold e.g. 0.005 uncalibrated constant"
+        },
+        "t_exec": {
+          "M": 1,
+          "D": 0,
+          "S": 0,
+          "V": 0,
+          "rationale": "No execution timing ordering specified"
+        },
+        "max_dd": {
+          "M": 1,
+          "D": 1,
+          "S": 1,
+          "V": 0,
+          "rationale": "1.5 times ATR of last 10 M5 bars, recalculated every 10 bars"
+        }
+      }
+    },
+    {
+      "series_id": "h2_d6_p1_hawkes_process_s42_B1",
+      "block_id": "h2_d6_p1_hawkes_process_s42",
+      "concept_id": "hawkes_process",
+      "seed": 42,
+      "condition": "B1",
+      "M": 5,
+      "D": 5,
+      "S": 2,
+      "V": 0,
+      "grounded": false,
+      "in_tokens": 1146,
+      "out_tokens": 405,
+      "cost_usd": 0.000415,
+      "parameter_ratings": {
+        "mu": {
+          "M": 0,
+          "D": 0,
+          "S": 0,
+          "V": 0,
+          "rationale": "Not mentioned"
+        },
+        "alpha": {
+          "M": 1,
+          "D": 1,
+          "S": 0,
+          "V": 0,
+          "rationale": "MLE grid search [0.01, 0.1] 1000 obs, but event definition / likelihood missing in B"
+        },
+        "beta": {
+          "M": 1,
+          "D": 1,
+          "S": 0,
+          "V": 0,
+          "rationale": "MLE grid search [0.1, 1.0] 1000 obs, event definition / likelihood missing"
+        },
+        "lambda_star": {
+          "M": 1,
+          "D": 1,
+          "S": 0,
+          "V": 0,
+          "rationale": "Predefined threshold e.g. 0.005 uncalibrated constant"
+        },
+        "t_exec": {
+          "M": 1,
+          "D": 1,
+          "S": 1,
+          "V": 0,
+          "rationale": "Execute trades at close of M5 bar where entry condition met"
+        },
+        "max_dd": {
+          "M": 1,
+          "D": 1,
+          "S": 1,
+          "V": 0,
+          "rationale": "1.5 times ATR of last 10 M5 bars"
+        }
+      }
+    },
+    {
+      "series_id": "h2_d6_p1_hawkes_process_s43_A0",
+      "block_id": "h2_d6_p1_hawkes_process_s43",
+      "concept_id": "hawkes_process",
+      "seed": 43,
+      "condition": "A0",
+      "M": 6,
+      "D": 6,
+      "S": 1,
+      "V": 0,
+      "grounded": false,
+      "in_tokens": 1130,
+      "out_tokens": 449,
+      "cost_usd": 0.000439,
+      "parameter_ratings": {
+        "mu": {
+          "M": 1,
+          "D": 1,
+          "S": 0,
+          "V": 0,
+          "rationale": "MLE bounds [0.0001, 0.01], 20 bar window insufficient for 10 events, discrete likelihood missing"
+        },
+        "alpha": {
+          "M": 1,
+          "D": 1,
+          "S": 0,
+          "V": 0,
+          "rationale": "MLE bounds [0.01, 0.5], discrete likelihood missing"
+        },
+        "beta": {
+          "M": 1,
+          "D": 1,
+          "S": 0,
+          "V": 0,
+          "rationale": "MLE bounds [0.01, 1.0], discrete likelihood missing"
+        },
+        "lambda_star": {
+          "M": 1,
+          "D": 1,
+          "S": 0,
+          "V": 0,
+          "rationale": "Threshold e.g. 0.005 uncalibrated constant"
+        },
+        "t_exec": {
+          "M": 1,
+          "D": 1,
+          "S": 1,
+          "V": 0,
+          "rationale": "Enter long position at O_{t+1}"
+        },
+        "max_dd": {
+          "M": 1,
+          "D": 1,
+          "S": 0,
+          "V": 0,
+          "rationale": "Stop-loss of 1% fixed constant"
+        }
+      }
+    },
+    {
+      "series_id": "h2_d6_p1_hawkes_process_s43_A1",
+      "block_id": "h2_d6_p1_hawkes_process_s43",
+      "concept_id": "hawkes_process",
+      "seed": 43,
+      "condition": "A1",
+      "M": 6,
+      "D": 6,
+      "S": 1,
+      "V": 0,
+      "grounded": false,
+      "in_tokens": 1244,
+      "out_tokens": 416,
+      "cost_usd": 0.000436,
+      "parameter_ratings": {
+        "mu": {
+          "M": 1,
+          "D": 1,
+          "S": 0,
+          "V": 0,
+          "rationale": "MLE bounds [0.0001, 0.01], discrete likelihood missing"
+        },
+        "alpha": {
+          "M": 1,
+          "D": 1,
+          "S": 0,
+          "V": 0,
+          "rationale": "MLE bounds [0.01, 0.5], discrete likelihood missing"
+        },
+        "beta": {
+          "M": 1,
+          "D": 1,
+          "S": 0,
+          "V": 0,
+          "rationale": "MLE bounds [0.01, 1.0], discrete likelihood missing"
+        },
+        "lambda_star": {
+          "M": 1,
+          "D": 1,
+          "S": 0,
+          "V": 0,
+          "rationale": "Threshold e.g. 0.005 uncalibrated constant"
+        },
+        "t_exec": {
+          "M": 1,
+          "D": 1,
+          "S": 1,
+          "V": 0,
+          "rationale": "Enter long position at O_{t+1}, open of next bar"
+        },
+        "max_dd": {
+          "M": 1,
+          "D": 1,
+          "S": 0,
+          "V": 0,
+          "rationale": "MaxDrawdown 0.05 / 2% fixed fraction"
+        }
+      }
+    },
+    {
+      "series_id": "h2_d6_p1_hawkes_process_s43_B0",
+      "block_id": "h2_d6_p1_hawkes_process_s43",
+      "concept_id": "hawkes_process",
+      "seed": 43,
+      "condition": "B0",
+      "M": 3,
+      "D": 2,
+      "S": 0,
+      "V": 0,
+      "grounded": false,
+      "in_tokens": 978,
+      "out_tokens": 368,
+      "cost_usd": 0.000367,
+      "parameter_ratings": {
+        "mu": {
+          "M": 0,
+          "D": 0,
+          "S": 0,
+          "V": 0,
+          "rationale": "Not mentioned"
+        },
+        "alpha": {
+          "M": 0,
+          "D": 0,
+          "S": 0,
+          "V": 0,
+          "rationale": "Not mentioned"
+        },
+        "beta": {
+          "M": 0,
+          "D": 0,
+          "S": 0,
+          "V": 0,
+          "rationale": "Not mentioned"
+        },
+        "lambda_star": {
+          "M": 1,
+          "D": 1,
+          "S": 0,
+          "V": 0,
+          "rationale": "Threshold e.g. 0.001 uncalibrated constant"
+        },
+        "t_exec": {
+          "M": 1,
+          "D": 0,
+          "S": 0,
+          "V": 0,
+          "rationale": "No execution timing specified"
+        },
+        "max_dd": {
+          "M": 1,
+          "D": 1,
+          "S": 0,
+          "V": 0,
+          "rationale": "Stop loss 20 pips fixed constant"
+        }
+      }
+    },
+    {
+      "series_id": "h2_d6_p1_hawkes_process_s43_B1",
+      "block_id": "h2_d6_p1_hawkes_process_s43",
+      "concept_id": "hawkes_process",
+      "seed": 43,
+      "condition": "B1",
+      "M": 5,
+      "D": 5,
+      "S": 1,
+      "V": 0,
+      "grounded": false,
+      "in_tokens": 1147,
+      "out_tokens": 396,
+      "cost_usd": 0.00041,
+      "parameter_ratings": {
+        "mu": {
+          "M": 0,
+          "D": 0,
+          "S": 0,
+          "V": 0,
+          "rationale": "Not mentioned"
+        },
+        "alpha": {
+          "M": 1,
+          "D": 1,
+          "S": 0,
+          "V": 0,
+          "rationale": "MLE bounds [0.01, 1.0] 1000 bars, but event definition missing in B"
+        },
+        "beta": {
+          "M": 1,
+          "D": 1,
+          "S": 0,
+          "V": 0,
+          "rationale": "MLE bounds [0.01, 1.0] 1000 bars, event definition missing in B"
+        },
+        "lambda_star": {
+          "M": 1,
+          "D": 1,
+          "S": 0,
+          "V": 0,
+          "rationale": "Threshold e.g. 0.001 uncalibrated constant"
+        },
+        "t_exec": {
+          "M": 1,
+          "D": 1,
+          "S": 1,
+          "V": 0,
+          "rationale": "Executed at close of M5 bar"
+        },
+        "max_dd": {
+          "M": 1,
+          "D": 1,
+          "S": 0,
+          "V": 0,
+          "rationale": "Stop loss 20 pips fixed constant"
+        }
+      }
+    },
+    {
+      "series_id": "h2_d6_p1_hawkes_process_s44_A0",
+      "block_id": "h2_d6_p1_hawkes_process_s44",
+      "concept_id": "hawkes_process",
+      "seed": 44,
+      "condition": "A0",
+      "M": 3,
+      "D": 3,
+      "S": 3,
+      "V": 0,
+      "grounded": false,
+      "in_tokens": 1005,
+      "out_tokens": 385,
+      "cost_usd": 0.000382,
+      "parameter_ratings": {
+        "mu": {
+          "M": 0,
+          "D": 0,
+          "S": 0,
+          "V": 0,
+          "rationale": "Not mentioned"
+        },
+        "alpha": {
+          "M": 0,
+          "D": 0,
+          "S": 0,
+          "V": 0,
+          "rationale": "Not mentioned"
+        },
+        "beta": {
+          "M": 0,
+          "D": 0,
+          "S": 0,
+          "V": 0,
+          "rationale": "Not mentioned"
+        },
+        "lambda_star": {
+          "M": 1,
+          "D": 1,
+          "S": 1,
+          "V": 0,
+          "rationale": "90th percentile of lambda(t) over past 100 bars"
+        },
+        "t_exec": {
+          "M": 1,
+          "D": 1,
+          "S": 1,
+          "V": 0,
+          "rationale": "Enter long position at next bar open O_{t+1}"
+        },
+        "max_dd": {
+          "M": 1,
+          "D": 1,
+          "S": 1,
+          "V": 0,
+          "rationale": "1.5 times ATR of last 100 bars, updated dynamically every 10 bars"
+        }
+      }
+    },
+    {
+      "series_id": "h2_d6_p1_hawkes_process_s44_A1",
+      "block_id": "h2_d6_p1_hawkes_process_s44",
+      "concept_id": "hawkes_process",
+      "seed": 44,
+      "condition": "A1",
+      "M": 5,
+      "D": 5,
+      "S": 3,
+      "V": 0,
+      "grounded": false,
+      "in_tokens": 1174,
+      "out_tokens": 427,
+      "cost_usd": 0.000432,
+      "parameter_ratings": {
+        "mu": {
+          "M": 0,
+          "D": 0,
+          "S": 0,
+          "V": 0,
+          "rationale": "Not mentioned"
+        },
+        "alpha": {
+          "M": 1,
+          "D": 1,
+          "S": 0,
+          "V": 0,
+          "rationale": "MLE on historical event data with bounds [0.1, 1.0], window missing"
+        },
+        "beta": {
+          "M": 1,
+          "D": 1,
+          "S": 0,
+          "V": 0,
+          "rationale": "MLE on historical event data with bounds [0.01, 0.5], window missing"
+        },
+        "lambda_star": {
+          "M": 1,
+          "D": 1,
+          "S": 1,
+          "V": 0,
+          "rationale": "90th percentile of lambda(t) over past 100 bars"
+        },
+        "t_exec": {
+          "M": 1,
+          "D": 1,
+          "S": 1,
+          "V": 0,
+          "rationale": "Next bar open O_{t+1}"
+        },
+        "max_dd": {
+          "M": 1,
+          "D": 1,
+          "S": 1,
+          "V": 0,
+          "rationale": "1.5 times ATR of last 100 bars"
+        }
+      }
+    },
+    {
+      "series_id": "h2_d6_p1_hawkes_process_s44_B0",
+      "block_id": "h2_d6_p1_hawkes_process_s44",
+      "concept_id": "hawkes_process",
+      "seed": 44,
+      "condition": "B0",
+      "M": 3,
+      "D": 2,
+      "S": 0,
+      "V": 0,
+      "grounded": false,
+      "in_tokens": 962,
+      "out_tokens": 326,
+      "cost_usd": 0.00034,
+      "parameter_ratings": {
+        "mu": {
+          "M": 0,
+          "D": 0,
+          "S": 0,
+          "V": 0,
+          "rationale": "Not mentioned"
+        },
+        "alpha": {
+          "M": 0,
+          "D": 0,
+          "S": 0,
+          "V": 0,
+          "rationale": "Not mentioned"
+        },
+        "beta": {
+          "M": 0,
+          "D": 0,
+          "S": 0,
+          "V": 0,
+          "rationale": "Not mentioned"
+        },
+        "lambda_star": {
+          "M": 1,
+          "D": 1,
+          "S": 0,
+          "V": 0,
+          "rationale": "Threshold of 0.05 uncalibrated constant"
+        },
+        "t_exec": {
+          "M": 1,
+          "D": 0,
+          "S": 0,
+          "V": 0,
+          "rationale": "No execution timing specified"
+        },
+        "max_dd": {
+          "M": 1,
+          "D": 1,
+          "S": 0,
+          "V": 0,
+          "rationale": "StopLoss 0.01 fixed constant"
+        }
+      }
+    },
+    {
+      "series_id": "h2_d6_p1_hawkes_process_s44_B1",
+      "block_id": "h2_d6_p1_hawkes_process_s44",
+      "concept_id": "hawkes_process",
+      "seed": 44,
+      "condition": "B1",
+      "M": 5,
+      "D": 5,
+      "S": 1,
+      "V": 0,
+      "grounded": false,
+      "in_tokens": 1131,
+      "out_tokens": 337,
+      "cost_usd": 0.000372,
+      "parameter_ratings": {
+        "mu": {
+          "M": 0,
+          "D": 0,
+          "S": 0,
+          "V": 0,
+          "rationale": "Not mentioned"
+        },
+        "alpha": {
+          "M": 1,
+          "D": 1,
+          "S": 0,
+          "V": 0,
+          "rationale": "MLE bounds [0.01, 0.5], window missing"
+        },
+        "beta": {
+          "M": 1,
+          "D": 1,
+          "S": 0,
+          "V": 0,
+          "rationale": "MLE bounds [0.01, 1.0], window missing"
+        },
+        "lambda_star": {
+          "M": 1,
+          "D": 1,
+          "S": 0,
+          "V": 0,
+          "rationale": "Threshold of 0.05 uncalibrated constant"
+        },
+        "t_exec": {
+          "M": 1,
+          "D": 1,
+          "S": 1,
+          "V": 0,
+          "rationale": "Execution timing at next M5 bar open"
+        },
+        "max_dd": {
+          "M": 1,
+          "D": 1,
+          "S": 0,
+          "V": 0,
+          "rationale": "StopLoss 0.01 / MaxDrawdown 5% fixed constant"
+        }
+      }
+    },
+    {
+      "series_id": "h2_d6_p1_jump_diffusion_s42_A0",
+      "block_id": "h2_d6_p1_jump_diffusion_s42",
+      "concept_id": "jump_diffusion",
+      "seed": 42,
+      "condition": "A0",
+      "M": 4,
+      "D": 2,
+      "S": 0,
+      "V": 0,
+      "grounded": false,
+      "in_tokens": 970,
+      "out_tokens": 321,
+      "cost_usd": 0.000338,
+      "parameter_ratings": {
+        "theta_bv": {
+          "M": 1,
+          "D": 0,
+          "S": 0,
+          "V": 0,
+          "rationale": "BV_t defined over 288 bars, but truncation threshold theta_BV absent"
+        },
+        "p_trans": {
+          "M": 0,
+          "D": 0,
+          "S": 0,
+          "V": 0,
+          "rationale": "Not mentioned"
+        },
+        "sigma_ratio": {
+          "M": 0,
+          "D": 0,
+          "S": 0,
+          "V": 0,
+          "rationale": "Not mentioned"
+        },
+        "t_exec": {
+          "M": 1,
+          "D": 0,
+          "S": 0,
+          "V": 0,
+          "rationale": "No execution timing rule specified"
+        },
+        "stop_bps": {
+          "M": 1,
+          "D": 1,
+          "S": 0,
+          "V": 0,
+          "rationale": "Stop-loss of 1.5 times ATR, but ATR lookback window missing"
+        },
+        "j_star": {
+          "M": 1,
+          "D": 1,
+          "S": 0,
+          "V": 0,
+          "rationale": "J_t > threshold calibrated based on historical data, formula missing"
+        }
+      }
+    },
+    {
+      "series_id": "h2_d6_p1_jump_diffusion_s42_A1",
+      "block_id": "h2_d6_p1_jump_diffusion_s42",
+      "concept_id": "jump_diffusion",
+      "seed": 42,
+      "condition": "A1",
+      "M": 6,
+      "D": 5,
+      "S": 3,
+      "V": 0,
+      "grounded": false,
+      "in_tokens": 1224,
+      "out_tokens": 368,
+      "cost_usd": 0.000404,
+      "parameter_ratings": {
+        "theta_bv": {
+          "M": 1,
+          "D": 1,
+          "S": 1,
+          "V": 0,
+          "rationale": "theta_BV = 1.5 * mean(BV_t) over rolling window of 288 M5 bars"
+        },
+        "p_trans": {
+          "M": 1,
+          "D": 1,
+          "S": 0,
+          "V": 0,
+          "rationale": "MLE over historical regime labels, window missing"
+        },
+        "sigma_ratio": {
+          "M": 1,
+          "D": 1,
+          "S": 0,
+          "V": 0,
+          "rationale": "Ratio estimated over historical data, window missing"
+        },
+        "t_exec": {
+          "M": 1,
+          "D": 0,
+          "S": 0,
+          "V": 0,
+          "rationale": "No execution timing specified"
+        },
+        "stop_bps": {
+          "M": 1,
+          "D": 1,
+          "S": 1,
+          "V": 0,
+          "rationale": "stop_bps = 0.5 * ATR of last 10 M5 bars"
+        },
+        "j_star": {
+          "M": 1,
+          "D": 1,
+          "S": 1,
+          "V": 0,
+          "rationale": "J_t > theta_BV tied to specified theta_BV threshold"
+        }
+      }
+    },
+    {
+      "series_id": "h2_d6_p1_jump_diffusion_s42_B0",
+      "block_id": "h2_d6_p1_jump_diffusion_s42",
+      "concept_id": "jump_diffusion",
+      "seed": 42,
+      "condition": "B0",
+      "M": 3,
+      "D": 2,
+      "S": 1,
+      "V": 0,
+      "grounded": false,
+      "in_tokens": 948,
+      "out_tokens": 322,
+      "cost_usd": 0.000335,
+      "parameter_ratings": {
+        "theta_bv": {
+          "M": 0,
+          "D": 0,
+          "S": 0,
+          "V": 0,
+          "rationale": "Not mentioned"
+        },
+        "p_trans": {
+          "M": 0,
+          "D": 0,
+          "S": 0,
+          "V": 0,
+          "rationale": "Not mentioned"
+        },
+        "sigma_ratio": {
+          "M": 0,
+          "D": 0,
+          "S": 0,
+          "V": 0,
+          "rationale": "Not mentioned"
+        },
+        "t_exec": {
+          "M": 1,
+          "D": 0,
+          "S": 0,
+          "V": 0,
+          "rationale": "No execution timing specified"
+        },
+        "stop_bps": {
+          "M": 1,
+          "D": 1,
+          "S": 1,
+          "V": 0,
+          "rationale": "1.5 times ATR of last 10 M5 bars"
+        },
+        "j_star": {
+          "M": 1,
+          "D": 1,
+          "S": 0,
+          "V": 0,
+          "rationale": "J_t > 0.01 uncalibrated constant"
+        }
+      }
+    },
+    {
+      "series_id": "h2_d6_p1_jump_diffusion_s42_B1",
+      "block_id": "h2_d6_p1_jump_diffusion_s42",
+      "concept_id": "jump_diffusion",
+      "seed": 42,
+      "condition": "B1",
+      "M": 6,
+      "D": 5,
+      "S": 1,
+      "V": 0,
+      "grounded": false,
+      "in_tokens": 1202,
+      "out_tokens": 391,
+      "cost_usd": 0.000415,
+      "parameter_ratings": {
+        "theta_bv": {
+          "M": 1,
+          "D": 1,
+          "S": 0,
+          "V": 0,
+          "rationale": "95th percentile of jump sizes on historical jump data, window missing"
+        },
+        "p_trans": {
+          "M": 1,
+          "D": 1,
+          "S": 0,
+          "V": 0,
+          "rationale": "MLE on regime transitions over 1000 obs, but regime filter missing"
+        },
+        "sigma_ratio": {
+          "M": 1,
+          "D": 1,
+          "S": 0,
+          "V": 0,
+          "rationale": "Ratio over 500 obs, regime separation method missing"
+        },
+        "t_exec": {
+          "M": 1,
+          "D": 0,
+          "S": 0,
+          "V": 0,
+          "rationale": "No execution timing specified"
+        },
+        "stop_bps": {
+          "M": 1,
+          "D": 1,
+          "S": 1,
+          "V": 0,
+          "rationale": "1.5 times ATR of last 10 M5 bars"
+        },
+        "j_star": {
+          "M": 1,
+          "D": 1,
+          "S": 0,
+          "V": 0,
+          "rationale": "Threshold e.g. 0.01 uncalibrated constant"
+        }
+      }
+    },
+    {
+      "series_id": "h2_d6_p1_jump_diffusion_s43_A0",
+      "block_id": "h2_d6_p1_jump_diffusion_s43",
+      "concept_id": "jump_diffusion",
+      "seed": 43,
+      "condition": "A0",
+      "M": 3,
+      "D": 2,
+      "S": 0,
+      "V": 0,
+      "grounded": false,
+      "in_tokens": 960,
+      "out_tokens": 300,
+      "cost_usd": 0.000324,
+      "parameter_ratings": {
+        "theta_bv": {
+          "M": 0,
+          "D": 0,
+          "S": 0,
+          "V": 0,
+          "rationale": "Not mentioned"
+        },
+        "p_trans": {
+          "M": 0,
+          "D": 0,
+          "S": 0,
+          "V": 0,
+          "rationale": "Not mentioned"
+        },
+        "sigma_ratio": {
+          "M": 0,
+          "D": 0,
+          "S": 0,
+          "V": 0,
+          "rationale": "Not mentioned"
+        },
+        "t_exec": {
+          "M": 1,
+          "D": 0,
+          "S": 0,
+          "V": 0,
+          "rationale": "No execution timing specified"
+        },
+        "stop_bps": {
+          "M": 1,
+          "D": 1,
+          "S": 0,
+          "V": 0,
+          "rationale": "20 pips / 1% fixed constant"
+        },
+        "j_star": {
+          "M": 1,
+          "D": 1,
+          "S": 0,
+          "V": 0,
+          "rationale": "J_t > 0.05 uncalibrated constant"
+        }
+      }
+    },
+    {
+      "series_id": "h2_d6_p1_jump_diffusion_s43_A1",
+      "block_id": "h2_d6_p1_jump_diffusion_s43",
+      "concept_id": "jump_diffusion",
+      "seed": 43,
+      "condition": "A1",
+      "M": 6,
+      "D": 5,
+      "S": 1,
+      "V": 0,
+      "grounded": false,
+      "in_tokens": 1214,
+      "out_tokens": 386,
+      "cost_usd": 0.000414,
+      "parameter_ratings": {
+        "theta_bv": {
+          "M": 1,
+          "D": 1,
+          "S": 0,
+          "V": 0,
+          "rationale": "95th percentile of BV during tranquil periods, window missing"
+        },
+        "p_trans": {
+          "M": 1,
+          "D": 1,
+          "S": 0,
+          "V": 0,
+          "rationale": "Hidden Markov model on historical data, window missing"
+        },
+        "sigma_ratio": {
+          "M": 1,
+          "D": 1,
+          "S": 0,
+          "V": 0,
+          "rationale": "Ratio over 100 obs, tranquil/crisis separation missing"
+        },
+        "t_exec": {
+          "M": 1,
+          "D": 0,
+          "S": 0,
+          "V": 0,
+          "rationale": "No execution timing specified"
+        },
+        "stop_bps": {
+          "M": 1,
+          "D": 1,
+          "S": 1,
+          "V": 0,
+          "rationale": "1.5 times ATR over last 14 periods"
+        },
+        "j_star": {
+          "M": 1,
+          "D": 1,
+          "S": 0,
+          "V": 0,
+          "rationale": "J_t > theta_BV tied to unspecified theta_BV"
+        }
+      }
+    },
+    {
+      "series_id": "h2_d6_p1_jump_diffusion_s43_B0",
+      "block_id": "h2_d6_p1_jump_diffusion_s43",
+      "concept_id": "jump_diffusion",
+      "seed": 43,
+      "condition": "B0",
+      "M": 3,
+      "D": 3,
+      "S": 2,
+      "V": 0,
+      "grounded": false,
+      "in_tokens": 976,
+      "out_tokens": 414,
+      "cost_usd": 0.000395,
+      "parameter_ratings": {
+        "theta_bv": {
+          "M": 0,
+          "D": 0,
+          "S": 0,
+          "V": 0,
+          "rationale": "Not mentioned"
+        },
+        "p_trans": {
+          "M": 0,
+          "D": 0,
+          "S": 0,
+          "V": 0,
+          "rationale": "Not mentioned"
+        },
+        "sigma_ratio": {
+          "M": 0,
+          "D": 0,
+          "S": 0,
+          "V": 0,
+          "rationale": "Not mentioned"
+        },
+        "t_exec": {
+          "M": 1,
+          "D": 1,
+          "S": 1,
+          "V": 0,
+          "rationale": "Execute at close of current bar C_t for next bar O_{t+1}"
+        },
+        "stop_bps": {
+          "M": 1,
+          "D": 1,
+          "S": 1,
+          "V": 0,
+          "rationale": "1.5 times ATR of last 10 bars"
+        },
+        "j_star": {
+          "M": 1,
+          "D": 1,
+          "S": 0,
+          "V": 0,
+          "rationale": "J_t > 0.01 uncalibrated constant"
+        }
+      }
+    },
+    {
+      "series_id": "h2_d6_p1_jump_diffusion_s43_B1",
+      "block_id": "h2_d6_p1_jump_diffusion_s43",
+      "concept_id": "jump_diffusion",
+      "seed": 43,
+      "condition": "B1",
+      "M": 6,
+      "D": 6,
+      "S": 2,
+      "V": 0,
+      "grounded": false,
+      "in_tokens": 1230,
+      "out_tokens": 473,
+      "cost_usd": 0.000468,
+      "parameter_ratings": {
+        "theta_bv": {
+          "M": 1,
+          "D": 1,
+          "S": 0,
+          "V": 0,
+          "rationale": "Bounds [1.5, 3.0] empirical range without window or formula"
+        },
+        "p_trans": {
+          "M": 1,
+          "D": 1,
+          "S": 0,
+          "V": 0,
+          "rationale": "MLE on historical regime data without window"
+        },
+        "sigma_ratio": {
+          "M": 1,
+          "D": 1,
+          "S": 0,
+          "V": 0,
+          "rationale": "Theoretical range [0.5, 2.0] without window"
+        },
+        "t_exec": {
+          "M": 1,
+          "D": 1,
+          "S": 1,
+          "V": 0,
+          "rationale": "Execute at close of current bar C_t for next bar O_{t+1}"
+        },
+        "stop_bps": {
+          "M": 1,
+          "D": 1,
+          "S": 1,
+          "V": 0,
+          "rationale": "1.5 times ATR of last 10 bars (and trailing 20 bps adjusted by ATR)"
+        },
+        "j_star": {
+          "M": 1,
+          "D": 1,
+          "S": 0,
+          "V": 0,
+          "rationale": "J_t > 0.01 uncalibrated constant"
+        }
+      }
+    },
+    {
+      "series_id": "h2_d6_p1_jump_diffusion_s44_A0",
+      "block_id": "h2_d6_p1_jump_diffusion_s44",
+      "concept_id": "jump_diffusion",
+      "seed": 44,
+      "condition": "A0",
+      "M": 3,
+      "D": 3,
+      "S": 0,
+      "V": 0,
+      "grounded": false,
+      "in_tokens": 981,
+      "out_tokens": 351,
+      "cost_usd": 0.000358,
+      "parameter_ratings": {
+        "theta_bv": {
+          "M": 0,
+          "D": 0,
+          "S": 0,
+          "V": 0,
+          "rationale": "Not mentioned"
+        },
+        "p_trans": {
+          "M": 0,
+          "D": 0,
+          "S": 0,
+          "V": 0,
+          "rationale": "Not mentioned"
+        },
+        "sigma_ratio": {
+          "M": 0,
+          "D": 0,
+          "S": 0,
+          "V": 0,
+          "rationale": "Not mentioned"
+        },
+        "t_exec": {
+          "M": 1,
+          "D": 1,
+          "S": 0,
+          "V": 0,
+          "rationale": "Announcement bar close mentioned, but entry execution timing rule unspecified"
+        },
+        "stop_bps": {
+          "M": 1,
+          "D": 1,
+          "S": 0,
+          "V": 0,
+          "rationale": "Stop-loss 1.5% fixed below entry"
+        },
+        "j_star": {
+          "M": 1,
+          "D": 1,
+          "S": 0,
+          "V": 0,
+          "rationale": "J_t > 0.01 uncalibrated constant"
+        }
+      }
+    },
+    {
+      "series_id": "h2_d6_p1_jump_diffusion_s44_A1",
+      "block_id": "h2_d6_p1_jump_diffusion_s44",
+      "concept_id": "jump_diffusion",
+      "seed": 44,
+      "condition": "A1",
+      "M": 6,
+      "D": 6,
+      "S": 3,
+      "V": 0,
+      "grounded": false,
+      "in_tokens": 1235,
+      "out_tokens": 410,
+      "cost_usd": 0.000431,
+      "parameter_ratings": {
+        "theta_bv": {
+          "M": 1,
+          "D": 1,
+          "S": 1,
+          "V": 0,
+          "rationale": "theta_BV = 1.5 * median(BV_t) over last 288 bars"
+        },
+        "p_trans": {
+          "M": 1,
+          "D": 1,
+          "S": 0,
+          "V": 0,
+          "rationale": "MLE on regime-labeled data without window"
+        },
+        "sigma_ratio": {
+          "M": 1,
+          "D": 1,
+          "S": 0,
+          "V": 0,
+          "rationale": "Rolling window 288 bars, but regime classification rule missing"
+        },
+        "t_exec": {
+          "M": 1,
+          "D": 1,
+          "S": 1,
+          "V": 0,
+          "rationale": "t_exec = execute at open of bar following announcement"
+        },
+        "stop_bps": {
+          "M": 1,
+          "D": 1,
+          "S": 1,
+          "V": 0,
+          "rationale": "stop_bps = 1.5 * volatility estimate from last 288 bars"
+        },
+        "j_star": {
+          "M": 1,
+          "D": 1,
+          "S": 0,
+          "V": 0,
+          "rationale": "J_t > 0.01 uncalibrated constant"
+        }
+      }
+    },
+    {
+      "series_id": "h2_d6_p1_jump_diffusion_s44_B0",
+      "block_id": "h2_d6_p1_jump_diffusion_s44",
+      "concept_id": "jump_diffusion",
+      "seed": 44,
+      "condition": "B0",
+      "M": 3,
+      "D": 2,
+      "S": 1,
+      "V": 0,
+      "grounded": false,
+      "in_tokens": 955,
+      "out_tokens": 354,
+      "cost_usd": 0.000356,
+      "parameter_ratings": {
+        "theta_bv": {
+          "M": 0,
+          "D": 0,
+          "S": 0,
+          "V": 0,
+          "rationale": "Not mentioned"
+        },
+        "p_trans": {
+          "M": 0,
+          "D": 0,
+          "S": 0,
+          "V": 0,
+          "rationale": "Not mentioned"
+        },
+        "sigma_ratio": {
+          "M": 0,
+          "D": 0,
+          "S": 0,
+          "V": 0,
+          "rationale": "Not mentioned"
+        },
+        "t_exec": {
+          "M": 1,
+          "D": 0,
+          "S": 0,
+          "V": 0,
+          "rationale": "No execution timing specified"
+        },
+        "stop_bps": {
+          "M": 1,
+          "D": 1,
+          "S": 1,
+          "V": 0,
+          "rationale": "1.5 times ATR of last 10 M5 bars"
+        },
+        "j_star": {
+          "M": 1,
+          "D": 1,
+          "S": 0,
+          "V": 0,
+          "rationale": "J_t > 0 uncalibrated"
+        }
+      }
+    },
+    {
+      "series_id": "h2_d6_p1_jump_diffusion_s44_B1",
+      "block_id": "h2_d6_p1_jump_diffusion_s44",
+      "concept_id": "jump_diffusion",
+      "seed": 44,
+      "condition": "B1",
+      "M": 6,
+      "D": 5,
+      "S": 2,
+      "V": 0,
+      "grounded": false,
+      "in_tokens": 1209,
+      "out_tokens": 418,
+      "cost_usd": 0.000432,
+      "parameter_ratings": {
+        "theta_bv": {
+          "M": 1,
+          "D": 1,
+          "S": 1,
+          "V": 0,
+          "rationale": "1.5 times median jump size over last 100 observations"
+        },
+        "p_trans": {
+          "M": 1,
+          "D": 1,
+          "S": 0,
+          "V": 0,
+          "rationale": "Markov chain over last 500 observations, but regime filter missing"
+        },
+        "sigma_ratio": {
+          "M": 1,
+          "D": 1,
+          "S": 0,
+          "V": 0,
+          "rationale": "Ratio over last 200 observations, regime separation missing"
+        },
+        "t_exec": {
+          "M": 1,
+          "D": 0,
+          "S": 0,
+          "V": 0,
+          "rationale": "No execution timing specified"
+        },
+        "stop_bps": {
+          "M": 1,
+          "D": 1,
+          "S": 1,
+          "V": 0,
+          "rationale": "1.5 times ATR of last 10 M5 bars"
+        },
+        "j_star": {
+          "M": 1,
+          "D": 1,
+          "S": 0,
+          "V": 0,
+          "rationale": "J_t > 0 uncalibrated"
+        }
+      }
+    }
+  ]
+}

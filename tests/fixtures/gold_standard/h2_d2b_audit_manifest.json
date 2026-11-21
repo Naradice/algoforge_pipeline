@@ -1,0 +1,18 @@
+{
+  "experiment_id": "RP-HDE-H2-D2b",
+  "protocol_version": "v0.2",
+  "created_at": "2026-11-18T03:53:00Z",
+  "data_contract": "USDJPY_M5_OHLCV_STRICT",
+  "dev36_path": "c:\\Users\\ksato\\workspace\\finance\\research_pipeline\\tests\\fixtures\\gold_standard\\h2_d2b_dev36_gold.json",
+  "dev36_cases_count": 36,
+  "dev36_sha256": "89abd531ec785f7efcad2f9759be0371358a4cd841a254565f923a54dcd46546",
+  "heldout_path": "c:\\Users\\ksato\\workspace\\finance\\research_pipeline\\tests\\fixtures\\gold_standard\\h2_d2b_held_out_quarantine.json",
+  "heldout_cases_count": 8,
+  "heldout_sha256": "d45f8aa4399e43bdb2a4c2a6f1786114b448106c6bccb7bcedbd474e212780c0",
+  "heldout_quarantine_enforced": true,
+  "single_shot_evaluation_logged": true,
+  "evaluation_run_count": 1,
+  "last_evaluation_timestamp": "2026-11-18T03:58:33.427441+00:00",
+  "evaluator_sha256": "650f7dda01673b3cfbe2dee5376f52d67c3260ec10aa6d2b383e7d22d2b879cc",
+  "final_verdict": "PASS (\u5408\u683c)"
+}

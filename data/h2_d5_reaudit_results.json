@@ -1,0 +1,317 @@
+{
+  "experiment_id": "RP-HDE-H2-D5-REAUDIT",
+  "total_audited": 18,
+  "discrepancy_breakdown": {
+    "Category_A": 1,
+    "Category_B": 12,
+    "Category_C": 0
+  },
+  "condition_summary": {
+    "D0": {
+      "n_calls": 6,
+      "syntactically_executable_rate": 1.0,
+      "grounded_executable_rate": 0.0,
+      "hallucinated_number_rate": 0.0,
+      "auto_pass_rate": 0.5
+    },
+    "D1": {
+      "n_calls": 6,
+      "syntactically_executable_rate": 1.0,
+      "grounded_executable_rate": 0.0,
+      "hallucinated_number_rate": 0.5,
+      "auto_pass_rate": 1.0
+    },
+    "D2": {
+      "n_calls": 6,
+      "syntactically_executable_rate": 1.0,
+      "grounded_executable_rate": 0.0,
+      "hallucinated_number_rate": 0.5,
+      "auto_pass_rate": 0.6667
+    }
+  },
+  "reaudit_records": [
+    {
+      "call_id": "h2_d5_hawkes_process_d0_s42",
+      "concept_id": "hawkes_process",
+      "condition_id": "D0",
+      "seed": 42,
+      "syntactically_executable": true,
+      "grounded_executable": false,
+      "empirically_executable": "NOT_TESTED_IN_H2_D5",
+      "hallucinated_numbers": [],
+      "unsubstantiated_reason": "Incomplete in-sample estimation protocol or theoretical boundary used as trade trigger",
+      "auto_dual_pass": false,
+      "is_discrepancy": false,
+      "discrepancy_category": null,
+      "discrepancy_explanation": ""
+    },
+    {
+      "call_id": "h2_d5_hawkes_process_d0_s43",
+      "concept_id": "hawkes_process",
+      "condition_id": "D0",
+      "seed": 43,
+      "syntactically_executable": true,
+      "grounded_executable": false,
+      "empirically_executable": "NOT_TESTED_IN_H2_D5",
+      "hallucinated_numbers": [],
+      "unsubstantiated_reason": "Incomplete in-sample estimation protocol or theoretical boundary used as trade trigger",
+      "auto_dual_pass": false,
+      "is_discrepancy": false,
+      "discrepancy_category": null,
+      "discrepancy_explanation": ""
+    },
+    {
+      "call_id": "h2_d5_hawkes_process_d0_s44",
+      "concept_id": "hawkes_process",
+      "condition_id": "D0",
+      "seed": 44,
+      "syntactically_executable": true,
+      "grounded_executable": false,
+      "empirically_executable": "NOT_TESTED_IN_H2_D5",
+      "hallucinated_numbers": [],
+      "unsubstantiated_reason": "Incomplete in-sample estimation protocol or theoretical boundary used as trade trigger",
+      "auto_dual_pass": true,
+      "is_discrepancy": true,
+      "discrepancy_category": "Category_B",
+      "discrepancy_explanation": "Novel Scope: Hypothesis satisfies basic 5-axis/data contracts, but fails H2-D5 4-layer parameter completeness and grounding standards."
+    },
+    {
+      "call_id": "h2_d5_hawkes_process_d1_s42",
+      "concept_id": "hawkes_process",
+      "condition_id": "D1",
+      "seed": 42,
+      "syntactically_executable": true,
+      "grounded_executable": false,
+      "empirically_executable": "NOT_TESTED_IN_H2_D5",
+      "hallucinated_numbers": [
+        "entry_threshold_0.5_or_0.1"
+      ],
+      "unsubstantiated_reason": "Arbitrary numbers without M5 calibration: ['entry_threshold_0.5_or_0.1']",
+      "auto_dual_pass": true,
+      "is_discrepancy": true,
+      "discrepancy_category": "Category_B",
+      "discrepancy_explanation": "Novel Scope: Hypothesis satisfies basic 5-axis/data contracts, but fails H2-D5 4-layer parameter completeness and grounding standards."
+    },
+    {
+      "call_id": "h2_d5_hawkes_process_d1_s43",
+      "concept_id": "hawkes_process",
+      "condition_id": "D1",
+      "seed": 43,
+      "syntactically_executable": true,
+      "grounded_executable": false,
+      "empirically_executable": "NOT_TESTED_IN_H2_D5",
+      "hallucinated_numbers": [
+        "entry_threshold_0.5_or_0.1",
+        "explosive_branching_ratio_violation"
+      ],
+      "unsubstantiated_reason": "Branching ratio alpha/beta > 1 violates subcritical stationarity.",
+      "auto_dual_pass": true,
+      "is_discrepancy": true,
+      "discrepancy_category": "Category_A",
+      "discrepancy_explanation": "Evaluator Miss: Frozen diagnostic evaluator missed stationarity violation alpha/beta > 1 (E_math false negative)."
+    },
+    {
+      "call_id": "h2_d5_hawkes_process_d1_s44",
+      "concept_id": "hawkes_process",
+      "condition_id": "D1",
+      "seed": 44,
+      "syntactically_executable": true,
+      "grounded_executable": false,
+      "empirically_executable": "NOT_TESTED_IN_H2_D5",
+      "hallucinated_numbers": [
+        "entry_threshold_0.5_or_0.1"
+      ],
+      "unsubstantiated_reason": "Arbitrary numbers without M5 calibration: ['entry_threshold_0.5_or_0.1']",
+      "auto_dual_pass": true,
+      "is_discrepancy": true,
+      "discrepancy_category": "Category_B",
+      "discrepancy_explanation": "Novel Scope: Hypothesis satisfies basic 5-axis/data contracts, but fails H2-D5 4-layer parameter completeness and grounding standards."
+    },
+    {
+      "call_id": "h2_d5_hawkes_process_d2_s42",
+      "concept_id": "hawkes_process",
+      "condition_id": "D2",
+      "seed": 42,
+      "syntactically_executable": true,
+      "grounded_executable": false,
+      "empirically_executable": "NOT_TESTED_IN_H2_D5",
+      "hallucinated_numbers": [],
+      "unsubstantiated_reason": "Incomplete in-sample estimation protocol or theoretical boundary used as trade trigger",
+      "auto_dual_pass": false,
+      "is_discrepancy": false,
+      "discrepancy_category": null,
+      "discrepancy_explanation": ""
+    },
+    {
+      "call_id": "h2_d5_hawkes_process_d2_s43",
+      "concept_id": "hawkes_process",
+      "condition_id": "D2",
+      "seed": 43,
+      "syntactically_executable": true,
+      "grounded_executable": false,
+      "empirically_executable": "NOT_TESTED_IN_H2_D5",
+      "hallucinated_numbers": [],
+      "unsubstantiated_reason": "Incomplete in-sample estimation protocol or theoretical boundary used as trade trigger",
+      "auto_dual_pass": true,
+      "is_discrepancy": true,
+      "discrepancy_category": "Category_B",
+      "discrepancy_explanation": "Novel Scope: Hypothesis satisfies basic 5-axis/data contracts, but fails H2-D5 4-layer parameter completeness and grounding standards."
+    },
+    {
+      "call_id": "h2_d5_hawkes_process_d2_s44",
+      "concept_id": "hawkes_process",
+      "condition_id": "D2",
+      "seed": 44,
+      "syntactically_executable": true,
+      "grounded_executable": false,
+      "empirically_executable": "NOT_TESTED_IN_H2_D5",
+      "hallucinated_numbers": [
+        "entry_threshold_0.5_or_0.1"
+      ],
+      "unsubstantiated_reason": "Arbitrary numbers without M5 calibration: ['entry_threshold_0.5_or_0.1']",
+      "auto_dual_pass": true,
+      "is_discrepancy": true,
+      "discrepancy_category": "Category_B",
+      "discrepancy_explanation": "Novel Scope: Hypothesis satisfies basic 5-axis/data contracts, but fails H2-D5 4-layer parameter completeness and grounding standards."
+    },
+    {
+      "call_id": "h2_d5_jump_diffusion_d0_s42",
+      "concept_id": "jump_diffusion",
+      "condition_id": "D0",
+      "seed": 42,
+      "syntactically_executable": true,
+      "grounded_executable": false,
+      "empirically_executable": "NOT_TESTED_IN_H2_D5",
+      "hallucinated_numbers": [],
+      "unsubstantiated_reason": "Incomplete in-sample estimation protocol or theoretical boundary used as trade trigger",
+      "auto_dual_pass": false,
+      "is_discrepancy": false,
+      "discrepancy_category": null,
+      "discrepancy_explanation": ""
+    },
+    {
+      "call_id": "h2_d5_jump_diffusion_d0_s43",
+      "concept_id": "jump_diffusion",
+      "condition_id": "D0",
+      "seed": 43,
+      "syntactically_executable": true,
+      "grounded_executable": false,
+      "empirically_executable": "NOT_TESTED_IN_H2_D5",
+      "hallucinated_numbers": [],
+      "unsubstantiated_reason": "Incomplete in-sample estimation protocol or theoretical boundary used as trade trigger",
+      "auto_dual_pass": true,
+      "is_discrepancy": true,
+      "discrepancy_category": "Category_B",
+      "discrepancy_explanation": "Novel Scope: Hypothesis satisfies basic 5-axis/data contracts, but fails H2-D5 4-layer parameter completeness and grounding standards."
+    },
+    {
+      "call_id": "h2_d5_jump_diffusion_d0_s44",
+      "concept_id": "jump_diffusion",
+      "condition_id": "D0",
+      "seed": 44,
+      "syntactically_executable": true,
+      "grounded_executable": false,
+      "empirically_executable": "NOT_TESTED_IN_H2_D5",
+      "hallucinated_numbers": [],
+      "unsubstantiated_reason": "Incomplete in-sample estimation protocol or theoretical boundary used as trade trigger",
+      "auto_dual_pass": true,
+      "is_discrepancy": true,
+      "discrepancy_category": "Category_B",
+      "discrepancy_explanation": "Novel Scope: Hypothesis satisfies basic 5-axis/data contracts, but fails H2-D5 4-layer parameter completeness and grounding standards."
+    },
+    {
+      "call_id": "h2_d5_jump_diffusion_d1_s42",
+      "concept_id": "jump_diffusion",
+      "condition_id": "D1",
+      "seed": 42,
+      "syntactically_executable": true,
+      "grounded_executable": false,
+      "empirically_executable": "NOT_TESTED_IN_H2_D5",
+      "hallucinated_numbers": [],
+      "unsubstantiated_reason": "Incomplete in-sample estimation protocol or theoretical boundary used as trade trigger",
+      "auto_dual_pass": true,
+      "is_discrepancy": true,
+      "discrepancy_category": "Category_B",
+      "discrepancy_explanation": "Novel Scope: Hypothesis satisfies basic 5-axis/data contracts, but fails H2-D5 4-layer parameter completeness and grounding standards."
+    },
+    {
+      "call_id": "h2_d5_jump_diffusion_d1_s43",
+      "concept_id": "jump_diffusion",
+      "condition_id": "D1",
+      "seed": 43,
+      "syntactically_executable": true,
+      "grounded_executable": false,
+      "empirically_executable": "NOT_TESTED_IN_H2_D5",
+      "hallucinated_numbers": [],
+      "unsubstantiated_reason": "Incomplete in-sample estimation protocol or theoretical boundary used as trade trigger",
+      "auto_dual_pass": true,
+      "is_discrepancy": true,
+      "discrepancy_category": "Category_B",
+      "discrepancy_explanation": "Novel Scope: Hypothesis satisfies basic 5-axis/data contracts, but fails H2-D5 4-layer parameter completeness and grounding standards."
+    },
+    {
+      "call_id": "h2_d5_jump_diffusion_d1_s44",
+      "concept_id": "jump_diffusion",
+      "condition_id": "D1",
+      "seed": 44,
+      "syntactically_executable": true,
+      "grounded_executable": false,
+      "empirically_executable": "NOT_TESTED_IN_H2_D5",
+      "hallucinated_numbers": [],
+      "unsubstantiated_reason": "Incomplete in-sample estimation protocol or theoretical boundary used as trade trigger",
+      "auto_dual_pass": true,
+      "is_discrepancy": true,
+      "discrepancy_category": "Category_B",
+      "discrepancy_explanation": "Novel Scope: Hypothesis satisfies basic 5-axis/data contracts, but fails H2-D5 4-layer parameter completeness and grounding standards."
+    },
+    {
+      "call_id": "h2_d5_jump_diffusion_d2_s42",
+      "concept_id": "jump_diffusion",
+      "condition_id": "D2",
+      "seed": 42,
+      "syntactically_executable": true,
+      "grounded_executable": false,
+      "empirically_executable": "NOT_TESTED_IN_H2_D5",
+      "hallucinated_numbers": [
+        "uncalibrated_jump_cutoff"
+      ],
+      "unsubstantiated_reason": "Arbitrary numbers without M5 calibration: ['uncalibrated_jump_cutoff']",
+      "auto_dual_pass": false,
+      "is_discrepancy": false,
+      "discrepancy_category": null,
+      "discrepancy_explanation": ""
+    },
+    {
+      "call_id": "h2_d5_jump_diffusion_d2_s43",
+      "concept_id": "jump_diffusion",
+      "condition_id": "D2",
+      "seed": 43,
+      "syntactically_executable": true,
+      "grounded_executable": false,
+      "empirically_executable": "NOT_TESTED_IN_H2_D5",
+      "hallucinated_numbers": [
+        "uncalibrated_jump_cutoff"
+      ],
+      "unsubstantiated_reason": "Arbitrary numbers without M5 calibration: ['uncalibrated_jump_cutoff']",
+      "auto_dual_pass": true,
+      "is_discrepancy": true,
+      "discrepancy_category": "Category_B",
+      "discrepancy_explanation": "Novel Scope: Hypothesis satisfies basic 5-axis/data contracts, but fails H2-D5 4-layer parameter completeness and grounding standards."
+    },
+    {
+      "call_id": "h2_d5_jump_diffusion_d2_s44",
+      "concept_id": "jump_diffusion",
+      "condition_id": "D2",
+      "seed": 44,
+      "syntactically_executable": true,
+      "grounded_executable": false,
+      "empirically_executable": "NOT_TESTED_IN_H2_D5",
+      "hallucinated_numbers": [],
+      "unsubstantiated_reason": "Incomplete in-sample estimation protocol or theoretical boundary used as trade trigger",
+      "auto_dual_pass": true,
+      "is_discrepancy": true,
+      "discrepancy_category": "Category_B",
+      "discrepancy_explanation": "Novel Scope: Hypothesis satisfies basic 5-axis/data contracts, but fails H2-D5 4-layer parameter completeness and grounding standards."
+    }
+  ]
+}

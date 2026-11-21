@@ -1,0 +1,26 @@
+{
+  "experiment_id": "RP-HDE-H2-D3",
+  "protocol_version": "v0.3",
+  "created_at": "2026-11-18T11:45:00Z",
+  "data_contract": {
+    "asset": "USDJPY",
+    "timeframe": "M5",
+    "fields": [
+      "Open",
+      "High",
+      "Low",
+      "Close",
+      "Volume"
+    ],
+    "external_feeds": "NONE",
+    "timestamp_convention": "Bar timestamp t represents interval start [t, t+5m). Close C_t is confirmed at t+5m. Execution of signal evaluated at C_t is only valid at t+5m (open of bar t+1) or later."
+  },
+  "conformance_fixture_path": "c:\\Users\\ksato\\workspace\\finance\\research_pipeline\\tests\\fixtures\\gold_standard\\h2_d3_conformance_cases.json",
+  "conformance_cases_count": 16,
+  "conformance_sha256": "1a8eeb340c104a444554f7256748673681832f52c6166db38eabb3de8c324129",
+  "frozen_before_implementation": true,
+  "conformance_test_executed": true,
+  "gate_code_sha256": "9adf0eb127879b2b01676fc0d7b860619831636b757ee01266c5f4752bb3b891",
+  "last_execution_timestamp": "2026-11-18T12:06:12.056586+00:00",
+  "final_verdict": "PASS (\u5408\u683c)"
+}

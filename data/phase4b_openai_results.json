@@ -1,0 +1,34 @@
+{
+  "timestamp_utc": "2026-11-21T17:08:48.563146+00:00",
+  "model_id": "gpt-4o-mini-2024-07-18",
+  "actual_generator": "openai_api",
+  "fallback_reason": null,
+  "api_spend_usd": 0.0011601,
+  "submitted": 10,
+  "valid_json": 10,
+  "unique": 10,
+  "cache_hits": 0,
+  "eligible": 10,
+  "top1_explore": {
+    "final_equity": 943635.9999999584,
+    "total_return_pct": -5.63640000000416,
+    "annualized_sharpe": -8.316171082637219,
+    "max_drawdown_pct": -5.636400000004156,
+    "trade_count": 62,
+    "win_rate": 0.0,
+    "post_fill_risk_exceeded_count": 0,
+    "sharpe_p1": -10.480756910435868,
+    "sharpe_p2": -5.969764218315716,
+    "min_cv_sharpe": -10.480756910435868
+  },
+  "top1_diag40d": {
+    "final_equity": 987385.9999999906,
+    "total_return_pct": -1.261400000000945,
+    "annualized_sharpe": -9.550694095048538,
+    "max_drawdown_pct": -1.261400000000943,
+    "trade_count": 14,
+    "win_rate": 0.0,
+    "post_fill_risk_exceeded_count": 1
+  },
+  "elapsed_sec": 30.84488797187805
+}

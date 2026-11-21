@@ -1,0 +1,289 @@
+{
+  "metadata": {
+    "experiment_id": "H3-P0-DRYRUN-2024",
+    "executed_at": "2026-11-20T14:12:16.391915+00:00",
+    "dataset": "USDJPY M5 2024 Development Validation Stream",
+    "total_bars_processed": 74880,
+    "total_days_processed": 260,
+    "api_call_cost_usd": 0.0
+  },
+  "section_1_input_data_quality": {
+    "total_bars": 74880,
+    "missing_bars": 0,
+    "is_final_rate_pct": 100.0,
+    "duration_exact_300s_rate_pct": 100.0,
+    "ohlc_geometry_valid_rate_pct": 100.0,
+    "finite_numeric_rate_pct": 100.0,
+    "stream_monotonic_continuity": "PASS"
+  },
+  "section_2_causality_audit": {
+    "fundamental_causality_inequality_pass_rate_pct": 100.0,
+    "causality_violation_count": 0,
+    "zero_latency_simultaneous_execution_attempts": 0,
+    "disallowed_c_t_to_o_t1_shortcuts_prevented": 74880
+  },
+  "section_3_candidate_eligibility_breakdown": {
+    "total_candidate_evaluations": 74880,
+    "eligible_candidates_count": 52213,
+    "eligible_candidates_rate_pct": 69.73,
+    "rejections": {
+      "CANDIDATE_PRECEDES_EARLIEST_TIME": 7459,
+      "EXPIRED_LATENCY_EXCEEDED": 7460,
+      "NO_CANDIDATE_PRICE_EVENT": 7460,
+      "UNINITIALIZED_REGIME_QUANTILE_FALLBACK": 288
+    },
+    "day0_quantile_fallback_orders_dispatched": 0
+  },
+  "section_4_latency_injection_diagnostics": [
+    {
+      "injected_delay_sec": 0.5,
+      "signal_ready_at": "2024-01-01T08:25:00.600000+00:00",
+      "earliest_execution_at": "2024-01-01T08:25:00.601000+00:00",
+      "earliest_execution_delta_sec": 0.501,
+      "eval_tick_10s_eligible": true,
+      "eval_tick_10s_reason": null,
+      "eval_tick_300s_expiry_eligible": false,
+      "eval_tick_300s_expiry_reason": "EXPIRED_LATENCY_EXCEEDED"
+    },
+    {
+      "injected_delay_sec": 5.0,
+      "signal_ready_at": "2024-01-01T08:25:05.100000+00:00",
+      "earliest_execution_at": "2024-01-01T08:25:05.101000+00:00",
+      "earliest_execution_delta_sec": 5.001,
+      "eval_tick_10s_eligible": true,
+      "eval_tick_10s_reason": null,
+      "eval_tick_300s_expiry_eligible": false,
+      "eval_tick_300s_expiry_reason": "EXPIRED_LATENCY_EXCEEDED"
+    },
+    {
+      "injected_delay_sec": 299.0,
+      "signal_ready_at": "2024-01-01T08:29:59.100000+00:00",
+      "earliest_execution_at": "2024-01-01T08:29:59.101000+00:00",
+      "earliest_execution_delta_sec": 299.001,
+      "eval_tick_10s_eligible": false,
+      "eval_tick_10s_reason": "CANDIDATE_PRECEDES_EARLIEST_TIME",
+      "eval_tick_300s_expiry_eligible": false,
+      "eval_tick_300s_expiry_reason": "EXPIRED_LATENCY_EXCEEDED"
+    },
+    {
+      "injected_delay_sec": 305.0,
+      "signal_ready_at": "2024-01-01T08:30:05.100000+00:00",
+      "earliest_execution_at": "2024-01-01T08:30:05.101000+00:00",
+      "earliest_execution_delta_sec": 305.001,
+      "eval_tick_10s_eligible": false,
+      "eval_tick_10s_reason": "CANDIDATE_PRECEDES_EARLIEST_TIME",
+      "eval_tick_300s_expiry_eligible": false,
+      "eval_tick_300s_expiry_reason": "CANDIDATE_PRECEDES_EARLIEST_TIME"
+    }
+  ],
+  "section_5_hamilton_regime_operations": {
+    "total_days": 260,
+    "em_converged_normal_days": 242,
+    "em_failed_lag1_param_inherited_days": 17,
+    "initial_fit_failed_flat_enforced_days": 1,
+    "average_em_calc_time_sec": 0.4353,
+    "max_em_calc_time_sec": 1.8502,
+    "deadline_00_04_59_utc_exceeded_count": 0
+  },
+  "section_6_dual_tier_determinism": {
+    "mathematical_determinism_bitwise_match": "PASS (100% identical)",
+    "replay_determinism_virtual_clock_match": "PASS (100% identical)"
+  },
+  "section_7_algoforge_3layer_non_invasiveness": {
+    "layer_1_snapshot_isolation": "PASS (SQLite backup API creates pristine isolated copy)",
+    "layer_1_mode_ro_permission_block": "PASS (sqlite3.OperationalError on write attempts)",
+    "layer_2_ast_mutation_keywords_excluded": "PASS (Zero INSERT/UPDATE/DELETE/DROP)",
+    "layer_3_algoforge_git_diff_detected": false,
+    "layer_3_algoforge_clean": true
+  },
+  "sample_state_outputs": [
+    {
+      "model_version": "econometric_modules_v1.1",
+      "parameter_version": "h3_p0_causal_v0.4",
+      "input_cutoff_at": "2024-01-01T00:05:00Z",
+      "latest_input_available_at": "2024-01-01T00:05:00.100000Z",
+      "calculation_started_at": "2024-01-01T00:05:00.100000Z",
+      "signal_ready_at": "2024-01-01T00:05:00.102000Z",
+      "delta_exec": 0.001,
+      "earliest_execution_at": "2024-01-01T00:05:00.103000Z",
+      "hawkes_hazard": 0.005,
+      "hawkes_prob": 0.00498752080731768,
+      "hawkes_signal": 0,
+      "jump_l_stat": 0.0,
+      "jump_signal": 0,
+      "bv_continuous_variance": 0.0,
+      "regime_tranquil_prob": 0.8,
+      "regime_crisis_prob": 0.2,
+      "regime_fallback_mode": "quantile_initial"
+    },
+    {
+      "model_version": "econometric_modules_v1.1",
+      "parameter_version": "h3_p0_causal_v0.4",
+      "input_cutoff_at": "2024-01-01T08:25:00Z",
+      "latest_input_available_at": "2024-01-01T08:25:00.100000Z",
+      "calculation_started_at": "2024-01-01T08:25:00.100000Z",
+      "signal_ready_at": "2024-01-01T08:25:00.102000Z",
+      "delta_exec": 0.001,
+      "earliest_execution_at": "2024-01-01T08:25:00.103000Z",
+      "hawkes_hazard": 0.07780267359117772,
+      "hawkes_prob": 0.07485303553869893,
+      "hawkes_signal": 0,
+      "jump_l_stat": 2.717292845703865,
+      "jump_signal": 0,
+      "bv_continuous_variance": 9.11005443460165e-08,
+      "regime_tranquil_prob": 0.8,
+      "regime_crisis_prob": 0.2,
+      "regime_fallback_mode": "quantile_initial"
+    },
+    {
+      "model_version": "econometric_modules_v1.1",
+      "parameter_version": "h3_p0_causal_v0.4",
+      "input_cutoff_at": "2024-01-04T11:25:00Z",
+      "latest_input_available_at": "2024-01-04T11:25:00.100000Z",
+      "calculation_started_at": "2024-01-04T11:25:00.100000Z",
+      "signal_ready_at": "2024-01-04T11:25:00.102000Z",
+      "delta_exec": 0.001,
+      "earliest_execution_at": "2024-01-04T11:25:00.103000Z",
+      "hawkes_hazard": 0.022859118261862398,
+      "hawkes_prob": 0.02259982809074801,
+      "hawkes_signal": 0,
+      "jump_l_stat": 0.41086760106122305,
+      "jump_signal": 0,
+      "bv_continuous_variance": 7.521675019319286e-07,
+      "regime_tranquil_prob": 0.8878228873683698,
+      "regime_crisis_prob": 0.11217711263163009,
+      "regime_fallback_mode": "lag1_carryover"
+    },
+    {
+      "model_version": "econometric_modules_v1.1",
+      "parameter_version": "h3_p0_causal_v0.4",
+      "input_cutoff_at": "2024-02-04T17:25:00Z",
+      "latest_input_available_at": "2024-02-04T17:25:00.100000Z",
+      "calculation_started_at": "2024-02-04T17:25:00.100000Z",
+      "signal_ready_at": "2024-02-04T17:25:00.102000Z",
+      "delta_exec": 0.001,
+      "earliest_execution_at": "2024-02-04T17:25:00.103000Z",
+      "hawkes_hazard": 0.005,
+      "hawkes_prob": 0.00498752080731768,
+      "hawkes_signal": 0,
+      "jump_l_stat": 1.331418208207731,
+      "jump_signal": 0,
+      "bv_continuous_variance": 1.9369033864268073e-07,
+      "regime_tranquil_prob": 0.7414523432032593,
+      "regime_crisis_prob": 0.25854765679674074,
+      "regime_fallback_mode": "none"
+    },
+    {
+      "model_version": "econometric_modules_v1.1",
+      "parameter_version": "h3_p0_causal_v0.4",
+      "input_cutoff_at": "2024-06-22T14:45:00Z",
+      "latest_input_available_at": "2024-06-22T14:45:00.100000Z",
+      "calculation_started_at": "2024-06-22T14:45:00.100000Z",
+      "signal_ready_at": "2024-06-22T14:45:00.102000Z",
+      "delta_exec": 0.001,
+      "earliest_execution_at": "2024-06-22T14:45:00.103000Z",
+      "hawkes_hazard": 0.039881090355199995,
+      "hawkes_prob": 0.039096306923927515,
+      "hawkes_signal": 0,
+      "jump_l_stat": 0.5629039824598105,
+      "jump_signal": 0,
+      "bv_continuous_variance": 1.0388044746627206e-07,
+      "regime_tranquil_prob": 0.9077108043852705,
+      "regime_crisis_prob": 0.09228919561472937,
+      "regime_fallback_mode": "none"
+    },
+    {
+      "model_version": "econometric_modules_v1.1",
+      "parameter_version": "h3_p0_causal_v0.4",
+      "input_cutoff_at": "2024-09-17T00:00:00Z",
+      "latest_input_available_at": "2024-09-17T00:00:00.100000Z",
+      "calculation_started_at": "2024-09-17T00:00:00.100000Z",
+      "signal_ready_at": "2024-09-17T00:00:00.102000Z",
+      "delta_exec": 0.001,
+      "earliest_execution_at": "2024-09-17T00:00:00.103000Z",
+      "hawkes_hazard": 0.06555340232221127,
+      "hawkes_prob": 0.06345096846897336,
+      "hawkes_signal": 0,
+      "jump_l_stat": 1.3723545723098474,
+      "jump_signal": 0,
+      "bv_continuous_variance": 8.933041695852519e-08,
+      "regime_tranquil_prob": 0.8147932062259557,
+      "regime_crisis_prob": 0.1852067937740443,
+      "regime_fallback_mode": "none"
+    }
+  ],
+  "sample_candidate_events": [
+    {
+      "candidate_id": "cand_20240101_000500",
+      "signal_id": "sig_20240101_000500",
+      "target_bar_open_at": "2024-01-01T00:05:00Z",
+      "signal_expiry_at": "2024-01-01T00:10:00Z",
+      "earliest_execution_at": "2024-01-01T00:05:00.103000Z",
+      "candidate_execution_at": null,
+      "candidate_price_event_id": null,
+      "candidate_price": null,
+      "execution_eligible": false,
+      "rejection_reason": "UNINITIALIZED_REGIME_QUANTILE_FALLBACK"
+    },
+    {
+      "candidate_id": "cand_20240101_082500",
+      "signal_id": "sig_20240101_082500",
+      "target_bar_open_at": "2024-01-01T08:25:00Z",
+      "signal_expiry_at": "2024-01-01T08:30:00Z",
+      "earliest_execution_at": "2024-01-01T08:25:00.103000Z",
+      "candidate_execution_at": null,
+      "candidate_price_event_id": null,
+      "candidate_price": null,
+      "execution_eligible": false,
+      "rejection_reason": "UNINITIALIZED_REGIME_QUANTILE_FALLBACK"
+    },
+    {
+      "candidate_id": "cand_20240104_112500",
+      "signal_id": "sig_20240104_112500",
+      "target_bar_open_at": "2024-01-04T11:25:00Z",
+      "signal_expiry_at": "2024-01-04T11:30:00Z",
+      "earliest_execution_at": "2024-01-04T11:25:00.103000Z",
+      "candidate_execution_at": "2024-01-04T11:25:00.500000Z",
+      "candidate_price_event_id": "tick_1000_valid",
+      "candidate_price": 147.8416,
+      "execution_eligible": true,
+      "rejection_reason": null
+    },
+    {
+      "candidate_id": "cand_20240204_172500",
+      "signal_id": "sig_20240204_172500",
+      "target_bar_open_at": "2024-02-04T17:25:00Z",
+      "signal_expiry_at": "2024-02-04T17:30:00Z",
+      "earliest_execution_at": "2024-02-04T17:25:00.103000Z",
+      "candidate_execution_at": "2024-02-04T17:25:00.500000Z",
+      "candidate_price_event_id": "tick_10000_valid",
+      "candidate_price": 163.3964,
+      "execution_eligible": true,
+      "rejection_reason": null
+    },
+    {
+      "candidate_id": "cand_20240622_144500",
+      "signal_id": "sig_20240622_144500",
+      "target_bar_open_at": "2024-06-22T14:45:00Z",
+      "signal_expiry_at": "2024-06-22T14:50:00Z",
+      "earliest_execution_at": "2024-06-22T14:45:00.103000Z",
+      "candidate_execution_at": "2024-06-22T14:45:00.500000Z",
+      "candidate_price_event_id": "tick_50000_valid",
+      "candidate_price": 166.4886,
+      "execution_eligible": true,
+      "rejection_reason": null
+    },
+    {
+      "candidate_id": "cand_20240917_000000",
+      "signal_id": "sig_20240917_000000",
+      "target_bar_open_at": "2024-09-17T00:00:00Z",
+      "signal_expiry_at": "2024-09-17T00:05:00Z",
+      "earliest_execution_at": "2024-09-17T00:00:00.103000Z",
+      "candidate_execution_at": null,
+      "candidate_price_event_id": null,
+      "candidate_price": null,
+      "execution_eligible": false,
+      "rejection_reason": "NO_CANDIDATE_PRICE_EVENT"
+    }
+  ]
+}

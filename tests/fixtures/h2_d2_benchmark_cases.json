@@ -1,0 +1,626 @@
+[
+  {
+    "case_id": "case_01",
+    "concept_id": "almgren_chriss",
+    "perturbation_type": "clean",
+    "ground_truth_errors": { "e_role": false, "e_math": false, "e_data": false, "e_leap": false, "e_inop": false },
+    "candidate": {
+      "hypothesis_id": "case_01_cand",
+      "title": "Discrete-Time Almgren-Chriss Liquidation Execution for USDJPY",
+      "target_phenomenon": "Execution slippage under transient price impact",
+      "proposed_mechanism": "Pre-scheduled liquidation of inventory X_0 across K discrete steps minimizing execution cost and volatility risk.",
+      "analogical_source": "Almgren-Chriss Transient Impact Model",
+      "claim": "Following the discrete trajectory x_k reduces total execution slippage compared to naive uniform TWAP.",
+      "grounding_rationale": "Grounded in optimal liquidation theory balancing temporary impact against variance.",
+      "testable_falsification_condition": "Total execution cost fails to achieve 15% reduction vs TWAP with p < 0.05 over 6-month out-of-sample test.",
+      "backtest_spec": {
+        "target_asset": "USDJPY",
+        "timeframe": "M5",
+        "feature_engineering": "Historical volatility and estimated transient impact decay parameter rho from trade execution logs.",
+        "entry_condition": "Initiate planned liquidation of X_0 lots upon receiving parent rebalancing order.",
+        "exit_condition": "Cease liquidation when remaining inventory x_k reaches 0 or execute remaining lots as market order at terminal step K.",
+        "risk_management": "Max participation rate capped at 10% of 5-minute bar volume.",
+        "benchmark_baseline": "Standard linear TWAP liquidation baseline.",
+        "falsification_metric": "Slippage reduction < 15% vs TWAP."
+      }
+    }
+  },
+  {
+    "case_id": "case_02",
+    "concept_id": "almgren_chriss",
+    "perturbation_type": "e_role",
+    "ground_truth_errors": { "e_role": true, "e_math": false, "e_data": false, "e_leap": false, "e_inop": false },
+    "candidate": {
+      "hypothesis_id": "case_02_cand",
+      "title": "Almgren-Chriss Directional Momentum Entry Strategy",
+      "target_phenomenon": "Short-term trend continuation in USDJPY",
+      "proposed_mechanism": "Predicting price movements using Almgren-Chriss liquidation trajectory slopes to generate entry trades.",
+      "analogical_source": "Almgren-Chriss Liquidation Model",
+      "claim": "Optimal liquidation trajectories predict upward price momentum.",
+      "grounding_rationale": "Model indicates favorable price movement windows.",
+      "testable_falsification_condition": "Sharpe ratio < 1.0 over 6 months.",
+      "backtest_spec": {
+        "target_asset": "USDJPY",
+        "timeframe": "M5",
+        "feature_engineering": "Liquidation trajectory gradient.",
+        "entry_condition": "Enter a trade when the predicted optimal liquidation trajectory indicates a favorable price movement.",
+        "exit_condition": "Take profit at 30 pips or stop loss at 15 pips.",
+        "risk_management": "1% risk per trade.",
+        "benchmark_baseline": "Moving average crossover.",
+        "falsification_metric": "Sharpe < 1.0."
+      }
+    }
+  },
+  {
+    "case_id": "case_03",
+    "concept_id": "almgren_chriss",
+    "perturbation_type": "e_math",
+    "ground_truth_errors": { "e_role": false, "e_math": true, "e_data": false, "e_leap": false, "e_inop": false },
+    "candidate": {
+      "hypothesis_id": "case_03_cand",
+      "title": "Optimal Trajectory Deviation Arbitrage",
+      "target_phenomenon": "Price deviation from execution curves",
+      "proposed_mechanism": "Comparing market price against Almgren-Chriss liquidation path.",
+      "analogical_source": "Almgren-Chriss Model",
+      "claim": "Price returns to the optimal trajectory curve.",
+      "grounding_rationale": "Optimal trajectories provide an equilibrium baseline.",
+      "testable_falsification_condition": "Sharpe ratio < 1.0.",
+      "backtest_spec": {
+        "target_asset": "USDJPY",
+        "timeframe": "M5",
+        "feature_engineering": "Optimal liquidation trajectory deviation.",
+        "entry_condition": "Initiate liquidation when the price deviates from the optimal trajectory by more than 15 pips.",
+        "exit_condition": "Cease liquidation when price returns to within a specified range of the optimal trajectory.",
+        "risk_management": "2% max drawdown.",
+        "benchmark_baseline": "TWAP.",
+        "falsification_metric": "Sharpe < 1.0."
+      }
+    }
+  },
+  {
+    "case_id": "case_04",
+    "concept_id": "almgren_chriss",
+    "perturbation_type": "e_data",
+    "ground_truth_errors": { "e_role": false, "e_math": false, "e_data": true, "e_leap": false, "e_inop": false },
+    "candidate": {
+      "hypothesis_id": "case_04_cand",
+      "title": "Real-Time Impact Parameter Tuning on M5 Bars",
+      "target_phenomenon": "Transient impact variation",
+      "proposed_mechanism": "Calibrating transient impact decay parameter rho and impact scale eta directly from raw M5 OHLC close prices.",
+      "analogical_source": "Almgren-Chriss",
+      "claim": "M5 OHLC close prices allow exact identification of transient price impact parameters.",
+      "grounding_rationale": "Impact parameters can be estimated directly from bar closes.",
+      "testable_falsification_condition": "Slippage reduction < 10%.",
+      "backtest_spec": {
+        "target_asset": "USDJPY",
+        "timeframe": "M5",
+        "feature_engineering": "Transient price impact decay calibrated from m5 historical ohlc alone without trade logs.",
+        "entry_condition": "Execute block order when inventory x_t > 0.",
+        "exit_condition": "Complete execution when inventory x_t = 0.",
+        "risk_management": "Participation limit 5%.",
+        "benchmark_baseline": "VWAP.",
+        "falsification_metric": "Slippage > benchmark."
+      }
+    }
+  },
+  {
+    "case_id": "case_05",
+    "concept_id": "almgren_chriss",
+    "perturbation_type": "e_leap",
+    "ground_truth_errors": { "e_role": false, "e_math": false, "e_data": false, "e_leap": true, "e_inop": false },
+    "candidate": {
+      "hypothesis_id": "case_05_cand",
+      "title": "Zero-Slippage Guaranteed Execution System",
+      "target_phenomenon": "Execution cost elimination",
+      "proposed_mechanism": "Almgren-Chriss framework eliminating market impact.",
+      "analogical_source": "Almgren-Chriss",
+      "claim": "Literature has established fact that strategy is profitable and guarantees 20% annual return without risk.",
+      "grounding_rationale": "Proven to generate 20% excess returns in published literature.",
+      "testable_falsification_condition": "Sharpe < 1.0.",
+      "backtest_spec": {
+        "target_asset": "USDJPY",
+        "timeframe": "M5",
+        "feature_engineering": "Execution schedule.",
+        "entry_condition": "Initiate execution of X_0 shares.",
+        "exit_condition": "Terminate when x_t = 0.",
+        "risk_management": "None required.",
+        "benchmark_baseline": "TWAP.",
+        "falsification_metric": "Sharpe < 1.0."
+      }
+    }
+  },
+  {
+    "case_id": "case_06",
+    "concept_id": "almgren_chriss",
+    "perturbation_type": "e_inop",
+    "ground_truth_errors": { "e_role": false, "e_math": false, "e_data": false, "e_leap": false, "e_inop": true },
+    "candidate": {
+      "hypothesis_id": "case_06_cand",
+      "title": "Vague Liquidation Execution Heuristic",
+      "target_phenomenon": "Market impact",
+      "proposed_mechanism": "Almgren-Chriss liquidation under favorable market conditions.",
+      "analogical_source": "Almgren-Chriss",
+      "claim": "Executing when conditions are good minimizes slippage.",
+      "grounding_rationale": "Model schedules trades.",
+      "testable_falsification_condition": "Sharpe < 1.0.",
+      "backtest_spec": {
+        "target_asset": "USDJPY",
+        "timeframe": "M5",
+        "feature_engineering": "Liquidity measure.",
+        "entry_condition": "Initiate liquidation when market conditions are favorable and liquidity seems adequate.",
+        "exit_condition": "Close position at an appropriate timing.",
+        "risk_management": "Standard risk control.",
+        "benchmark_baseline": "TWAP.",
+        "falsification_metric": "Sharpe < 1.0."
+      }
+    }
+  },
+  {
+    "case_id": "case_07",
+    "concept_id": "hawkes_process",
+    "perturbation_type": "clean",
+    "ground_truth_errors": { "e_role": false, "e_math": false, "e_data": false, "e_leap": false, "e_inop": false },
+    "candidate": {
+      "hypothesis_id": "case_07_cand",
+      "title": "Hawkes Endogenous Cascade Volatility Filter for USDJPY",
+      "target_phenomenon": "High-frequency flash crash cascades",
+      "proposed_mechanism": "Calibrating multivariate Hawkes branching ratio from tick-level event stream and aggregating intensity to M5 intervals.",
+      "analogical_source": "Hawkes Point Process",
+      "claim": "Halting trade entry when Hawkes branching ratio Gamma exceeds 0.85 reduces downside tail risk.",
+      "grounding_rationale": "Hawkes processes quantify endogenous self-excitation in trade and quote arrivals.",
+      "testable_falsification_condition": "Maximum drawdown exceeds 5% or tail loss is not reduced by 20% vs unconstrained momentum.",
+      "backtest_spec": {
+        "target_asset": "USDJPY",
+        "timeframe": "M5",
+        "feature_engineering": "Intraday proxy of Hawkes conditional intensity lambda(t) computed from tick event stream arrivals.",
+        "entry_condition": "Enter momentum trade only when Hawkes branching ratio Gamma < 0.80 and price trend > 20 pips.",
+        "exit_condition": "Exit trade when branching ratio Gamma exceeds 0.95 or 30-minute time-stop triggers.",
+        "risk_management": "Max position size 1.5% NAV.",
+        "benchmark_baseline": "Unfiltered momentum baseline.",
+        "falsification_metric": "Drawdown reduction < 20% vs baseline."
+      }
+    }
+  },
+  {
+    "case_id": "case_08",
+    "concept_id": "hawkes_process",
+    "perturbation_type": "e_role",
+    "ground_truth_errors": { "e_role": true, "e_math": false, "e_data": false, "e_leap": false, "e_inop": false },
+    "candidate": {
+      "hypothesis_id": "case_08_cand",
+      "title": "Hawkes Intensity Portfolio Weight Allocation",
+      "target_phenomenon": "Asset allocation",
+      "proposed_mechanism": "Using Hawkes intensity directly as portfolio weight allocation across currency pairs.",
+      "analogical_source": "Hawkes Process",
+      "claim": "Hawkes intensity serves as optimal portfolio weight allocator.",
+      "grounding_rationale": "Branching ratio allocates risk capital.",
+      "testable_falsification_condition": "Sharpe < 1.0.",
+      "backtest_spec": {
+        "target_asset": "USDJPY",
+        "timeframe": "M5",
+        "feature_engineering": "Hawkes branching ratio.",
+        "entry_condition": "Apply portfolio weight allocation equal to normalized Hawkes intensity lambda(t).",
+        "exit_condition": "Rebalance when intensity changes by 10%.",
+        "risk_management": "Portfolio volatility cap.",
+        "benchmark_baseline": "Equal weighting.",
+        "falsification_metric": "Sharpe < 1.0."
+      }
+    }
+  },
+  {
+    "case_id": "case_09",
+    "concept_id": "hawkes_process",
+    "perturbation_type": "e_math",
+    "ground_truth_errors": { "e_role": false, "e_math": true, "e_data": false, "e_leap": false, "e_inop": false },
+    "candidate": {
+      "hypothesis_id": "case_09_cand",
+      "title": "Hawkes Intensity Directional Trend Predictor",
+      "target_phenomenon": "Directional price return",
+      "proposed_mechanism": "Equating conditional intensity with future price returns.",
+      "analogical_source": "Hawkes Point Process",
+      "claim": "High lambda indicates price will increase proportionally.",
+      "grounding_rationale": "Higher intensity translates to upward drift.",
+      "testable_falsification_condition": "Sharpe < 1.0.",
+      "backtest_spec": {
+        "target_asset": "USDJPY",
+        "timeframe": "M5",
+        "feature_engineering": "Hawkes intensity.",
+        "entry_condition": "Enter long when intensity function predicts return > 50 pips and lambda indicates price direction.",
+        "exit_condition": "Exit when lambda turns negative.",
+        "risk_management": "1% stop-loss.",
+        "benchmark_baseline": "Moving average.",
+        "falsification_metric": "Sharpe < 1.0."
+      }
+    }
+  },
+  {
+    "case_id": "case_10",
+    "concept_id": "hawkes_process",
+    "perturbation_type": "e_data",
+    "ground_truth_errors": { "e_role": false, "e_math": false, "e_data": true, "e_leap": false, "e_inop": false },
+    "candidate": {
+      "hypothesis_id": "case_10_cand",
+      "title": "Pure M5 OHLC Hawkes Cascade Detector",
+      "target_phenomenon": "High-frequency flash crash",
+      "proposed_mechanism": "Direct point process estimation on standard 5-minute OHLC bars without ticks.",
+      "analogical_source": "Hawkes Process",
+      "claim": "M5 OHLC bars directly yield exact Hawkes arrival times.",
+      "grounding_rationale": "Point processes apply to any financial timeseries.",
+      "testable_falsification_condition": "Sharpe < 1.0.",
+      "backtest_spec": {
+        "target_asset": "USDJPY",
+        "timeframe": "M5",
+        "feature_engineering": "Hawkes cross-excitation estimated from M5 open high low close bars without event stream.",
+        "entry_condition": "Enter short when Hawkes baseline excitation exceeds 95th percentile.",
+        "exit_condition": "Exit on 30-minute stop.",
+        "risk_management": "2% drawdown limit.",
+        "benchmark_baseline": "Standard TWAP.",
+        "falsification_metric": "Sharpe < 1.0."
+      }
+    }
+  },
+  {
+    "case_id": "case_11",
+    "concept_id": "hawkes_process",
+    "perturbation_type": "e_leap",
+    "ground_truth_errors": { "e_role": false, "e_math": false, "e_data": false, "e_leap": true, "e_inop": false },
+    "candidate": {
+      "hypothesis_id": "case_11_cand",
+      "title": "Guaranteed Flash Crash Immunity via Hawkes",
+      "target_phenomenon": "Flash crash losses",
+      "proposed_mechanism": "Hawkes process completely eliminating drawdown risk.",
+      "analogical_source": "Hawkes Process",
+      "claim": "It is an established fact that strategy is profitable and completely immune to drawdowns.",
+      "grounding_rationale": "Proven to generate 20% excess returns in literature.",
+      "testable_falsification_condition": "Drawdown > 0%.",
+      "backtest_spec": {
+        "target_asset": "USDJPY",
+        "timeframe": "M5",
+        "feature_engineering": "Hawkes intensity.",
+        "entry_condition": "Enter trade when branching ratio < 0.8.",
+        "exit_condition": "Exit when branching ratio > 0.9.",
+        "risk_management": "Zero risk.",
+        "benchmark_baseline": "Momentum.",
+        "falsification_metric": "Drawdown > 0%."
+      }
+    }
+  },
+  {
+    "case_id": "case_12",
+    "concept_id": "hawkes_process",
+    "perturbation_type": "e_inop",
+    "ground_truth_errors": { "e_role": false, "e_math": false, "e_data": false, "e_leap": false, "e_inop": true },
+    "candidate": {
+      "hypothesis_id": "case_12_cand",
+      "title": "Qualitative Hawkes Excitation Trading",
+      "target_phenomenon": "Order flow clustering",
+      "proposed_mechanism": "Hawkes process applied qualitatively.",
+      "analogical_source": "Hawkes Process",
+      "claim": "Trading during high intensity is beneficial.",
+      "grounding_rationale": "Hawkes captures clustering.",
+      "testable_falsification_condition": "Sharpe < 1.0.",
+      "backtest_spec": {
+        "target_asset": "USDJPY",
+        "timeframe": "M5",
+        "feature_engineering": "Hawkes measure.",
+        "entry_condition": "Enter trade when market conditions are favorable and Hawkes self-excitation feels high.",
+        "exit_condition": "Exit when excitement fades.",
+        "risk_management": "Discretionary.",
+        "benchmark_baseline": "Buy and hold.",
+        "falsification_metric": "Sharpe < 1.0."
+      }
+    }
+  },
+  {
+    "case_id": "case_13",
+    "concept_id": "irm",
+    "perturbation_type": "clean",
+    "ground_truth_errors": { "e_role": false, "e_math": false, "e_data": false, "e_leap": false, "e_inop": false },
+    "candidate": {
+      "hypothesis_id": "case_13_cand",
+      "title": "Multi-Session Invariant Order Flow Prediction for USDJPY",
+      "target_phenomenon": "Regime degradation in order flow prediction",
+      "proposed_mechanism": "Invariant Risk Minimization partitioning training data across Tokyo, London, and NY market sessions.",
+      "analogical_source": "Invariant Risk Minimization",
+      "claim": "Regularizing gradient variances across market sessions yields stable directional accuracy across regime shifts.",
+      "grounding_rationale": "IRM optimizes empirical risk subject to cross-environment gradient invariance penalties.",
+      "testable_falsification_condition": "Out-of-sample directional Information Coefficient (IC) falls below 0.03 over 6 months.",
+      "backtest_spec": {
+        "target_asset": "USDJPY",
+        "timeframe": "M5",
+        "feature_engineering": "Normalized forward return, volume momentum, and ATR across explicit session environments E.",
+        "entry_condition": "Enter long when IRM predicted directional probability exceeds 0.65; enter short when probability falls below 0.35.",
+        "exit_condition": "Exit when prediction reverses or after trailing stop of 25 pips is reached.",
+        "risk_management": "Max risk 1% NAV per position with ATR volatility scaling.",
+        "benchmark_baseline": "Standard empirical risk minimization (ERM) logistic regression baseline.",
+        "falsification_metric": "IC < 0.03 or Sharpe < 1.0."
+      }
+    }
+  },
+  {
+    "case_id": "case_14",
+    "concept_id": "irm",
+    "perturbation_type": "e_role",
+    "ground_truth_errors": { "e_role": true, "e_math": false, "e_data": false, "e_leap": false, "e_inop": false },
+    "candidate": {
+      "hypothesis_id": "case_14_cand",
+      "title": "IRM Execution Routing Scheduler",
+      "target_phenomenon": "Slippage reduction",
+      "proposed_mechanism": "Using Invariant Risk Minimization as an execution routing engine to slice limit orders.",
+      "analogical_source": "Invariant Risk Minimization",
+      "claim": "IRM routes child orders across venues to minimize execution cost.",
+      "grounding_rationale": "Invariance reduces execution slippage.",
+      "testable_falsification_condition": "Slippage > 10 bps.",
+      "backtest_spec": {
+        "target_asset": "USDJPY",
+        "timeframe": "M5",
+        "feature_engineering": "Routing features.",
+        "entry_condition": "Deploy execution routing engine based on IRM invariance to route orders.",
+        "exit_condition": "Terminate routing when child orders fill.",
+        "risk_management": "Execution limit.",
+        "benchmark_baseline": "TWAP routing.",
+        "falsification_metric": "Slippage > 10 bps."
+      }
+    }
+  },
+  {
+    "case_id": "case_15",
+    "concept_id": "irm",
+    "perturbation_type": "e_math",
+    "ground_truth_errors": { "e_role": false, "e_math": true, "e_data": false, "e_leap": false, "e_inop": false },
+    "candidate": {
+      "hypothesis_id": "case_15_cand",
+      "title": "Universal Causal Invariance Trading via IRM",
+      "target_phenomenon": "Market regime shifts",
+      "proposed_mechanism": "IRM invariant representation learning.",
+      "analogical_source": "Invariant Risk Minimization",
+      "claim": "IRM guarantees universal invariance and eliminates all market risk under any arbitrary future structural crisis.",
+      "grounding_rationale": "Gradient penalty guarantees causal invariance universally.",
+      "testable_falsification_condition": "Sharpe < 1.0.",
+      "backtest_spec": {
+        "target_asset": "USDJPY",
+        "timeframe": "M5",
+        "feature_engineering": "IRM representation.",
+        "entry_condition": "Enter long when invariant representation score > 0.7.",
+        "exit_condition": "Exit when score < 0.3.",
+        "risk_management": "None needed due to universal invariance.",
+        "benchmark_baseline": "Standard ERM.",
+        "falsification_metric": "Sharpe < 1.0."
+      }
+    }
+  },
+  {
+    "case_id": "case_16",
+    "concept_id": "irm",
+    "perturbation_type": "e_data",
+    "ground_truth_errors": { "e_role": false, "e_math": false, "e_data": true, "e_leap": false, "e_inop": false },
+    "candidate": {
+      "hypothesis_id": "case_16_cand",
+      "title": "Order Book L3 Depth Invariant Prediction",
+      "target_phenomenon": "Microstructure shifts",
+      "proposed_mechanism": "Training IRM on limit order book depth queues.",
+      "analogical_source": "IRM",
+      "claim": "Order book queue imbalance provides invariant signals.",
+      "grounding_rationale": "Queue features generalize across sessions.",
+      "testable_falsification_condition": "Sharpe < 1.0.",
+      "backtest_spec": {
+        "target_asset": "USDJPY",
+        "timeframe": "M5",
+        "feature_engineering": "Order book imbalance and queue position across L3 depth levels.",
+        "entry_condition": "Enter long when predicted order book imbalance is positive with confidence > 0.7.",
+        "exit_condition": "Exit when queue reverses.",
+        "risk_management": "1.5% NAV limit.",
+        "benchmark_baseline": "Standard momentum.",
+        "falsification_metric": "Sharpe < 1.0."
+      }
+    }
+  },
+  {
+    "case_id": "case_17",
+    "concept_id": "irm",
+    "perturbation_type": "e_leap",
+    "ground_truth_errors": { "e_role": false, "e_math": false, "e_data": false, "e_leap": true, "e_inop": false },
+    "candidate": {
+      "hypothesis_id": "case_17_cand",
+      "title": "Established High-Yield IRM Currency Fund",
+      "target_phenomenon": "Currency predictability",
+      "proposed_mechanism": "IRM model exploitation.",
+      "analogical_source": "IRM",
+      "claim": "It is an established fact that strategy is profitable and proven to generate 20% excess returns in published literature.",
+      "grounding_rationale": "Literature proves IRM yields 20% alpha consistently.",
+      "testable_falsification_condition": "Return < 20%.",
+      "backtest_spec": {
+        "target_asset": "USDJPY",
+        "timeframe": "M5",
+        "feature_engineering": "IRM score.",
+        "entry_condition": "Enter long when score > 0.5.",
+        "exit_condition": "Exit when score < 0.5.",
+        "risk_management": "Max risk 2%.",
+        "benchmark_baseline": "ERM.",
+        "falsification_metric": "Return < 20%."
+      }
+    }
+  },
+  {
+    "case_id": "case_18",
+    "concept_id": "irm",
+    "perturbation_type": "e_inop",
+    "ground_truth_errors": { "e_role": false, "e_math": false, "e_data": false, "e_leap": false, "e_inop": true },
+    "candidate": {
+      "hypothesis_id": "case_18_cand",
+      "title": "Subjective IRM Condition Trading",
+      "target_phenomenon": "Price movement",
+      "proposed_mechanism": "IRM applied when environment feels right.",
+      "analogical_source": "IRM",
+      "claim": "Trading invariant signals under favorable conditions succeeds.",
+      "grounding_rationale": "Invariance helps trading.",
+      "testable_falsification_condition": "Sharpe < 1.0.",
+      "backtest_spec": {
+        "target_asset": "USDJPY",
+        "timeframe": "M5",
+        "feature_engineering": "IRM indicator.",
+        "entry_condition": "Enter long when market conditions are favorable and invariant score looks promising.",
+        "exit_condition": "Exit at a suitable timing.",
+        "risk_management": "Discretionary.",
+        "benchmark_baseline": "Buy and hold.",
+        "falsification_metric": "Sharpe < 1.0."
+      }
+    }
+  },
+  {
+    "case_id": "case_19",
+    "concept_id": "jump_diffusion",
+    "perturbation_type": "clean",
+    "ground_truth_errors": { "e_role": false, "e_math": false, "e_data": false, "e_leap": false, "e_inop": false },
+    "candidate": {
+      "hypothesis_id": "case_19_cand",
+      "title": "Regime-Filtered Jump Risk Sizing for USDJPY",
+      "target_phenomenon": "Currency rate jump clustering during crisis regimes",
+      "proposed_mechanism": "Estimating regime-switching jump diffusion parameters via Hamilton filter on M5 log-returns.",
+      "analogical_source": "Regime-Switching Jump Diffusion Model",
+      "claim": "Filtering latent crisis regime probability P(s_t = crisis | F_t) allows dynamic position sizing that mitigates jump tail risk.",
+      "grounding_rationale": "Jump diffusion models separate continuous Gaussian diffusion from discrete compound Poisson jumps across Markov regimes.",
+      "testable_falsification_condition": "Conditional value-at-risk (CVaR 99%) fails to improve by 15% vs unscaled baseline over 6 months.",
+      "backtest_spec": {
+        "target_asset": "USDJPY",
+        "timeframe": "M5",
+        "feature_engineering": "Posterior crisis regime probability P(s_t = crisis | F_t) and filtered jump intensity lambda_crisis from log-returns.",
+        "entry_condition": "Enter baseline carry trade when P(s_t = calm | F_t) > 0.80 and scale size down to 0 when P(s_t = crisis | F_t) > 0.60.",
+        "exit_condition": "Exit all positions immediately if filtered jump intensity lambda_crisis exceeds 90th percentile.",
+        "risk_management": "Position size inversely proportional to filtered regime jump variance.",
+        "benchmark_baseline": "Static position sizing carry baseline.",
+        "falsification_metric": "CVaR improvement < 15%."
+      }
+    }
+  },
+  {
+    "case_id": "case_20",
+    "concept_id": "jump_diffusion",
+    "perturbation_type": "e_role",
+    "ground_truth_errors": { "e_role": true, "e_math": false, "e_data": false, "e_leap": false, "e_inop": false },
+    "candidate": {
+      "hypothesis_id": "case_20_cand",
+      "title": "Jump Diffusion Limit Order Execution Router",
+      "target_phenomenon": "Order queue placement",
+      "proposed_mechanism": "Using jump diffusion as an automated execution routing engine for limit orders.",
+      "analogical_source": "Jump Diffusion",
+      "claim": "Jump diffusion routes orders into the order book queue.",
+      "grounding_rationale": "Poisson jumps schedule child orders.",
+      "testable_falsification_condition": "Fill rate < 80%.",
+      "backtest_spec": {
+        "target_asset": "USDJPY",
+        "timeframe": "M5",
+        "feature_engineering": "Jump rate.",
+        "entry_condition": "Deploy execution routing engine based on Poisson jumps to place limit orders.",
+        "exit_condition": "Cancel when filled.",
+        "risk_management": "Order limit.",
+        "benchmark_baseline": "TWAP.",
+        "falsification_metric": "Fill rate < 80%."
+      }
+    }
+  },
+  {
+    "case_id": "case_21",
+    "concept_id": "jump_diffusion",
+    "perturbation_type": "e_math",
+    "ground_truth_errors": { "e_role": false, "e_math": true, "e_data": false, "e_leap": false, "e_inop": false },
+    "candidate": {
+      "hypothesis_id": "case_21_cand",
+      "title": "Deterministic Jump Intensity Directional Surfer",
+      "target_phenomenon": "Price spikes",
+      "proposed_mechanism": "Treating jump intensity as deterministic price drift.",
+      "analogical_source": "Jump Diffusion",
+      "claim": "High jump intensity lambda guarantees an upward price spike.",
+      "grounding_rationale": "High lambda is a positive price drift signal.",
+      "testable_falsification_condition": "Sharpe < 1.0.",
+      "backtest_spec": {
+        "target_asset": "USDJPY",
+        "timeframe": "M5",
+        "feature_engineering": "Jump intensity lambda.",
+        "entry_condition": "Enter long when regime state guarantees positive return and deterministic jump arrival occurs.",
+        "exit_condition": "Exit when jump ends.",
+        "risk_management": "1% stop.",
+        "benchmark_baseline": "Momentum.",
+        "falsification_metric": "Sharpe < 1.0."
+      }
+    }
+  },
+  {
+    "case_id": "case_22",
+    "concept_id": "jump_diffusion",
+    "perturbation_type": "e_data",
+    "ground_truth_errors": { "e_role": false, "e_math": false, "e_data": true, "e_leap": false, "e_inop": false },
+    "candidate": {
+      "hypothesis_id": "case_22_cand",
+      "title": "Microsecond Jump Timestamp Prediction from M5",
+      "target_phenomenon": "Jump timing",
+      "proposed_mechanism": "Recovering exact microsecond Poisson jump arrival times from 5-minute bars.",
+      "analogical_source": "Jump Diffusion",
+      "claim": "M5 close prices identify exact microsecond jump timestamps.",
+      "grounding_rationale": "Jumps are identified from 5m returns.",
+      "testable_falsification_condition": "Sharpe < 1.0.",
+      "backtest_spec": {
+        "target_asset": "USDJPY",
+        "timeframe": "M5",
+        "feature_engineering": "Microsecond jump arrival timestamps recovered from M5 historical ohlc alone without trade logs.",
+        "entry_condition": "Enter long when jump timestamp detected.",
+        "exit_condition": "Exit 5 minutes later.",
+        "risk_management": "1% risk.",
+        "benchmark_baseline": "Hold.",
+        "falsification_metric": "Sharpe < 1.0."
+      }
+    }
+  },
+  {
+    "case_id": "case_23",
+    "concept_id": "jump_diffusion",
+    "perturbation_type": "e_leap",
+    "ground_truth_errors": { "e_role": false, "e_math": false, "e_data": false, "e_leap": true, "e_inop": false },
+    "candidate": {
+      "hypothesis_id": "case_23_cand",
+      "title": "100% Guaranteed Central Bank Surprises",
+      "target_phenomenon": "Central bank announcements",
+      "proposed_mechanism": "Jump diffusion predicting central bank surprises.",
+      "analogical_source": "Jump Diffusion",
+      "claim": "Established fact that strategy is profitable and proven to generate 20% annual return without loss.",
+      "grounding_rationale": "Literature proves 100% predictive accuracy for central bank jumps.",
+      "testable_falsification_condition": "Drawdown > 0%.",
+      "backtest_spec": {
+        "target_asset": "USDJPY",
+        "timeframe": "M5",
+        "feature_engineering": "Jump probability.",
+        "entry_condition": "Enter before rate decision.",
+        "exit_condition": "Exit after rate decision.",
+        "risk_management": "Zero risk.",
+        "benchmark_baseline": "Carry.",
+        "falsification_metric": "Drawdown > 0%."
+      }
+    }
+  },
+  {
+    "case_id": "case_24",
+    "concept_id": "jump_diffusion",
+    "perturbation_type": "e_inop",
+    "ground_truth_errors": { "e_role": false, "e_math": false, "e_data": false, "e_leap": false, "e_inop": true },
+    "candidate": {
+      "hypothesis_id": "case_24_cand",
+      "title": "Intuitive Regime Trading",
+      "target_phenomenon": "Market regimes",
+      "proposed_mechanism": "Subjective regime identification.",
+      "analogical_source": "Jump Diffusion",
+      "claim": "Trading in good regimes makes money.",
+      "grounding_rationale": "Regimes shift periodically.",
+      "testable_falsification_condition": "Sharpe < 1.0.",
+      "backtest_spec": {
+        "target_asset": "USDJPY",
+        "timeframe": "M5",
+        "feature_engineering": "Regime indicator.",
+        "entry_condition": "Enter long when market conditions are favorable and regime seems calm.",
+        "exit_condition": "Exit at an appropriate timing.",
+        "risk_management": "Discretionary.",
+        "benchmark_baseline": "Hold.",
+        "falsification_metric": "Sharpe < 1.0."
+      }
+    }
+  }
+]

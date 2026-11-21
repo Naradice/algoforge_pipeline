@@ -1,0 +1,323 @@
+[
+  {
+    "case_id": "heldout_01_ac_sound",
+    "concept_id": "almgren_chriss",
+    "candidate": {
+      "hypothesis_id": "heldout_ac_sound",
+      "title": "Optimal Liquidation Variance Reduction via Discrete Trajectory",
+      "target_phenomenon": "Execution slippage under temporary price impact",
+      "analogical_source": "Almgren-Chriss Optimal Liquidation Model",
+      "claim": "Executing target block order of N shares via discrete Almgren-Chriss trajectory minimizes liquidation variance compared to continuous linear TWAP.",
+      "proposed_mechanism": "Computes hyperbolic trajectory x_k = X_0 * sinh(kappa*(T - t_k)) / sinh(kappa*T) to balance temporary price concession against price volatility risk.",
+      "grounding_rationale": "Theoretical benchmark established by Almgren & Chriss (2000) for finite horizon inventory exhaustion.",
+      "testable_falsification_condition": "Liquidation slippage variance fails to achieve 15% reduction vs linear TWAP with p < 0.05.",
+      "backtest_spec": {
+        "target_asset": "USDJPY",
+        "timeframe": "M5",
+        "entry_condition": "Initiate planned liquidation schedule of initial quantity X_0 = 1,000,000 USDJPY units at market open t_0 = 0 under fixed horizon T = 12 M5 intervals.",
+        "exit_condition": "Liquidate exactly v_k = x_{k-1} - x_k units each interval k; enforce absolute termination with final market sweep x_K = 0 at interval K = 12.",
+        "feature_engineering": "Historical 20-day M5 Garman-Klass volatility sigma and linear temporary impact parameter estimated from in-sample regression.",
+        "risk_management": "Strict participation ceiling capped at 10% of 5-minute bar volume.",
+        "benchmark_baseline": "Standard linear TWAP schedule over 12 intervals.",
+        "falsification_metric": "Liquidation cost exceeds TWAP baseline cost."
+      }
+    },
+    "gold_flags": {
+      "E_role": 0,
+      "E_math": 0,
+      "E_data": 0,
+      "E_leap": 0,
+      "E_inop": 0
+    },
+    "gold_feasibility_status": "SUPPORTED",
+    "evidence_details": {},
+    "adjudication_notes": "Sound finite-horizon execution spec with complete schedule and boundary conditions."
+  },
+  {
+    "case_id": "heldout_02_ac_compound",
+    "concept_id": "almgren_chriss",
+    "candidate": {
+      "hypothesis_id": "heldout_ac_compound",
+      "title": "Almgren-Chriss Speculative Trend Exploitation",
+      "target_phenomenon": "Price momentum following trajectory deviations",
+      "analogical_source": "Almgren-Chriss Model",
+      "claim": "Predicting exchange rate breakout rallies by tracking deviations from the Almgren-Chriss liquidation trajectory generates superior speculative returns.",
+      "proposed_mechanism": "Exploiting discrepancies between mid-market spot quotes and optimal liquidation curves to trigger aggressive directional speculative entries.",
+      "grounding_rationale": "Speculative momentum can be inferred when spot rate deviates from trajectory.",
+      "testable_falsification_condition": "Annualized Sharpe ratio fails to exceed 1.0.",
+      "backtest_spec": {
+        "target_asset": "USDJPY",
+        "timeframe": "M5",
+        "entry_condition": "Buy USDJPY aggressively whenever the spot exchange rate drifts below the optimal liquidation trajectory curve and broader liquidity conditions appear favorable.",
+        "exit_condition": "Close speculative position whenever spot rate snaps back toward the trajectory curve or whenever liquidity appears to dry up.",
+        "feature_engineering": "Almgren-Chriss liquidation curve estimated from 20-period rolling close prices.",
+        "risk_management": "Fixed stop-loss of 20 pips.",
+        "benchmark_baseline": "20-period SMA crossover baseline.",
+        "falsification_metric": "Sharpe ratio < 1.0."
+      }
+    },
+    "gold_flags": {
+      "E_role": 1,
+      "E_math": 1,
+      "E_data": 0,
+      "E_leap": 0,
+      "E_inop": 1
+    },
+    "gold_feasibility_status": "SUPPORTED",
+    "evidence_details": {
+      "E_role": {
+        "verbatim_span": "Buy USDJPY aggressively whenever the spot exchange rate drifts below the optimal liquidation trajectory curve",
+        "missing_requirement": "Execution liquidation trajectory misused as directional speculative buy signal",
+        "contract_reference": "Model archetype: execution only"
+      },
+      "E_math": {
+        "verbatim_span": "spot exchange rate drifts below the optimal liquidation trajectory curve",
+        "missing_requirement": "Conflates remaining inventory trajectory x(t) with spot price quote S(t)",
+        "contract_reference": "State variable definition violated"
+      },
+      "E_inop": {
+        "verbatim_span": "and broader liquidity conditions appear favorable / whenever liquidity appears to dry up",
+        "missing_requirement": "Decision depends on vague qualitative condition without mathematical definition",
+        "contract_reference": "Rules must be deterministically computable"
+      }
+    },
+    "adjudication_notes": "Compound error: E_role (speculative entry), E_math (x(t) vs S(t)), E_inop (favorable liquidity)."
+  },
+  {
+    "case_id": "heldout_03_hawkes_sound",
+    "concept_id": "hawkes_process",
+    "candidate": {
+      "hypothesis_id": "heldout_hawkes_sound",
+      "title": "Hawkes Volatility Clustering Risk Control",
+      "target_phenomenon": "Endogenous tail-risk cascades during extreme volatility",
+      "analogical_source": "Self-Exciting Hawkes Point Process",
+      "claim": "Self-exciting volatility bursts detected via high-frequency bar activity clustering indicate tail-risk expansion in USDJPY.",
+      "proposed_mechanism": "Discretizing M5 price jumps exceeding 2.0 empirical standard deviations into a synthetic point event series to estimate self-excitation parameters.",
+      "grounding_rationale": "Hawkes processes model temporal clustering of extreme volatility events.",
+      "testable_falsification_condition": "Maximum drawdown reduction fails to achieve 20% vs passive carry.",
+      "backtest_spec": {
+        "target_asset": "USDJPY",
+        "timeframe": "M5",
+        "entry_condition": "Reduce carry exposure to 0 when estimated self-excitation branching ratio alpha/beta exceeds 0.85 computed on trailing 288-bar M5 window.",
+        "exit_condition": "Restore standard position size when branching ratio decays below 0.40 for 6 consecutive M5 intervals.",
+        "feature_engineering": "Binary exceedance events defined as abs(return_t) > 2.0 * rolling_std_288; exponential kernel estimation of alpha and beta via maximum likelihood.",
+        "risk_management": "Binary de-risking: 0% exposure during high excitation, 100% normal exposure otherwise.",
+        "benchmark_baseline": "Static buy-and-hold USDJPY carry position.",
+        "falsification_metric": "Drawdown reduction < 20%."
+      }
+    },
+    "gold_flags": {
+      "E_role": 0,
+      "E_math": 0,
+      "E_data": 0,
+      "E_leap": 0,
+      "E_inop": 0
+    },
+    "gold_feasibility_status": "SUPPORTED",
+    "evidence_details": {},
+    "adjudication_notes": "Sound risk-management spec using an explicit computable M5 bar exceedance proxy for point events."
+  },
+  {
+    "case_id": "heldout_04_hawkes_compound",
+    "concept_id": "hawkes_process",
+    "candidate": {
+      "hypothesis_id": "heldout_hawkes_compound",
+      "title": "High-Frequency Hawkes Message Traffic Scalping",
+      "target_phenomenon": "Sub-millisecond liquidity holes",
+      "analogical_source": "Multivariate Hawkes Process",
+      "claim": "Direct Hawkes point process calibration yields profitable scalping by anticipating order book microbursts.",
+      "proposed_mechanism": "Tracking instantaneous sub-millisecond message traffic bursts across currency dealers.",
+      "grounding_rationale": "Order cancellations cascade into liquidity holes.",
+      "testable_falsification_condition": "Annualized net profit factor fails to exceed 1.2 after transaction fees.",
+      "backtest_spec": {
+        "target_asset": "USDJPY",
+        "timeframe": "M5",
+        "entry_condition": "Go long when dealer limit order replacement intensity exceeds baseline frequency under opportune market momentum.",
+        "exit_condition": "Flatten trade when intensity calms down to normal levels.",
+        "feature_engineering": "Sub-millisecond dealer quote message stream and limit order cancel event logs.",
+        "risk_management": "Tight trailing stop of 3 pips.",
+        "benchmark_baseline": "Random entry baseline with equivalent holding time.",
+        "falsification_metric": "Profit factor < 1.2."
+      }
+    },
+    "gold_flags": {
+      "E_role": 0,
+      "E_math": 0,
+      "E_data": 1,
+      "E_leap": 0,
+      "E_inop": 1
+    },
+    "gold_feasibility_status": "UNSUPPORTED",
+    "evidence_details": {
+      "E_data": {
+        "verbatim_span": "Sub-millisecond dealer quote message stream and limit order cancel event logs",
+        "missing_requirement": "Requires sub-millisecond dealer quote message stream and cancellation logs",
+        "contract_reference": "Contract provides only USDJPY M5 OHLCV bars"
+      },
+      "E_inop": {
+        "verbatim_span": "under opportune market momentum / when intensity calms down to normal levels",
+        "missing_requirement": "Decision relies on undefined qualitative terms without mathematical threshold",
+        "contract_reference": "Rules must be computable"
+      }
+    },
+    "adjudication_notes": "Compound error: E_data (UNSUPPORTED sub-ms logs), E_inop (opportune momentum)."
+  },
+  {
+    "case_id": "heldout_05_irm_sound",
+    "concept_id": "irm",
+    "candidate": {
+      "hypothesis_id": "heldout_irm_sound",
+      "title": "Cross-Session Invariant Risk Minimization for Directional Return",
+      "target_phenomenon": "Predictor performance decay under inter-session regime shifts",
+      "analogical_source": "Invariant Risk Minimization (IRM)",
+      "claim": "Learning representation vectors that satisfy invariant gradient optimality across Asian, European, and US trading sessions reduces out-of-sample prediction error.",
+      "proposed_mechanism": "Minimizing empirical cross-entropy while penalizing squared gradient norm of linear classifier across distinct trading session environments.",
+      "grounding_rationale": "Arjovsky et al. (2019) Invariant Risk Minimization framework for out-of-distribution generalization.",
+      "testable_falsification_condition": "Out-of-sample directional accuracy fails to exceed standard ERM baseline by 3.0 percentage points with p < 0.05.",
+      "backtest_spec": {
+        "target_asset": "USDJPY",
+        "timeframe": "M5",
+        "entry_condition": "Go long when invariant predictor output f(x) > 0.65; go short when f(x) < 0.35 at session opening bars.",
+        "exit_condition": "Close trade on opposite signal or when trailing stop of 25 pips is breached.",
+        "feature_engineering": "M5 log returns, 14-period RSI, Garman-Klass volatility, and signed volume momentum partitioned into Asian (UTC 0-8), European (UTC 8-16), and US (UTC 16-24) environments.",
+        "risk_management": "Fixed risk allocation of 1.0% equity per trade.",
+        "benchmark_baseline": "Standard Empirical Risk Minimization (ERM) linear model.",
+        "falsification_metric": "Out-of-sample Sharpe ratio < ERM baseline Sharpe."
+      }
+    },
+    "gold_flags": {
+      "E_role": 0,
+      "E_math": 0,
+      "E_data": 0,
+      "E_leap": 0,
+      "E_inop": 0
+    },
+    "gold_feasibility_status": "SUPPORTED",
+    "evidence_details": {},
+    "adjudication_notes": "Sound IRM representation spec using native M5 OHLCV features and explicit session environments."
+  },
+  {
+    "case_id": "heldout_06_irm_compound",
+    "concept_id": "irm",
+    "candidate": {
+      "hypothesis_id": "heldout_irm_compound",
+      "title": "Guaranteed Zero-Risk IRM Arbitrage Discovery",
+      "target_phenomenon": "Structural regime breaks",
+      "analogical_source": "Invariant Risk Minimization",
+      "claim": "It is an established mathematical fact that IRM guarantees absolute invariance and completely eliminates downside risk in foreign exchange trading, proven to yield 35% annual return.",
+      "proposed_mechanism": "Invariant feature representations eradicate all market regime instability by proving exact causal invariance across all future market states.",
+      "grounding_rationale": "Literature proves that invariant classifiers never degrade under any structural break.",
+      "testable_falsification_condition": "Annualized strategy return fails to exceed 35%.",
+      "backtest_spec": {
+        "target_asset": "USDJPY",
+        "timeframe": "M5",
+        "entry_condition": "Enter long whenever invariant score exceeds 0.50.",
+        "exit_condition": "Exit when score drops below 0.50.",
+        "feature_engineering": "Normalized returns and rolling standard deviations.",
+        "risk_management": "No stop-loss required due to zero-risk guarantee.",
+        "benchmark_baseline": "Zero benchmark.",
+        "falsification_metric": "Annual return < 35%."
+      }
+    },
+    "gold_flags": {
+      "E_role": 0,
+      "E_math": 1,
+      "E_data": 0,
+      "E_leap": 1,
+      "E_inop": 0
+    },
+    "gold_feasibility_status": "SUPPORTED",
+    "evidence_details": {
+      "E_math": {
+        "verbatim_span": "IRM guarantees absolute invariance and completely eliminates downside risk in foreign exchange trading",
+        "missing_requirement": "Claims IRM guarantees elimination of all market risk and universal invariance under arbitrary shifts",
+        "contract_reference": "Mathematical property of IRM is non-linear heuristic penalty, not guaranteed zero-risk oracle"
+      },
+      "E_leap": {
+        "verbatim_span": "proven to yield 35% annual return / established mathematical fact that strategy is profitable",
+        "missing_requirement": "Asserts empirical excess profitability as an established proven literature fact",
+        "contract_reference": "Epistemological requirement"
+      }
+    },
+    "adjudication_notes": "Compound error: E_math (guaranteed zero risk), E_leap (proven 35% annual return)."
+  },
+  {
+    "case_id": "heldout_07_jump_sound",
+    "concept_id": "jump_diffusion",
+    "candidate": {
+      "hypothesis_id": "heldout_jump_sound",
+      "title": "Bipower Variation Jump Filtering for Dynamic Carry Hedging",
+      "target_phenomenon": "Abrupt currency crash risk during Poisson jump episodes",
+      "analogical_source": "Jump Diffusion and Threshold Bipower Variation",
+      "claim": "Disentangling Brownian diffusive volatility from compound Poisson jump variance via threshold bipower variation dynamically shields USDJPY carry portfolios.",
+      "proposed_mechanism": "Calculating continuous bipower variation and jump component on M5 returns to infer regime transition probabilities via a 2-state Markov chain.",
+      "grounding_rationale": "Mancini (2009) threshold estimation separates jump components from diffusive Gaussian volatility.",
+      "testable_falsification_condition": "Maximum drawdown reduction fails to achieve 25% vs unhedged carry baseline.",
+      "backtest_spec": {
+        "target_asset": "USDJPY",
+        "timeframe": "M5",
+        "entry_condition": "Maintain baseline long carry trade when filtered tranquil regime probability P(S_t = 0 | F_t) > 0.75.",
+        "exit_condition": "Liquidate all carry positions immediately if jump indicator J_t = (RV_t - BV_t) exceeds 1.5 * BV_t or if tranquil regime probability drops below 0.50.",
+        "feature_engineering": "Realized variance RV_t and bipower variation BV_t computed from trailing 288 M5 return bars.",
+        "risk_management": "Dynamic deleveraging from 1.0x to 0.0x based on jump probability.",
+        "benchmark_baseline": "Unhedged USDJPY carry portfolio.",
+        "falsification_metric": "Drawdown reduction < 25%."
+      }
+    },
+    "gold_flags": {
+      "E_role": 0,
+      "E_math": 0,
+      "E_data": 0,
+      "E_leap": 0,
+      "E_inop": 0
+    },
+    "gold_feasibility_status": "SUPPORTED",
+    "evidence_details": {},
+    "adjudication_notes": "Sound jump-diffusion risk-control spec using computable bipower variation on M5 bars."
+  },
+  {
+    "case_id": "heldout_08_jump_compound",
+    "concept_id": "jump_diffusion",
+    "candidate": {
+      "hypothesis_id": "heldout_jump_compound",
+      "title": "Multi-Venue Poisson Jump Order Queue Placement",
+      "target_phenomenon": "Adverse selection in fragmented limit order books",
+      "analogical_source": "Jump Diffusion Process",
+      "claim": "Exploiting jump diffusion parameters to orchestrate automated limit order execution routing optimizes venue execution queues.",
+      "proposed_mechanism": "Routing child limit orders across multiple FX venues based on real-time Poisson jump intensity estimates.",
+      "grounding_rationale": "Venues with lower jump intensity offer tighter spread capture.",
+      "testable_falsification_condition": "Execution effective spread fails to achieve 10% improvement vs single-venue execution.",
+      "backtest_spec": {
+        "target_asset": "USDJPY",
+        "timeframe": "M5",
+        "entry_condition": "Route child buy order to venue A when venue Poisson jump rate is below 0.10 and venue order book queue depth exceeds 5M units.",
+        "exit_condition": "Cancel order when queue position drops below 10th percentile.",
+        "feature_engineering": "Multi-venue real-time order book queue depth feeds and venue-specific trade execution streams.",
+        "risk_management": "Max venue inventory concentration limit of $1M USD.",
+        "benchmark_baseline": "Single primary venue limit order placement.",
+        "falsification_metric": "Effective spread savings < 10%."
+      }
+    },
+    "gold_flags": {
+      "E_role": 1,
+      "E_math": 0,
+      "E_data": 1,
+      "E_leap": 0,
+      "E_inop": 0
+    },
+    "gold_feasibility_status": "UNSUPPORTED",
+    "evidence_details": {
+      "E_role": {
+        "verbatim_span": "orchestrate automated limit order execution routing optimizes venue execution queues / Route child buy order to venue A",
+        "missing_requirement": "Jump diffusion asset pricing model repurposed as multi-venue order execution routing scheduler",
+        "contract_reference": "Model archetype mismatch: asset pricing / risk model is not an order routing scheduler"
+      },
+      "E_data": {
+        "verbatim_span": "Multi-venue real-time order book queue depth feeds and venue-specific trade execution streams",
+        "missing_requirement": "Requires multi-venue real-time L2/L3 queue depth and trade feeds under M5 OHLCV contract",
+        "contract_reference": "Contract is USDJPY M5 OHLCV only"
+      }
+    },
+    "adjudication_notes": "Compound error: E_role (execution routing scheduler), E_data (UNSUPPORTED multi-venue L2/L3 depth)."
+  }
+]

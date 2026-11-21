@@ -1,0 +1,1421 @@
+{
+  "experiment_id": "RP-HDE-H2-D6",
+  "total_audited_series": 24,
+  "condition_statistics": {
+    "S0": {
+      "n_series": 6,
+      "gold_coverage_raw": 0.2037,
+      "required_coverage": 0.2222,
+      "syntactically_executable": 1.0,
+      "grounded_executable": 0.0,
+      "has_hallucinations": 0.0,
+      "structural_fidelity": 1.0,
+      "target_fidelity": 0.5,
+      "is_trivialized": 0.0,
+      "auto_pass_rate": 0.6667
+    },
+    "S1": {
+      "n_series": 6,
+      "gold_coverage_raw": 0.2037,
+      "required_coverage": 0.2222,
+      "syntactically_executable": 1.0,
+      "grounded_executable": 0.0,
+      "has_hallucinations": 0.0,
+      "structural_fidelity": 1.0,
+      "target_fidelity": 0.5,
+      "is_trivialized": 0.0,
+      "auto_pass_rate": 0.5
+    },
+    "S2a": {
+      "n_series": 6,
+      "gold_coverage_raw": 0.2037,
+      "required_coverage": 0.2222,
+      "syntactically_executable": 1.0,
+      "grounded_executable": 0.0,
+      "has_hallucinations": 0.1667,
+      "structural_fidelity": 1.0,
+      "target_fidelity": 0.5,
+      "is_trivialized": 0.0,
+      "auto_pass_rate": 0.5
+    },
+    "S2b": {
+      "n_series": 6,
+      "gold_coverage_raw": 0.537,
+      "required_coverage": 0.7222,
+      "syntactically_executable": 1.0,
+      "grounded_executable": 0.1667,
+      "has_hallucinations": 0.0,
+      "structural_fidelity": 1.0,
+      "target_fidelity": 0.5,
+      "is_trivialized": 0.0,
+      "auto_pass_rate": 0.5
+    }
+  },
+  "concept_statistics_and_paired_differences": {
+    "hawkes_process": {
+      "S0": {
+        "n_seeds": 3,
+        "gold_coverage_raw": 0.2963,
+        "required_coverage": 0.4444,
+        "syntactically_executable": 1.0,
+        "grounded_executable": 0.0,
+        "has_hallucinations": 0.0,
+        "structural_fidelity": 1.0,
+        "target_fidelity": 0.0,
+        "is_trivialized": 0.0,
+        "auto_pass_rate": 0.3333
+      },
+      "S1": {
+        "n_seeds": 3,
+        "gold_coverage_raw": 0.2963,
+        "required_coverage": 0.4444,
+        "syntactically_executable": 1.0,
+        "grounded_executable": 0.0,
+        "has_hallucinations": 0.0,
+        "structural_fidelity": 1.0,
+        "target_fidelity": 0.0,
+        "is_trivialized": 0.0,
+        "auto_pass_rate": 0.0
+      },
+      "S2a": {
+        "n_seeds": 3,
+        "gold_coverage_raw": 0.2963,
+        "required_coverage": 0.4444,
+        "syntactically_executable": 1.0,
+        "grounded_executable": 0.0,
+        "has_hallucinations": 0.0,
+        "structural_fidelity": 1.0,
+        "target_fidelity": 0.0,
+        "is_trivialized": 0.0,
+        "auto_pass_rate": 0.0
+      },
+      "S2b": {
+        "n_seeds": 3,
+        "gold_coverage_raw": 0.4444,
+        "required_coverage": 0.6667,
+        "syntactically_executable": 1.0,
+        "grounded_executable": 0.0,
+        "has_hallucinations": 0.0,
+        "structural_fidelity": 1.0,
+        "target_fidelity": 0.0,
+        "is_trivialized": 0.0,
+        "auto_pass_rate": 0.0
+      },
+      "delta_stage_s1_minus_s0": {
+        "gold_coverage_raw": 0.0,
+        "required_coverage": 0.0,
+        "syntactically_executable": 0.0,
+        "grounded_executable": 0.0,
+        "has_hallucinations": 0.0,
+        "structural_fidelity": 0.0,
+        "target_fidelity": 0.0,
+        "is_trivialized": 0.0
+      },
+      "delta_revision_s2a_minus_s1": {
+        "gold_coverage_raw": 0.0,
+        "required_coverage": 0.0,
+        "syntactically_executable": 0.0,
+        "grounded_executable": 0.0,
+        "has_hallucinations": 0.0,
+        "structural_fidelity": 0.0,
+        "target_fidelity": 0.0,
+        "is_trivialized": 0.0
+      },
+      "delta_checklist_s2b_minus_s2a": {
+        "gold_coverage_raw": 0.1481,
+        "required_coverage": 0.2223,
+        "syntactically_executable": 0.0,
+        "grounded_executable": 0.0,
+        "has_hallucinations": 0.0,
+        "structural_fidelity": 0.0,
+        "target_fidelity": 0.0,
+        "is_trivialized": 0.0
+      },
+      "delta_net_s2b_minus_s0": {
+        "gold_coverage_raw": 0.1481,
+        "required_coverage": 0.2223,
+        "syntactically_executable": 0.0,
+        "grounded_executable": 0.0,
+        "has_hallucinations": 0.0,
+        "structural_fidelity": 0.0,
+        "target_fidelity": 0.0,
+        "is_trivialized": 0.0
+      }
+    },
+    "jump_diffusion": {
+      "S0": {
+        "n_seeds": 3,
+        "gold_coverage_raw": 0.1111,
+        "required_coverage": 0.0,
+        "syntactically_executable": 1.0,
+        "grounded_executable": 0.0,
+        "has_hallucinations": 0.0,
+        "structural_fidelity": 1.0,
+        "target_fidelity": 1.0,
+        "is_trivialized": 0.0,
+        "auto_pass_rate": 1.0
+      },
+      "S1": {
+        "n_seeds": 3,
+        "gold_coverage_raw": 0.1111,
+        "required_coverage": 0.0,
+        "syntactically_executable": 1.0,
+        "grounded_executable": 0.0,
+        "has_hallucinations": 0.0,
+        "structural_fidelity": 1.0,
+        "target_fidelity": 1.0,
+        "is_trivialized": 0.0,
+        "auto_pass_rate": 1.0
+      },
+      "S2a": {
+        "n_seeds": 3,
+        "gold_coverage_raw": 0.1111,
+        "required_coverage": 0.0,
+        "syntactically_executable": 1.0,
+        "grounded_executable": 0.0,
+        "has_hallucinations": 0.3333,
+        "structural_fidelity": 1.0,
+        "target_fidelity": 1.0,
+        "is_trivialized": 0.0,
+        "auto_pass_rate": 1.0
+      },
+      "S2b": {
+        "n_seeds": 3,
+        "gold_coverage_raw": 0.6297,
+        "required_coverage": 0.7778,
+        "syntactically_executable": 1.0,
+        "grounded_executable": 0.3333,
+        "has_hallucinations": 0.0,
+        "structural_fidelity": 1.0,
+        "target_fidelity": 1.0,
+        "is_trivialized": 0.0,
+        "auto_pass_rate": 1.0
+      },
+      "delta_stage_s1_minus_s0": {
+        "gold_coverage_raw": 0.0,
+        "required_coverage": 0.0,
+        "syntactically_executable": 0.0,
+        "grounded_executable": 0.0,
+        "has_hallucinations": 0.0,
+        "structural_fidelity": 0.0,
+        "target_fidelity": 0.0,
+        "is_trivialized": 0.0
+      },
+      "delta_revision_s2a_minus_s1": {
+        "gold_coverage_raw": 0.0,
+        "required_coverage": 0.0,
+        "syntactically_executable": 0.0,
+        "grounded_executable": 0.0,
+        "has_hallucinations": 0.3333,
+        "structural_fidelity": 0.0,
+        "target_fidelity": 0.0,
+        "is_trivialized": 0.0
+      },
+      "delta_checklist_s2b_minus_s2a": {
+        "gold_coverage_raw": 0.5186,
+        "required_coverage": 0.7778,
+        "syntactically_executable": 0.0,
+        "grounded_executable": 0.3333,
+        "has_hallucinations": -0.3333,
+        "structural_fidelity": 0.0,
+        "target_fidelity": 0.0,
+        "is_trivialized": 0.0
+      },
+      "delta_net_s2b_minus_s0": {
+        "gold_coverage_raw": 0.5186,
+        "required_coverage": 0.7778,
+        "syntactically_executable": 0.0,
+        "grounded_executable": 0.3333,
+        "has_hallucinations": 0.0,
+        "structural_fidelity": 0.0,
+        "target_fidelity": 0.0,
+        "is_trivialized": 0.0
+      }
+    }
+  },
+  "macro_paired_differences": {
+    "delta_stage_s1_minus_s0": {
+      "gold_coverage_raw": 0.0,
+      "required_coverage": 0.0,
+      "syntactically_executable": 0.0,
+      "grounded_executable": 0.0,
+      "has_hallucinations": 0.0,
+      "structural_fidelity": 0.0,
+      "target_fidelity": 0.0,
+      "is_trivialized": 0.0
+    },
+    "delta_revision_s2a_minus_s1": {
+      "gold_coverage_raw": 0.0,
+      "required_coverage": 0.0,
+      "syntactically_executable": 0.0,
+      "grounded_executable": 0.0,
+      "has_hallucinations": 0.1666,
+      "structural_fidelity": 0.0,
+      "target_fidelity": 0.0,
+      "is_trivialized": 0.0
+    },
+    "delta_checklist_s2b_minus_s2a": {
+      "gold_coverage_raw": 0.3333,
+      "required_coverage": 0.5,
+      "syntactically_executable": 0.0,
+      "grounded_executable": 0.1666,
+      "has_hallucinations": -0.1666,
+      "structural_fidelity": 0.0,
+      "target_fidelity": 0.0,
+      "is_trivialized": 0.0
+    },
+    "delta_net_s2b_minus_s0": {
+      "gold_coverage_raw": 0.3333,
+      "required_coverage": 0.5,
+      "syntactically_executable": 0.0,
+      "grounded_executable": 0.1666,
+      "has_hallucinations": 0.0,
+      "structural_fidelity": 0.0,
+      "target_fidelity": 0.0,
+      "is_trivialized": 0.0
+    }
+  },
+  "audit_records": [
+    {
+      "base_unit_id": "h2_d6_hawkes_process_s42",
+      "call_id": "h2_d6_hawkes_process_s42_s0",
+      "concept_id": "hawkes_process",
+      "condition_id": "S0",
+      "seed": 42,
+      "diagnostics": {
+        "in_tokens": 825,
+        "out_tokens": 673,
+        "finish_reason": "stop",
+        "cost_usd": 0.00052755
+      },
+      "audit": {
+        "gold_coverage_raw": 0.2222,
+        "required_coverage": 0.3333,
+        "required_total_count": 6,
+        "required_determined_count": 2,
+        "syntactically_executable": true,
+        "grounded_executable": false,
+        "hallucinated_numbers": [],
+        "has_hallucinations": false,
+        "structural_fidelity": true,
+        "target_fidelity": false,
+        "is_trivialized": false
+      },
+      "auto_evaluation": {
+        "dual_gate_pass": true,
+        "gate_decision": "PASS",
+        "5axis_errors": {
+          "concept_id": "hawkes_process",
+          "condition_id": "unknown",
+          "hypothesis_id": "h2_d6_hawkes_process_s42_s0",
+          "e_role": false,
+          "e_math": false,
+          "e_data": false,
+          "e_leap": false,
+          "e_inop": false,
+          "feasibility_status": "SUPPORTED",
+          "error_evidence": {},
+          "is_operable": true,
+          "evaluator_notes": "Clean: No objective error violations detected. Data Feasibility: SUPPORTED."
+        }
+      }
+    },
+    {
+      "base_unit_id": "h2_d6_hawkes_process_s42",
+      "call_id": "h2_d6_hawkes_process_s42_s1",
+      "concept_id": "hawkes_process",
+      "condition_id": "S1",
+      "seed": 42,
+      "diagnostics": {
+        "stage1": {
+          "in_tokens": 830,
+          "out_tokens": 450,
+          "finish_reason": "stop",
+          "cost_usd": 0.0003945
+        },
+        "stage2": {
+          "in_tokens": 881,
+          "out_tokens": 587,
+          "finish_reason": "stop",
+          "cost_usd": 0.00048434999999999993
+        },
+        "total_output_tokens": 1037
+      },
+      "audit": {
+        "gold_coverage_raw": 0.4444,
+        "required_coverage": 0.6667,
+        "required_total_count": 6,
+        "required_determined_count": 4,
+        "syntactically_executable": true,
+        "grounded_executable": false,
+        "hallucinated_numbers": [],
+        "has_hallucinations": false,
+        "structural_fidelity": true,
+        "target_fidelity": false,
+        "is_trivialized": false
+      },
+      "auto_evaluation": {
+        "dual_gate_pass": false,
+        "gate_decision": "PASS",
+        "5axis_errors": {
+          "concept_id": "hawkes_process",
+          "condition_id": "unknown",
+          "hypothesis_id": "h2_d6_hawkes_process_s42_s1",
+          "e_role": false,
+          "e_math": false,
+          "e_data": true,
+          "e_leap": false,
+          "e_inop": false,
+          "feasibility_status": "UNKNOWN",
+          "error_evidence": {
+            "E_data": "Hawkes point process requires discrete event arrivals; no computable proxy or event reconstruction procedure is defined for M5 bars."
+          },
+          "is_operable": false,
+          "evaluator_notes": "[E_data (UNKNOWN): Hawkes point process requires discrete event arrivals; no computable proxy or event reconstruction procedure is defined for M5 bars.]"
+        }
+      }
+    },
+    {
+      "base_unit_id": "h2_d6_hawkes_process_s42",
+      "call_id": "h2_d6_hawkes_process_s42_s2a",
+      "concept_id": "hawkes_process",
+      "condition_id": "S2a",
+      "seed": 42,
+      "diagnostics": {
+        "in_tokens": 1027,
+        "out_tokens": 363,
+        "finish_reason": "stop",
+        "cost_usd": 0.00037184999999999996
+      },
+      "audit": {
+        "gold_coverage_raw": 0.4444,
+        "required_coverage": 0.6667,
+        "required_total_count": 6,
+        "required_determined_count": 4,
+        "syntactically_executable": true,
+        "grounded_executable": false,
+        "hallucinated_numbers": [],
+        "has_hallucinations": false,
+        "structural_fidelity": true,
+        "target_fidelity": false,
+        "is_trivialized": false
+      },
+      "auto_evaluation": {
+        "dual_gate_pass": false,
+        "gate_decision": "PASS",
+        "5axis_errors": {
+          "concept_id": "hawkes_process",
+          "condition_id": "unknown",
+          "hypothesis_id": "h2_d6_hawkes_process_s42_s2a",
+          "e_role": false,
+          "e_math": false,
+          "e_data": true,
+          "e_leap": false,
+          "e_inop": false,
+          "feasibility_status": "UNKNOWN",
+          "error_evidence": {
+            "E_data": "Hawkes point process requires discrete event arrivals; no computable proxy or event reconstruction procedure is defined for M5 bars."
+          },
+          "is_operable": false,
+          "evaluator_notes": "[E_data (UNKNOWN): Hawkes point process requires discrete event arrivals; no computable proxy or event reconstruction procedure is defined for M5 bars.]"
+        }
+      }
+    },
+    {
+      "base_unit_id": "h2_d6_hawkes_process_s42",
+      "call_id": "h2_d6_hawkes_process_s42_s2b",
+      "concept_id": "hawkes_process",
+      "condition_id": "S2b",
+      "seed": 42,
+      "diagnostics": {
+        "in_tokens": 1196,
+        "out_tokens": 376,
+        "finish_reason": "stop",
+        "cost_usd": 0.000405
+      },
+      "audit": {
+        "gold_coverage_raw": 0.4444,
+        "required_coverage": 0.6667,
+        "required_total_count": 6,
+        "required_determined_count": 4,
+        "syntactically_executable": true,
+        "grounded_executable": false,
+        "hallucinated_numbers": [],
+        "has_hallucinations": false,
+        "structural_fidelity": true,
+        "target_fidelity": false,
+        "is_trivialized": false
+      },
+      "auto_evaluation": {
+        "dual_gate_pass": false,
+        "gate_decision": "PASS",
+        "5axis_errors": {
+          "concept_id": "hawkes_process",
+          "condition_id": "unknown",
+          "hypothesis_id": "h2_d6_hawkes_process_s42_s2b",
+          "e_role": false,
+          "e_math": false,
+          "e_data": true,
+          "e_leap": false,
+          "e_inop": false,
+          "feasibility_status": "UNKNOWN",
+          "error_evidence": {
+            "E_data": "Hawkes point process requires discrete event arrivals; no computable proxy or event reconstruction procedure is defined for M5 bars."
+          },
+          "is_operable": false,
+          "evaluator_notes": "[E_data (UNKNOWN): Hawkes point process requires discrete event arrivals; no computable proxy or event reconstruction procedure is defined for M5 bars.]"
+        }
+      }
+    },
+    {
+      "base_unit_id": "h2_d6_hawkes_process_s43",
+      "call_id": "h2_d6_hawkes_process_s43_s0",
+      "concept_id": "hawkes_process",
+      "condition_id": "S0",
+      "seed": 43,
+      "diagnostics": {
+        "in_tokens": 825,
+        "out_tokens": 551,
+        "finish_reason": "stop",
+        "cost_usd": 0.00045434999999999996
+      },
+      "audit": {
+        "gold_coverage_raw": 0.4444,
+        "required_coverage": 0.6667,
+        "required_total_count": 6,
+        "required_determined_count": 4,
+        "syntactically_executable": true,
+        "grounded_executable": false,
+        "hallucinated_numbers": [],
+        "has_hallucinations": false,
+        "structural_fidelity": true,
+        "target_fidelity": false,
+        "is_trivialized": false
+      },
+      "auto_evaluation": {
+        "dual_gate_pass": false,
+        "gate_decision": "PASS",
+        "5axis_errors": {
+          "concept_id": "hawkes_process",
+          "condition_id": "unknown",
+          "hypothesis_id": "h2_d6_hawkes_process_s43_s0",
+          "e_role": false,
+          "e_math": false,
+          "e_data": false,
+          "e_leap": false,
+          "e_inop": true,
+          "feasibility_status": "SUPPORTED",
+          "error_evidence": {
+            "E_inop": "Offending pattern: 'falls below the threshold'. Violation: Execution decision relies on an unbound threshold without numerical value or parameter estimation formula."
+          },
+          "is_operable": false,
+          "evaluator_notes": "[E_inop: Offending pattern: 'falls below the threshold'. Violation: Execution decision relies on an unbound threshold without numerical value or parameter estimation formula.]"
+        }
+      }
+    },
+    {
+      "base_unit_id": "h2_d6_hawkes_process_s43",
+      "call_id": "h2_d6_hawkes_process_s43_s1",
+      "concept_id": "hawkes_process",
+      "condition_id": "S1",
+      "seed": 43,
+      "diagnostics": {
+        "stage1": {
+          "in_tokens": 830,
+          "out_tokens": 434,
+          "finish_reason": "stop",
+          "cost_usd": 0.0003849
+        },
+        "stage2": {
+          "in_tokens": 880,
+          "out_tokens": 596,
+          "finish_reason": "stop",
+          "cost_usd": 0.0004896
+        },
+        "total_output_tokens": 1030
+      },
+      "audit": {
+        "gold_coverage_raw": 0.2222,
+        "required_coverage": 0.3333,
+        "required_total_count": 6,
+        "required_determined_count": 2,
+        "syntactically_executable": true,
+        "grounded_executable": false,
+        "hallucinated_numbers": [],
+        "has_hallucinations": false,
+        "structural_fidelity": true,
+        "target_fidelity": false,
+        "is_trivialized": false
+      },
+      "auto_evaluation": {
+        "dual_gate_pass": false,
+        "gate_decision": "PASS",
+        "5axis_errors": {
+          "concept_id": "hawkes_process",
+          "condition_id": "unknown",
+          "hypothesis_id": "h2_d6_hawkes_process_s43_s1",
+          "e_role": false,
+          "e_math": false,
+          "e_data": true,
+          "e_leap": false,
+          "e_inop": false,
+          "feasibility_status": "UNKNOWN",
+          "error_evidence": {
+            "E_data": "Hawkes point process requires discrete event arrivals; no computable proxy or event reconstruction procedure is defined for M5 bars."
+          },
+          "is_operable": false,
+          "evaluator_notes": "[E_data (UNKNOWN): Hawkes point process requires discrete event arrivals; no computable proxy or event reconstruction procedure is defined for M5 bars.]"
+        }
+      }
+    },
+    {
+      "base_unit_id": "h2_d6_hawkes_process_s43",
+      "call_id": "h2_d6_hawkes_process_s43_s2a",
+      "concept_id": "hawkes_process",
+      "condition_id": "S2a",
+      "seed": 43,
+      "diagnostics": {
+        "in_tokens": 1043,
+        "out_tokens": 384,
+        "finish_reason": "stop",
+        "cost_usd": 0.00038685
+      },
+      "audit": {
+        "gold_coverage_raw": 0.2222,
+        "required_coverage": 0.3333,
+        "required_total_count": 6,
+        "required_determined_count": 2,
+        "syntactically_executable": true,
+        "grounded_executable": false,
+        "hallucinated_numbers": [],
+        "has_hallucinations": false,
+        "structural_fidelity": true,
+        "target_fidelity": false,
+        "is_trivialized": false
+      },
+      "auto_evaluation": {
+        "dual_gate_pass": false,
+        "gate_decision": "PASS",
+        "5axis_errors": {
+          "concept_id": "hawkes_process",
+          "condition_id": "unknown",
+          "hypothesis_id": "h2_d6_hawkes_process_s43_s2a",
+          "e_role": false,
+          "e_math": false,
+          "e_data": true,
+          "e_leap": false,
+          "e_inop": false,
+          "feasibility_status": "UNKNOWN",
+          "error_evidence": {
+            "E_data": "Hawkes point process requires discrete event arrivals; no computable proxy or event reconstruction procedure is defined for M5 bars."
+          },
+          "is_operable": false,
+          "evaluator_notes": "[E_data (UNKNOWN): Hawkes point process requires discrete event arrivals; no computable proxy or event reconstruction procedure is defined for M5 bars.]"
+        }
+      }
+    },
+    {
+      "base_unit_id": "h2_d6_hawkes_process_s43",
+      "call_id": "h2_d6_hawkes_process_s43_s2b",
+      "concept_id": "hawkes_process",
+      "condition_id": "S2b",
+      "seed": 43,
+      "diagnostics": {
+        "in_tokens": 1212,
+        "out_tokens": 436,
+        "finish_reason": "stop",
+        "cost_usd": 0.00044340000000000004
+      },
+      "audit": {
+        "gold_coverage_raw": 0.4444,
+        "required_coverage": 0.6667,
+        "required_total_count": 6,
+        "required_determined_count": 4,
+        "syntactically_executable": true,
+        "grounded_executable": false,
+        "hallucinated_numbers": [],
+        "has_hallucinations": false,
+        "structural_fidelity": true,
+        "target_fidelity": false,
+        "is_trivialized": false
+      },
+      "auto_evaluation": {
+        "dual_gate_pass": false,
+        "gate_decision": "PASS",
+        "5axis_errors": {
+          "concept_id": "hawkes_process",
+          "condition_id": "unknown",
+          "hypothesis_id": "h2_d6_hawkes_process_s43_s2b",
+          "e_role": false,
+          "e_math": false,
+          "e_data": true,
+          "e_leap": false,
+          "e_inop": false,
+          "feasibility_status": "UNKNOWN",
+          "error_evidence": {
+            "E_data": "Hawkes point process requires discrete event arrivals; no computable proxy or event reconstruction procedure is defined for M5 bars."
+          },
+          "is_operable": false,
+          "evaluator_notes": "[E_data (UNKNOWN): Hawkes point process requires discrete event arrivals; no computable proxy or event reconstruction procedure is defined for M5 bars.]"
+        }
+      }
+    },
+    {
+      "base_unit_id": "h2_d6_hawkes_process_s44",
+      "call_id": "h2_d6_hawkes_process_s44_s0",
+      "concept_id": "hawkes_process",
+      "condition_id": "S0",
+      "seed": 44,
+      "diagnostics": {
+        "in_tokens": 825,
+        "out_tokens": 698,
+        "finish_reason": "stop",
+        "cost_usd": 0.00054255
+      },
+      "audit": {
+        "gold_coverage_raw": 0.2222,
+        "required_coverage": 0.3333,
+        "required_total_count": 6,
+        "required_determined_count": 2,
+        "syntactically_executable": true,
+        "grounded_executable": false,
+        "hallucinated_numbers": [],
+        "has_hallucinations": false,
+        "structural_fidelity": true,
+        "target_fidelity": false,
+        "is_trivialized": false
+      },
+      "auto_evaluation": {
+        "dual_gate_pass": false,
+        "gate_decision": "PASS",
+        "5axis_errors": {
+          "concept_id": "hawkes_process",
+          "condition_id": "unknown",
+          "hypothesis_id": "h2_d6_hawkes_process_s44_s0",
+          "e_role": false,
+          "e_math": false,
+          "e_data": true,
+          "e_leap": false,
+          "e_inop": false,
+          "feasibility_status": "UNKNOWN",
+          "error_evidence": {
+            "E_data": "Hawkes point process requires discrete event arrivals; no computable proxy or event reconstruction procedure is defined for M5 bars."
+          },
+          "is_operable": false,
+          "evaluator_notes": "[E_data (UNKNOWN): Hawkes point process requires discrete event arrivals; no computable proxy or event reconstruction procedure is defined for M5 bars.]"
+        }
+      }
+    },
+    {
+      "base_unit_id": "h2_d6_hawkes_process_s44",
+      "call_id": "h2_d6_hawkes_process_s44_s1",
+      "concept_id": "hawkes_process",
+      "condition_id": "S1",
+      "seed": 44,
+      "diagnostics": {
+        "stage1": {
+          "in_tokens": 830,
+          "out_tokens": 390,
+          "finish_reason": "stop",
+          "cost_usd": 0.0003585
+        },
+        "stage2": {
+          "in_tokens": 836,
+          "out_tokens": 528,
+          "finish_reason": "stop",
+          "cost_usd": 0.0004422
+        },
+        "total_output_tokens": 918
+      },
+      "audit": {
+        "gold_coverage_raw": 0.2222,
+        "required_coverage": 0.3333,
+        "required_total_count": 6,
+        "required_determined_count": 2,
+        "syntactically_executable": true,
+        "grounded_executable": false,
+        "hallucinated_numbers": [],
+        "has_hallucinations": false,
+        "structural_fidelity": true,
+        "target_fidelity": false,
+        "is_trivialized": false
+      },
+      "auto_evaluation": {
+        "dual_gate_pass": false,
+        "gate_decision": "PASS",
+        "5axis_errors": {
+          "concept_id": "hawkes_process",
+          "condition_id": "unknown",
+          "hypothesis_id": "h2_d6_hawkes_process_s44_s1",
+          "e_role": false,
+          "e_math": true,
+          "e_data": true,
+          "e_leap": false,
+          "e_inop": true,
+          "feasibility_status": "UNKNOWN",
+          "error_evidence": {
+            "E_math": "Offending text: 'high likelihood of upward price movement'. Violation: Hawkes point process conditional arrival intensity lambda(t) conflated with directional price drift/reversal.",
+            "E_data": "Hawkes point process requires discrete event arrivals; no computable proxy or event reconstruction procedure is defined for M5 bars.",
+            "E_inop": "Offending pattern: 'high likelihood of upward price movement'. Violation: Execution decision relies on an unbound threshold without numerical value or parameter estimation formula."
+          },
+          "is_operable": false,
+          "evaluator_notes": "[E_math: Offending text: 'high likelihood of upward price movement'. Violation: Hawkes point process conditional arrival intensity lambda(t) conflated with directional price drift/reversal.] | [E_data (UNKNOWN): Hawkes point process requires discrete event arrivals; no computable proxy or event reconstruction procedure is defined for M5 bars.] | [E_inop: Offending pattern: 'high likelihood of upward price movement'. Violation: Execution decision relies on an unbound threshold without numerical value or parameter estimation formula.]"
+        }
+      }
+    },
+    {
+      "base_unit_id": "h2_d6_hawkes_process_s44",
+      "call_id": "h2_d6_hawkes_process_s44_s2a",
+      "concept_id": "hawkes_process",
+      "condition_id": "S2a",
+      "seed": 44,
+      "diagnostics": {
+        "in_tokens": 1009,
+        "out_tokens": 406,
+        "finish_reason": "stop",
+        "cost_usd": 0.00039495
+      },
+      "audit": {
+        "gold_coverage_raw": 0.2222,
+        "required_coverage": 0.3333,
+        "required_total_count": 6,
+        "required_determined_count": 2,
+        "syntactically_executable": true,
+        "grounded_executable": false,
+        "hallucinated_numbers": [],
+        "has_hallucinations": false,
+        "structural_fidelity": true,
+        "target_fidelity": false,
+        "is_trivialized": false
+      },
+      "auto_evaluation": {
+        "dual_gate_pass": false,
+        "gate_decision": "PASS",
+        "5axis_errors": {
+          "concept_id": "hawkes_process",
+          "condition_id": "unknown",
+          "hypothesis_id": "h2_d6_hawkes_process_s44_s2a",
+          "e_role": false,
+          "e_math": true,
+          "e_data": true,
+          "e_leap": false,
+          "e_inop": true,
+          "feasibility_status": "UNKNOWN",
+          "error_evidence": {
+            "E_math": "Offending text: 'high likelihood of upward price movement'. Violation: Hawkes point process conditional arrival intensity lambda(t) conflated with directional price drift/reversal.",
+            "E_data": "Hawkes point process requires discrete event arrivals; no computable proxy or event reconstruction procedure is defined for M5 bars.",
+            "E_inop": "Offending pattern: 'high likelihood of upward price movement'. Violation: Execution decision relies on an unbound threshold without numerical value or parameter estimation formula."
+          },
+          "is_operable": false,
+          "evaluator_notes": "[E_math: Offending text: 'high likelihood of upward price movement'. Violation: Hawkes point process conditional arrival intensity lambda(t) conflated with directional price drift/reversal.] | [E_data (UNKNOWN): Hawkes point process requires discrete event arrivals; no computable proxy or event reconstruction procedure is defined for M5 bars.] | [E_inop: Offending pattern: 'high likelihood of upward price movement'. Violation: Execution decision relies on an unbound threshold without numerical value or parameter estimation formula.]"
+        }
+      }
+    },
+    {
+      "base_unit_id": "h2_d6_hawkes_process_s44",
+      "call_id": "h2_d6_hawkes_process_s44_s2b",
+      "concept_id": "hawkes_process",
+      "condition_id": "S2b",
+      "seed": 44,
+      "diagnostics": {
+        "in_tokens": 1178,
+        "out_tokens": 385,
+        "finish_reason": "stop",
+        "cost_usd": 0.0004077
+      },
+      "audit": {
+        "gold_coverage_raw": 0.4444,
+        "required_coverage": 0.6667,
+        "required_total_count": 6,
+        "required_determined_count": 4,
+        "syntactically_executable": true,
+        "grounded_executable": false,
+        "hallucinated_numbers": [],
+        "has_hallucinations": false,
+        "structural_fidelity": true,
+        "target_fidelity": false,
+        "is_trivialized": false
+      },
+      "auto_evaluation": {
+        "dual_gate_pass": false,
+        "gate_decision": "PASS",
+        "5axis_errors": {
+          "concept_id": "hawkes_process",
+          "condition_id": "unknown",
+          "hypothesis_id": "h2_d6_hawkes_process_s44_s2b",
+          "e_role": false,
+          "e_math": true,
+          "e_data": true,
+          "e_leap": false,
+          "e_inop": true,
+          "feasibility_status": "UNKNOWN",
+          "error_evidence": {
+            "E_math": "Offending text: 'high likelihood of upward price movement'. Violation: Hawkes point process conditional arrival intensity lambda(t) conflated with directional price drift/reversal.",
+            "E_data": "Hawkes point process requires discrete event arrivals; no computable proxy or event reconstruction procedure is defined for M5 bars.",
+            "E_inop": "Offending pattern: 'high likelihood of upward price movement'. Violation: Execution decision relies on an unbound threshold without numerical value or parameter estimation formula."
+          },
+          "is_operable": false,
+          "evaluator_notes": "[E_math: Offending text: 'high likelihood of upward price movement'. Violation: Hawkes point process conditional arrival intensity lambda(t) conflated with directional price drift/reversal.] | [E_data (UNKNOWN): Hawkes point process requires discrete event arrivals; no computable proxy or event reconstruction procedure is defined for M5 bars.] | [E_inop: Offending pattern: 'high likelihood of upward price movement'. Violation: Execution decision relies on an unbound threshold without numerical value or parameter estimation formula.]"
+        }
+      }
+    },
+    {
+      "base_unit_id": "h2_d6_jump_diffusion_s42",
+      "call_id": "h2_d6_jump_diffusion_s42_s0",
+      "concept_id": "jump_diffusion",
+      "condition_id": "S0",
+      "seed": 42,
+      "diagnostics": {
+        "in_tokens": 855,
+        "out_tokens": 646,
+        "finish_reason": "stop",
+        "cost_usd": 0.00051585
+      },
+      "audit": {
+        "gold_coverage_raw": 0.1111,
+        "required_coverage": 0.0,
+        "required_total_count": 6,
+        "required_determined_count": 0,
+        "syntactically_executable": true,
+        "grounded_executable": false,
+        "hallucinated_numbers": [],
+        "has_hallucinations": false,
+        "structural_fidelity": true,
+        "target_fidelity": true,
+        "is_trivialized": false
+      },
+      "auto_evaluation": {
+        "dual_gate_pass": true,
+        "gate_decision": "PASS",
+        "5axis_errors": {
+          "concept_id": "jump_diffusion",
+          "condition_id": "unknown",
+          "hypothesis_id": "h2_d6_jump_diffusion_s42_s0",
+          "e_role": false,
+          "e_math": false,
+          "e_data": false,
+          "e_leap": false,
+          "e_inop": false,
+          "feasibility_status": "SUPPORTED",
+          "error_evidence": {},
+          "is_operable": true,
+          "evaluator_notes": "Clean: No objective error violations detected. Data Feasibility: SUPPORTED."
+        }
+      }
+    },
+    {
+      "base_unit_id": "h2_d6_jump_diffusion_s42",
+      "call_id": "h2_d6_jump_diffusion_s42_s1",
+      "concept_id": "jump_diffusion",
+      "condition_id": "S1",
+      "seed": 42,
+      "diagnostics": {
+        "stage1": {
+          "in_tokens": 860,
+          "out_tokens": 413,
+          "finish_reason": "stop",
+          "cost_usd": 0.0003768
+        },
+        "stage2": {
+          "in_tokens": 847,
+          "out_tokens": 533,
+          "finish_reason": "stop",
+          "cost_usd": 0.00044685000000000005
+        },
+        "total_output_tokens": 946
+      },
+      "audit": {
+        "gold_coverage_raw": 0.1111,
+        "required_coverage": 0.0,
+        "required_total_count": 6,
+        "required_determined_count": 0,
+        "syntactically_executable": true,
+        "grounded_executable": false,
+        "hallucinated_numbers": [],
+        "has_hallucinations": false,
+        "structural_fidelity": true,
+        "target_fidelity": true,
+        "is_trivialized": false
+      },
+      "auto_evaluation": {
+        "dual_gate_pass": true,
+        "gate_decision": "PASS",
+        "5axis_errors": {
+          "concept_id": "jump_diffusion",
+          "condition_id": "unknown",
+          "hypothesis_id": "h2_d6_jump_diffusion_s42_s1",
+          "e_role": false,
+          "e_math": false,
+          "e_data": false,
+          "e_leap": false,
+          "e_inop": false,
+          "feasibility_status": "SUPPORTED",
+          "error_evidence": {},
+          "is_operable": true,
+          "evaluator_notes": "Clean: No objective error violations detected. Data Feasibility: SUPPORTED."
+        }
+      }
+    },
+    {
+      "base_unit_id": "h2_d6_jump_diffusion_s42",
+      "call_id": "h2_d6_jump_diffusion_s42_s2a",
+      "concept_id": "jump_diffusion",
+      "condition_id": "S2a",
+      "seed": 42,
+      "diagnostics": {
+        "in_tokens": 989,
+        "out_tokens": 475,
+        "finish_reason": "stop",
+        "cost_usd": 0.00043335
+      },
+      "audit": {
+        "gold_coverage_raw": 0.1111,
+        "required_coverage": 0.0,
+        "required_total_count": 6,
+        "required_determined_count": 0,
+        "syntactically_executable": true,
+        "grounded_executable": false,
+        "hallucinated_numbers": [],
+        "has_hallucinations": false,
+        "structural_fidelity": true,
+        "target_fidelity": true,
+        "is_trivialized": false
+      },
+      "auto_evaluation": {
+        "dual_gate_pass": true,
+        "gate_decision": "PASS",
+        "5axis_errors": {
+          "concept_id": "jump_diffusion",
+          "condition_id": "unknown",
+          "hypothesis_id": "h2_d6_jump_diffusion_s42_s2a",
+          "e_role": false,
+          "e_math": false,
+          "e_data": false,
+          "e_leap": false,
+          "e_inop": false,
+          "feasibility_status": "SUPPORTED",
+          "error_evidence": {},
+          "is_operable": true,
+          "evaluator_notes": "Clean: No objective error violations detected. Data Feasibility: SUPPORTED."
+        }
+      }
+    },
+    {
+      "base_unit_id": "h2_d6_jump_diffusion_s42",
+      "call_id": "h2_d6_jump_diffusion_s42_s2b",
+      "concept_id": "jump_diffusion",
+      "condition_id": "S2b",
+      "seed": 42,
+      "diagnostics": {
+        "in_tokens": 1243,
+        "out_tokens": 401,
+        "finish_reason": "stop",
+        "cost_usd": 0.00042705
+      },
+      "audit": {
+        "gold_coverage_raw": 0.6667,
+        "required_coverage": 0.8333,
+        "required_total_count": 6,
+        "required_determined_count": 5,
+        "syntactically_executable": true,
+        "grounded_executable": true,
+        "hallucinated_numbers": [],
+        "has_hallucinations": false,
+        "structural_fidelity": true,
+        "target_fidelity": true,
+        "is_trivialized": false
+      },
+      "auto_evaluation": {
+        "dual_gate_pass": true,
+        "gate_decision": "PASS",
+        "5axis_errors": {
+          "concept_id": "jump_diffusion",
+          "condition_id": "unknown",
+          "hypothesis_id": "h2_d6_jump_diffusion_s42_s2b",
+          "e_role": false,
+          "e_math": false,
+          "e_data": false,
+          "e_leap": false,
+          "e_inop": false,
+          "feasibility_status": "SUPPORTED",
+          "error_evidence": {},
+          "is_operable": true,
+          "evaluator_notes": "Clean: No objective error violations detected. Data Feasibility: SUPPORTED."
+        }
+      }
+    },
+    {
+      "base_unit_id": "h2_d6_jump_diffusion_s43",
+      "call_id": "h2_d6_jump_diffusion_s43_s0",
+      "concept_id": "jump_diffusion",
+      "condition_id": "S0",
+      "seed": 43,
+      "diagnostics": {
+        "in_tokens": 855,
+        "out_tokens": 578,
+        "finish_reason": "stop",
+        "cost_usd": 0.00047505
+      },
+      "audit": {
+        "gold_coverage_raw": 0.1111,
+        "required_coverage": 0.0,
+        "required_total_count": 6,
+        "required_determined_count": 0,
+        "syntactically_executable": true,
+        "grounded_executable": false,
+        "hallucinated_numbers": [],
+        "has_hallucinations": false,
+        "structural_fidelity": true,
+        "target_fidelity": true,
+        "is_trivialized": false
+      },
+      "auto_evaluation": {
+        "dual_gate_pass": true,
+        "gate_decision": "PASS",
+        "5axis_errors": {
+          "concept_id": "jump_diffusion",
+          "condition_id": "unknown",
+          "hypothesis_id": "h2_d6_jump_diffusion_s43_s0",
+          "e_role": false,
+          "e_math": false,
+          "e_data": false,
+          "e_leap": false,
+          "e_inop": false,
+          "feasibility_status": "SUPPORTED",
+          "error_evidence": {},
+          "is_operable": true,
+          "evaluator_notes": "Clean: No objective error violations detected. Data Feasibility: SUPPORTED."
+        }
+      }
+    },
+    {
+      "base_unit_id": "h2_d6_jump_diffusion_s43",
+      "call_id": "h2_d6_jump_diffusion_s43_s1",
+      "concept_id": "jump_diffusion",
+      "condition_id": "S1",
+      "seed": 43,
+      "diagnostics": {
+        "stage1": {
+          "in_tokens": 860,
+          "out_tokens": 380,
+          "finish_reason": "stop",
+          "cost_usd": 0.000357
+        },
+        "stage2": {
+          "in_tokens": 814,
+          "out_tokens": 517,
+          "finish_reason": "stop",
+          "cost_usd": 0.00043230000000000005
+        },
+        "total_output_tokens": 897
+      },
+      "audit": {
+        "gold_coverage_raw": 0.1111,
+        "required_coverage": 0.0,
+        "required_total_count": 6,
+        "required_determined_count": 0,
+        "syntactically_executable": true,
+        "grounded_executable": false,
+        "hallucinated_numbers": [],
+        "has_hallucinations": false,
+        "structural_fidelity": true,
+        "target_fidelity": true,
+        "is_trivialized": false
+      },
+      "auto_evaluation": {
+        "dual_gate_pass": true,
+        "gate_decision": "PASS",
+        "5axis_errors": {
+          "concept_id": "jump_diffusion",
+          "condition_id": "unknown",
+          "hypothesis_id": "h2_d6_jump_diffusion_s43_s1",
+          "e_role": false,
+          "e_math": false,
+          "e_data": false,
+          "e_leap": false,
+          "e_inop": false,
+          "feasibility_status": "SUPPORTED",
+          "error_evidence": {},
+          "is_operable": true,
+          "evaluator_notes": "Clean: No objective error violations detected. Data Feasibility: SUPPORTED."
+        }
+      }
+    },
+    {
+      "base_unit_id": "h2_d6_jump_diffusion_s43",
+      "call_id": "h2_d6_jump_diffusion_s43_s2a",
+      "concept_id": "jump_diffusion",
+      "condition_id": "S2a",
+      "seed": 43,
+      "diagnostics": {
+        "in_tokens": 977,
+        "out_tokens": 338,
+        "finish_reason": "stop",
+        "cost_usd": 0.00034934999999999995
+      },
+      "audit": {
+        "gold_coverage_raw": 0.1111,
+        "required_coverage": 0.0,
+        "required_total_count": 6,
+        "required_determined_count": 0,
+        "syntactically_executable": true,
+        "grounded_executable": false,
+        "hallucinated_numbers": [
+          "arbitrary_entry_0.7",
+          "arbitrary_entry_0.01"
+        ],
+        "has_hallucinations": true,
+        "structural_fidelity": true,
+        "target_fidelity": true,
+        "is_trivialized": false
+      },
+      "auto_evaluation": {
+        "dual_gate_pass": true,
+        "gate_decision": "PASS",
+        "5axis_errors": {
+          "concept_id": "jump_diffusion",
+          "condition_id": "unknown",
+          "hypothesis_id": "h2_d6_jump_diffusion_s43_s2a",
+          "e_role": false,
+          "e_math": false,
+          "e_data": false,
+          "e_leap": false,
+          "e_inop": false,
+          "feasibility_status": "SUPPORTED",
+          "error_evidence": {},
+          "is_operable": true,
+          "evaluator_notes": "Clean: No objective error violations detected. Data Feasibility: SUPPORTED."
+        }
+      }
+    },
+    {
+      "base_unit_id": "h2_d6_jump_diffusion_s43",
+      "call_id": "h2_d6_jump_diffusion_s43_s2b",
+      "concept_id": "jump_diffusion",
+      "condition_id": "S2b",
+      "seed": 43,
+      "diagnostics": {
+        "in_tokens": 1231,
+        "out_tokens": 395,
+        "finish_reason": "stop",
+        "cost_usd": 0.00042165
+      },
+      "audit": {
+        "gold_coverage_raw": 0.6667,
+        "required_coverage": 0.8333,
+        "required_total_count": 6,
+        "required_determined_count": 5,
+        "syntactically_executable": true,
+        "grounded_executable": false,
+        "hallucinated_numbers": [],
+        "has_hallucinations": false,
+        "structural_fidelity": true,
+        "target_fidelity": true,
+        "is_trivialized": false
+      },
+      "auto_evaluation": {
+        "dual_gate_pass": true,
+        "gate_decision": "PASS",
+        "5axis_errors": {
+          "concept_id": "jump_diffusion",
+          "condition_id": "unknown",
+          "hypothesis_id": "h2_d6_jump_diffusion_s43_s2b",
+          "e_role": false,
+          "e_math": false,
+          "e_data": false,
+          "e_leap": false,
+          "e_inop": false,
+          "feasibility_status": "SUPPORTED",
+          "error_evidence": {},
+          "is_operable": true,
+          "evaluator_notes": "Clean: No objective error violations detected. Data Feasibility: SUPPORTED."
+        }
+      }
+    },
+    {
+      "base_unit_id": "h2_d6_jump_diffusion_s44",
+      "call_id": "h2_d6_jump_diffusion_s44_s0",
+      "concept_id": "jump_diffusion",
+      "condition_id": "S0",
+      "seed": 44,
+      "diagnostics": {
+        "in_tokens": 855,
+        "out_tokens": 663,
+        "finish_reason": "stop",
+        "cost_usd": 0.0005260499999999999
+      },
+      "audit": {
+        "gold_coverage_raw": 0.1111,
+        "required_coverage": 0.0,
+        "required_total_count": 6,
+        "required_determined_count": 0,
+        "syntactically_executable": true,
+        "grounded_executable": false,
+        "hallucinated_numbers": [],
+        "has_hallucinations": false,
+        "structural_fidelity": true,
+        "target_fidelity": true,
+        "is_trivialized": false
+      },
+      "auto_evaluation": {
+        "dual_gate_pass": true,
+        "gate_decision": "PASS",
+        "5axis_errors": {
+          "concept_id": "jump_diffusion",
+          "condition_id": "unknown",
+          "hypothesis_id": "h2_d6_jump_diffusion_s44_s0",
+          "e_role": false,
+          "e_math": false,
+          "e_data": false,
+          "e_leap": false,
+          "e_inop": false,
+          "feasibility_status": "SUPPORTED",
+          "error_evidence": {},
+          "is_operable": true,
+          "evaluator_notes": "Clean: No objective error violations detected. Data Feasibility: SUPPORTED."
+        }
+      }
+    },
+    {
+      "base_unit_id": "h2_d6_jump_diffusion_s44",
+      "call_id": "h2_d6_jump_diffusion_s44_s1",
+      "concept_id": "jump_diffusion",
+      "condition_id": "S1",
+      "seed": 44,
+      "diagnostics": {
+        "stage1": {
+          "in_tokens": 860,
+          "out_tokens": 406,
+          "finish_reason": "stop",
+          "cost_usd": 0.00037259999999999995
+        },
+        "stage2": {
+          "in_tokens": 840,
+          "out_tokens": 521,
+          "finish_reason": "stop",
+          "cost_usd": 0.00043859999999999993
+        },
+        "total_output_tokens": 927
+      },
+      "audit": {
+        "gold_coverage_raw": 0.1111,
+        "required_coverage": 0.0,
+        "required_total_count": 6,
+        "required_determined_count": 0,
+        "syntactically_executable": true,
+        "grounded_executable": false,
+        "hallucinated_numbers": [],
+        "has_hallucinations": false,
+        "structural_fidelity": true,
+        "target_fidelity": true,
+        "is_trivialized": false
+      },
+      "auto_evaluation": {
+        "dual_gate_pass": true,
+        "gate_decision": "PASS",
+        "5axis_errors": {
+          "concept_id": "jump_diffusion",
+          "condition_id": "unknown",
+          "hypothesis_id": "h2_d6_jump_diffusion_s44_s1",
+          "e_role": false,
+          "e_math": false,
+          "e_data": false,
+          "e_leap": false,
+          "e_inop": false,
+          "feasibility_status": "SUPPORTED",
+          "error_evidence": {},
+          "is_operable": true,
+          "evaluator_notes": "Clean: No objective error violations detected. Data Feasibility: SUPPORTED."
+        }
+      }
+    },
+    {
+      "base_unit_id": "h2_d6_jump_diffusion_s44",
+      "call_id": "h2_d6_jump_diffusion_s44_s2a",
+      "concept_id": "jump_diffusion",
+      "condition_id": "S2a",
+      "seed": 44,
+      "diagnostics": {
+        "in_tokens": 1001,
+        "out_tokens": 384,
+        "finish_reason": "stop",
+        "cost_usd": 0.00038055
+      },
+      "audit": {
+        "gold_coverage_raw": 0.1111,
+        "required_coverage": 0.0,
+        "required_total_count": 6,
+        "required_determined_count": 0,
+        "syntactically_executable": true,
+        "grounded_executable": false,
+        "hallucinated_numbers": [],
+        "has_hallucinations": false,
+        "structural_fidelity": true,
+        "target_fidelity": true,
+        "is_trivialized": false
+      },
+      "auto_evaluation": {
+        "dual_gate_pass": true,
+        "gate_decision": "PASS",
+        "5axis_errors": {
+          "concept_id": "jump_diffusion",
+          "condition_id": "unknown",
+          "hypothesis_id": "h2_d6_jump_diffusion_s44_s2a",
+          "e_role": false,
+          "e_math": false,
+          "e_data": false,
+          "e_leap": false,
+          "e_inop": false,
+          "feasibility_status": "SUPPORTED",
+          "error_evidence": {},
+          "is_operable": true,
+          "evaluator_notes": "Clean: No objective error violations detected. Data Feasibility: SUPPORTED."
+        }
+      }
+    },
+    {
+      "base_unit_id": "h2_d6_jump_diffusion_s44",
+      "call_id": "h2_d6_jump_diffusion_s44_s2b",
+      "concept_id": "jump_diffusion",
+      "condition_id": "S2b",
+      "seed": 44,
+      "diagnostics": {
+        "in_tokens": 1255,
+        "out_tokens": 406,
+        "finish_reason": "stop",
+        "cost_usd": 0.00043185
+      },
+      "audit": {
+        "gold_coverage_raw": 0.5556,
+        "required_coverage": 0.6667,
+        "required_total_count": 6,
+        "required_determined_count": 4,
+        "syntactically_executable": true,
+        "grounded_executable": false,
+        "hallucinated_numbers": [],
+        "has_hallucinations": false,
+        "structural_fidelity": true,
+        "target_fidelity": true,
+        "is_trivialized": false
+      },
+      "auto_evaluation": {
+        "dual_gate_pass": true,
+        "gate_decision": "PASS",
+        "5axis_errors": {
+          "concept_id": "jump_diffusion",
+          "condition_id": "unknown",
+          "hypothesis_id": "h2_d6_jump_diffusion_s44_s2b",
+          "e_role": false,
+          "e_math": false,
+          "e_data": false,
+          "e_leap": false,
+          "e_inop": false,
+          "feasibility_status": "SUPPORTED",
+          "error_evidence": {},
+          "is_operable": true,
+          "evaluator_notes": "Clean: No objective error violations detected. Data Feasibility: SUPPORTED."
+        }
+      }
+    }
+  ]
+}

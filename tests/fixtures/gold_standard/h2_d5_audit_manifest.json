@@ -1,0 +1,30 @@
+{
+  "experiment_id": "RP-HDE-H2-D5",
+  "protocol_version": "v0.2",
+  "prompts_fixture_path": "c:\\Users\\ksato\\workspace\\finance\\research_pipeline\\tests\\fixtures\\gold_standard\\h2_d5_prompts.json",
+  "prompts_sha256": "89fa43ef3ae57336eb478c6ab43a9422e42eebcbae40a52a8f720b7c15b9735d",
+  "gold_parameters_path": "c:\\Users\\ksato\\workspace\\finance\\research_pipeline\\tests\\fixtures\\gold_standard\\h2_d5_gold_parameters.json",
+  "gold_parameters_sha256": "15b865cad657d518f864a70d9ec7e688f7c0bd6ff9c935b4c652a8caabc95933",
+  "evaluator_d2b_path": "c:\\Users\\ksato\\workspace\\finance\\research_pipeline\\src\\research_pipeline\\discovery\\diagnostic_evaluator.py",
+  "evaluator_d2b_sha256": "650f7dda01673b3cfbe2dee5376f52d67c3260ec10aa6d2b383e7d22d2b879cc",
+  "gate_d3_path": "c:\\Users\\ksato\\workspace\\finance\\research_pipeline\\src\\research_pipeline\\discovery\\data_feasibility_gate.py",
+  "gate_d3_sha256": "9adf0eb127879b2b01676fc0d7b860619831636b757ee01266c5f4752bb3b891",
+  "concepts": [
+    "hawkes_process",
+    "jump_diffusion"
+  ],
+  "conditions": [
+    "D0",
+    "D1",
+    "D2"
+  ],
+  "seeds": [
+    42,
+    43,
+    44
+  ],
+  "total_calls": 18,
+  "model_id": "gpt-4o-mini-2024-07-18",
+  "temperature": 0.2,
+  "frozen_before_generation": true
+}

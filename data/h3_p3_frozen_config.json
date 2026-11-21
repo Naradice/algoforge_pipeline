@@ -1,0 +1,45 @@
+{
+  "frozen_timestamp_utc": "2026-11-21T15:29:54.963080+00:00",
+  "snapshot_2024_sha256": "bbc7a9c24b701f78d0d4716e7f633246f05445a198f6a2cdca771861e43939a0",
+  "backtest_config": {
+    "initial_capital": 1000000.0,
+    "spread_jpy": 0.01,
+    "slippage_jpy": 0.002,
+    "risk_fraction": 0.005,
+    "max_leverage": 10.0,
+    "lot_step_usd": 1000,
+    "k_sl": 2.0,
+    "k_tp": 4.0,
+    "max_hold_bars": 48,
+    "gap_cooldown_bars": 6
+  },
+  "s_full_gates": {
+    "hawkes_label": "q90",
+    "hawkes_threshold": 0.10426498107517951,
+    "jump_cooldown_bars": 3,
+    "hamilton_threshold": 0.8,
+    "hamilton_scale": 0.5
+  },
+  "phase_a_2024_summary": {
+    "s0": {
+      "final_equity": 794891.5999997415,
+      "total_return_pct": -20.510840000025844,
+      "annualized_sharpe": -1.879529176457878,
+      "max_drawdown_pct": -27.623255869640275,
+      "trade_count": 799,
+      "win_rate": 0.32040050062578224,
+      "post_fill_risk_exceeded_count": 508
+    },
+    "s_full": {
+      "final_equity": 830849.1999998182,
+      "total_return_pct": -16.91508000001818,
+      "annualized_sharpe": -1.9614875602618207,
+      "max_drawdown_pct": -23.401671627363854,
+      "trade_count": 637,
+      "win_rate": 0.3108320251177394,
+      "post_fill_risk_exceeded_count": 321
+    },
+    "hac_se_2024": 0.0007481494551376353,
+    "mde_2024_daily_return": 0.001860647694927299
+  }
+}
