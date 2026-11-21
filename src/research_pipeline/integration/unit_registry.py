@@ -165,6 +165,119 @@ def _unit_hawkes_hazard(df: pd.DataFrame, col_id: str, params: Dict[str, Any]) -
     )
     events = events.copy()
 
+    gap_mask = np.zeros(n, dtype=bool)
+    if "timestamp" in df.columns:
+        ts = pd.to_datetime(df["timestamp"])
+        diffs = ts.diff().dt.total_seconds().fillna(0.0).to_numpy()
+        gap_mask = diffs > gap_seconds
+    elif isinstance(df.index, pd.DatetimeIndex):
+        diffs = df.index.to_series().diff().dt.total_seconds().fillna(0.0).to_numpy()
+        gap_mask = diffs > gap_seconds
+
+    events[gap_mask] = 0
+
+    model = HawkesDiscreteHazardModel()
+    curr_h = model.mu
+    for t in range(mle_window, n):
+        if t == mle_window or (t - mle_window) % refit_interval == 0:
+            window_events = events[t - mle_window : t + 1]
+            model.fit(window_events, start_idx=50)
+            if t == mle_window:
+                curr_h = model.mu
+        if gap_mask[t]:
+            curr_h = model.mu
+        alpha = model.gamma * (1.0 - model.rho)
+        curr_h = model.mu + model.rho * (curr_h - model.mu) + alpha * float(events[t])
+        curr_h = max(curr_h, 1e-8)
+        values[t] = curr_h
+        is_valid[t] = True
+
+    return pd.DataFrame({col_id: values, f"{col_id}_valid": is_valid}, index=df.index)
+
+
+def _unit_hamilton_pred_prob(df: pd.DataFrame, col_id: str, params: Dict[str, Any]) -> pd.DataFrame:
+    from research_pipeline.discovery.econometric_modules import HamiltonLogRVRegimeModel
+
+    window_days = int(params.get("window_days", 60))
+    min_bars_per_day = int(params.get("min_bars_per_day", 1))
+    regime_idx = int(params.get("regime_idx", 1))
+
+    n = len(df)
+    values = np.full(n, np.nan, dtype=np.float64)
+    is_valid = np.zeros(n, dtype=bool)
+
+    ts = df["time"] if "time" in df.columns else df["timestamp"]
+    ts_utc = ts.dt.tz_convert("UTC") if ts.dt.tz is not None else ts.dt.tz_localize("UTC")
+    avail_out = ts_utc + pd.Timedelta(minutes=5)
+
+    close = df["close"].to_numpy(dtype=np.float64)
+    ret = np.full(n, np.nan, dtype=np.float64)
+    ret[1:] = (close[1:] - close[:-1]) / np.where(close[:-1] != 0.0, close[:-1], 1.0)
+
+    bar_dates = ts_utc.dt.date.to_numpy()
+    unique_days = sorted(set(bar_dates))
+    if len(unique_days) <= window_days:
+        return pd.DataFrame(
+            {col_id: values, f"{col_id}_valid": is_valid, "available_at": avail_out},
+            index=df.index,
+        )
+
+    day_log_rv = np.full(len(unique_days), np.nan, dtype=np.float64)
+    day_valid = np.zeros(len(unique_days), dtype=bool)
+    for idx, d in enumerate(unique_days):
+        mask = (bar_dates == d) & np.isfinite(ret)
+        cnt = int(np.sum(mask))
+        if cnt >= min_bars_per_day:
+            rv = float(np.sum(ret[mask] ** 2))
+            if rv > 0.0 and np.isfinite(rv):
+                day_log_rv[idx] = float(np.log(rv))
+                day_valid[idx] = True
+
+    model = HamiltonLogRVRegimeModel()
+    prev_params = None
+    em_step = 0
+    day_pred: Dict[Any, float] = {}
+    day_avail: Dict[Any, pd.Timestamp] = {}
+
+    for d_idx in range(window_days, len(unique_days)):
+        target_day = unique_days[d_idx]
+        win_valid = day_valid[d_idx - window_days : d_idx]
+        if not bool(np.all(win_valid)):
+            continue
+        y_window = day_log_rv[d_idx - window_days : d_idx]
+        res = model.step_daily_update_with_fallback(y_window, day_idx=em_step, prev_params=prev_params)
+        em_step += 1
+        if float(res["mu"][0]) > float(res["mu"][1]):
+            raise RuntimeError(f"HAMILTON_STATE_ORDER_VIOLATION: mu[0]={res['mu'][0]} > mu[1]={res['mu'][1]}")
+        prev_params = {"mu": res["mu"], "sigma": res["sigma"], "P": res["P"]}
+        day_pred[target_day] = float(res["pred_prob_next_day"][regime_idx])
+        day_avail[target_day] = pd.Timestamp(target_day, tz="UTC")
+
+    for i in range(n):
+        d = bar_dates[i]
+        if d in day_pred:
+            av = day_avail[d]
+            vu = av + pd.Timedelta(days=1)
+            dec = ts_utc.iloc[i] + pd.Timedelta(minutes=5)
+            if av <= dec <= vu:
+                values[i] = day_pred[d]
+                is_valid[i] = True
+                avail_out.iloc[i] = av
+
+    return pd.DataFrame(
+        {col_id: values, f"{col_id}_valid": is_valid, "available_at": avail_out},
+        index=df.index,
+    )
+
+    close = df["close"].to_numpy(dtype=np.float64)
+    returns = np.zeros(n, dtype=np.float64)
+    returns[1:] = (close[1:] - close[:-1]) / np.where(close[:-1] != 0.0, close[:-1], 1.0)
+
+    events, _ = HawkesDiscreteHazardModel.extract_events_from_returns(
+        returns, lookback_window=lookback, threshold_mult=threshold_sigma
+    )
+    events = events.copy()
+
     # Detect timestamp gaps (> gap_seconds)
     gap_mask = np.zeros(n, dtype=bool)
     if "timestamp" in df.columns:
@@ -194,6 +307,81 @@ def _unit_hawkes_hazard(df: pd.DataFrame, col_id: str, params: Dict[str, Any]) -
         is_valid[t] = True
 
     return pd.DataFrame({col_id: values, f"{col_id}_valid": is_valid}, index=df.index)
+
+
+def _unit_hamilton_pred_prob(df: pd.DataFrame, col_id: str, params: Dict[str, Any]) -> pd.DataFrame:
+    from research_pipeline.discovery.econometric_modules import HamiltonLogRVRegimeModel
+
+    window_days = int(params.get("window_days", 60))
+    min_bars_per_day = int(params.get("min_bars_per_day", 1))
+    regime_idx = int(params.get("regime_idx", 1))
+
+    n = len(df)
+    values = np.full(n, np.nan, dtype=np.float64)
+    is_valid = np.zeros(n, dtype=bool)
+
+    ts = df["time"] if "time" in df.columns else df["timestamp"]
+    ts_utc = ts.dt.tz_convert("UTC") if ts.dt.tz is not None else ts.dt.tz_localize("UTC")
+    avail_out = ts_utc + pd.Timedelta(minutes=5)
+
+    close = df["close"].to_numpy(dtype=np.float64)
+    ret = np.full(n, np.nan, dtype=np.float64)
+    ret[1:] = (close[1:] - close[:-1]) / np.where(close[:-1] != 0.0, close[:-1], 1.0)
+
+    bar_dates = ts_utc.dt.date.to_numpy()
+    unique_days = sorted(set(bar_dates))
+    if len(unique_days) <= window_days:
+        return pd.DataFrame(
+            {col_id: values, f"{col_id}_valid": is_valid, "available_at": avail_out},
+            index=df.index,
+        )
+
+    day_log_rv = np.full(len(unique_days), np.nan, dtype=np.float64)
+    day_valid = np.zeros(len(unique_days), dtype=bool)
+    for idx, d in enumerate(unique_days):
+        mask = (bar_dates == d) & np.isfinite(ret)
+        cnt = int(np.sum(mask))
+        if cnt >= min_bars_per_day:
+            rv = float(np.sum(ret[mask] ** 2))
+            if rv > 0.0 and np.isfinite(rv):
+                day_log_rv[idx] = float(np.log(rv))
+                day_valid[idx] = True
+
+    model = HamiltonLogRVRegimeModel()
+    prev_params = None
+    em_step = 0
+    day_pred: Dict[Any, float] = {}
+    day_avail: Dict[Any, pd.Timestamp] = {}
+
+    for d_idx in range(window_days, len(unique_days)):
+        target_day = unique_days[d_idx]
+        win_valid = day_valid[d_idx - window_days : d_idx]
+        if not bool(np.all(win_valid)):
+            continue
+        y_window = day_log_rv[d_idx - window_days : d_idx]
+        res = model.step_daily_update_with_fallback(y_window, day_idx=em_step, prev_params=prev_params)
+        em_step += 1
+        if float(res["mu"][0]) > float(res["mu"][1]):
+            raise RuntimeError(f"HAMILTON_STATE_ORDER_VIOLATION: mu[0]={res['mu'][0]} > mu[1]={res['mu'][1]}")
+        prev_params = {"mu": res["mu"], "sigma": res["sigma"], "P": res["P"]}
+        day_pred[target_day] = float(res["pred_prob_next_day"][regime_idx])
+        day_avail[target_day] = pd.Timestamp(target_day, tz="UTC")
+
+    for i in range(n):
+        d = bar_dates[i]
+        if d in day_pred:
+            av = day_avail[d]
+            vu = av + pd.Timedelta(days=1)
+            dec = ts_utc.iloc[i] + pd.Timedelta(minutes=5)
+            if av <= dec <= vu:
+                values[i] = day_pred[d]
+                is_valid[i] = True
+                avail_out.iloc[i] = av
+
+    return pd.DataFrame(
+        {col_id: values, f"{col_id}_valid": is_valid, "available_at": avail_out},
+        index=df.index,
+    )
 
 
 def build_default_unit_registry() -> Dict[str, UnitSpec]:
@@ -226,6 +414,16 @@ def build_default_unit_registry() -> Dict[str, UnitSpec]:
             warmup_bars=501,
             output_schema={"value": "continuous"},
             fn=_unit_hawkes_hazard,
+        ),
+        "unit:hamilton_pred_prob": UnitSpec(
+            unit_id="unit:hamilton_pred_prob",
+            version="1.0.0",
+            impl_id=hawkes_impl_id,
+            dependencies=[],
+            warmup_bars=60,
+            output_schema={"value": "probability"},
+            fn=_unit_hamilton_pred_prob,
+            time_contract="explicit_available_at",
         ),
     }
 
