@@ -1,0 +1,579 @@
+{
+  "phase1b1_commit": "cfe8126",
+  "snapshot_2024_sha256": "bbc7a9c24b701f78d0d4716e7f633246f05445a198f6a2cdca771861e43939a0",
+  "seed": 42,
+  "stop_reason": "COMPLETED_25_TRIALS",
+  "elapsed_sec": 13.07322907447815,
+  "api_spend_usd": 0.0,
+  "counts": {
+    "trials": 25,
+    "adopted_unique": 20,
+    "duplicates": 2,
+    "cache_hits": 2,
+    "executed_backtests": 20,
+    "rejected_validation": 3,
+    "capability_requests": 3,
+    "random_fallbacks": 0
+  },
+  "root_counts": {
+    "dce75392c540a04da7e35efb90058cb47cb2913c1c4b5a343b9707cd20917a10": 3,
+    "7f310bd35a981321729970e707bed77f357c8900850c9cb48af71f8acd47491f": 3,
+    "cc53864853339c62132d07e05a38d2ed09fd37270c45798ff91de7aaa0464927": 3,
+    "8057081033b2603cd0a4f28ec4dad467cdf8a7e8987076dc2011d2968c392455": 3,
+    "6d113957a348e3311d59faeb803e686bebc9701e28ab60aaabfd2816c4329e53": 2,
+    "9d942abb0c0000ea4fea1eb63e73513b45421c906c127a4d8a342392376bb070": 3,
+    "52d7d924ab0731c4e9d5916d11f28add87ad920deadfaf1888e8c4ce7b1aa860": 3
+  },
+  "capability_requests": [
+    {
+      "name": "cap_req_custom_exit_condition",
+      "reason": "UNSUPPORTED_EXIT_CONDITION:long",
+      "missing_capability": "custom_exit_condition",
+      "status": "proposed",
+      "strategy_snapshot": {
+        "symbol": "USDJPY",
+        "indicators": [
+          {
+            "id": "ema_f",
+            "type": "ema",
+            "params": {
+              "period": 12
+            }
+          },
+          {
+            "id": "ema_s",
+            "type": "ema",
+            "params": {
+              "period": 64
+            }
+          }
+        ],
+        "long": {
+          "entry": {
+            "logic": "and",
+            "conditions": [
+              {
+                "left": "ema_f",
+                "op": ">",
+                "right": "ema_s"
+              }
+            ]
+          },
+          "exit": {
+            "logic": "and",
+            "conditions": [
+              {
+                "left": "close",
+                "op": ">",
+                "right": 150
+              }
+            ]
+          }
+        },
+        "short": {
+          "entry": {
+            "logic": "and",
+            "conditions": [
+              {
+                "left": "ema_f",
+                "op": "<",
+                "right": "ema_s"
+              }
+            ]
+          },
+          "exit": {}
+        },
+        "risk": {
+          "k_sl": 2.5,
+          "k_tp": 3.0,
+          "max_hold_bars": 48
+        }
+      }
+    },
+    {
+      "name": "cap_req_extended_risk_params",
+      "reason": "UNSUPPORTED_RISK_PARAM:['trailing_stop']",
+      "missing_capability": "extended_risk_params",
+      "status": "proposed",
+      "strategy_snapshot": {
+        "symbol": "USDJPY",
+        "indicators": [
+          {
+            "id": "ema_f",
+            "type": "ema",
+            "params": {
+              "period": 12
+            }
+          },
+          {
+            "id": "ema_s",
+            "type": "ema",
+            "params": {
+              "period": 64
+            }
+          }
+        ],
+        "long": {
+          "entry": {
+            "logic": "and",
+            "conditions": [
+              {
+                "left": "ema_f",
+                "op": ">",
+                "right": "ema_s"
+              }
+            ]
+          },
+          "exit": null
+        },
+        "short": {
+          "entry": {
+            "logic": "and",
+            "conditions": [
+              {
+                "left": "ema_f",
+                "op": "<",
+                "right": "ema_s"
+              }
+            ]
+          },
+          "exit": {}
+        },
+        "risk": {
+          "k_sl": 2.5,
+          "k_tp": 3.0,
+          "max_hold_bars": 48,
+          "trailing_stop": true
+        }
+      }
+    },
+    {
+      "name": "cap_req_unsupported_condition_type:streak",
+      "reason": "UNSUPPORTED_CONDITION_TYPE:streak",
+      "missing_capability": "unsupported_condition_type:streak",
+      "status": "proposed",
+      "strategy_snapshot": {
+        "symbol": "USDJPY",
+        "indicators": [
+          {
+            "id": "ema_f",
+            "type": "ema",
+            "params": {
+              "period": 12
+            }
+          },
+          {
+            "id": "ema_s",
+            "type": "ema",
+            "params": {
+              "period": 64
+            }
+          }
+        ],
+        "long": {
+          "entry": {
+            "type": "streak",
+            "left": "close",
+            "op": ">",
+            "right": 150,
+            "min_streak": 3
+          }
+        },
+        "short": {
+          "entry": {
+            "logic": "and",
+            "conditions": [
+              {
+                "left": "ema_f",
+                "op": "<",
+                "right": "ema_s"
+              }
+            ]
+          },
+          "exit": {}
+        },
+        "risk": {
+          "k_sl": 2.5,
+          "k_tp": 3.0,
+          "max_hold_bars": 48
+        }
+      }
+    }
+  ],
+  "trial_logs": [
+    {
+      "trial": 1,
+      "gen_type": "intentional_unsupported",
+      "status": "REJECTED_VALIDATION",
+      "reason": "UNSUPPORTED_EXIT_CONDITION:long"
+    },
+    {
+      "trial": 2,
+      "gen_type": "intentional_unsupported",
+      "status": "REJECTED_VALIDATION",
+      "reason": "UNSUPPORTED_RISK_PARAM:['trailing_stop']"
+    },
+    {
+      "trial": 3,
+      "gen_type": "intentional_unsupported",
+      "status": "REJECTED_VALIDATION",
+      "reason": "UNSUPPORTED_CONDITION_TYPE:streak"
+    },
+    {
+      "trial": 4,
+      "gen_type": "evo_init",
+      "strategy_hash": "dce75392c540a04da7e35efb90058cb47cb2913c1c4b5a343b9707cd20917a10",
+      "evaluation_hash": "344181d398c47905122faef98baebe89bb58fbb1d471c2daaa2384563841380c",
+      "root_hash": "dce75392c540a04da7e35efb90058cb47cb2913c1c4b5a343b9707cd20917a10",
+      "status": "REJECTED_PERF",
+      "metrics": {
+        "final_equity": 228062.99999941734,
+        "total_return_pct": -77.19370000005826,
+        "annualized_sharpe": -8.387241411450644,
+        "max_drawdown_pct": -76.56826902373882,
+        "trade_count": 3619,
+        "win_rate": 0.4302293451229621,
+        "post_fill_risk_exceeded_count": 1497
+      }
+    },
+    {
+      "trial": 5,
+      "gen_type": "evo_init",
+      "strategy_hash": "7f310bd35a981321729970e707bed77f357c8900850c9cb48af71f8acd47491f",
+      "evaluation_hash": "9fea16f5da8556d96ffe8c611e5fddac07eaad305844db4c74d7b08f69b62819",
+      "root_hash": "7f310bd35a981321729970e707bed77f357c8900850c9cb48af71f8acd47491f",
+      "status": "REJECTED_PERF",
+      "metrics": {
+        "final_equity": 877606.649999929,
+        "total_return_pct": -12.2393350000071,
+        "annualized_sharpe": -2.166271041389926,
+        "max_drawdown_pct": -16.3588665565095,
+        "trade_count": 227,
+        "win_rate": 0.3436123348017621,
+        "post_fill_risk_exceeded_count": 153
+      }
+    },
+    {
+      "trial": 6,
+      "gen_type": "evo_init",
+      "strategy_hash": "cc53864853339c62132d07e05a38d2ed09fd37270c45798ff91de7aaa0464927",
+      "evaluation_hash": "79ff36f236fe5b1bb42c5c40568fd03e1daa2e5b0355b71e92610d8b0f4903a4",
+      "root_hash": "cc53864853339c62132d07e05a38d2ed09fd37270c45798ff91de7aaa0464927",
+      "status": "REJECTED_PERF",
+      "metrics": {
+        "final_equity": 320625.9749994427,
+        "total_return_pct": -67.93740250005573,
+        "annualized_sharpe": -7.235303383117897,
+        "max_drawdown_pct": -68.0860298482982,
+        "trade_count": 2981,
+        "win_rate": 0.38074471653807446,
+        "post_fill_risk_exceeded_count": 1408
+      }
+    },
+    {
+      "trial": 7,
+      "gen_type": "evo_init",
+      "strategy_hash": "8057081033b2603cd0a4f28ec4dad467cdf8a7e8987076dc2011d2968c392455",
+      "evaluation_hash": "6b3a67b8eb1df4e10fcb24b04404c2073eeadaf417e9e08611926b34f9050abd",
+      "root_hash": "8057081033b2603cd0a4f28ec4dad467cdf8a7e8987076dc2011d2968c392455",
+      "status": "REJECTED_PERF",
+      "metrics": {
+        "final_equity": 161058.62499932337,
+        "total_return_pct": -83.89413750006767,
+        "annualized_sharpe": -9.779148925002685,
+        "max_drawdown_pct": -84.42462051402956,
+        "trade_count": 4280,
+        "win_rate": 0.3455607476635514,
+        "post_fill_risk_exceeded_count": 1643
+      }
+    },
+    {
+      "trial": 8,
+      "gen_type": "evo_init",
+      "strategy_hash": "6d113957a348e3311d59faeb803e686bebc9701e28ab60aaabfd2816c4329e53",
+      "evaluation_hash": "b11d1107a98a2717666bffa1f31355d1cf66d59551a48ac2201ea1349287ca06",
+      "root_hash": "6d113957a348e3311d59faeb803e686bebc9701e28ab60aaabfd2816c4329e53",
+      "status": "REJECTED_PERF",
+      "metrics": {
+        "final_equity": 100123.09999924416,
+        "total_return_pct": -89.98769000007559,
+        "annualized_sharpe": -10.600207887867375,
+        "max_drawdown_pct": -90.2947770975898,
+        "trade_count": 4676,
+        "win_rate": 0.33340461933276305,
+        "post_fill_risk_exceeded_count": 2084
+      }
+    },
+    {
+      "trial": 9,
+      "gen_type": "evo_init",
+      "strategy_hash": "9d942abb0c0000ea4fea1eb63e73513b45421c906c127a4d8a342392376bb070",
+      "evaluation_hash": "0e49ddd0c4699f34e320f844434dccf2c1acadf2cd0d64025da6b729aaa3ef2b",
+      "root_hash": "9d942abb0c0000ea4fea1eb63e73513b45421c906c127a4d8a342392376bb070",
+      "status": "REJECTED_PERF",
+      "metrics": {
+        "final_equity": 202635.07499953196,
+        "total_return_pct": -79.73649250004681,
+        "annualized_sharpe": -7.127177559834138,
+        "max_drawdown_pct": -79.5913374180823,
+        "trade_count": 2322,
+        "win_rate": 0.2941429801894918,
+        "post_fill_risk_exceeded_count": 1307
+      }
+    },
+    {
+      "trial": 10,
+      "gen_type": "evo_init",
+      "strategy_hash": "52d7d924ab0731c4e9d5916d11f28add87ad920deadfaf1888e8c4ce7b1aa860",
+      "evaluation_hash": "cb0266f3fa3ac8a4927f9296d02b66cdc62b421cb76eb780f1de7571bfdac2a7",
+      "root_hash": "52d7d924ab0731c4e9d5916d11f28add87ad920deadfaf1888e8c4ce7b1aa860",
+      "status": "REJECTED_PERF",
+      "metrics": {
+        "final_equity": 615342.6249997623,
+        "total_return_pct": -38.465737500023764,
+        "annualized_sharpe": -3.6574029699068222,
+        "max_drawdown_pct": -41.53949858892571,
+        "trade_count": 876,
+        "win_rate": 0.4018264840182648,
+        "post_fill_risk_exceeded_count": 543
+      }
+    },
+    {
+      "trial": 11,
+      "gen_type": "evo_mutate",
+      "strategy_hash": "613454b19f6aacf7924a7975c2c10d1c177b837117e256fcceebca0aa719b2a6",
+      "evaluation_hash": "b2b7939487261c7f6dd1b8ddb799d3584158b8394cc9ec997b0e8dc959e471eb",
+      "root_hash": "dce75392c540a04da7e35efb90058cb47cb2913c1c4b5a343b9707cd20917a10",
+      "status": "REJECTED_PERF",
+      "metrics": {
+        "final_equity": 216557.99999945,
+        "total_return_pct": -78.344200000055,
+        "annualized_sharpe": -8.458814301741493,
+        "max_drawdown_pct": -77.43179865078264,
+        "trade_count": 3593,
+        "win_rate": 0.43362092958530474,
+        "post_fill_risk_exceeded_count": 1448
+      }
+    },
+    {
+      "trial": 12,
+      "gen_type": "evo_mutate",
+      "strategy_hash": "9f06384e8c964d8c62600ed3ff23b7ee43591d1332544164f34caa1db45410f0",
+      "evaluation_hash": "f78a35b78cef6fbb806997f900dcd7c0e9abf538eb866830ede2588f4ad59519",
+      "root_hash": "cc53864853339c62132d07e05a38d2ed09fd37270c45798ff91de7aaa0464927",
+      "status": "REJECTED_PERF",
+      "metrics": {
+        "final_equity": 61388.574999269775,
+        "total_return_pct": -93.86114250007303,
+        "annualized_sharpe": -12.119269712438324,
+        "max_drawdown_pct": -93.89795279473631,
+        "trade_count": 4771,
+        "win_rate": 0.30685390903374554,
+        "post_fill_risk_exceeded_count": 2160
+      }
+    },
+    {
+      "trial": 13,
+      "gen_type": "evo_mutate",
+      "strategy_hash": "2f6706093342dec85c288b701972f519adc5bf2a093a4f3bd444769771abeb1c",
+      "evaluation_hash": "7076a75e8f7fbdc0fdb985d6f3861456f43d405b21de0c5592177b17229fc561",
+      "root_hash": "9d942abb0c0000ea4fea1eb63e73513b45421c906c127a4d8a342392376bb070",
+      "status": "REJECTED_PERF",
+      "metrics": {
+        "final_equity": 101123.924999344,
+        "total_return_pct": -89.8876075000656,
+        "annualized_sharpe": -9.640233350706325,
+        "max_drawdown_pct": -89.6285938170484,
+        "trade_count": 3665,
+        "win_rate": 0.3323328785811733,
+        "post_fill_risk_exceeded_count": 1752
+      }
+    },
+    {
+      "trial": 14,
+      "gen_type": "evo_mutate",
+      "strategy_hash": "4612e4d48bdec49d5f2596ac5c0c1c3394f9f917e6503bff4ff24af877bc496c",
+      "evaluation_hash": "579d3a9bd1c7ac4459e8d475e74b547981b0a9a0030c81c1659ec9c6fa3bcdfe",
+      "root_hash": "dce75392c540a04da7e35efb90058cb47cb2913c1c4b5a343b9707cd20917a10",
+      "status": "REJECTED_PERF",
+      "metrics": {
+        "final_equity": 209720.1249994216,
+        "total_return_pct": -79.02798750005783,
+        "annualized_sharpe": -8.755105720543405,
+        "max_drawdown_pct": -78.31155022767207,
+        "trade_count": 3613,
+        "win_rate": 0.430943814004982,
+        "post_fill_risk_exceeded_count": 1504
+      }
+    },
+    {
+      "trial": 15,
+      "gen_type": "evo_mutate",
+      "strategy_hash": "fe6d42bf314ae6f02724d6934590e959f51fd1d3ac32a7e5be67be4a7433e94c",
+      "evaluation_hash": "b8d240befc105f88c1da6838525ee4901044a849171ec9518b80a25994cd6726",
+      "root_hash": "52d7d924ab0731c4e9d5916d11f28add87ad920deadfaf1888e8c4ce7b1aa860",
+      "status": "REJECTED_PERF",
+      "metrics": {
+        "final_equity": 608316.5999996205,
+        "total_return_pct": -39.16834000003795,
+        "annualized_sharpe": -2.8463169869901965,
+        "max_drawdown_pct": -43.59064580761516,
+        "trade_count": 1046,
+        "win_rate": 0.3107074569789675,
+        "post_fill_risk_exceeded_count": 717
+      }
+    },
+    {
+      "trial": 16,
+      "gen_type": "evo_mutate",
+      "strategy_hash": "e770b0238728ce794c42bea8539a1d0b49facb5c00dcc82a564ca204d3c4ce03",
+      "evaluation_hash": "722c45f6bc6a6e1ac8c8f79b8c71f57ce68256fc7ccd024bccfb440e8d965a0d",
+      "root_hash": "7f310bd35a981321729970e707bed77f357c8900850c9cb48af71f8acd47491f",
+      "status": "REJECTED_PERF",
+      "metrics": {
+        "final_equity": 916444.8499999084,
+        "total_return_pct": -8.355515000009161,
+        "annualized_sharpe": -1.5135416761583889,
+        "max_drawdown_pct": -10.352134401303529,
+        "trade_count": 243,
+        "win_rate": 0.43209876543209874,
+        "post_fill_risk_exceeded_count": 164
+      }
+    },
+    {
+      "trial": 17,
+      "gen_type": "evo_mutate",
+      "strategy_hash": "b306d035ce3f782ebebbe2fe9479d0a1fd5b26929957f4f2b57413b08d1e6390",
+      "evaluation_hash": "9e69d75a3fe643f1b9103acde541bda06302691e48965b1e5045ef72528e9355",
+      "root_hash": "7f310bd35a981321729970e707bed77f357c8900850c9cb48af71f8acd47491f",
+      "status": "REJECTED_PERF",
+      "metrics": {
+        "final_equity": 868157.8249999321,
+        "total_return_pct": -13.18421750000679,
+        "annualized_sharpe": -2.4538438942066416,
+        "max_drawdown_pct": -15.461421063655465,
+        "trade_count": 206,
+        "win_rate": 0.33495145631067963,
+        "post_fill_risk_exceeded_count": 140
+      }
+    },
+    {
+      "trial": 18,
+      "gen_type": "evo_mutate",
+      "strategy_hash": "5edd167103e65a4c458a2e1cc90892a21e4d8cf89b8cb19f0002eab7776ec9b1",
+      "evaluation_hash": "6808cca2824191e84e4135c4ac56b04ebef4bdeacbe62b70646dac09cb5816a7",
+      "root_hash": "9d942abb0c0000ea4fea1eb63e73513b45421c906c127a4d8a342392376bb070",
+      "status": "REJECTED_PERF",
+      "metrics": {
+        "final_equity": 348669.9999996186,
+        "total_return_pct": -65.13300000003814,
+        "annualized_sharpe": -5.66561459184003,
+        "max_drawdown_pct": -64.92565449917498,
+        "trade_count": 1570,
+        "win_rate": 0.29426751592356687,
+        "post_fill_risk_exceeded_count": 947
+      }
+    },
+    {
+      "trial": 19,
+      "gen_type": "evo_mutate",
+      "strategy_hash": "1bf816cca2d2b1e08b2fd20cffef945c4808c50d68838ca8ff739cc51ece3af1",
+      "evaluation_hash": "8e7155ca28fa78da7b3ca66f3fde26bbbd73af212452a81303c46430d40a7af2",
+      "root_hash": "8057081033b2603cd0a4f28ec4dad467cdf8a7e8987076dc2011d2968c392455",
+      "status": "REJECTED_PERF",
+      "metrics": {
+        "final_equity": 203711.19999929005,
+        "total_return_pct": -79.628880000071,
+        "annualized_sharpe": -8.175887206085076,
+        "max_drawdown_pct": -80.31388531945898,
+        "trade_count": 3888,
+        "win_rate": 0.3315329218106996,
+        "post_fill_risk_exceeded_count": 1573
+      }
+    },
+    {
+      "trial": 20,
+      "gen_type": "evo_mutate",
+      "strategy_hash": "0199e4694d7369105baa671ce39f21ed87497f6b84586aebfbeaeb758df84d16",
+      "evaluation_hash": "924aee67870ef6869fae6bfa68087d4c427cabae0d93b91104dd9187e03b39c1",
+      "root_hash": "8057081033b2603cd0a4f28ec4dad467cdf8a7e8987076dc2011d2968c392455",
+      "status": "REJECTED_PERF",
+      "metrics": {
+        "final_equity": 141735.62499928725,
+        "total_return_pct": -85.82643750007128,
+        "annualized_sharpe": -10.661818607223623,
+        "max_drawdown_pct": -86.06385512166557,
+        "trade_count": 4720,
+        "win_rate": 0.36588983050847457,
+        "post_fill_risk_exceeded_count": 1773
+      }
+    },
+    {
+      "trial": 21,
+      "gen_type": "evo_mutate",
+      "strategy_hash": "232dbba638670bad0bcb2db59f7084190009be6b2ddd97009d56244a99131aa3",
+      "evaluation_hash": "fd9adc2bd49e5272a6edc5f21645641b6bcc697e969fe947de0e89b119d25a87",
+      "root_hash": "6d113957a348e3311d59faeb803e686bebc9701e28ab60aaabfd2816c4329e53",
+      "status": "REJECTED_PERF",
+      "metrics": {
+        "final_equity": 143541.12499929566,
+        "total_return_pct": -85.64588750007043,
+        "annualized_sharpe": -10.547291988892045,
+        "max_drawdown_pct": -85.91708019310569,
+        "trade_count": 4636,
+        "win_rate": 0.3643226919758412,
+        "post_fill_risk_exceeded_count": 1694
+      }
+    },
+    {
+      "trial": 22,
+      "gen_type": "evo_mutate",
+      "strategy_hash": "f7d2de493cee287f8801c3fb03cc6a5e40a8082384f2cbc809d96720ca40f5bd",
+      "evaluation_hash": "6c0a858556c7305ff45f563bc819601c3dcee9bbe258722b15ba7a76628d36ea",
+      "root_hash": "52d7d924ab0731c4e9d5916d11f28add87ad920deadfaf1888e8c4ce7b1aa860",
+      "status": "REJECTED_PERF",
+      "metrics": {
+        "final_equity": 657262.2749997261,
+        "total_return_pct": -34.27377250002739,
+        "annualized_sharpe": -2.6934924137110317,
+        "max_drawdown_pct": -37.06510665565297,
+        "trade_count": 791,
+        "win_rate": 0.30720606826801516,
+        "post_fill_risk_exceeded_count": 536
+      }
+    },
+    {
+      "trial": 23,
+      "gen_type": "evo_mutate",
+      "strategy_hash": "6d113957a348e3311d59faeb803e686bebc9701e28ab60aaabfd2816c4329e53",
+      "evaluation_hash": "b11d1107a98a2717666bffa1f31355d1cf66d59551a48ac2201ea1349287ca06",
+      "status": "DUPLICATE_SKIPPED",
+      "cache_hit": true
+    },
+    {
+      "trial": 24,
+      "gen_type": "evo_mutate",
+      "strategy_hash": "8057081033b2603cd0a4f28ec4dad467cdf8a7e8987076dc2011d2968c392455",
+      "evaluation_hash": "6b3a67b8eb1df4e10fcb24b04404c2073eeadaf417e9e08611926b34f9050abd",
+      "status": "DUPLICATE_SKIPPED",
+      "cache_hit": true
+    },
+    {
+      "trial": 25,
+      "gen_type": "evo_mutate",
+      "strategy_hash": "a50c568487f9a14e6775eba8652c50b7438bb476132bfa7a025ab696468b38a7",
+      "evaluation_hash": "b0a1e13a456e424fc4cac09e676f457893e7661920336fdbf4d4bb97be773e18",
+      "root_hash": "cc53864853339c62132d07e05a38d2ed09fd37270c45798ff91de7aaa0464927",
+      "status": "REJECTED_PERF",
+      "metrics": {
+        "final_equity": 82331.24999930346,
+        "total_return_pct": -91.76687500006966,
+        "annualized_sharpe": -11.337419478091432,
+        "max_drawdown_pct": -91.86232122410607,
+        "trade_count": 4299,
+        "win_rate": 0.29053268201907423,
+        "post_fill_risk_exceeded_count": 2051
+      }
+    }
+  ]
+}
