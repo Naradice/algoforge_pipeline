@@ -65,6 +65,54 @@ def compute_evaluation_hash(
     return hashlib.sha256(payload.encode("utf-8")).hexdigest()
 
 
+def canonicalize_algoforge_strategy(strategy: Dict[str, Any]) -> Dict[str, Any]:
+    """Normalize AlgoForge v1 strategy JSON in an isolated namespace."""
+    inds = sorted(
+        [canonicalize_condition_node(i) for i in strategy.get("indicators", [])],
+        key=lambda x: str(x.get("id", "")),
+    )
+    return {
+        "schema_version": "algoforge_v1",
+        "symbol": strategy.get("symbol", "USDJPY"),
+        "indicators": inds,
+        "long_entry": canonicalize_condition_node((strategy.get("long") or {}).get("entry", {})),
+        "short_entry": canonicalize_condition_node((strategy.get("short") or {}).get("entry", {})),
+        "risk": canonicalize_condition_node(strategy.get("risk", {})),
+    }
+
+
+def compute_algoforge_strategy_hash(strategy: Dict[str, Any]) -> str:
+    """Compute SHA-256 hash for algoforge_v1 strategy (isolated from pipeline_v1)."""
+    canon = canonicalize_algoforge_strategy(strategy)
+    payload = json.dumps(canon, sort_keys=True, separators=(",", ":"))
+    return hashlib.sha256(payload.encode("utf-8")).hexdigest()
+
+
+def compute_algoforge_evaluation_hash(
+    strategy_hash: str,
+    dataset_sha256: str,
+    eval_period: str,
+    engine_version: str,
+    cost_config: Dict[str, Any],
+    unit_versions: Optional[Dict[str, str]] = None,
+) -> str:
+    """Compute evaluation hash for algoforge_v1 including schema_version & unit_versions."""
+    payload = json.dumps(
+        {
+            "schema_version": "algoforge_v1",
+            "strategy_hash": strategy_hash,
+            "dataset_sha256": dataset_sha256,
+            "eval_period": eval_period,
+            "engine_version": engine_version,
+            "unit_versions": canonicalize_condition_node(unit_versions or {}),
+            "cost_config": canonicalize_condition_node(cost_config),
+        },
+        sort_keys=True,
+        separators=(",", ":"),
+    )
+    return hashlib.sha256(payload.encode("utf-8")).hexdigest()
+
+
 class StrategyRegistry:
     """SQLite-backed persistent registry for evaluated strategies."""
 
