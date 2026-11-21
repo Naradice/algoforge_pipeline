@@ -21,6 +21,9 @@ import pandas as pd
 _ALGOFORGE_INDICATORS_PATH = os.path.abspath(
     os.path.join(os.path.dirname(__file__), "..", "..", "..", "..", "algoforge", "backend", "strategy", "engine", "indicators.py")
 )
+_ECONOMETRIC_MODULES_PATH = os.path.abspath(
+    os.path.join(os.path.dirname(__file__), "..", "discovery", "econometric_modules.py")
+)
 
 
 def compute_files_sha256(paths: List[str]) -> str:
@@ -136,8 +139,65 @@ def _unit_rsi(df: pd.DataFrame, col_id: str, params: Dict[str, Any]) -> pd.DataF
     return _run_algoforge_unit(df, col_id, "rsi", params)
 
 
+def _unit_hawkes_hazard(df: pd.DataFrame, col_id: str, params: Dict[str, Any]) -> pd.DataFrame:
+    from research_pipeline.discovery.econometric_modules import HawkesDiscreteHazardModel
+
+    lookback = int(params.get("lookback_window", 20))
+    threshold_sigma = float(params.get("threshold_sigma", 2.0))
+    mle_window = int(params.get("mle_window", 500))
+    refit_interval = int(params.get("refit_interval", 50))
+    gap_seconds = float(params.get("gap_threshold_seconds", 300.0))
+
+    n = len(df)
+    values = np.full(n, np.nan, dtype=np.float64)
+    is_valid = np.zeros(n, dtype=bool)
+
+    if n <= mle_window:
+        return pd.DataFrame({"value": values, "is_valid": is_valid}, index=df.index)
+
+    close = df["close"].to_numpy(dtype=np.float64)
+    returns = np.zeros(n, dtype=np.float64)
+    returns[1:] = (close[1:] - close[:-1]) / np.where(close[:-1] != 0.0, close[:-1], 1.0)
+
+    events, _ = HawkesDiscreteHazardModel.extract_events_from_returns(
+        returns, lookback_window=lookback, threshold_mult=threshold_sigma
+    )
+    events = events.copy()
+
+    # Detect timestamp gaps (> gap_seconds)
+    gap_mask = np.zeros(n, dtype=bool)
+    if "timestamp" in df.columns:
+        ts = pd.to_datetime(df["timestamp"])
+        diffs = ts.diff().dt.total_seconds().fillna(0.0).to_numpy()
+        gap_mask = diffs > gap_seconds
+    elif isinstance(df.index, pd.DatetimeIndex):
+        diffs = df.index.to_series().diff().dt.total_seconds().fillna(0.0).to_numpy()
+        gap_mask = diffs > gap_seconds
+
+    events[gap_mask] = 0
+
+    model = HawkesDiscreteHazardModel()
+    curr_h = model.mu
+    for t in range(mle_window, n):
+        if t == mle_window or (t - mle_window) % refit_interval == 0:
+            window_events = events[t - mle_window : t + 1]
+            model.fit(window_events, start_idx=50)
+            if t == mle_window:
+                curr_h = model.mu
+        if gap_mask[t]:
+            curr_h = model.mu
+        alpha = model.gamma * (1.0 - model.rho)
+        curr_h = model.mu + model.rho * (curr_h - model.mu) + alpha * float(events[t])
+        curr_h = max(curr_h, 1e-8)
+        values[t] = curr_h
+        is_valid[t] = True
+
+    return pd.DataFrame({"value": values, "is_valid": is_valid}, index=df.index)
+
+
 def build_default_unit_registry() -> Dict[str, UnitSpec]:
     impl_id = compute_files_sha256([os.path.abspath(__file__), _ALGOFORGE_INDICATORS_PATH])
+    hawkes_impl_id = compute_files_sha256([os.path.abspath(__file__), _ECONOMETRIC_MODULES_PATH])
     return {
         "unit:ema": UnitSpec(
             unit_id="unit:ema",
@@ -156,6 +216,15 @@ def build_default_unit_registry() -> Dict[str, UnitSpec]:
             warmup_bars=14,
             output_schema={"value": "continuous"},
             fn=_unit_rsi,
+        ),
+        "unit:hawkes_hazard": UnitSpec(
+            unit_id="unit:hawkes_hazard",
+            version="1.0.0",
+            impl_id=hawkes_impl_id,
+            dependencies=[],
+            warmup_bars=501,
+            output_schema={"value": "continuous"},
+            fn=_unit_hawkes_hazard,
         ),
     }
 
