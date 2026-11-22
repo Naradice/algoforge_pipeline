@@ -48,8 +48,8 @@ def test_phase1b2_baseline_regression() -> None:
     with open(out_path, "r", encoding="utf-8") as f:
         curr = json.load(f)
 
-    for k in ["total_trials", "adopted_count", "duplicates_skipped", "cache_hits", "executed_backtests", "rejected_validation", "capability_requests_count"]:
-        assert curr[k] == base[k], f"Count mismatch {k}: {curr[k]} != {base[k]}"
+    assert curr["counts"] == base["counts"], f"Counts mismatch: {curr['counts']} != {base['counts']}"
+    assert curr["root_counts"] == base["root_counts"], f"Root counts mismatch"
 
     assert curr["capability_requests"] == base["capability_requests"]
     assert len(curr["trial_logs"]) == len(base["trial_logs"])
