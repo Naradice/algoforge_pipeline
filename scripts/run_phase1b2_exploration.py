@@ -17,6 +17,7 @@ import pandas as pd
 sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "src")))
 
 from research_pipeline.backtest import BacktestConfig, GateConfig, compute_indicators, run_causal_fx_backtest
+from research_pipeline.backtest.evaluator_protocol import LocalCausalEvaluator, LocalDatasetRef
 from research_pipeline.backtest.strategy_registry import (
     StrategyRegistry,
     compute_algoforge_evaluation_hash,
@@ -212,8 +213,9 @@ def main():
                 trial_logs.append({"trial": trial_idx, "gen_type": gen_type, "status": "REJECTED_VALIDATION", "reason": msg})
                 continue
 
+            evaluator = LocalCausalEvaluator()
             s_hash = compute_algoforge_strategy_hash(cand)
-            e_hash = compute_algoforge_evaluation_hash(s_hash, snap_sha, "2024_132d", ENGINE_VERSION, COST_CFG, UNIT_VERSIONS)
+            e_hash = compute_algoforge_evaluation_hash(s_hash, snap_sha, "2024_132d", evaluator.engine_id, COST_CFG, UNIT_VERSIONS)
 
             if s_hash in seen_in_run:
                 duplicates += 1
@@ -237,9 +239,10 @@ def main():
                 continue
 
             af_ind = compute_algoforge_indicators(df, cand["indicators"])
-            ls, ss = evaluate_algoforge_conditions_vectorized(af_ind, cand["long"]["entry"], cand["short"]["entry"])
             cfg = BacktestConfig(k_sl=cand["risk"]["k_sl"], k_tp=cand["risk"]["k_tp"], max_hold_bars=cand["risk"]["max_hold_bars"])
-            _, _, summary = run_causal_fx_backtest(pl_df, cfg, GateConfig(), eval_start_idx=eval_start_idx, long_signal=ls, short_signal=ss)
+            ds_ref = LocalDatasetRef(af_ind=af_ind, pl_df=pl_df, eval_start_idx=eval_start_idx, dataset_sha256=snap_sha)
+            eval_res = evaluator.evaluate(cand, ds_ref, {"backtest_config": cfg, "gate_config": GateConfig(), "cost_cfg": COST_CFG, "unit_versions": UNIT_VERSIONS})
+            summary = eval_res.summary
             executed_backtests += 1
 
             status = "PROMOTED" if (summary["trade_count"] >= 30 and summary["annualized_sharpe"] > 0) else "REJECTED_PERF"
