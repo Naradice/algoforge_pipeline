@@ -133,6 +133,22 @@ def run_pre_contracts(df_sub: pd.DataFrame, snap_sha: str) -> None:
     print("[PASS] Pre-exploration hash, nested-logic, and causality contracts verified.")
 
 
+def evaluate_with_cache(
+    reg: StrategyRegistry,
+    e_hash: str,
+    evaluator: Any,
+    cand: Dict[str, Any],
+    ds_ref: LocalDatasetRef,
+    eval_cfg: Dict[str, Any],
+) -> tuple[bool, Dict[str, Any]]:
+    """Shared cache-lookup-or-evaluate helper used by both exploration and regression tests."""
+    cached = reg.lookup(e_hash)
+    if cached is not None:
+        return True, cached["metrics"]
+    eval_res = evaluator.evaluate(cand, ds_ref, eval_cfg)
+    return False, eval_res.summary
+
+
 def main():
     t_start = time.time()
     snap_path = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "data", "usdjpy_m5_2024_oanda_snapshot.parquet"))
@@ -232,17 +248,15 @@ def main():
                 stop_reason = f"ABORTED_ROOT_CAP_VIOLATION:{root_hash}"
                 break
 
-            cached = reg.lookup(e_hash)
-            if cached is not None:
-                cache_hits += 1
-                trial_logs.append({"trial": trial_idx, "gen_type": gen_type, "strategy_hash": s_hash, "evaluation_hash": e_hash, "root_hash": root_hash, "status": "CACHE_HIT", "metrics": cached["metrics"]})
-                continue
-
             af_ind = compute_algoforge_indicators(df, cand["indicators"])
             cfg = BacktestConfig(k_sl=cand["risk"]["k_sl"], k_tp=cand["risk"]["k_tp"], max_hold_bars=cand["risk"]["max_hold_bars"])
             ds_ref = LocalDatasetRef(af_ind=af_ind, pl_df=pl_df, eval_start_idx=eval_start_idx, dataset_sha256=snap_sha)
-            eval_res = evaluator.evaluate(cand, ds_ref, {"backtest_config": cfg, "gate_config": GateConfig(), "cost_cfg": COST_CFG, "unit_versions": UNIT_VERSIONS})
-            summary = eval_res.summary
+            eval_cfg = {"backtest_config": cfg, "gate_config": GateConfig(), "cost_cfg": COST_CFG, "unit_versions": UNIT_VERSIONS}
+            is_hit, summary = evaluate_with_cache(reg, e_hash, evaluator, cand, ds_ref, eval_cfg)
+            if is_hit:
+                cache_hits += 1
+                trial_logs.append({"trial": trial_idx, "gen_type": gen_type, "strategy_hash": s_hash, "evaluation_hash": e_hash, "root_hash": root_hash, "status": "CACHE_HIT", "metrics": summary})
+                continue
             executed_backtests += 1
 
             status = "PROMOTED" if (summary["trade_count"] >= 30 and summary["annualized_sharpe"] > 0) else "REJECTED_PERF"

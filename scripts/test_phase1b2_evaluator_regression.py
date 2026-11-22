@@ -21,7 +21,7 @@ from research_pipeline.backtest.evaluator_protocol import (
     compute_eval_config_hash,
 )
 from research_pipeline.integration.algoforge_adapter import evaluate_algoforge_conditions_vectorized
-from run_phase1b2_exploration import COST_CFG, UNIT_VERSIONS
+from run_phase1b2_exploration import COST_CFG, UNIT_VERSIONS, evaluate_with_cache
 
 
 def _assert_val_eq(a, b, ctx: str) -> None:
@@ -81,12 +81,8 @@ def test_existing_cache_reuse_avoids_backtest() -> None:
         reg = StrategyRegistry(os.path.join(tmp, "legacy_cache.db"))
         try:
             reg.record(e_hash, t0["strategy_hash"], {}, t0["status"], t0["status"], t0["metrics"], "legacy", None, "phase1b2", 0.0)
-            # Simulate the exploration loop's exact cache-check branch
-            cached = reg.lookup(e_hash)
-            if cached is not None:
-                summary = cached["metrics"]
-            else:
-                summary = ev.evaluate({}, None, {}).summary
+            is_hit, summary = evaluate_with_cache(reg, e_hash, ev, {}, None, {})
+            assert is_hit is True, "Expected cache hit from evaluate_with_cache"
             assert ev.calls == 0, f"Expected 0 evaluator calls on cache hit, got {ev.calls}"
             assert summary == t0["metrics"]
         finally:
