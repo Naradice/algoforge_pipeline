@@ -27,10 +27,11 @@
 - **基準成果物**: `8f52f02` 実行時の出力を `tests/fixtures/phase1b2_baseline_8f52f02.json` に固定保存（変更後コードによる上書き禁止）。
 - **比較規則**:
   - 数値フィールド：`math.isnan` 同士は一致、有限値は `rtol=0, atol=0`（完全一致）。
-  - 異常系（入力不正・評価失敗）：`status == "error"` および例外種別・エラーメッセージ一致を確認。
+  - 異常系（入力不正・評価失敗）：既存コードが例外を外側へ伝播させる場合は `EvalResult(status="error")` へ変換せず、**既存の例外種別・メッセージ・伝播動作をそのまま維持**する（既存動作優先）。
 
-## 3. 変更対象ファイル（3 ファイル限定・不変）
+## 3. 変更対象ファイル（4 ファイル限定）
 
 1. `src/research_pipeline/backtest/evaluator_protocol.py`（新規）
 2. `scripts/run_phase1b2_exploration.py`（評価呼出しのみ置換）
 3. `scripts/test_phase1b2_evaluator_regression.py`（新規）
+4. `tests/fixtures/phase1b2_baseline_8f52f02.json`（新規：変更前基準 `8f52f02` の固定成果物）
