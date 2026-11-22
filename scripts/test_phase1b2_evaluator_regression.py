@@ -59,7 +59,16 @@ def test_hash_compatibility() -> None:
 def test_existing_cache_reuse_avoids_backtest() -> None:
     base = _load_baseline()
     t0 = next(t for t in base["trial_logs"] if "evaluation_hash" in t and "metrics" in t)
-    ev = LocalCausalEvaluator()
+
+    class _FailIfCalledEvaluator:
+        engine_id = "causal_fx_backtest_v1.0"
+        calls = 0
+
+        def evaluate(self, strategy_json, dataset_ref, eval_config):
+            self.calls += 1
+            raise AssertionError("LocalCausalEvaluator.evaluate must NOT be called on cache hit")
+
+    ev = _FailIfCalledEvaluator()
     e_hash = compute_algoforge_evaluation_hash(
         t0["strategy_hash"],
         base["snapshot_2024_sha256"],
@@ -72,12 +81,17 @@ def test_existing_cache_reuse_avoids_backtest() -> None:
         reg = StrategyRegistry(os.path.join(tmp, "legacy_cache.db"))
         try:
             reg.record(e_hash, t0["strategy_hash"], {}, t0["status"], t0["status"], t0["metrics"], "legacy", None, "phase1b2", 0.0)
-            hit = reg.lookup(e_hash)
-            assert hit is not None, "Expected cache hit on pre-populated legacy entry"
-            assert hit["metrics"] == t0["metrics"]
+            # Simulate the exploration loop's exact cache-check branch
+            cached = reg.lookup(e_hash)
+            if cached is not None:
+                summary = cached["metrics"]
+            else:
+                summary = ev.evaluate({}, None, {}).summary
+            assert ev.calls == 0, f"Expected 0 evaluator calls on cache hit, got {ev.calls}"
+            assert summary == t0["metrics"]
         finally:
             reg.conn.close()
-    print("[PASS] test_existing_cache_reuse_avoids_backtest")
+    print("[PASS] test_existing_cache_reuse_avoids_backtest (evaluator calls=0 on cache hit)")
 
 
 def test_phase1b2_baseline_regression() -> None:
