@@ -1,6 +1,6 @@
 """Minimal evaluator boundary protocol and LocalCausalEvaluator wrapping causal_fx_backtest."""
 
-from dataclasses import dataclass
+from dataclasses import asdict, dataclass, is_dataclass
 import hashlib
 import json
 from typing import Any, Dict, Optional, Protocol
@@ -42,8 +42,12 @@ class EvaluatorProtocol(Protocol):
 
 
 def compute_eval_config_hash(eval_config: Dict[str, Any]) -> str:
-    """Deterministic SHA-256 metadata hash for evaluation configuration."""
-    payload = json.dumps(eval_config, sort_keys=True, default=str)
+    """Deterministic SHA-256 metadata hash from explicit config fields (not used as cache key)."""
+    normalized = {
+        k: (asdict(v) if is_dataclass(v) and not isinstance(v, type) else v)
+        for k, v in eval_config.items()
+    }
+    payload = json.dumps(normalized, sort_keys=True)
     return hashlib.sha256(payload.encode("utf-8")).hexdigest()[:16]
 
 
